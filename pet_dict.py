@@ -381,9 +381,9 @@ PET_DEFAULTS = {"Ant": {
         "attack": 2,
         "health": 5,
         "abilities": {
-            "1": No_Ability(),
-            "2": No_Ability(),
-            "3": No_Ability()
+            "1": ModifyStatsAbility(attack_change=4, health_change=0, target="self", trigger_event="hurt"),
+            "2": ModifyStatsAbility(attack_change=8, health_change=0, target="self", trigger_event="hurt"),
+            "3": ModifyStatsAbility(attack_change=12, health_change=0, target="self", trigger_event="hurt")
         },
         "tier": 2,
         "pack": "turtle"
@@ -652,10 +652,12 @@ IMPLEMENTED = [
     "Sloth",
     "Hedgehog",  # Fixed?? Error with Cricket
     "Elephant",
+    "Peacock",
+    "Flamingo"
 ]
 
 TEST_POOL = [
-    "Cricket"
+    "Flamingo"
 ]
 
 TEST_POOL2 = [

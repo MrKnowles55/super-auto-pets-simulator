@@ -14,22 +14,18 @@ class Pet:
         return self.health > 0
 
     def attack_pet(self, enemy_pet):
+        old_self_health, old_enemy_health = self.health, enemy_pet.health
+
         self.health -= enemy_pet.attack
         enemy_pet.health -= self.attack
 
-        # if not self.is_alive() or not enemy_pet.is_alive():
-        #     if not self.is_alive():
-        #         self.ability.trigger("faint", self, self.team, enemy_team=enemy_pet.team)
-        #         self.team.remove_pet(self)
-        #     if not enemy_pet.is_alive():
-        #         enemy_pet.ability.trigger("faint", enemy_pet, enemy_pet.team, enemy_team=self.team)
-        #         enemy_pet.team.remove_pet(enemy_pet)
-        #
-        #     # Clean up dead pets after abilities have been triggered
-        #     if not self.is_alive():
-        #         self.team.remove_pet(self)
-        #     if not enemy_pet.is_alive():
-        #         enemy_pet.team.remove_pet(enemy_pet)
+        if self.is_alive():
+            if self.health < old_self_health:
+                self.ability.trigger("hurt", self, self.team)
+
+        if enemy_pet.is_alive():
+            if enemy_pet.health < old_enemy_health:
+                enemy_pet.ability.trigger("hurt", enemy_pet, enemy_pet.team)
 
         if not self.is_alive() or not enemy_pet.is_alive():
             if not self.is_alive():
@@ -56,9 +52,9 @@ class Pet:
         if self.ability:
             self.ability.trigger("start_of_battle", self, self.team, enemy_team=enemy_team)
 
-    def damaged(self):
+    def hurt(self):
         if self.ability:
-            self.ability.trigger("damaged", self, self.team)
+            self.ability.trigger("hurt", self, self.team)
 
         if not self.is_alive() and not self.fainted:
             self.faint()

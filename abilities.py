@@ -17,7 +17,6 @@ class Ability(ABC):
         return f"{self.__class__.__name__}({attributes})"
 
 
-
 class No_Ability(Ability):
     def __init__(self):
         pass
@@ -78,7 +77,7 @@ class Damage(Ability):
                     target_pet = None
                 if target_pet:
                     target_pet.health -= self.damage
-                    target_pet.damaged()
+                    target_pet.hurt()
         elif self.target == "all":
             targets = []
             # Damage the pets
@@ -96,7 +95,7 @@ class Damage(Ability):
             for target in sorted(priority_dict.keys(), reverse=True):
                 pets_with_same_priority = priority_dict[target]
                 for pet in pets_with_same_priority:
-                    pet.damaged()
+                    pet.hurt()
         elif self.target == "friend_behind":
             index = team.pets.index(pet)
             if index < 5 and len(team.pets) > 1:
@@ -104,7 +103,7 @@ class Damage(Ability):
 
                 if target:
                     target.health -= self.damage
-                    target.damaged()
+                    target.hurt()
         else:
             print(f'{self.__class__}:{self.target} not implemented')
 
@@ -137,6 +136,24 @@ class ModifyStatsAbility(Ability):
             if team.pets:
                 target = team.pets[0]
                 target.attack += self.attack_change
+        elif self.target == "self":
+            pet.attack += self.attack_change
+            pet.health += self.health_change
+        elif self.target == "2_friends_behind":
+            index = team.pets.index(pet)
+            pet_count = len(team.pets)
+            if pet_count > 1:
+                if index == pet_count - 2:
+                    behind_1 = team.pets[index+1]
+                    behind_1.attack += self.attack_change
+                    behind_1.health += self.health_change
+                elif pet_count - index >= 3:
+                    behind_1 = team.pets[index+1]
+                    behind_1.attack += self.attack_change
+                    behind_1.health += self.health_change
+                    behind_2 = team.pets[index+2]
+                    behind_2.attack += self.attack_change
+                    behind_2.health += self.health_change
         else:
             print(f'{self.__class__}:{self.target} not implemented')
 
