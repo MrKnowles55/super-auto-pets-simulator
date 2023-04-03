@@ -326,9 +326,9 @@ PET_DEFAULTS = {"Ant": {
         "attack": 3,
         "health": 1,
         "abilities": {
-            "1": No_Ability(),
-            "2": No_Ability(),
-            "3": No_Ability()
+            "1": ModifyStatsAbility(attack_change=0, health_change=0, target="self", trigger_event="start_of_battle", scope="all_friends", get_best="health", health_multiplier=0.5),
+            "2": ModifyStatsAbility(attack_change=0, health_change=0, target="self", trigger_event="start_of_battle", scope="all_friends", get_best="health", health_multiplier=1),
+            "3": ModifyStatsAbility(attack_change=0, health_change=0, target="self", trigger_event="start_of_battle", scope="all_friends", get_best="health", health_multiplier=1.5)
         },
         "tier": 2,
         "pack": "turtle"
@@ -657,7 +657,8 @@ IMPLEMENTED = [
 ]
 
 TEST_POOL = [
-    "Flamingo"
+    "Crab",
+    "Elephant"
 ]
 
 TEST_POOL2 = [

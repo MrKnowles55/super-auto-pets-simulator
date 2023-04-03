@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 from random import choice
-from pet import prioritize_pets
+from pet import prioritize_pets, sort_pets_by_attribute
+import math
 
 
 class Ability(ABC):
@@ -19,7 +20,7 @@ class Ability(ABC):
 
 class No_Ability(Ability):
     def __init__(self):
-        pass
+        self.trigger_event = None
 
     def apply(self, pet, team,  **kwargs):
         pass
@@ -113,11 +114,17 @@ class Damage(Ability):
 
 
 class ModifyStatsAbility(Ability):
-    def __init__(self, attack_change, health_change, target, trigger_event, buff_length=0):
+    def __init__(self, attack_change, health_change, target, trigger_event, buff_length=0, scope=None, get_best=None, reverse=False, attack_multiplier=0, health_multiplier=0):
         self.attack_change = attack_change
         self.health_change = health_change
         self.target = target
         self.trigger_event = trigger_event
+        self.buff_length = buff_length
+        self.scope = scope
+        self.get_best = get_best
+        self.reverse = reverse
+        self.attack_multiplier = attack_multiplier
+        self.health_multiplier = health_multiplier
 
     def apply(self, pet, team,  **kwargs):
         if self.target == "random_friendly":
@@ -137,8 +144,18 @@ class ModifyStatsAbility(Ability):
                 target = team.pets[0]
                 target.attack += self.attack_change
         elif self.target == "self":
-            pet.attack += self.attack_change
-            pet.health += self.health_change
+            if not self.scope:
+                pet.attack += self.attack_change
+                pet.health += self.health_change
+            else: # TODO generalize for different scopes
+                sorted_list = sort_pets_by_attribute(team.pets, self.get_best)
+                if sorted_list:
+                    reference = sorted_list[0]
+                    pet.attack += self.attack_multiplier * reference.attack
+                    pet.health += self.health_multiplier * reference.health
+                    pet.attack = math.floor(pet.attack)
+                    pet.health = math.floor(pet.health)
+
         elif self.target == "2_friends_behind":
             index = team.pets.index(pet)
             pet_count = len(team.pets)

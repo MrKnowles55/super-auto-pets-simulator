@@ -10,6 +10,9 @@ class Pet:
     def __str__(self):
         return f"{self.name}({self.attack}/{self.health})"
 
+    def __repr__(self):
+        return f"{self.name}({self.attack}/{self.health})"
+
     def is_alive(self):
         return self.health > 0
 
@@ -76,6 +79,15 @@ def prioritize_pets(pet_list, priority_key=lambda x: x.attack):
         priority_dict[priority].append(pet)
 
     return priority_dict
+
+
+def filter_pets_by_ability_trigger(pet_list, trigger):
+    return [pet for pet in pet_list if pet.ability.trigger_event == trigger]
+
+
+def sort_pets_by_attribute(pet_list, attribute, reverse=True):
+    return sorted(pet_list, key=lambda pet: getattr(pet, attribute), reverse=reverse)
+
 
 
 
