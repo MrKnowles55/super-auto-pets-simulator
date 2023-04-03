@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 from random import choice
 from pet import prioritize_pets, sort_pets_by_attribute
 import math
+import pet_dict
 
 
 class Ability(ABC):
@@ -114,7 +115,7 @@ class Damage(Ability):
 
 
 class ModifyStatsAbility(Ability):
-    def __init__(self, attack_change, health_change, target, trigger_event, buff_length=0, scope=None, get_best=None, reverse=False, attack_multiplier=0, health_multiplier=0):
+    def __init__(self, attack_change, health_change, target, trigger_event, buff_length=0, scope=None, filter=None, get_best=None, reverse=False, attack_multiplier=0, health_multiplier=0):
         self.attack_change = attack_change
         self.health_change = health_change
         self.target = target
@@ -123,6 +124,7 @@ class ModifyStatsAbility(Ability):
         self.scope = scope
         self.get_best = get_best
         self.reverse = reverse
+        self.filter = filter
         self.attack_multiplier = attack_multiplier
         self.health_multiplier = health_multiplier
 
@@ -143,18 +145,46 @@ class ModifyStatsAbility(Ability):
             if team.pets:
                 target = team.pets[0]
                 target.attack += self.attack_change
+        elif self.target == "friend_ahead":
+            index = team.pets.index(pet)
+            pet_count = len(team.pets)
+            if index == 0:
+                return
+
+            target = team.pets[index - 1]
+
+            if not self.scope:
+                target.attack += self.attack_change
+                target.health += self.health_change
+            else: # TODO generalize for different scopes
+                if self.scope == "self":
+                    target.attack += self.attack_multiplier * pet.attack
+                    target.health += self.health_multiplier * pet.health
+                    target.attack = math.floor(target.attack)
+                    target.health = math.floor(target.health)
+
         elif self.target == "self":
             if not self.scope:
                 pet.attack += self.attack_change
                 pet.health += self.health_change
             else: # TODO generalize for different scopes
-                sorted_list = sort_pets_by_attribute(team.pets, self.get_best)
-                if sorted_list:
-                    reference = sorted_list[0]
-                    pet.attack += self.attack_multiplier * reference.attack
-                    pet.health += self.health_multiplier * reference.health
-                    pet.attack = math.floor(pet.attack)
-                    pet.health = math.floor(pet.health)
+                if self.get_best:
+                    sorted_list = sort_pets_by_attribute(team.pets, self.get_best)
+                    if sorted_list:
+                        reference = sorted_list[0]
+                        pet.attack += self.attack_multiplier * reference.attack
+                        pet.health += self.health_multiplier * reference.health
+                        pet.attack = math.floor(pet.attack)
+                        pet.health = math.floor(pet.health)
+                elif self.filter:
+                    pet_count = 0
+                    if self.filter == "faint":
+                        if self.scope == "all_friends":
+                            for friend in team.pets:
+                                if friend.name in pet_dict.HAS_FAINT_ABILITY:
+                                    pet_count +=1
+                            pet.attack += self.attack_multiplier * pet_count
+                            pet.health += self.health_multiplier * pet_count
 
         elif self.target == "2_friends_behind":
             index = team.pets.index(pet)

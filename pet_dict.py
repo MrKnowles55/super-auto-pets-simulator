@@ -133,9 +133,12 @@ PET_DEFAULTS = {"Ant": {
         "attack": 1,
         "health": 1,
         "abilities": {
-            "1": No_Ability(),
-            "2": No_Ability(),
-            "3": No_Ability()
+            "1": ModifyStatsAbility(attack_change=0, health_change=0, target="self", trigger_event="start_of_battle",
+                                    scope="all_friends", filter="faint", attack_multiplier=1, health_multiplier=1),
+            "2": ModifyStatsAbility(attack_change=0, health_change=0, target="self", trigger_event="start_of_battle",
+                                    scope="all_friends", filter="faint", attack_multiplier=2, health_multiplier=2),
+            "3": ModifyStatsAbility(attack_change=0, health_change=0, target="self", trigger_event="start_of_battle",
+                                    scope="all_friends", filter="faint", attack_multiplier=3, health_multiplier=3)
         },
         "tier": 1,
         "pack": "turtle"
@@ -337,9 +340,9 @@ PET_DEFAULTS = {"Ant": {
         "attack": 3,
         "health": 3,
         "abilities": {
-            "1": No_Ability(),
-            "2": No_Ability(),
-            "3": No_Ability()
+            "1": ModifyStatsAbility(attack_change=0, health_change=0, target="friend_ahead", trigger_event="start_of_battle", scope="self", attack_multiplier=1/3),
+            "2": ModifyStatsAbility(attack_change=0, health_change=0, target="friend_ahead", trigger_event="start_of_battle", scope="self", attack_multiplier=2/3),
+            "3": ModifyStatsAbility(attack_change=0, health_change=0, target="friend_ahead", trigger_event="start_of_battle", scope="self", attack_multiplier=3/3),
         },
         "tier": 2,
         "pack": "turtle"
@@ -549,9 +552,9 @@ PET_DEFAULTS = {"Ant": {
         "attack": 1,
         "health": 1,
         "abilities": {
-            "1": Summon("Guinea Pig", "faint"),
-            "2": Summon("Guinea Pig", "faint"),
-            "3": Summon("Guinea Pig", "faint")
+            "1": Summon("Guinea Pig", "buy"),
+            "2": Summon("Guinea Pig", "buy"),
+            "3": Summon("Guinea Pig", "buy")
         },
         "tier": 2,
         "pack": "star"
@@ -641,10 +644,22 @@ TOKENS = [
 ]
 
 BUYABLE = list(set(list(PET_DEFAULTS.keys())) - set(TOKENS))
+
+# Tiers
 TIER_1 = [key for key, value in PET_DEFAULTS.items() if value.get("tier") == 1]
 TIER_2 = [key for key, value in PET_DEFAULTS.items() if value.get("tier") == 2]
+TIER_3 = [key for key, value in PET_DEFAULTS.items() if value.get("tier") == 3]
+TIER_4 = [key for key, value in PET_DEFAULTS.items() if value.get("tier") == 4]
+TIER_5 = [key for key, value in PET_DEFAULTS.items() if value.get("tier") == 5]
+TIER_6 = [key for key, value in PET_DEFAULTS.items() if value.get("tier") == 6]
 
-IMPLEMENTED = [
+# Abilities
+HAS_FAINT_ABILITY = [key for key, value in PET_DEFAULTS.items() if value.get("abilities")["1"].trigger_event == "faint"]
+HAS_SELL_ABILITY = [key for key, value in PET_DEFAULTS.items() if value.get("abilities")["1"].trigger_event == "sell"]
+HAS_START_OF_BATTLE_ABILITY = [key for key, value in PET_DEFAULTS.items() if value.get("abilities")["1"].trigger_event == "start_of_battle"]
+
+
+IMPLEMENTED = [  # For Level 1 at least
     "Ant",
     "Cricket",
     "Mosquito",
@@ -653,12 +668,14 @@ IMPLEMENTED = [
     "Hedgehog",  # Fixed?? Error with Cricket
     "Elephant",
     "Peacock",
-    "Flamingo"
+    "Flamingo",
+    "Crab",
+    "Frilled Dragon"
 ]
 
 TEST_POOL = [
-    "Crab",
-    "Elephant"
+    "Frilled Dragon",
+    "Cricket"
 ]
 
 TEST_POOL2 = [
@@ -668,7 +685,7 @@ TEST_POOL2 = [
 
 if __name__ == "__main__":
     pets = []
-    for k in PET_DEFAULTS.keys():
-        pets.append(k)
-    for pet in (sorted(pets)):
-        print(pet)
+    # for k in PET_DEFAULTS.keys():
+    #     pets.append(k)
+    # for pet in (sorted(pets)):
+    #     print(pet)

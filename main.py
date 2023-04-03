@@ -5,7 +5,7 @@ import pet_dict
 from battle import fight
 
 total = [0, 0]
-sims = 5
+sims = 3
 
 friendly_pool = pet_dict.TEST_POOL
 enemy_pool = pet_dict.IMPLEMENTED
