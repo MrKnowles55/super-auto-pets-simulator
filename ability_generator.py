@@ -56,5 +56,9 @@ class AbilityGenerator:
         target_n = self.get_target_n()
         trigger = self.get_trigger()
 
-        return ModifyStatsAbilityRandomFriend(self.owner, attack_mod=attack_mod, health_mod=health_mod, target_type=target_type,
-                                              target_n=target_n, trigger_event=trigger)
+        match target_type:
+            case "RandomFriend":
+                return ModifyStatsAbilityRandomFriend(self.owner, attack_mod=attack_mod, health_mod=health_mod,
+                                                      target_type=target_type, target_n=target_n, trigger_event=trigger)
+            case _:
+                return None

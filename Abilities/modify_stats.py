@@ -1,5 +1,5 @@
 from abilities import Ability
-from random import choice
+from random import choice, sample
 
 
 class ModifyStatsAbility(Ability):
@@ -12,15 +12,39 @@ class ModifyStatsAbility(Ability):
         self.trigger_event = trigger_event
         self.until_end_of_battle = until_end_of_battle
 
+    def add_modifiers(self, target_pet):
+        target_pet.attack += self.attack_mod
+        target_pet.health += self.health_mod
+
 
 class ModifyStatsAbilityRandomFriend(ModifyStatsAbility):
     def apply(self, pet, team, **kwargs):
         # Create a list of friendly pets, excluding the triggering pet
         available_targets = [p for p in team.pets if p is not pet and p.health > 0]
         if available_targets:
-            # Choose a random pet from the available targets
-            target_pet = choice(available_targets)
+            # Choose the specified number of target pets from the available targets
+            num_targets = min(len(available_targets), self.target_n)
+            target_pets = sample(available_targets, num_targets)
 
-            # Modify the target pet's stats
-            target_pet.attack += self.attack_mod
-            target_pet.health += self.health_mod
+            # Modify the target pets' stats
+            for target_pet in target_pets:
+                self.add_modifiers(target_pet)
+
+
+class ModifyStatsAbilityFrontFriend(ModifyStatsAbility):
+    def apply(self, pet, team, **kwargs):
+        if team.pets:
+            target_pet = team.pets[0]
+            self.add_modifiers(target_pet)
+
+
+class ModifyStatsAbilityFriendAhead(ModifyStatsAbility):
+    def apply(self, pet, team, **kwargs):
+        index = team.pets.index(pet)
+        if index == 0:
+            return
+
+        target = team.pets[index - 1]
+        self.add_modifiers(target)
+
+
