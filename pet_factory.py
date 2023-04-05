@@ -1,5 +1,5 @@
 from pet import Pet
-from abilities import AbilityGenerator
+from ability_generator import AbilityGenerator
 
 
 def create_pet(pet_name, pet_level=1):
