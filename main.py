@@ -5,10 +5,10 @@ import pet_dict
 from battle import fight
 
 total = [0, 0]
-sims = 3
+sims = 300
 
 friendly_pool = pet_dict.TEST_POOL
-enemy_pool = pet_dict.IMPLEMENTED
+enemy_pool = pet_dict.TEST_POOL
 
 for i in range(1, sims+1):
     friendly_team = Team()

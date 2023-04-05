@@ -1,16 +1,17 @@
 from abilities import *
 
-PET_DEFAULTS = {"Ant": {
-    "attack": 2,
-    "health": 1,
-    "abilities": {
-        "1": ModifyStatsAbility(attack_change=2, health_change=1, target='random_friendly', trigger_event='faint'),
-        "2": ModifyStatsAbility(attack_change=4, health_change=2, target='random_friendly', trigger_event='faint'),
-        "3": ModifyStatsAbility(attack_change=6, health_change=4, target='random_friendly', trigger_event='faint')
+PET_DEFAULTS = {
+    "Ant": {
+        "attack": 2,
+        "health": 1,
+        "abilities": {
+            "1": ModifyStatsAbility(attack_change=2, health_change=1, target='random_friendly', trigger_event='faint'),
+            "2": ModifyStatsAbility(attack_change=4, health_change=2, target='random_friendly', trigger_event='faint'),
+            "3": ModifyStatsAbility(attack_change=6, health_change=4, target='random_friendly', trigger_event='faint')
+        },
+        "tier": 1,
+        "pack": "turtle"
     },
-    "tier": 1,
-    "pack": "turtle"
-},
     "Beaver": {
         "attack": 3,
         "health": 2,
@@ -329,9 +330,12 @@ PET_DEFAULTS = {"Ant": {
         "attack": 3,
         "health": 1,
         "abilities": {
-            "1": ModifyStatsAbility(attack_change=0, health_change=0, target="self", trigger_event="start_of_battle", scope="all_friends", get_best="health", health_multiplier=0.5),
-            "2": ModifyStatsAbility(attack_change=0, health_change=0, target="self", trigger_event="start_of_battle", scope="all_friends", get_best="health", health_multiplier=1),
-            "3": ModifyStatsAbility(attack_change=0, health_change=0, target="self", trigger_event="start_of_battle", scope="all_friends", get_best="health", health_multiplier=1.5)
+            "1": ModifyStatsAbility(attack_change=0, health_change=0, target="self", trigger_event="start_of_battle",
+                                    scope="all_friends", get_best="health", health_multiplier=0.5),
+            "2": ModifyStatsAbility(attack_change=0, health_change=0, target="self", trigger_event="start_of_battle",
+                                    scope="all_friends", get_best="health", health_multiplier=1),
+            "3": ModifyStatsAbility(attack_change=0, health_change=0, target="self", trigger_event="start_of_battle",
+                                    scope="all_friends", get_best="health", health_multiplier=1.5)
         },
         "tier": 2,
         "pack": "turtle"
@@ -340,9 +344,12 @@ PET_DEFAULTS = {"Ant": {
         "attack": 3,
         "health": 3,
         "abilities": {
-            "1": ModifyStatsAbility(attack_change=0, health_change=0, target="friend_ahead", trigger_event="start_of_battle", scope="self", attack_multiplier=1/3),
-            "2": ModifyStatsAbility(attack_change=0, health_change=0, target="friend_ahead", trigger_event="start_of_battle", scope="self", attack_multiplier=2/3),
-            "3": ModifyStatsAbility(attack_change=0, health_change=0, target="friend_ahead", trigger_event="start_of_battle", scope="self", attack_multiplier=3/3),
+            "1": ModifyStatsAbility(attack_change=0, health_change=0, target="friend_ahead",
+                                    trigger_event="start_of_battle", scope="self", attack_multiplier=1 / 3),
+            "2": ModifyStatsAbility(attack_change=0, health_change=0, target="friend_ahead",
+                                    trigger_event="start_of_battle", scope="self", attack_multiplier=2 / 3),
+            "3": ModifyStatsAbility(attack_change=0, health_change=0, target="friend_ahead",
+                                    trigger_event="start_of_battle", scope="self", attack_multiplier=3 / 3),
         },
         "tier": 2,
         "pack": "turtle"
@@ -656,8 +663,8 @@ TIER_6 = [key for key, value in PET_DEFAULTS.items() if value.get("tier") == 6]
 # Abilities
 HAS_FAINT_ABILITY = [key for key, value in PET_DEFAULTS.items() if value.get("abilities")["1"].trigger_event == "faint"]
 HAS_SELL_ABILITY = [key for key, value in PET_DEFAULTS.items() if value.get("abilities")["1"].trigger_event == "sell"]
-HAS_START_OF_BATTLE_ABILITY = [key for key, value in PET_DEFAULTS.items() if value.get("abilities")["1"].trigger_event == "start_of_battle"]
-
+HAS_START_OF_BATTLE_ABILITY = [key for key, value in PET_DEFAULTS.items() if
+                               value.get("abilities")["1"].trigger_event == "start_of_battle"]
 
 IMPLEMENTED = [  # For Level 1 at least
     "Ant",
@@ -674,8 +681,7 @@ IMPLEMENTED = [  # For Level 1 at least
 ]
 
 TEST_POOL = [
-    "Frilled Dragon",
-    "Cricket"
+    "Ant"
 ]
 
 TEST_POOL2 = [

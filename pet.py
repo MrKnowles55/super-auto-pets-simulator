@@ -1,9 +1,20 @@
 class Pet:
-    def __init__(self, name, attack, health, ability):
+    def __init__(self, name, attack, health, tier, level, ability1, ability2, ability3, ability_generator):
         self.name = name
         self.attack = attack
         self.health = health
-        self.ability = ability
+        self.tier = tier
+        self.level = level
+        self.ability_dicts = {
+            1: ability1,
+            2: ability2,
+            3: ability3
+        }
+        self.abilities = {
+            lvl: ability_generator(ability_dict).generate()
+            for lvl, ability_dict in self.ability_dicts.items()
+        }
+        self.ability = self.abilities[self.level]
         self.team = None
         self.fainted = False
 

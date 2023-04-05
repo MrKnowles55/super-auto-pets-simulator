@@ -2,12 +2,12 @@ from abc import ABC, abstractmethod
 from random import choice
 from pet import prioritize_pets, sort_pets_by_attribute
 import math
-import pet_dict
+# import pet_dict
 
 
 class Ability(ABC):
     @abstractmethod
-    def apply(self, pet, team,  **kwargs):
+    def apply(self, pet, team, **kwargs):
         pass
 
     @abstractmethod
@@ -23,7 +23,7 @@ class No_Ability(Ability):
     def __init__(self):
         self.trigger_event = None
 
-    def apply(self, pet, team,  **kwargs):
+    def apply(self, pet, team, **kwargs):
         pass
 
     def trigger(self, event, *args, **kwargs):
@@ -35,7 +35,7 @@ class Summon(Ability):
         self.token = token
         self.trigger_event = trigger_event
 
-    def apply(self, pet, team,  **kwargs):
+    def apply(self, pet, team, **kwargs):
         from pet_factory import create_pet
         if self.trigger_event == "faint":
 
@@ -101,7 +101,7 @@ class Damage(Ability):
         elif self.target == "friend_behind":
             index = team.pets.index(pet)
             if index < 5 and len(team.pets) > 1:
-                target = team.pets[index+1]
+                target = team.pets[index + 1]
 
                 if target:
                     target.health -= self.damage
@@ -115,7 +115,8 @@ class Damage(Ability):
 
 
 class ModifyStatsAbility(Ability):
-    def __init__(self, attack_change, health_change, target, trigger_event, buff_length=0, scope=None, filter=None, get_best=None, reverse=False, attack_multiplier=0, health_multiplier=0):
+    def __init__(self, attack_change, health_change, target, trigger_event, buff_length=0, scope=None, filter=None,
+                 get_best=None, reverse=False, attack_multiplier=0, health_multiplier=0):
         self.attack_change = attack_change
         self.health_change = health_change
         self.target = target
@@ -128,7 +129,7 @@ class ModifyStatsAbility(Ability):
         self.attack_multiplier = attack_multiplier
         self.health_multiplier = health_multiplier
 
-    def apply(self, pet, team,  **kwargs):
+    def apply(self, pet, team, **kwargs):
         if self.target == "random_friendly":
             # Create a list of friendly pets, excluding the triggering pet
             available_targets = [p for p in team.pets if p is not pet and p.health > 0]
@@ -156,7 +157,7 @@ class ModifyStatsAbility(Ability):
             if not self.scope:
                 target.attack += self.attack_change
                 target.health += self.health_change
-            else: # TODO generalize for different scopes
+            else:  # TODO generalize for different scopes
                 if self.scope == "self":
                     target.attack += self.attack_multiplier * pet.attack
                     target.health += self.health_multiplier * pet.health
@@ -167,7 +168,7 @@ class ModifyStatsAbility(Ability):
             if not self.scope:
                 pet.attack += self.attack_change
                 pet.health += self.health_change
-            else: # TODO generalize for different scopes
+            else:  # TODO generalize for different scopes
                 if self.get_best:
                     sorted_list = sort_pets_by_attribute(team.pets, self.get_best)
                     if sorted_list:
@@ -182,7 +183,7 @@ class ModifyStatsAbility(Ability):
                         if self.scope == "all_friends":
                             for friend in team.pets:
                                 if friend.name in pet_dict.HAS_FAINT_ABILITY:
-                                    pet_count +=1
+                                    pet_count += 1
                             pet.attack += self.attack_multiplier * pet_count
                             pet.health += self.health_multiplier * pet_count
 
@@ -191,14 +192,14 @@ class ModifyStatsAbility(Ability):
             pet_count = len(team.pets)
             if pet_count > 1:
                 if index == pet_count - 2:
-                    behind_1 = team.pets[index+1]
+                    behind_1 = team.pets[index + 1]
                     behind_1.attack += self.attack_change
                     behind_1.health += self.health_change
                 elif pet_count - index >= 3:
-                    behind_1 = team.pets[index+1]
+                    behind_1 = team.pets[index + 1]
                     behind_1.attack += self.attack_change
                     behind_1.health += self.health_change
-                    behind_2 = team.pets[index+2]
+                    behind_2 = team.pets[index + 2]
                     behind_2.attack += self.attack_change
                     behind_2.health += self.health_change
         else:
@@ -207,3 +208,60 @@ class ModifyStatsAbility(Ability):
     def trigger(self, event, *args, **kwargs):
         if event == self.trigger_event:
             self.apply(*args, **kwargs)
+
+
+class AbilityGenerator:
+
+    def __init__(self, ability_dict):
+        self.ability_dict = ability_dict
+
+    def get_trigger(self):
+        return self.ability_dict.get("trigger")
+
+    def get_triggered_by(self):
+        return self.ability_dict.get("triggeredBy", {}).get("kind")
+
+    def get_attack_mod(self):
+        return self.ability_dict.get("effect", {}).get("attackAmount")
+
+    def get_health_mod(self):
+        return self.ability_dict.get("effect", {}).get("healthAmount")
+
+    def get_target(self):
+        return self.ability_dict.get("target")
+
+    def get_target_n(self):
+        return self.ability_dict.get("target", {}).get("n")
+
+    def get_target_kind(self):
+        return self.ability_dict.get("target", {}).get("kind")
+
+    def get_extra(self):
+        keys_to_exclude = ["description", "trigger", "triggeredBy", "effect"]
+        return {key: value for key, value in self.ability_dict.items() if key not in keys_to_exclude}
+
+    def get_extra_effect(self):
+        keys_to_exclude = ["kind", "attackAmount", "healthAmount", "target"]
+        effects = self.ability_dict.get("effect")
+        if effects:
+            return {key: value for key, value in effects.items() if key not in keys_to_exclude}
+        else:
+            return {}
+
+    def get_ability_type(self):
+        return self.ability_dict.get("effect").get("kind")
+
+    def generate(self):
+        ability_type = self.get_ability_type()
+        match ability_type:
+            case "ModifyStats":
+                return self.generate_modify_stats_ability()
+
+    def generate_modify_stats_ability(self):
+        attack_mod = self.get_attack_mod()
+        health_mod = self.get_health_mod()
+        target_type = self.get_target_kind()
+        target_n = self.get_target_n()
+        trigger = self.get_trigger()
+
+        return ModifyStatsAbility(attack_change=attack_mod, health_change=health_mod, target=target_type, trigger_event=trigger)
