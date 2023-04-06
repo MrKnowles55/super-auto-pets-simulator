@@ -1,0 +1,68 @@
+{
+    "name": "Ant",
+    "id": "pet-ant",
+    "image": {
+        "source": "",
+        "commit": "",
+        "unicodeCodePoint": ""
+    },
+    "tier": 1,
+    "baseAttack": 2,
+    "baseHealth": 1,
+    "packs": [
+        "StandardPack",
+        "ExpansionPack1"
+    ],
+    "level1Ability": {
+        "description": "Faint: Give a random friend +2/+1",
+        "trigger": "Faint",
+        "triggeredBy": {
+            "kind": "Self"
+        },
+        "effect": {
+            "kind": "ModifyStats",
+            "attackAmount": 2,
+            "healthAmount": 1,
+            "target": {
+                "kind": "RandomFriend",
+                "n": 1
+            },
+            "untilEndOfBattle": false
+        }
+    },
+    "level2Ability": {
+        "description": "Faint: Give a random friend +4/+2",
+        "trigger": "Faint",
+        "triggeredBy": {
+            "kind": "Self"
+        },
+        "effect": {
+            "kind": "ModifyStats",
+            "attackAmount": 4,
+            "healthAmount": 2,
+            "target": {
+                "kind": "RandomFriend",
+                "n": 1
+            },
+            "untilEndOfBattle": false
+        }
+    },
+    "level3Ability": {
+        "description": "Faint: Give a random friend +6/+3",
+        "trigger": "Faint",
+        "triggeredBy": {
+            "kind": "Self"
+        },
+        "effect": {
+            "kind": "ModifyStats",
+            "attackAmount": 6,
+            "healthAmount": 3,
+            "target": {
+                "kind": "RandomFriend",
+                "n": 1
+            },
+            "untilEndOfBattle": false
+        }
+    },
+    "probabilities": []
+}
