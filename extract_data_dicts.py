@@ -1,15 +1,12 @@
 import json
 import requests
-
-url = "https://superauto.pet/api.json"
-response = requests.get(url)
-data = json.loads(response.text)
+from bs4 import BeautifulSoup
 
 
-PET_DICT = data["pets"]
-FOOD_DICT = data["foods"]
-STATUS_DICT = data["statuses"]
-TURN_DICT = data["turns"]
+def load_old_data():
+    url = "https://superauto.pet/api.json"
+    response = requests.get(url)
+    return json.loads(response.text)
 
 
 def extract_unique_parameters(data):
@@ -46,10 +43,125 @@ def extract_unique_parameters(data):
     }
 
 
-if __name__ == "__main__":
+def load_pet_soup(pet):
+    pet = pet.title().replace(" ","_")
+    url = "https://superautopets.fandom.com/wiki/" + pet
+    response = requests.get(url)
+    soup = BeautifulSoup(response.content, 'html.parser')
+    return soup
 
-    with open("pet_data_backup.json", 'w') as file:
-        file.write(json.dumps(PET_DICT, indent=4))
+
+def get_ability_data(soup):
+    level_data = soup.select(".pi-item.pi-data.pi-item-spacing.pi-border-color")
+
+    abilities = {}
+    for level in level_data:
+        level_label = level.find("h3", class_="pi-data-label pi-secondary-font").text
+        ability_description = level.find("div", class_="pi-data-value pi-font").text
+        abilities[level_label] = ability_description.strip()
+    # print(abilities)
+    return abilities
+
+
+def get_tier_and_pack(soup, pet_name):
+    pet_name = pet_name.title()
+
+    # Find the correct paragraph starting with "The <b>Pet</b> is a..."
+    paragraph = None
+    for p in soup.find_all("p"):
+        # Remove leading line breaks and spaces before checking the paragraph content
+        paragraph_text = p.text.lstrip("\n ").rstrip("\n ")
+        if paragraph_text.startswith(f"The {pet_name} is a"):
+            paragraph = p
+            break
+    # Find the tier
+    if paragraph:
+        tier_a = paragraph.find("a", title=lambda x: x and "Tier" in x)
+        if tier_a:
+            tier = tier_a["title"]
+        else:
+            tier = "0"
+    else:
+        tier = "0"
+
+
+    # Find the packs
+    packs = []
+    if paragraph:
+        for tag in paragraph.find_all("b"):
+            # print(f"tag{tag}")
+            if "pack" in tag.text.lower() or "packs" in tag.text.lower():
+                packs.append(tag.text.capitalize().split(" ")[0])
+    output = {"tier": tier, "packs": packs}
+    # print(output)
+    return output
+
+
+def load_new_pet(pet_name):
+    pet_name = pet_name.title()
+    soup = load_pet_soup(pet_name)
+    abilities = get_ability_data(soup)
+    tier_and_packs = get_tier_and_pack(soup, pet_name)
+    output = {}
+    output["name"] = pet_name
+    output["id"] = "pet-" + pet_name.replace(" ", "_").lower()
+    output["tier"] = int(tier_and_packs["tier"].replace("Tier ", ""))
+    if "Stats" in list(abilities.keys()):
+        output["baseAttack"] = int(abilities["Stats"].split("/")[0])
+        output["baseHealth"] = int(abilities["Stats"].split("/")[1])
+    else:
+        output["baseAttack"] = -1
+        output["baseHealth"] = -1
+    output["packs"] = tier_and_packs["packs"]
+    try:
+        output["level1Ability"] = {"description": abilities["Level 1"]}
+        output["level2Ability"] = {"description": abilities["Level 2"]}
+        output["level3Ability"] = {"description": abilities["Level 3"]}
+    except KeyError:
+        bad_output = {"name": output["name"], "id": output["id"]}
+        return bad_output
+    return output
+
+
+if __name__ == "__main__":
+    # old_data = load_old_data()
+    # PET_DICT = old_data["pets"]
+    # FOOD_DICT = old_data["foods"]
+    # STATUS_DICT = old_data["statuses"]
+    # TURN_DICT = old_data["turns"]
+    #
+    # soup = load_pet_soup("bulldog")
+    # get_ability_data(soup)
+    # get_tier_and_pack(soup, "Bulldog")
+    # print(load_new_pet("iguana"))
+    output = {}
+    with open("support/pets_to_add", 'r') as file:
+        lines = file.readlines()
+        for line in lines:
+            datum = line.lstrip("\n ").rstrip("\n ")
+            if datum:
+                if "Tier" in datum:
+                    continue
+                elif datum in ["Tiger", "Star", "Golden"]:
+                    continue
+                else:
+                    new_pet = load_new_pet(datum)
+                    output[new_pet["id"]] = new_pet
+    with open("pet_data_mine.json", 'w') as file:
+        file.write(json.dumps(output, indent=4))
+
+    # html = '<div class="pi-data-value pi-font"><b><a href="/wiki/Hurt_(Trigger)" title="Hurt (Trigger)">Hurt</a></b>: Set attack equal to health +1.</div>'
+    #
+    # soup = BeautifulSoup(html, 'html.parser')
+    # div_element = soup.find('div', {'class': 'pi-data-value pi-font'})
+    # text = div_element.text.strip()
+    #
+    # print(text)  # output: "Hurt: Set attack equal to health +1."
+
+
+#
+#     with open("pet_data_backup.json", 'w') as file:
+#         file.write(json.dumps(PET_DICT, indent=4))
 
     # Pretty-print the data
     # new_dict = {key: {sub_key: sub_value for sub_key, sub_value in value.items() if sub_key not in
