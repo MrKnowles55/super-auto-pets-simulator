@@ -11485,8 +11485,8 @@
             "ExpansionPack1"
         ],
         "tier": "Summoned",
-        "baseAttack": "?",
-        "baseHealth": "?"
+        "baseAttack": 1,
+        "baseHealth": 1
     },
     "pet-bus": {
         "name": "Bus",
@@ -11501,8 +11501,8 @@
             "ExpansionPack1"
         ],
         "tier": "Summoned",
-        "baseAttack": "?",
-        "baseHealth": "?",
+        "baseAttack": 5,
+        "baseHealth": 5,
         "status": "status-splash-attack"
     },
     "pet-zombie-fly": {
@@ -11517,8 +11517,8 @@
             "StandardPack"
         ],
         "tier": "Summoned",
-        "baseAttack": "?",
-        "baseHealth": "?"
+        "baseAttack": 4,
+        "baseHealth": 4
     },
     "pet-dirty-rat": {
         "name": "Dirty Rat",
@@ -11597,7 +11597,7 @@
             "ExpansionPack1"
         ],
         "tier": "Summoned",
-        "baseAttack": "?",
+        "baseAttack": 1,
         "baseHealth": 1
     },
     "pet-ram": {
@@ -11613,8 +11613,8 @@
             "ExpansionPack1"
         ],
         "tier": "Summoned",
-        "baseAttack": "?",
-        "baseHealth": "?"
+        "baseAttack": 2,
+        "baseHealth": 2
     },
     "pet-butterfly": {
         "name": "Butterfly",
@@ -11665,5 +11665,5859 @@
         "tier": "Summoned",
         "baseAttack": 1,
         "baseHealth": 1
+    },
+    "pet-chinchilla": {
+        "name": "Chinchilla",
+        "id": "pet-chinchilla",
+        "tier": 1,
+        "baseAttack": 2,
+        "baseHealth": 2,
+        "packs": [
+            "Weekly",
+            "Custom"
+        ],
+        "level1Ability": {
+            "description": "Sell: Summon one Loyal Chinchilla.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonPet"
+            }
+        },
+        "level2Ability": {
+            "description": "Sell: Summon two Loyal Chinchillas.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonPet"
+            }
+        },
+        "level3Ability": {
+            "description": "Sell: Summon three Loyal Chinchillas.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonPet"
+            }
+        }
+    },
+    "pet-frilled_dragon": {
+        "name": "Frilled Dragon",
+        "id": "pet-frilled_dragon",
+        "tier": 1,
+        "baseAttack": 1,
+        "baseHealth": 1,
+        "packs": [
+            "Weekly",
+            "Custom"
+        ],
+        "level1Ability": {
+            "description": "Start of battle: Gain +1  attack and +1  health per faint friend.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Start of battle: Gain +2  attack and +2  health per faint friend.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Start of battle: Gain +3  attack and +3  health per faint friend.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-marmoset": {
+        "name": "Marmoset",
+        "id": "pet-marmoset",
+        "tier": 1,
+        "baseAttack": 2,
+        "baseHealth": 3,
+        "packs": [
+            "Weekly",
+            "Custom"
+        ],
+        "level1Ability": {
+            "description": "Sell: Your next roll is free.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "RollModifier"
+            }
+        },
+        "level2Ability": {
+            "description": "Sell: Your two next rolls are free.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "RollModifier"
+            }
+        },
+        "level3Ability": {
+            "description": "Sell: Your three next rolls are free.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "RollModifier"
+            }
+        }
+    },
+    "pet-moth": {
+        "name": "Moth",
+        "id": "pet-moth",
+        "tier": 1,
+        "baseAttack": 2,
+        "baseHealth": 1,
+        "packs": [
+            "Weekly",
+            "Custom"
+        ],
+        "level1Ability": {
+            "description": "Start of battle: Give front-most friend +3  attack.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Start of battle: Give front-most friend +6  attack.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Start of battle: Give front-most friend +9  attack.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-cockroach": {
+        "name": "Cockroach",
+        "id": "pet-cockroach",
+        "tier": 1,
+        "baseAttack": 1,
+        "baseHealth": 4,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Start of turn: Set  attack to current shop tier +1.",
+            "trigger": "StartOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Start of turn: Set  attack to current shop tier +2.",
+            "trigger": "StartOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Start of turn: Set  attack to current shop tier +3.",
+            "trigger": "StartOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-duckling": {
+        "name": "Duckling",
+        "id": "pet-duckling",
+        "tier": 1,
+        "baseAttack": 1,
+        "baseHealth": 2,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Sell: Give left-most shop pet +2  health.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyShop"
+            }
+        },
+        "level2Ability": {
+            "description": "Sell: Give left-most shop pet +4  health.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyShop"
+            }
+        },
+        "level3Ability": {
+            "description": "Sell: Give left-most shop pet +6  health.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyShop"
+            }
+        }
+    },
+    "pet-frog": {
+        "name": "Frog",
+        "id": "pet-frog",
+        "tier": 1,
+        "baseAttack": 3,
+        "baseHealth": 1,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Start of battle: Swap stats of the two adjacent friends.",
+            "trigger": "",
+            "triggeredBy": {
+                "kind": ""
+            },
+            "effect": {
+                "kind": ""
+            }
+        },
+        "level2Ability": {
+            "description": "Sell: Swap stats of the two adjacent friends.",
+            "trigger": "",
+            "triggeredBy": {
+                "kind": ""
+            },
+            "effect": {
+                "kind": ""
+            }
+        },
+        "level3Ability": {
+            "description": "End of Turn: Swap stats of the two adjacent friends.",
+            "trigger": "",
+            "triggeredBy": {
+                "kind": ""
+            },
+            "effect": {
+                "kind": ""
+            }
+        }
+    },
+    "pet-hummingbird": {
+        "name": "Hummingbird",
+        "id": "pet-hummingbird",
+        "tier": 1,
+        "baseAttack": 2,
+        "baseHealth": 2,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Start of battle: Give +2  attack and +1  health to one random Strawberry friend.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Start of battle: Give +4  attack and +2  health to one random Strawberry friend.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Start of battle: Give +6  attack and +3  health to one random Strawberry friend.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-iguana": {
+        "name": "Iguana",
+        "id": "pet-iguana",
+        "tier": 1,
+        "baseAttack": 1,
+        "baseHealth": 3,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Enemy summoned or pushed: Deal 1  damage to it.",
+            "trigger": "EnemySummonedOrPushed",
+            "triggeredBy": {
+                "kind": ""
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        },
+        "level2Ability": {
+            "description": "Enemy summoned or pushed: Deal 2  damage to it.",
+            "trigger": "EnemySummonedOrPushed",
+            "triggeredBy": {
+                "kind": ""
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        },
+        "level3Ability": {
+            "description": "Enemy summoned or pushed: Deal 3  damage to it.",
+            "trigger": "EnemySummonedOrPushed",
+            "triggeredBy": {
+                "kind": ""
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        }
+    },
+    "pet-kiwi": {
+        "name": "Kiwi",
+        "id": "pet-kiwi",
+        "tier": 1,
+        "baseAttack": 2,
+        "baseHealth": 2,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Sell: Give a random Strawberry friend +1  attack and +2  health.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Sell: Give a random Strawberry friend +2  attack and +4  health.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Sell: Give a random Strawberry friend +3  attack and +6  health.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-mouse": {
+        "name": "Mouse",
+        "id": "pet-mouse",
+        "tier": 1,
+        "baseAttack": 2,
+        "baseHealth": 1,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Sell: Replace food shop with 1 free apple that gives +1  attack and +1  health.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "RefillShops"
+            }
+        },
+        "level2Ability": {
+            "description": "Sell: Replace food shop with 2 free apples that give +1  attack and +1  health.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "RefillShops"
+            }
+        },
+        "level3Ability": {
+            "description": "Sell: Replace food shop with 3 free apples that give +1  attack and +1  health.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "RefillShops"
+            }
+        }
+    },
+    "pet-pillbug": {
+        "name": "Pillbug",
+        "id": "pet-pillbug",
+        "tier": 1,
+        "baseAttack": 2,
+        "baseHealth": 2,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Upgrade shop tier: Give the two pets behind +1  health.",
+            "trigger": "UpgradeShopTier",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Upgrade shop tier: Give the two pets behind +2  health.",
+            "trigger": "UpgradeShopTier",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Upgrade shop tier: Give the two pets behind +3  health.",
+            "trigger": "UpgradeShopTier",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-seahorse": {
+        "name": "Seahorse",
+        "id": "pet-seahorse",
+        "tier": 1,
+        "baseAttack": 2,
+        "baseHealth": 3,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Start of Battle: Push the last enemy one space forward.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "Move"
+            }
+        },
+        "level2Ability": {
+            "description": "Start of Battle: Push the last enemy two spaces forward.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "Move"
+            }
+        },
+        "level3Ability": {
+            "description": "Start of Battle: Push the last enemy three spaces forward.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "Move"
+            }
+        }
+    },
+    "pet-bulldog": {
+        "name": "Bulldog",
+        "id": "pet-bulldog",
+        "tier": 1,
+        "baseAttack": 1,
+        "baseHealth": 3,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Hurt: Set attack equal to health +1.",
+            "trigger": "Hurt",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Hurt: Set attack equal to health +2.",
+            "trigger": "Hurt",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Hurt: Set attack equal to health +3.",
+            "trigger": "Hurt",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-chipmunk": {
+        "name": "Chipmunk",
+        "id": "pet-chipmunk",
+        "tier": 1,
+        "baseAttack": 3,
+        "baseHealth": 2,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Sell: Replace shop food with one free copy of this pet's Food Perk.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "RefillShops"
+            }
+        },
+        "level2Ability": {
+            "description": "Sell: Replace shop food with two free copies of this pet's Food Perk.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "RefillShops"
+            }
+        },
+        "level3Ability": {
+            "description": "Sell: Replace shop food with three free copies of this pet's Food Perk.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "RefillShops"
+            }
+        }
+    },
+    "pet-groundhog": {
+        "name": "Groundhog",
+        "id": "pet-groundhog",
+        "tier": 1,
+        "baseAttack": 2,
+        "baseHealth": 1,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Faint: Gain +1 Trumpet.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "GainTrumpets"
+            }
+        },
+        "level2Ability": {
+            "description": "Faint: Gain +2 Trumpets.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "GainTrumpets"
+            }
+        },
+        "level3Ability": {
+            "description": "Faint: Gain +3 Trumpets.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "GainTrumpets"
+            }
+        }
+    },
+    "pet-cone_snail": {
+        "name": "Cone Snail",
+        "id": "pet-cone_snail",
+        "tier": 1,
+        "baseAttack": 1,
+        "baseHealth": 2,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Start of battle: Give the nearest friend behind +2 Health.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Start of battle: Give the nearest friend behind +4 Health.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Start of battle: Give the nearest friend behind +6 Health.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-goose": {
+        "name": "Goose",
+        "id": "pet-goose",
+        "tier": 1,
+        "baseAttack": 2,
+        "baseHealth": 2,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Start of battle: Remove 1  attack from the first enemy.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Start of battle: Remove 2  attack from the first enemy.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Start of battle: Remove 3  attack from the first enemy.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-pied_tamarin": {
+        "name": "Pied Tamarin",
+        "id": "pet-pied_tamarin",
+        "tier": 1,
+        "baseAttack": 1,
+        "baseHealth": 2,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Faint: Spend 1 Trumpet to deal 3  damage to one random enemy.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        },
+        "level2Ability": {
+            "description": "Faint: Spend 1 Trumpet to deal 3  damage to two random enemies.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        },
+        "level3Ability": {
+            "description": "Faint: Spend 1 Trumpet to deal 3  damage to three random enemies.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        }
+    },
+    "pet-opossum": {
+        "name": "Opossum",
+        "id": "pet-opossum",
+        "tier": 1,
+        "baseAttack": 2,
+        "baseHealth": 3,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Sell: Give one random Faint pet in the shop +1  attack and +1  health.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyShop"
+            }
+        },
+        "level2Ability": {
+            "description": "Sell: Give one random Faint pet in the shop +2  attack and +2  health.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyShop"
+            }
+        },
+        "level3Ability": {
+            "description": "Sell: Give one random Faint pet in the shop +3  attack and +3  health.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyShop"
+            }
+        }
+    },
+    "pet-silkmoth": {
+        "name": "Silkmoth",
+        "id": "pet-silkmoth",
+        "tier": 1,
+        "baseAttack": 3,
+        "baseHealth": 1,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Friend ahead hurt: Give it +1  health. Works 2 times per turn.",
+            "trigger": "FriendAheadHurt",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Friend ahead hurt: Give it +2  health. Works 2 times per turn.",
+            "trigger": "FriendAheadHurt",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Friend ahead hurt: Give it +3  health. Works 2 times per turn.",
+            "trigger": "FriendAheadHurt",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-magpie": {
+        "name": "Magpie",
+        "id": "pet-magpie",
+        "tier": 1,
+        "baseAttack": 1,
+        "baseHealth": 4,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "End turn: Spend up to 1 Gold and gain it back next turn.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ConserveGold"
+            }
+        },
+        "level2Ability": {
+            "description": "End turn: Spend up to 2 Gold and gain it back next turn.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ConserveGold"
+            }
+        },
+        "level3Ability": {
+            "description": "End turn: Spend up to 3 Gold and gain it back next turn.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ConserveGold"
+            }
+        }
+    },
+    "pet-frigatebird": {
+        "name": "Frigatebird",
+        "id": "pet-frigatebird",
+        "tier": 2,
+        "baseAttack": 2,
+        "baseHealth": 4,
+        "packs": [
+            "Weekly",
+            "Custom"
+        ],
+        "level1Ability": {
+            "description": "Buy: Give one random Hurt friend +2  health.",
+            "trigger": "Buy",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Buy: Give one random Hurt friend +4  health.",
+            "trigger": "Buy",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Buy: Give one random Hurt friend +6  health.",
+            "trigger": "Buy",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-gold_fish": {
+        "name": "Gold Fish",
+        "id": "pet-gold_fish",
+        "tier": 2,
+        "baseAttack": 1,
+        "baseHealth": 2,
+        "packs": [
+            "Weekly",
+            "Custom"
+        ],
+        "level1Ability": {
+            "description": "Start of turn: Discount the two left-most shop pets by 1 gold.",
+            "trigger": "StartOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyShop"
+            }
+        },
+        "level2Ability": {
+            "description": "Start of turn: Discount the two left-most shop pets by 2 gold.",
+            "trigger": "StartOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyShop"
+            }
+        },
+        "level3Ability": {
+            "description": "Start of turn: Discount the two left-most shop pets by 3 gold.",
+            "trigger": "StartOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyShop"
+            }
+        }
+    },
+    "pet-racoon": {
+        "name": "Racoon",
+        "id": "pet-racoon",
+        "tier": 2,
+        "baseAttack": 3,
+        "baseHealth": 2,
+        "packs": [
+            "Tiger"
+        ],
+        "level1Ability": {
+            "description": "Before Attack: Steal food perk from the nearest enemy ahead. Works 1 time per battle..",
+            "trigger": "BeforeAttack",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "StealFood"
+            }
+        },
+        "level2Ability": {
+            "description": "Before Attack: Steal food perk from the nearest enemy ahead. Works 2 times per battle.",
+            "trigger": "BeforeAttack",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "StealFood"
+            }
+        },
+        "level3Ability": {
+            "description": "Before Attack: Steal food perk from the nearest enemy ahead. Works 3 times per battle..",
+            "trigger": "BeforeAttack",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "StealFood"
+            }
+        }
+    },
+    "pet-toucan": {
+        "name": "Toucan",
+        "id": "pet-toucan",
+        "tier": 2,
+        "baseAttack": 2,
+        "baseHealth": 3,
+        "packs": [
+            "Weekly",
+            "Custom"
+        ],
+        "level1Ability": {
+            "description": "Faint: Give this pet's food perk to the nearest friend behind.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        },
+        "level2Ability": {
+            "description": "Faint: Give this pet's food perk to the two nearest friends behind.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        },
+        "level3Ability": {
+            "description": "Faint: Give this pet's food perk to the three nearest friends behind.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        }
+    },
+    "pet-wombat": {
+        "name": "Wombat",
+        "id": "pet-wombat",
+        "tier": 2,
+        "baseAttack": 3,
+        "baseHealth": 3,
+        "packs": [
+            "Tiger"
+        ],
+        "level1Ability": {
+            "description": "Start of battle: Copy Faint Ability as level 1 from highest tier enemy.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "TransferAbility"
+            }
+        },
+        "level2Ability": {
+            "description": "Start of battle: Copy Faint Ability as level 2 from highest tier enemy.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "TransferAbility"
+            }
+        },
+        "level3Ability": {
+            "description": "Start of battle: Copy Faint Ability as level 3 from highest tier enemy.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "TransferAbility"
+            }
+        }
+    },
+    "pet-atlantic_puffin": {
+        "name": "Atlantic Puffin",
+        "id": "pet-atlantic_puffin",
+        "tier": 2,
+        "baseAttack": 1,
+        "baseHealth": 3,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Start of battle: Deal 2 damage Damage for each friendly Strawberry pet to 1 random enemy.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        },
+        "level2Ability": {
+            "description": "Start of battle: Deal 2 damage Damage for each friendly Strawberry pet to 2 random enemies.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        },
+        "level3Ability": {
+            "description": "Start of battle: Deal 2 damage Damage for each friendly Strawberry pet to 3 random enemies.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        }
+    },
+    "pet-dove": {
+        "name": "Dove",
+        "id": "pet-dove",
+        "tier": 2,
+        "baseAttack": 2,
+        "baseHealth": 4,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Faint: Give 2 Strawberry friends +2 attack and +2 health.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Faint: Give 2 Strawberry friends +4 attack and +4 health.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Faint: Give 2 Strawberry friends +6 attack and +6 health.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-guinea_pig": {
+        "name": "Guinea Pig",
+        "id": "pet-guinea_pig",
+        "tier": 2,
+        "baseAttack": 1,
+        "baseHealth": 1,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Buy: Summon one 1/1 Guinea Pig.",
+            "trigger": "Buy",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonPet"
+            }
+        },
+        "level2Ability": {
+            "description": "Buy: Summon one 2/2 Guinea Pig.",
+            "trigger": "Buy",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonPet"
+            }
+        },
+        "level3Ability": {
+            "description": "Buy: Summon one 3/3 Guinea Pig.",
+            "trigger": "Buy",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonPet"
+            }
+        }
+    },
+    "pet-jellyfish": {
+        "name": "Jellyfish",
+        "id": "pet-jellyfish",
+        "tier": 2,
+        "baseAttack": 2,
+        "baseHealth": 3,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Any level-up: Gain  Attack +1  Health +1.",
+            "trigger": "AnyLevelUp",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Any level-up: Gain  Attack +2  Health +2.",
+            "trigger": "AnyLevelUp",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Any level-up: Gain  Attack +3  Health +3.",
+            "trigger": "AnyLevelUp",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-koala": {
+        "name": "Koala",
+        "id": "pet-koala",
+        "tier": 2,
+        "baseAttack": 1,
+        "baseHealth": 2,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Friend hurt: Give it +1/+1. Works 1 time per turn.",
+            "trigger": "FriendHurt",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Friend hurt: Give it +2/+2. Works 1 time per turn.",
+            "trigger": "FriendHurt",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Friend hurt: Give it +3/+3. Works 1 time per turn.",
+            "trigger": "FriendHurt",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-panda": {
+        "name": "Panda",
+        "id": "pet-panda",
+        "tier": 2,
+        "baseAttack": 2,
+        "baseHealth": 4,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Start of battle: Give 50% of Panda's Attack and Health to friend ahead, then faint.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "TransferStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Start of battle: Give 100% of Panda's Attack and Health to friend ahead, then faint.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "TransferStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Start of battle: Give 150% of Panda's Attack and Health to friend ahead, then faint.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "TransferStats"
+            }
+        }
+    },
+    "pet-pug": {
+        "name": "Pug",
+        "id": "pet-pug",
+        "tier": 2,
+        "baseAttack": 5,
+        "baseHealth": 2,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Start of battle: Give friend ahead +1 Experience.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "GainExperience"
+            }
+        },
+        "level2Ability": {
+            "description": "Start of battle: Give friend ahead +2 Experience.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "GainExperience"
+            }
+        },
+        "level3Ability": {
+            "description": "Start of battle: Give friend ahead +3 Experience.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "GainExperience"
+            }
+        }
+    },
+    "pet-stork": {
+        "name": "Stork",
+        "id": "pet-stork",
+        "tier": 2,
+        "baseAttack": 2,
+        "baseHealth": 1,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Faint: Summon one level 1 pet from the previous shop tier.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonRandomPet"
+            }
+        },
+        "level2Ability": {
+            "description": "Faint: Summon one level 2 pet from the previous shop tier.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonRandomPet"
+            }
+        },
+        "level3Ability": {
+            "description": "Faint: Summon one level 3 pet from the previous shop tier.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonRandomPet"
+            }
+        }
+    },
+    "pet-yak": {
+        "name": "Yak",
+        "id": "pet-yak",
+        "tier": 2,
+        "baseAttack": 3,
+        "baseHealth": 5,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "End turn: Deal 1 damage to itself and gain +1 .",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "DamageAndModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "End turn: Deal 1 damage to itself and gain +2 .",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "DamageAndModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "End turn: Deal 1 damage to itself and gain +3 .",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "DamageAndModifyStats"
+            }
+        }
+    },
+    "pet-hercules_beetle": {
+        "name": "Hercules Beetle",
+        "id": "pet-hercules_beetle",
+        "tier": 2,
+        "baseAttack": 3,
+        "baseHealth": 4,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Sell: Give friends +1 attack front-to-back for each battle this has fought.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Sell: Give friends +2 attack front-to-back for each battle this has fought.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Sell: Give friends +3 attack front-to-back for each battle this has fought.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-stoat": {
+        "name": "Stoat",
+        "id": "pet-stoat",
+        "tier": 2,
+        "baseAttack": 2,
+        "baseHealth": 2,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Sell: Summon one level 1 pet from your current tier as a 1/1.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonRandomPet"
+            }
+        },
+        "level2Ability": {
+            "description": "Sell: Summon one level 2 pet from your current tier as a 1/1.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonRandomPet"
+            }
+        },
+        "level3Ability": {
+            "description": "Sell: Summon one level 3 pet from your current tier as a 1/1.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonRandomPet"
+            }
+        }
+    },
+    "pet-black_necked_stilt": {
+        "name": "Black Necked Stilt",
+        "id": "pet-black_necked_stilt",
+        "tier": 2,
+        "baseAttack": 3,
+        "baseHealth": 2,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Faint: Gain +2 Trumpets.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "GainTrumpets"
+            }
+        },
+        "level2Ability": {
+            "description": "Faint: Gain +4 Trumpets.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "GainTrumpets"
+            }
+        },
+        "level3Ability": {
+            "description": "Faint: Gain +6 Trumpets.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "GainTrumpets"
+            }
+        }
+    },
+    "pet-squid": {
+        "name": "Squid",
+        "id": "pet-squid",
+        "tier": 2,
+        "baseAttack": 5,
+        "baseHealth": 2,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Faint: Spend 1 Trumpet to give the first enemy Ink.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        },
+        "level2Ability": {
+            "description": "Faint: Spend 1 Trumpet to give the first two enemies Ink.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        },
+        "level3Ability": {
+            "description": "Faint: Spend 1 Trumpet to give the first three enemies Ink.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        }
+    },
+    "pet-sea_urchin": {
+        "name": "Sea Urchin",
+        "id": "pet-sea_urchin",
+        "tier": 2,
+        "baseAttack": 3,
+        "baseHealth": 2,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Faint: Remove 5 health from the first enemy.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Faint: Remove 5 health from the first two enemies.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Faint: Remove 5 health from the first three enemies.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-door_head_ant": {
+        "name": "Door Head Ant",
+        "id": "pet-door_head_ant",
+        "tier": 2,
+        "baseAttack": 2,
+        "baseHealth": 2,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Empty Front Space: If in battle, push this to the front and gain +4 health.",
+            "trigger": "EmptyFrontSpace",
+            "triggeredBy": {
+                "kind": ""
+            },
+            "effect": {
+                "kind": "MoveAndModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Empty Front Space: If in battle, push this to the front and gain +8 health.",
+            "trigger": "EmptyFrontSpace",
+            "triggeredBy": {
+                "kind": ""
+            },
+            "effect": {
+                "kind": "MoveAndModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Empty Front Space: If in battle, push this to the front and gain +12 health.",
+            "trigger": "EmptyFrontSpace",
+            "triggeredBy": {
+                "kind": ""
+            },
+            "effect": {
+                "kind": "MoveAndModifyStats"
+            }
+        }
+    },
+    "pet-sea_turtle": {
+        "name": "Sea Turtle",
+        "id": "pet-sea_turtle",
+        "tier": 2,
+        "baseAttack": 2,
+        "baseHealth": 5,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Friend Summoned: If in battle, give it +3 health.",
+            "trigger": "Summoned",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Friend Summoned: If in battle, give it +6 health.",
+            "trigger": "Summoned",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Friend Summoned: If in battle, give it +9 health.",
+            "trigger": "Summoned",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-gazelle": {
+        "name": "Gazelle",
+        "id": "pet-gazelle",
+        "tier": 2,
+        "baseAttack": 2,
+        "baseHealth": 3,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Start of turn: Gain +1 Attack and +1 Health until end of battle per extra Gold.",
+            "trigger": "StartOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Start of turn: Gain +2 Attack and +2 Health until end of battle per extra Gold.",
+            "trigger": "StartOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Start of turn: Gain +3 Attack and +3 Health until end of battle per extra Gold.",
+            "trigger": "StartOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-african_penguin": {
+        "name": "African Penguin",
+        "id": "pet-african_penguin",
+        "tier": 2,
+        "baseAttack": 1,
+        "baseHealth": 3,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Buy: Give three random friends +1 attack.",
+            "trigger": "Buy",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Buy: Give three random friends +2 attack.",
+            "trigger": "Buy",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Buy: Give three random friends +3 attack.",
+            "trigger": "Buy",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-aardvark": {
+        "name": "Aardvark",
+        "id": "pet-aardvark",
+        "tier": 3,
+        "baseAttack": 2,
+        "baseHealth": 3,
+        "packs": [
+            "Tiger"
+        ],
+        "level1Ability": {
+            "description": "Enemy summoned: Gain +2  and +2 .",
+            "trigger": "EnemySummoned",
+            "triggeredBy": {
+                "kind": ""
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Enemy summoned: Gain +4  and +4 .",
+            "trigger": "EnemySummoned",
+            "triggeredBy": {
+                "kind": ""
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Enemy summoned: Gain +6  and +6 .",
+            "trigger": "EnemySummoned",
+            "triggeredBy": {
+                "kind": ""
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-bear": {
+        "name": "Bear",
+        "id": "pet-bear",
+        "tier": 3,
+        "baseAttack": 3,
+        "baseHealth": 5,
+        "packs": [
+            "Weekly",
+            "Custom"
+        ],
+        "level1Ability": {
+            "description": "Faint: Give Honey perk to all pets within one space.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        },
+        "level2Ability": {
+            "description": "Faint: Give Honey perk to all pets within two spaces.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        },
+        "level3Ability": {
+            "description": "Faint: Give Honey perk to all pets within three spaces.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        }
+    },
+    "pet-emperor_tamarin": {
+        "name": "Emperor Tamarin",
+        "id": "pet-emperor_tamarin",
+        "tier": 3,
+        "baseAttack": 2,
+        "baseHealth": 4,
+        "packs": [
+            "Weekly",
+            "Custom"
+        ],
+        "level1Ability": {
+            "description": "Sell: Give 50% of Emperor Tamarin's Attack and Health to the leftmost shop pet.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyShop"
+            }
+        },
+        "level2Ability": {
+            "description": "Sell: Give 100% of Emperor Tamarin's Attack and Health to the leftmost shop pet.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyShop"
+            }
+        },
+        "level3Ability": {
+            "description": "Sell: Give 150% of Emperor Tamarin's Attack and Health to the leftmost shop pet.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyShop"
+            }
+        }
+    },
+    "pet-seagull": {
+        "name": "Seagull",
+        "id": "pet-seagull",
+        "tier": 3,
+        "baseAttack": 3,
+        "baseHealth": 2,
+        "packs": [
+            "Tiger"
+        ],
+        "level1Ability": {
+            "description": "Friend summoned: Copy Seagull's held Food to it. Works 1 time(s) per turn.",
+            "trigger": "Summoned",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        },
+        "level2Ability": {
+            "description": "Friend summoned: Copy Seagull's held Food to it. Works 2 time(s) per turn.",
+            "trigger": "Summoned",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        },
+        "level3Ability": {
+            "description": "Friend summoned: Copy Seagull's held Food to it. Works 3 time(s) per turn.",
+            "trigger": "Summoned",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        }
+    },
+    "pet-wasp": {
+        "name": "Wasp",
+        "id": "pet-wasp",
+        "tier": 3,
+        "baseAttack": 2,
+        "baseHealth": 3,
+        "packs": [
+            "Tiger"
+        ],
+        "level1Ability": {
+            "description": "Upgrade shop tier: Gain 50% more Attack.",
+            "trigger": "UpgradeShopTier",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Upgrade shop tier: Gain 100% more Attack.",
+            "trigger": "UpgradeShopTier",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Upgrade shop tier: Gain 150% more Attack.",
+            "trigger": "UpgradeShopTier",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-blobfish": {
+        "name": "Blobfish",
+        "id": "pet-blobfish",
+        "tier": 3,
+        "baseAttack": 2,
+        "baseHealth": 4,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Before Faint: Give friend behind +1  and +1  and +1 Experience.",
+            "trigger": "BeforeFaint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "GainExperienceAndModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Before Faint: Give friend behind +2  and +2  and +2 Experience.",
+            "trigger": "BeforeFaint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "GainExperienceAndModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Before Faint: Give friend behind +3  and +3  and +3 Experience.",
+            "trigger": "BeforeFaint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "GainExperienceAndModifyStats"
+            }
+        }
+    },
+    "pet-capybara": {
+        "name": "Capybara",
+        "id": "pet-capybara",
+        "tier": 3,
+        "baseAttack": 2,
+        "baseHealth": 5,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Roll: Give unfrozen shop pets +2 attack and +1 health.",
+            "trigger": "Roll",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyShop"
+            }
+        },
+        "level2Ability": {
+            "description": "Roll: Give unfrozen shop pets +4 attack and +2 health.",
+            "trigger": "Roll",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyShop"
+            }
+        },
+        "level3Ability": {
+            "description": "Roll: Give unfrozen shop pets +6 attack and +3 health.",
+            "trigger": "Roll",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyShop"
+            }
+        }
+    },
+    "pet-cassowary": {
+        "name": "Cassowary",
+        "id": "pet-cassowary",
+        "tier": 3,
+        "baseAttack": 2,
+        "baseHealth": 4,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "End turn: Gain +1  and +1  for each friendly Strawberry pet up to 1.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "End turn: Gain +1  and +1  for each friendly Strawberry pet up to 2.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "End turn: Gain +1  and +1  for each friendly Strawberry pet up to 3.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-clownfish": {
+        "name": "Clownfish",
+        "id": "pet-clownfish",
+        "tier": 3,
+        "baseAttack": 2,
+        "baseHealth": 3,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Friendly pet level-up: Give it +2  +2 .",
+            "trigger": "FriendLevelUp",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "MofidyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Friendly pet level-up: Give it +4  +4 .",
+            "trigger": "FriendLevelUp",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "MofidyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Friendly pet level-up: Give it +6  +6 .",
+            "trigger": "FriendLevelUp",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "MofidyStats"
+            }
+        }
+    },
+    "pet-leech": {
+        "name": "Leech",
+        "id": "pet-leech",
+        "tier": 3,
+        "baseAttack": 4,
+        "baseHealth": 2,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "End turn: Deal 1 damage to the pet ahead and gain +1  health.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "DamageAndModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "End turn: Deal 1 damage to the pet ahead and gain +2  health.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "DamageAndModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "End turn: Deal 1 damage to the pet ahead and gain +3  health.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "DamageAndModifyStats"
+            }
+        }
+    },
+    "pet-okapi": {
+        "name": "Okapi",
+        "id": "pet-okapi",
+        "tier": 3,
+        "baseAttack": 2,
+        "baseHealth": 3,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Roll: Gain +1  and +1  until end of battle. Works 5 time(s) a turn.",
+            "trigger": "Roll",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Roll: Gain +2  and +2  until end of battle. Works 5 time(s) a turn.",
+            "trigger": "Roll",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Roll: Gain +3  and +3  until end of battle. Works 5 time(s) a turn.",
+            "trigger": "Roll",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-starfish": {
+        "name": "Starfish",
+        "id": "pet-starfish",
+        "tier": 3,
+        "baseAttack": 3,
+        "baseHealth": 2,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Friend sold: If it had a Sell ability, give +1  and +1  to a random friend.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "ModiftStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Friend sold: If it had a Sell ability, give +2  and +2  to a random friend.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "ModiftStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Friend sold: If it had a Sell ability, give +3  and +3  to a random friend.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "ModiftStats"
+            }
+        }
+    },
+    "pet-toad": {
+        "name": "Toad",
+        "id": "pet-toad",
+        "tier": 3,
+        "baseAttack": 3,
+        "baseHealth": 3,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Enemy hurt: Make it Weak. Works 2 time(s) a turn.",
+            "trigger": "Hurt",
+            "triggeredBy": {
+                "kind": "EachEnemy"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        },
+        "level2Ability": {
+            "description": "Enemy hurt: Make it Weak. Works 4 time(s) a turn.",
+            "trigger": "Hurt",
+            "triggeredBy": {
+                "kind": "EachEnemy"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        },
+        "level3Ability": {
+            "description": "Enemy hurt: Make it Weak. Works 6 time(s) a turn.",
+            "trigger": "Hurt",
+            "triggeredBy": {
+                "kind": "EachEnemy"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        }
+    },
+    "pet-woodpecker": {
+        "name": "Woodpecker",
+        "id": "pet-woodpecker",
+        "tier": 3,
+        "baseAttack": 4,
+        "baseHealth": 3,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Start of battle: Deal 2 damage to the two pets ahead Repeat 1 time(s).",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        },
+        "level2Ability": {
+            "description": "Start of battle: Deal 2 damage to the two pets ahead Repeat 2 time(s).",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        },
+        "level3Ability": {
+            "description": "Start of battle: Deal 2 damage to the two pets ahead Repeat 3 time(s).",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        }
+    },
+    "pet-musk_ox": {
+        "name": "Musk Ox",
+        "id": "pet-musk_ox",
+        "tier": 3,
+        "baseAttack": 2,
+        "baseHealth": 4,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Friend ahead faints: Gain +1 Attack and +2 Health.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Friend ahead faints: Gain +2 Attack and +4 Health.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Friend ahead faints: Gain +3 Attack and +6 Health.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-flea": {
+        "name": "Flea",
+        "id": "pet-flea",
+        "tier": 3,
+        "baseAttack": 3,
+        "baseHealth": 1,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Faint: Make the most healthy enemy Weak.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        },
+        "level2Ability": {
+            "description": "Faint: Make the two most healthy enemies Weak.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        },
+        "level3Ability": {
+            "description": "Faint: Make the three most healthy enemies Weak.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        }
+    },
+    "pet-royal_flycatcher": {
+        "name": "Royal Flycatcher",
+        "id": "pet-royal_flycatcher",
+        "tier": 3,
+        "baseAttack": 2,
+        "baseHealth": 4,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Enemy summoned: Deal 3 damage to one random enemy.",
+            "trigger": "Summoned",
+            "triggeredBy": {
+                "kind": "EachEnemy"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        },
+        "level2Ability": {
+            "description": "Enemy summoned: Deal 6 damage to one random enemy.",
+            "trigger": "Summoned",
+            "triggeredBy": {
+                "kind": "EachEnemy"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        },
+        "level3Ability": {
+            "description": "Enemy summoned: Deal 9 damage to one random enemy.",
+            "trigger": "Summoned",
+            "triggeredBy": {
+                "kind": "EachEnemy"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        }
+    },
+    "pet-surgeon_fish": {
+        "name": "Surgeon Fish",
+        "id": "pet-surgeon_fish",
+        "tier": 3,
+        "baseAttack": 3,
+        "baseHealth": 3,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Before attack: Spend 2 trumpets to give the nearest friend behing +6 health.",
+            "trigger": "BeforeAttack",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Before attack: Spend 2 trumpets to give the nearest friend behing +12 health.",
+            "trigger": "BeforeAttack",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Before attack: Spend 2 trumpets to give the nearest friend behing +18 health.",
+            "trigger": "BeforeAttack",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-weasel": {
+        "name": "Weasel",
+        "id": "pet-weasel",
+        "tier": 3,
+        "baseAttack": 3,
+        "baseHealth": 4,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Faint: Gain +1 gold on next turn.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "GainGold"
+            }
+        },
+        "level2Ability": {
+            "description": "Faint: Gain +2 gold on next turn.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "GainGold"
+            }
+        },
+        "level3Ability": {
+            "description": "Faint: Gain +3 gold on next turn.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "GainGold"
+            }
+        }
+    },
+    "pet-guineafowl": {
+        "name": "Guineafowl",
+        "id": "pet-guineafowl",
+        "tier": 3,
+        "baseAttack": 2,
+        "baseHealth": 5,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Hurt: Gain +2 trumpets.",
+            "trigger": "Hurt",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "GainTrumpets"
+            }
+        },
+        "level2Ability": {
+            "description": "Hurt: Gain +4 trumpets.",
+            "trigger": "Hurt",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "GainTrumpets"
+            }
+        },
+        "level3Ability": {
+            "description": "Hurt: Gain +6 trumpets.",
+            "trigger": "Hurt",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "GainTrumpets"
+            }
+        }
+    },
+    "pet-betta_fish": {
+        "name": "Betta Fish",
+        "id": "pet-betta_fish",
+        "tier": 3,
+        "baseAttack": 2,
+        "baseHealth": 3,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Faint: Give the nearest friend behind +4 Attack and +2 Health.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Faint: Give the nearest friend behind +8 Attack and +4 Health.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Faint: Give the nearest friend behind +12 Attack and +6 Health.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-meerkat": {
+        "name": "Meerkat",
+        "id": "pet-meerkat",
+        "tier": 3,
+        "baseAttack": 1,
+        "baseHealth": 3,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Start of battle: Give adjacent friends +1 attack for every 3 Gold spent this turn.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Start of battle: Give adjacent friends +2 attack for every 3 Gold spent this turn.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Start of battle: Give adjacent friends +3 attack for every 3 Gold spent this turn.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-flying_fish": {
+        "name": "Flying Fish",
+        "id": "pet-flying_fish",
+        "tier": 3,
+        "baseAttack": 1,
+        "baseHealth": 2,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Friend summoned: If in battle, give it +2 experience. Works 2 times per turn.",
+            "trigger": "Summoned",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "GainExperience"
+            }
+        },
+        "level2Ability": {
+            "description": "Friend summoned: If in battle, give it +4 experience. Works 2 times per turn.",
+            "trigger": "Summoned",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "GainExperience"
+            }
+        },
+        "level3Ability": {
+            "description": "Friend summoned: If in battle, give it +6 experience. Works 2 times per turn.",
+            "trigger": "Summoned",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "GainExperience"
+            }
+        }
+    },
+    "pet-baboon": {
+        "name": "Baboon",
+        "id": "pet-baboon",
+        "tier": 3,
+        "baseAttack": 1,
+        "baseHealth": 2,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "End Turn: Give one random friend from the current shop tier +1 attack and + 2 health",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyShop"
+            }
+        },
+        "level2Ability": {
+            "description": "End Turn: Give one random friend from the current shop tier +2 attack and + 4 health",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyShop"
+            }
+        },
+        "level3Ability": {
+            "description": "End Turn: Give one random friend from the current shop tier +3 attack and + 6 health",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyShop"
+            }
+        }
+    },
+    "pet-osprey": {
+        "name": "Osprey",
+        "id": "pet-osprey",
+        "tier": 3,
+        "baseAttack": 3,
+        "baseHealth": 3,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Faint: Summon one 2/1 Groundhog.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonPet"
+            }
+        },
+        "level2Ability": {
+            "description": "Faint: Summon two 2/1 Groundhogs.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonPet"
+            }
+        },
+        "level3Ability": {
+            "description": "Faint: Summon three 2/1 Groundhogs.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonPet"
+            }
+        }
+    },
+    "pet-armadillo": {
+        "name": "Armadillo",
+        "id": "pet-armadillo",
+        "tier": 4,
+        "baseAttack": 2,
+        "baseHealth": 6,
+        "packs": [
+            "Tiger"
+        ],
+        "level1Ability": {
+            "description": "Hurt and Faint: Give friends +1  Health.",
+            "trigger": "HurtAndFaint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Hurt and Faint: Give friends +2  Health.",
+            "trigger": "HurtAndFaint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Hurt and Faint: Give friends +3  Health.",
+            "trigger": "HurtAndFaint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-dragonfly": {
+        "name": "Dragonfly",
+        "id": "pet-dragonfly",
+        "tier": 4,
+        "baseAttack": 2,
+        "baseHealth": 4,
+        "packs": [
+            "Tiger"
+        ],
+        "level1Ability": {
+            "description": "End Turn: Give +1  and +1  to one pet of each level.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "End Turn: Give +2  and +2  to one pet of each level.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "End Turn: Give +3  and +3  to one pet of each level.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-doberman": {
+        "name": "Doberman",
+        "id": "pet-doberman",
+        "tier": 4,
+        "baseAttack": 4,
+        "baseHealth": 5,
+        "packs": [
+            "Weekly",
+            "Custom"
+        ],
+        "level1Ability": {
+            "description": "Start of battle: If this is your lowest tier pet, gain Coconut +5 attack and +5 health",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ApplyStatusAndModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Start of battle: If this is your lowest tier pet, gain Coconut +10 attack and +10 health.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ApplyStatusAndModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Start of battle: If this is your lowest tier pet, gain Coconut +15 attack and +15 health.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ApplyStatusAndModifyStats"
+            }
+        }
+    },
+    "pet-jerboa": {
+        "name": "Jerboa",
+        "id": "pet-jerboa",
+        "tier": 4,
+        "baseAttack": 1,
+        "baseHealth": 3,
+        "packs": [
+            "Tiger"
+        ],
+        "level1Ability": {
+            "description": "Eats apple: Give other pets +1/+1.",
+            "trigger": "EatsShopFood",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": ""
+            }
+        },
+        "level2Ability": {
+            "description": "Eats apple: Give other pets +2/+2.",
+            "trigger": "EatsShopFood",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": ""
+            }
+        },
+        "level3Ability": {
+            "description": "Eats apple: Give other pets +3/+3.",
+            "trigger": "EatsShopFood",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": ""
+            }
+        }
+    },
+    "pet-lynx": {
+        "name": "Lynx",
+        "id": "pet-lynx",
+        "tier": 4,
+        "baseAttack": 5,
+        "baseHealth": 3,
+        "packs": [
+            "Tiger"
+        ],
+        "level1Ability": {
+            "description": "Start of battle: Deal damage to 1 enemy equal to the sum of all friendly levels.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        },
+        "level2Ability": {
+            "description": "Start of battle: Deal damage to 2 enemies equal to the sum of all friendly levels.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        },
+        "level3Ability": {
+            "description": "Start of battle: Deal damage to 3 enemies equal to the sum of all friendly levels.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        }
+    },
+    "pet-mole": {
+        "name": "Mole",
+        "id": "pet-mole",
+        "tier": 4,
+        "baseAttack": 2,
+        "baseHealth": 3,
+        "packs": [
+            "Tiger"
+        ],
+        "level1Ability": {
+            "description": "Buy: Give adjacent Pets +1  and +1 .",
+            "trigger": "Buy",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Buy: Give adjacent Pets +2  and +2 .",
+            "trigger": "Buy",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Buy: Give adjacent Pets +3  and +3 .",
+            "trigger": "Buy",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-porcupine": {
+        "name": "Porcupine",
+        "id": "pet-porcupine",
+        "tier": 4,
+        "baseAttack": 5,
+        "baseHealth": 4,
+        "packs": [
+            "Tiger"
+        ],
+        "level1Ability": {
+            "description": "Hurt: Deal 6 damage back to the pet that hurt Porcupine.",
+            "trigger": "Hurt",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        },
+        "level2Ability": {
+            "description": "Hurt: Deal 12 damage back to the pet that hurt Porcupine.",
+            "trigger": "Hurt",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        },
+        "level3Ability": {
+            "description": "Hurt: Deal 18 damage back to the pet that hurt Porcupine.",
+            "trigger": "Hurt",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        }
+    },
+    "pet-anteater": {
+        "name": "Anteater",
+        "id": "pet-anteater",
+        "tier": 4,
+        "baseAttack": 3,
+        "baseHealth": 2,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Faint: Summon two Lvl. 1 Ants.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonPet"
+            }
+        },
+        "level2Ability": {
+            "description": "Faint: Summon two Lvl. 2 Ants.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonPet"
+            }
+        },
+        "level3Ability": {
+            "description": "Faint: Summon two Lvl. 3 Ants.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonPet"
+            }
+        }
+    },
+    "pet-crow": {
+        "name": "Crow",
+        "id": "pet-crow",
+        "tier": 4,
+        "baseAttack": 3,
+        "baseHealth": 3,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Sell: Replace Shop food with one chocolate that gives +1 Experience.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "RefillShops"
+            }
+        },
+        "level2Ability": {
+            "description": "Sell: Replace Shop food with one chocolate that gives +2 Experience.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "RefillShops"
+            }
+        },
+        "level3Ability": {
+            "description": "Sell: Replace Shop food with one chocolate that gives +3 Experience.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "RefillShops"
+            }
+        }
+    },
+    "pet-donkey": {
+        "name": "Donkey",
+        "id": "pet-donkey",
+        "tier": 4,
+        "baseAttack": 4,
+        "baseHealth": 6,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Friend faints: Push last enemy to the front. Works 1 time(s) a turn.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "Move"
+            }
+        },
+        "level2Ability": {
+            "description": "Friend faints: Push last enemy to the front. Works 2 time(s) a turn.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "Move"
+            }
+        },
+        "level3Ability": {
+            "description": "Friend faints: Push last enemy to the front. Works 3 time(s) a turn.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "Move"
+            }
+        }
+    },
+    "pet-eel": {
+        "name": "Eel",
+        "id": "pet-eel",
+        "tier": 4,
+        "baseAttack": 5,
+        "baseHealth": 4,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Start of battle: Gain 50% bonus Health.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Start of battle: Gain 100% bonus Health.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Start of battle: Gain 150% bonus Health.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-hawk": {
+        "name": "Hawk",
+        "id": "pet-hawk",
+        "tier": 4,
+        "baseAttack": 4,
+        "baseHealth": 3,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Start of battle: Deal 7 damage to the opposite enemy.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        },
+        "level2Ability": {
+            "description": "Start of battle: Deal 14 damage to the opposite enemy.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        },
+        "level3Ability": {
+            "description": "Start of battle: Deal 21 damage to the opposite enemy.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        }
+    },
+    "pet-orangutan": {
+        "name": "Orangutan",
+        "id": "pet-orangutan",
+        "tier": 4,
+        "baseAttack": 3,
+        "baseHealth": 6,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "End turn: Give the lowest Health friendly pet +4  Health.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "End turn: Give the lowest Health friendly pet +8  Health.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "End turn: Give the lowest Health friendly pet +12  Health.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-pelican": {
+        "name": "Pelican",
+        "id": "pet-pelican",
+        "tier": 4,
+        "baseAttack": 2,
+        "baseHealth": 3,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "End turn & Start of battle: Give random Strawberry friend +2  and +1 .",
+            "trigger": "EndOfTurnAndStartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "End turn & Start of battle: Give random Strawberry friend +4  and +2 .",
+            "trigger": "EndOfTurnAndStartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "End turn & Start of battle: Give random Strawberry friend +6  and +3 .",
+            "trigger": "EndOfTurnAndStartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-platypus": {
+        "name": "Platypus",
+        "id": "pet-platypus",
+        "tier": 4,
+        "baseAttack": 5,
+        "baseHealth": 2,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Sell: Summon a Level 1 Duck and Beaver.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonPet"
+            }
+        },
+        "level2Ability": {
+            "description": "Sell: Summon a Level 2 Duck and Beaver.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonPet"
+            }
+        },
+        "level3Ability": {
+            "description": "Sell: Summon a Level 3 Duck and Beaver.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonPet"
+            }
+        }
+    },
+    "pet-praying_mantis": {
+        "name": "Praying Mantis",
+        "id": "pet-praying_mantis",
+        "tier": 4,
+        "baseAttack": 7,
+        "baseHealth": 2,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Start of turn: Knock out adjacent pets and gain +2  and +2 .",
+            "trigger": "StartOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "KnockoutAndModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Start of turn: Knock out adjacent pets and gain +4  and +4 .",
+            "trigger": "StartOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "KnockoutAndModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Start of turn: Knock out adjacent pets and gain +6  and +6 .",
+            "trigger": "StartOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "KnockoutAndModifyStats"
+            }
+        }
+    },
+    "pet-manatee": {
+        "name": "Manatee",
+        "id": "pet-manatee",
+        "tier": 4,
+        "baseAttack": 2,
+        "baseHealth": 11,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "End turn: Take 5 damage and give the nearest friend ahead +2 attack and +1 health.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "DamageAndModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "End turn: Take 5 damage and give the nearest friend ahead +4 attack and +2 health.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "DamageAndModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "End turn: Take 5 damage and give the nearest friend ahead +6 attack and +3 health.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "DamageAndModifyStats"
+            }
+        }
+    },
+    "pet-cuttlefish": {
+        "name": "Cuttlefish",
+        "id": "pet-cuttlefish",
+        "tier": 4,
+        "baseAttack": 8,
+        "baseHealth": 4,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Faint: Give the last enemy Ink.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        },
+        "level2Ability": {
+            "description": "Faint: Give the last two enemies Ink.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        },
+        "level3Ability": {
+            "description": "Faint: Give the last three enemies Ink.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        }
+    },
+    "pet-egyptian_vulture": {
+        "name": "Egyptian Vulture",
+        "id": "pet-egyptian_vulture",
+        "tier": 4,
+        "baseAttack": 5,
+        "baseHealth": 4,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Knock out: Activate Faint ability on the nearest friend behind. Works 1 time a turn.",
+            "trigger": "Knockout",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ActivateAbility"
+            }
+        },
+        "level2Ability": {
+            "description": "Knock out: Activate Faint ability on the nearest friend behind. Works 2 times a turn.",
+            "trigger": "Knockout",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ActivateAbility"
+            }
+        },
+        "level3Ability": {
+            "description": "Knock out: Activate Faint ability on the nearest friend behind. Works 3 times a turn.",
+            "trigger": "Knockout",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ActivateAbility"
+            }
+        }
+    },
+    "pet-saiga_antelope": {
+        "name": "Saiga Antelope",
+        "id": "pet-saiga_antelope",
+        "tier": 4,
+        "baseAttack": 4,
+        "baseHealth": 3,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Friend faints: Gain +1 trumpet.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "GainTrumpets"
+            }
+        },
+        "level2Ability": {
+            "description": "Friend faints: Gain +2 trumpets.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "GainTrumpets"
+            }
+        },
+        "level3Ability": {
+            "description": "Friend faints: Gain +3 trumpets.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "GainTrumpets"
+            }
+        }
+    },
+    "pet-sealion": {
+        "name": "Sealion",
+        "id": "pet-sealion",
+        "tier": 4,
+        "baseAttack": 3,
+        "baseHealth": 6,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "End turn: Give friends behind +1 attack and friends ahead +1 health.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "End turn: Give friends behind +2 attack and friends ahead +2 health.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "End turn: Give friends behind +3 attack and friends ahead +3 health.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-vaquita": {
+        "name": "Vaquita",
+        "id": "pet-vaquita",
+        "tier": 4,
+        "baseAttack": 3,
+        "baseHealth": 4,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Faint: Gain +50% trumpets.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "GainTrumpets"
+            }
+        },
+        "level2Ability": {
+            "description": "Faint: Gain +100% trumpets.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "GainTrumpets"
+            }
+        },
+        "level3Ability": {
+            "description": "Faint: Gain +150% trumpets.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "GainTrumpets"
+            }
+        }
+    },
+    "pet-slug": {
+        "name": "Slug",
+        "id": "pet-slug",
+        "tier": 4,
+        "baseAttack": 4,
+        "baseHealth": 4,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Faint: Summon one 2/2 Smaller Slug that summons one 1/1 Smallest Slug.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonPet"
+            }
+        },
+        "level2Ability": {
+            "description": "Faint: Summon one 4/4 Smaller Slug that summons one 2/2 Smallest Slug.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonPet"
+            }
+        },
+        "level3Ability": {
+            "description": "Faint: Summon one 6/6 Smaller Slug that summons one 3/3 Smallest Slug.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonPet"
+            }
+        }
+    },
+    "pet-poison_dart_frog": {
+        "name": "Poison Dart Frog",
+        "id": "pet-poison_dart_frog",
+        "tier": 4,
+        "baseAttack": 5,
+        "baseHealth": 2,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Friend ahead faints: Deal 3 damage to the highest health enemy.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        },
+        "level2Ability": {
+            "description": "Friend ahead faints: Deal 6 damage to the highest health enemy.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        },
+        "level3Ability": {
+            "description": "Friend ahead faints: Deal 9 damage to the highest health enemy.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        }
+    },
+    "pet-secretary_bird": {
+        "name": "Secretary Bird",
+        "id": "pet-secretary_bird",
+        "tier": 4,
+        "baseAttack": 3,
+        "baseHealth": 2,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Two friends faint: give the nearest friend ahead +3 Attack and +3 Health.",
+            "trigger": "",
+            "triggeredBy": {
+                "kind": ""
+            },
+            "effect": {
+                "kind": ""
+            }
+        },
+        "level2Ability": {
+            "description": "Two friends faint: give the nearest friend ahead +6 Attack and +6 Health.",
+            "trigger": "",
+            "triggeredBy": {
+                "kind": ""
+            },
+            "effect": {
+                "kind": ""
+            }
+        },
+        "level3Ability": {
+            "description": "Two friends faint: give the nearest friend ahead +9 Attack and +9 Health.",
+            "trigger": "",
+            "triggeredBy": {
+                "kind": ""
+            },
+            "effect": {
+                "kind": ""
+            }
+        }
+    },
+    "pet-falcon": {
+        "name": "Falcon",
+        "id": "pet-falcon",
+        "tier": 5,
+        "baseAttack": 5,
+        "baseHealth": 5,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Knock out: Summon one 3/3 level 1 copy of the knocked out pet. Works 5 times per battle.",
+            "trigger": "Knockout",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonPet"
+            }
+        },
+        "level2Ability": {
+            "description": "Knock out: Summon one 6/6 level 2 copy of the knocked out pet. Works 5 times per battle.",
+            "trigger": "Knockout",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonPet"
+            }
+        },
+        "level3Ability": {
+            "description": "Knock out: Summon one 9/9 level 3 copy of the knocked out pet. Works 5 times per battle.",
+            "trigger": "Knockout",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonPet"
+            }
+        }
+    },
+    "pet-manta_ray": {
+        "name": "Manta Ray",
+        "id": "pet-manta_ray",
+        "tier": 4,
+        "baseAttack": 5,
+        "baseHealth": 4,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "End turn: If there is an empty space, gain +2 Gold next turn.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "GainGold"
+            }
+        },
+        "level2Ability": {
+            "description": "End turn: If there is an empty space, gain +4 Gold next turn.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "GainGold"
+            }
+        },
+        "level3Ability": {
+            "description": "End turn: If there is an empty space, gain +6 Gold next turn.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "GainGold"
+            }
+        }
+    },
+    "pet-hyena": {
+        "name": "Hyena",
+        "id": "pet-hyena",
+        "tier": 5,
+        "baseAttack": 5,
+        "baseHealth": 5,
+        "packs": [
+            "Tiger"
+        ],
+        "level1Ability": {
+            "description": "Start of battle: Swap attack and health of all pets.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": ""
+            }
+        },
+        "level2Ability": {
+            "description": "Start of battle: Shuffle positions of all pets.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": ""
+            }
+        },
+        "level3Ability": {
+            "description": "Start of battle: Swap attack and health and shuffle positions of all pets.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": ""
+            }
+        }
+    },
+    "pet-lionfish": {
+        "name": "Lionfish",
+        "id": "pet-lionfish",
+        "tier": 5,
+        "baseAttack": 4,
+        "baseHealth": 6,
+        "packs": [
+            "Tiger"
+        ],
+        "level1Ability": {
+            "description": "Before friend attacks: Make the enemy target weak. Works 1 time per battle.",
+            "trigger": "BeforeAttack",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        },
+        "level2Ability": {
+            "description": "Before friend attacks: Make the enemy target weak. Works 2 times per battle.",
+            "trigger": "BeforeAttack",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        },
+        "level3Ability": {
+            "description": "Before friend attacks: Make the enemy target weak. Works 2 times per battle.",
+            "trigger": "BeforeAttack",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        }
+    },
+    "pet-moose": {
+        "name": "Moose",
+        "id": "pet-moose",
+        "tier": 5,
+        "baseAttack": 5,
+        "baseHealth": 6,
+        "packs": [
+            "Tiger"
+        ],
+        "level1Ability": {
+            "description": "End turn: Unfreeze shop and give +1  and +1  to one random friend. Multiply with the lowest tier in the pet shop.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyShop"
+            }
+        },
+        "level2Ability": {
+            "description": "End turn: Unfreeze shop and give +1  and +1  to two random friends. Multiply with the lowest tier in the pet shop.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyShop"
+            }
+        },
+        "level3Ability": {
+            "description": "End turn: Unfreeze shop and give +1  and +1  to three random friends. Multiply with the lowest tier in the pet shop.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyShop"
+            }
+        }
+    },
+    "pet-fox": {
+        "name": "Fox",
+        "id": "pet-fox",
+        "tier": 5,
+        "baseAttack": 5,
+        "baseHealth": 3,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "End turn: Steal one random shop food.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": ""
+            }
+        },
+        "level2Ability": {
+            "description": "End turn: Steal one random shop food and double its attack and health and attack effects.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": ""
+            }
+        },
+        "level3Ability": {
+            "description": "End turn: Steal one random shop food and triple its attack and health and attack effects.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": ""
+            }
+        }
+    },
+    "pet-hamster": {
+        "name": "Hamster",
+        "id": "pet-hamster",
+        "tier": 5,
+        "baseAttack": 2,
+        "baseHealth": 4,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Roll shop: Gain +1  gold. Works 2 times per turn.",
+            "trigger": "Roll",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "GainGold"
+            }
+        },
+        "level2Ability": {
+            "description": "Roll shop: Gain +1  gold. Works 4 times per turn.",
+            "trigger": "Roll",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "GainGold"
+            }
+        },
+        "level3Ability": {
+            "description": "Roll shop: Gain +1  gold. Works 6 times per turn.",
+            "trigger": "Roll",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "GainGold"
+            }
+        }
+    },
+    "pet-lion": {
+        "name": "Lion",
+        "id": "pet-lion",
+        "tier": 5,
+        "baseAttack": 6,
+        "baseHealth": 6,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Start of battle: If this is your highest tier pet, gain +50%  attack and  health.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Start of battle: If this is your highest tier pet, gain +100%  attack and  health.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Start of battle: If this is your highest tier pet, gain +150%  attack and  health.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-polar_bear": {
+        "name": "Polar Bear",
+        "id": "pet-polar_bear",
+        "tier": 5,
+        "baseAttack": 4,
+        "baseHealth": 8,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Start of Turn: Give one random frozen shop pet +4 attack and +4 health.",
+            "trigger": "StartOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyShop"
+            }
+        },
+        "level2Ability": {
+            "description": "Start of Turn: Give one random frozen shop pet +8 attack and +8 health.",
+            "trigger": "StartOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyShop"
+            }
+        },
+        "level3Ability": {
+            "description": "Start of Turn: Give one random frozen shop pet +12 attack and +12 health.",
+            "trigger": "StartOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyShop"
+            }
+        }
+    },
+    "pet-shoebill": {
+        "name": "Shoebill",
+        "id": "pet-shoebill",
+        "tier": 5,
+        "baseAttack": 2,
+        "baseHealth": 4,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "End turn: Give Strawberry friends +1  attack and +2  health.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "End turn: Give Strawberry friends +2  attack and +4  health.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "End turn: Give Strawberry friends +3  attack and +6  health.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-siberian_husky": {
+        "name": "Siberian Husky",
+        "id": "pet-siberian_husky",
+        "tier": 5,
+        "baseAttack": 4,
+        "baseHealth": 3,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "End Turn: Give friends with no held food +1  attack and +1  health.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "End Turn: Give friends with no held food +2  attack and +2  health.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "End Turn: Give friends with no held food +3  attack and +3  health.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-sword_fish": {
+        "name": "Sword Fish",
+        "id": "pet-sword_fish",
+        "tier": 5,
+        "baseAttack": 5,
+        "baseHealth": 5,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Start of battle: Deal 100%   attack  damage to the most healthy enemy and itself.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        },
+        "level2Ability": {
+            "description": "Start of battle: Deal 200% attack  damage to the most healthy enemy and itself.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        },
+        "level3Ability": {
+            "description": "Start of battle: Deal 300% attack  damage to the most healthy enemy and itself.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        }
+    },
+    "pet-triceratops": {
+        "name": "Triceratops",
+        "id": "pet-triceratops",
+        "tier": 5,
+        "baseAttack": 5,
+        "baseHealth": 6,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Hurt: Give one random friend +3  attack and +3  health.",
+            "trigger": "Hurt",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Hurt: Give one random friend +6  attack and +6  health.",
+            "trigger": "Hurt",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Hurt: Give one random friend +9  attack and +9  health.",
+            "trigger": "Hurt",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-vulture": {
+        "name": "Vulture",
+        "id": "pet-vulture",
+        "tier": 5,
+        "baseAttack": 4,
+        "baseHealth": 3,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Two friends faint: Deal 4  damage to one random enemy.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        },
+        "level2Ability": {
+            "description": "Two friends faint: Deal 8  damage to one random enemy.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        },
+        "level3Ability": {
+            "description": "Two friends faint: Deal 12  damage to one random enemy.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        }
+    },
+    "pet-zebra": {
+        "name": "Zebra",
+        "id": "pet-zebra",
+        "tier": 5,
+        "baseAttack": 3,
+        "baseHealth": 5,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Buy & Sell: Give one random friend +2  attack and +2  health.",
+            "trigger": "BuyAndSell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Buy & Sell: Give one random friend +4  attack and +4  health.",
+            "trigger": "BuyAndSell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Buy & Sell: Give one random friend +6  attack and +6  health.",
+            "trigger": "BuyAndSell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-macaque": {
+        "name": "Macaque",
+        "id": "pet-macaque",
+        "tier": 4,
+        "baseAttack": 2,
+        "baseHealth": 2,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Start of battle: Summon one 12/12 Orangutan with the same food perk as this.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "SummonPet"
+            }
+        },
+        "level2Ability": {
+            "description": "Start of battle: Summon one 24/24 Orangutan with the same food perk as this.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "SummonPet"
+            }
+        },
+        "level3Ability": {
+            "description": "Start of battle: Summon one 36/36 Orangutan with the same food perk as this.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "SummonPet"
+            }
+        }
+    },
+    "pet-nyala": {
+        "name": "Nyala",
+        "id": "pet-nyala",
+        "tier": 5,
+        "baseAttack": 3,
+        "baseHealth": 4,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Faint: Gain +8 Trumpets.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "GainTrumpets"
+            }
+        },
+        "level2Ability": {
+            "description": "Faint: Gain +16 Trumpets.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "GainTrumpets"
+            }
+        },
+        "level3Ability": {
+            "description": "Faint: Gain +24 Trumpets.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "GainTrumpets"
+            }
+        }
+    },
+    "pet-nurse_shark": {
+        "name": "Nurse Shark",
+        "id": "pet-nurse_shark",
+        "tier": 5,
+        "baseAttack": 4,
+        "baseHealth": 6,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Faint: Spend up to 10 trumpets and deal triple as damage to one random enemy.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        },
+        "level2Ability": {
+            "description": "Faint: Spend up to 10 trumpets and deal triple as damage to two random enemies.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        },
+        "level3Ability": {
+            "description": "Faint: Spend up to 10 trumpets and deal triple as damage to three random enemies.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        }
+    },
+    "pet-beluga_whale": {
+        "name": "Beluga Whale",
+        "id": "pet-beluga_whale",
+        "tier": 5,
+        "baseAttack": 3,
+        "baseHealth": 8,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Eats food: Swallow the left-most shop pet and release it as level 1 after fainting.",
+            "trigger": "EatsShopFood",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "Swallow"
+            }
+        },
+        "level2Ability": {
+            "description": "Eats food: Swallow the left-most shop pet and release it as level 2 after fainting.",
+            "trigger": "EatsShopFood",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "Swallow"
+            }
+        },
+        "level3Ability": {
+            "description": "Eats food: Swallow the left-most shop pet and release it as level 3 after fainting.",
+            "trigger": "EatsShopFood",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "Swallow"
+            }
+        }
+    },
+    "pet-wolf": {
+        "name": "Wolf",
+        "id": "pet-wolf",
+        "tier": 5,
+        "baseAttack": 4,
+        "baseHealth": 4,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Faint: Summon three 3/2 Pigs.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonPet"
+            }
+        },
+        "level2Ability": {
+            "description": "Faint: Summon three 6/4 Pigs.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonPet"
+            }
+        },
+        "level3Ability": {
+            "description": "Faint: Summon three 9/6 Pigs.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonPet"
+            }
+        }
+    },
+    "pet-silver_fox": {
+        "name": "Silver Fox",
+        "id": "pet-silver_fox",
+        "tier": 5,
+        "baseAttack": 3,
+        "baseHealth": 6,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Before attack: Gain +1 Gold on next turn. Works 3 times per battle.",
+            "trigger": "BeforeAttack",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "GainGold"
+            }
+        },
+        "level2Ability": {
+            "description": "Before attack: Gain +2 Gold on next turn. Works 3 times per battle.",
+            "trigger": "BeforeAttack",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "GainGold"
+            }
+        },
+        "level3Ability": {
+            "description": "Before attack: Gain +3 Gold on next turn. Works 3 times per battle.",
+            "trigger": "BeforeAttack",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "GainGold"
+            }
+        }
+    },
+    "pet-fire_ant": {
+        "name": "Fire Ant",
+        "id": "pet-fire_ant",
+        "tier": 5,
+        "baseAttack": 6,
+        "baseHealth": 4,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Faint: Give this pet's attack to one random friend.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "TransferStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Faint: Give this pet's attack to two random friend.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "TransferStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Faint: Give this pet's attack to three random friend.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "TransferStats"
+            }
+        }
+    },
+    "pet-cockatoo": {
+        "name": "Cockatoo",
+        "id": "pet-cockatoo",
+        "tier": 5,
+        "baseAttack": 4,
+        "baseHealth": 2,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Buy: Give three random Faint friends +2 Attack and +1 Health.",
+            "trigger": "Buy",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Buy: Give three random Faint friends +4 Attack and +2 Health.",
+            "trigger": "Buy",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Buy: Give three random Faint friends +6 Attack and +3 Health.",
+            "trigger": "Buy",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-blue_ringed_octopus": {
+        "name": "Blue Ringed Octopus",
+        "id": "pet-blue_ringed_octopus",
+        "tier": 5,
+        "baseAttack": 2,
+        "baseHealth": 4,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Buy: Give all friends +1 Attack and +1 Health.",
+            "trigger": "Buy",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Buy: Give all friends +2 Attack and +3 Health.",
+            "trigger": "Buy",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Buy: Give all friends +3 Attack and +3 Health.",
+            "trigger": "Buy",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-crane": {
+        "name": "Crane",
+        "id": "pet-crane",
+        "tier": 5,
+        "baseAttack": 9,
+        "baseHealth": 2,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Friend ahead Hurt: Give it +5 Attack and Melon perk. Works 1 ime per turn.",
+            "trigger": "Hurt",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "ApplyStatusAndModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Friend ahead Hurt: Give it +5 Attack and Melon perk. Works 2 times per turn.",
+            "trigger": "Hurt",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "ApplyStatusAndModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Friend ahead Hurt: Give it +5 Attack and Melon perk. Works 3 times per turn.",
+            "trigger": "Hurt",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "ApplyStatusAndModifyStats"
+            }
+        }
+    },
+    "pet-emu": {
+        "name": "Emu",
+        "id": "pet-emu",
+        "tier": 5,
+        "baseAttack": 3,
+        "baseHealth": 4,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Empty Front Space: If in battle, push the nearest friend ahead to the front and give it +4 Health.",
+            "trigger": "EmptyFrontSpace",
+            "triggeredBy": {
+                "kind": ""
+            },
+            "effect": {
+                "kind": "MoveAndModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Empty Front Space: If in battle, push the nearest friend ahead to the front and give it +8 Health.",
+            "trigger": "EmptyFrontSpace",
+            "triggeredBy": {
+                "kind": ""
+            },
+            "effect": {
+                "kind": "MoveAndModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Empty Front Space: If in battle, push the nearest friend ahead to the front and give it +12 Health.",
+            "trigger": "EmptyFrontSpace",
+            "triggeredBy": {
+                "kind": ""
+            },
+            "effect": {
+                "kind": "MoveAndModifyStats"
+            }
+        }
+    },
+    "pet-alpaca": {
+        "name": "Alpaca",
+        "id": "pet-alpaca",
+        "tier": 6,
+        "baseAttack": 4,
+        "baseHealth": 9,
+        "packs": [
+            "Weekly",
+            "Custom"
+        ],
+        "level1Ability": {
+            "description": "Friend summoned: Give it +1 . Except other Alpacas! Work 2 times per turn.",
+            "trigger": "Summoned",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "GainExperience"
+            }
+        },
+        "level2Ability": {
+            "description": "Friend summoned: Give it +2 . Except other Alpacas! Work 2 times per turn.",
+            "trigger": "Summoned",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "GainExperience"
+            }
+        },
+        "level3Ability": {
+            "description": "Friend summoned: Give it +3 . Except other Alpacas! Work 2 times per turn.",
+            "trigger": "Summoned",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "GainExperience"
+            }
+        }
+    },
+    "pet-lioness": {
+        "name": "Lioness",
+        "id": "pet-lioness",
+        "tier": 6,
+        "baseAttack": 4,
+        "baseHealth": 5,
+        "packs": [
+            "Weekly",
+            "Custom"
+        ],
+        "level1Ability": {
+            "description": "End turn: Give current and future shop pets +2  attack and +2  health.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyShop"
+            }
+        },
+        "level2Ability": {
+            "description": "End turn: Give current and future shop pets +4  attack and +4  health.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyShop"
+            }
+        },
+        "level3Ability": {
+            "description": "End turn: Give current and future shop pets +6  attack and +6  health.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyShop"
+            }
+        }
+    },
+    "pet-tapir": {
+        "name": "Tapir",
+        "id": "pet-tapir",
+        "tier": 6,
+        "baseAttack": 4,
+        "baseHealth": 3,
+        "packs": [
+            "Weekly",
+            "Custom"
+        ],
+        "level1Ability": {
+            "description": "Faint: Summon one level 1 copy of a random friendly pet. Except other Tapirs!",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonRandomPet"
+            }
+        },
+        "level2Ability": {
+            "description": "Faint: Summon one level 2 copy of a random friendly pet. Except other Tapirs!",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonRandomPet"
+            }
+        },
+        "level3Ability": {
+            "description": "Faint: Summon one level 3 copy of a random friendly pet. Except other Tapirs!",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonRandomPet"
+            }
+        }
+    },
+    "pet-walrus": {
+        "name": "Walrus",
+        "id": "pet-walrus",
+        "tier": 6,
+        "baseAttack": 7,
+        "baseHealth": 5,
+        "packs": [
+            "Weekly",
+            "Custom"
+        ],
+        "level1Ability": {
+            "description": "Faint: Give 1 random friend  Peanuts.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        },
+        "level2Ability": {
+            "description": "Faint: Give 2 random friends  Peanuts.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        },
+        "level3Ability": {
+            "description": "Faint: Give 3 random friends  Peanuts.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        }
+    },
+    "pet-white_tiger": {
+        "name": "White Tiger",
+        "id": "pet-white_tiger",
+        "tier": 6,
+        "baseAttack": 4,
+        "baseHealth": 3,
+        "packs": [
+            "Tiger"
+        ],
+        "level1Ability": {
+            "description": "Start of battle: Give the nearest friend behind +3 Experience",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "GainExperience"
+            }
+        },
+        "level2Ability": {
+            "description": "Start of battle: Give the two nearest friends behind +3 Experience",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "GainExperience"
+            }
+        },
+        "level3Ability": {
+            "description": "Start of battle: Give the three nearest friends behind +3 Experience",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "GainExperience"
+            }
+        }
+    },
+    "pet-hammershark": {
+        "name": "Hammershark",
+        "id": "pet-hammershark",
+        "tier": 6,
+        "baseAttack": 5,
+        "baseHealth": 5,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Start of turn: If this has a level 3 friend. Gain 3  gold.",
+            "trigger": "StartOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "GainGold"
+            }
+        },
+        "level2Ability": {
+            "description": "Start of turn: If this has a level 3 friend. Gain 6  gold.",
+            "trigger": "StartOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "GainGold"
+            }
+        },
+        "level3Ability": {
+            "description": "Start of turn: If this has a level 3 friend. Gain 9  gold.",
+            "trigger": "StartOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "GainGold"
+            }
+        }
+    },
+    "pet-komodo": {
+        "name": "Komodo",
+        "id": "pet-komodo",
+        "tier": 6,
+        "baseAttack": 6,
+        "baseHealth": 6,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "End turn: Give friends ahead +1  and +1  and then shuffle their positions.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "MoveAndModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "End turn: Give friends ahead +2  and +2  and then shuffle their positions.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "MoveAndModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "End turn: Give friends ahead +3  and +3  and then shuffle their positions.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "MoveAndModifyStats"
+            }
+        }
+    },
+    "pet-orca": {
+        "name": "Orca",
+        "id": "pet-orca",
+        "tier": 6,
+        "baseAttack": 4,
+        "baseHealth": 8,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Faint: Summon one random Faint pet from any pack.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonRandomPet"
+            }
+        },
+        "level2Ability": {
+            "description": "Faint: Summon two random Faint pets from any pack.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonRandomPet"
+            }
+        },
+        "level3Ability": {
+            "description": "Faint: Summon three random Faint pets from any pack.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonRandomPet"
+            }
+        }
+    },
+    "pet-ostrich": {
+        "name": "Ostrich",
+        "id": "pet-ostrich",
+        "tier": 6,
+        "baseAttack": 2,
+        "baseHealth": 8,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "End turn: Gain +1 attack and +1 health for each tier 5 pet or higher in the shop.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "End turn: Gain +2 attack and +2 health for each tier 5 pet or higher in the shop.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "End turn: Gain +3 attack and +3 health for each tier 5 pet or higher in the shop.",
+            "trigger": "EndOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-piranha": {
+        "name": "Piranha",
+        "id": "pet-piranha",
+        "tier": 6,
+        "baseAttack": 10,
+        "baseHealth": 2,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Hurt & Faint: Give friends +3 attack.",
+            "trigger": "HurtAndFaint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Hurt & Faint: Give friends +6 attack.",
+            "trigger": "HurtAndFaint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Hurt & Faint: Give friends +9 attack.",
+            "trigger": "HurtAndFaint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-reindeer": {
+        "name": "Reindeer",
+        "id": "pet-reindeer",
+        "tier": 6,
+        "baseAttack": 6,
+        "baseHealth": 4,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Before Attack: Gain Melon. Works 1 time per battle.",
+            "trigger": "BeforeAttack",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        },
+        "level2Ability": {
+            "description": "Before Attack: Gain Melon. Works 2 times per battle.",
+            "trigger": "BeforeAttack",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        },
+        "level3Ability": {
+            "description": "Before Attack: Gain Melon. Works 3 times per battle.",
+            "trigger": "BeforeAttack",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        }
+    },
+    "pet-sabertooth_tiger": {
+        "name": "Sabertooth Tiger",
+        "id": "pet-sabertooth_tiger",
+        "tier": 6,
+        "baseAttack": 8,
+        "baseHealth": 6,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Hurt: Summon one random tier 1 pet as a 8/8.",
+            "trigger": "Hurt",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonRandomPet"
+            }
+        },
+        "level2Ability": {
+            "description": "Hurt: Summon one random tier 1 pet as a 16/16.",
+            "trigger": "Hurt",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonRandomPet"
+            }
+        },
+        "level3Ability": {
+            "description": "Hurt: Summon one random tier 1 pet as a 24/24.",
+            "trigger": "Hurt",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonRandomPet"
+            }
+        }
+    },
+    "pet-spinosaurus": {
+        "name": "Spinosaurus",
+        "id": "pet-spinosaurus",
+        "tier": 6,
+        "baseAttack": 4,
+        "baseHealth": 8,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Friend faints: Give one random friend +3   Attack and +2   Health.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Friend faints: Give one random friend +6  Attack and +4  Health.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Friend faints: Give one random friend +9   Attack and +6  Health.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-stegosaurus": {
+        "name": "Stegosaurus",
+        "id": "pet-stegosaurus",
+        "tier": 6,
+        "baseAttack": 3,
+        "baseHealth": 8,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Start of battle: Give one random friend without held food +1 attack and +1 health. Multiply with turn number.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Start of battle: Give one random friend without held food +2 attack and +2 health. Multiply with turn number.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Start of battle: Give one random friend without held food +3 attack and +3 [health. Multiply with turn number.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-velociraptor": {
+        "name": "Velociraptor",
+        "id": "pet-velociraptor",
+        "tier": 6,
+        "baseAttack": 3,
+        "baseHealth": 2,
+        "packs": [
+            "Star"
+        ],
+        "level1Ability": {
+            "description": "Start of battle: Give Coconut to one random Strawberry friend.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        },
+        "level2Ability": {
+            "description": "Start of battle: Give Coconut to two random Strawberry friends.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        },
+        "level3Ability": {
+            "description": "Start of battle: Give Coconut to three random Strawberry friend.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        }
+    },
+    "pet-wildebeest": {
+        "name": "Wildebeest",
+        "id": "pet-wildebeest",
+        "tier": 6,
+        "baseAttack": 8,
+        "baseHealth": 6,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Before attack: Spend 4 Trumpet to gain Coconut perk. Works 1 time per battle.",
+            "trigger": "BeforeAttack",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        },
+        "level2Ability": {
+            "description": "Before attack: Spend 4 Trumpet to gain Coconut perk. Works 2 time per battle.",
+            "trigger": "BeforeAttack",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        },
+        "level3Ability": {
+            "description": "Before attack: Spend 4 Trumpet to gain Coconut perk. Works 3 time per battle.",
+            "trigger": "BeforeAttack",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ApplyStatus"
+            }
+        }
+    },
+    "pet-highland_cow": {
+        "name": "Highland Cow",
+        "id": "pet-highland_cow",
+        "tier": 6,
+        "baseAttack": 4,
+        "baseHealth": 12,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Start of battle: Gain +1 trumpet for each 2 health this has.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "GainTrumpets"
+            }
+        },
+        "level2Ability": {
+            "description": "Start of battle: Gain +2 trumpets for each 2 health this has.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "GainTrumpets"
+            }
+        },
+        "level3Ability": {
+            "description": "Start of battle: Gain +3 trumpets for each 2 health this has.",
+            "trigger": "StartOfBattle",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "GainTrumpets"
+            }
+        }
+    },
+    "pet-catfish": {
+        "name": "Catfish",
+        "id": "pet-catfish",
+        "tier": 6,
+        "baseAttack": 3,
+        "baseHealth": 3,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Start of Turn: Spend 1 Gold to activate Buy ability on the nearest friend ahead.",
+            "trigger": "StartOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ActivateAbility"
+            }
+        },
+        "level2Ability": {
+            "description": "Start of Turn: Spend 1 Gold to activate Buy ability on the nearest friend ahead. Triggers 2 imes.",
+            "trigger": "StartOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ActivateAbility"
+            }
+        },
+        "level3Ability": {
+            "description": "Start of Turn: Spend 1 Gold to activate Buy ability on the nearest friend ahead. Triggers 3 times.",
+            "trigger": "StartOfTurn",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ActivateAbility"
+            }
+        }
+    },
+    "pet-pteranodon": {
+        "name": "Pteranodon",
+        "id": "pet-pteranodon",
+        "tier": 6,
+        "baseAttack": 5,
+        "baseHealth": 3,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Friend Faints: If it was a Faint pet, activate its ability again. Works 1 time per turn.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "ActivateAbility"
+            }
+        },
+        "level2Ability": {
+            "description": "Friend Faints: If it was a Faint pet, activate its ability again. Works 2 time per turn.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "ActivateAbility"
+            }
+        },
+        "level3Ability": {
+            "description": "Friend Faints: If it was a Faint pet, activate its ability again. Works 3 time per turn.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "ActivateAbility"
+            }
+        }
+    },
+    "pet-warthog": {
+        "name": "Warthog",
+        "id": "pet-warthog",
+        "tier": 6,
+        "baseAttack": 9,
+        "baseHealth": 6,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Faint: Give random friends +1 attack and +1 health for every 3 attack this has.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Faint: Give random friends +2 attack and +2 health for every 3 attack this has.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Faint: Give random friends +3 attack and +3 health for every 3 attack this has.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-cobra": {
+        "name": "Cobra",
+        "id": "pet-cobra",
+        "tier": 6,
+        "baseAttack": 12,
+        "baseHealth": 6,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Friend ahead attacks: Deal 20%  attack damage to one random enemy.",
+            "trigger": "AterAttack",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        },
+        "level2Ability": {
+            "description": "Friend ahead attacks: Deal 40%  attack damage to one random enemy.",
+            "trigger": "AterAttack",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        },
+        "level3Ability": {
+            "description": "Friend ahead attacks: Deal 60%  attack damage to one random enemy.",
+            "trigger": "AterAttack",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        }
+    },
+    "pet-grizzly_bear": {
+        "name": "Grizzly Bear",
+        "id": "pet-grizzly_bear",
+        "tier": 6,
+        "baseAttack": 6,
+        "baseHealth": 6,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Five Friendly Attacks: Deal 6 damage to two random enemies.",
+            "trigger": "AfterAttack",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        },
+        "level2Ability": {
+            "description": "Five Friendly Attacks: Deal 12 damage to two random enemies.",
+            "trigger": "AfterAttack",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        },
+        "level3Ability": {
+            "description": "Five Friendly Attacks: Deal 18 damage to two random enemies.",
+            "trigger": "AfterAttack",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "DealDamage"
+            }
+        }
+    },
+    "pet-german_shephard": {
+        "name": "German Shephard",
+        "id": "pet-german_shephard",
+        "tier": 6,
+        "baseAttack": 10,
+        "baseHealth": 4,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Friend Summoned: Give 30% of Attack to it.",
+            "trigger": "Summoned",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "TransferStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Friend Summoned: Give 60% of Attack to it.",
+            "trigger": "Summoned",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "TransferStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Friend Summoned: Give 90% of Attack to it.",
+            "trigger": "Summoned",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "TransferStats"
+            }
+        }
+    },
+    "pet-bird_of_paradise": {
+        "name": "Bird Of Paradise",
+        "id": "pet-bird_of_paradise",
+        "tier": 6,
+        "baseAttack": 3,
+        "baseHealth": 3,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Spend 7 Gold: Give three random friends +1 Attack and +1 Health.",
+            "trigger": "SpendGold",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level2Ability": {
+            "description": "Spend 7 Gold: Give three random friends +2 Attack and +2 Health.",
+            "trigger": "SpendGold",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        },
+        "level3Ability": {
+            "description": "Spend 7 Gold: Give three random friends +3 Attack and +3 Health.",
+            "trigger": "SpendGold",
+            "triggeredBy": {
+                "kind": "Player"
+            },
+            "effect": {
+                "kind": "ModifyStats"
+            }
+        }
+    },
+    "pet-oyster": {
+        "name": "Oyster",
+        "id": "pet-oyster",
+        "tier": 6,
+        "baseAttack": 2,
+        "baseHealth": 10,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Sell: Gain +3 Gold.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "GainGold"
+            }
+        },
+        "level2Ability": {
+            "description": "Sell: Gain +6 Gold.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "GainGold"
+            }
+        },
+        "level3Ability": {
+            "description": "Sell: Gain +9 Gold.",
+            "trigger": "Sell",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "GainGold"
+            }
+        }
     }
 }

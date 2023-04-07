@@ -124,6 +124,21 @@ def load_new_pet(pet_name):
 
 
 if __name__ == "__main__":
+    pass
+    # Load the first JSON file as a dictionary
+    # with open('pet_data.json') as f:
+    #     dict1 = json.load(f)
+    #
+    # # Load the second JSON file as a dictionary
+    # with open('pet_data_mine.json') as f:
+    #     dict2 = json.load(f)
+    #
+    # # Combine the two dictionaries
+    # combined_dict = {**dict1, **dict2}
+    #
+    # # Print the combined dictionary
+    # with open("pet_data.json", 'w') as file:
+    #     json.dump(combined_dict, file, indent=4)
     # old_data = load_old_data()
     # PET_DICT = old_data["pets"]
     # FOOD_DICT = old_data["foods"]
@@ -134,21 +149,21 @@ if __name__ == "__main__":
     # get_ability_data(soup)
     # get_tier_and_pack(soup, "Bulldog")
     # print(load_new_pet("iguana"))
-    output = {}
-    with open("support/pets_to_add", 'r') as file:
-        lines = file.readlines()
-        for line in lines:
-            datum = line.lstrip("\n ").rstrip("\n ")
-            if datum:
-                if "Tier" in datum:
-                    continue
-                elif datum in ["Tiger", "Star", "Golden"]:
-                    continue
-                else:
-                    new_pet = load_new_pet(datum)
-                    output[new_pet["id"]] = new_pet
-    with open("pet_data_mine.json", 'w') as file:
-        file.write(json.dumps(output, indent=4))
+    # output = {}
+    # with open("support/pets_to_add", 'r') as file:
+    #     lines = file.readlines()
+    #     for line in lines:
+    #         datum = line.lstrip("\n ").rstrip("\n ")
+    #         if datum:
+    #             if "Tier" in datum:
+    #                 continue
+    #             elif datum in ["Tiger", "Star", "Golden"]:
+    #                 continue
+    #             else:
+    #                 new_pet = load_new_pet(datum)
+    #                 output[new_pet["id"]] = new_pet
+    # with open("pet_data_mine.json", 'w') as file:
+    #     file.write(json.dumps(output, indent=4))
 
     # html = '<div class="pi-data-value pi-font"><b><a href="/wiki/Hurt_(Trigger)" title="Hurt (Trigger)">Hurt</a></b>: Set attack equal to health +1.</div>'
     #
