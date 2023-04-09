@@ -1,3 +1,17 @@
+import json
+
+with open("Data/pet_data.json") as f:
+    PET_DICT = json.load(f)
+
+TEST_POOL = [
+    "Ant"
+]
+
+TEST_POOL2 = [
+    "Cricket",
+    "Hedgehog"
+]
+
 # from abilities import *
 #
 # PET_DEFAULTS = {
@@ -680,15 +694,6 @@
 #     "Frilled Dragon"
 # ]
 #
-TEST_POOL = [
-    "Ant"
-]
-
-TEST_POOL2 = [
-    "Cricket",
-    "Hedgehog"
-]
-
 # if __name__ == "__main__":
 #     pets = []
 #     # for k in PET_DEFAULTS.keys():

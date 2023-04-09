@@ -1,4 +1,5 @@
 from Abilities.modify_stats import *
+from abilities import *
 
 
 class AbilityGenerator:
@@ -41,13 +42,18 @@ class AbilityGenerator:
             return {}
 
     def get_ability_type(self):
-        return self.ability_dict.get("effect").get("kind")
+        if self.ability_dict:
+            return self.ability_dict.get("effect").get("kind")
+        else:
+            return None
 
     def generate(self):
         ability_type = self.get_ability_type()
         match ability_type:
             case "ModifyStats":
                 return self.generate_modify_stats_ability()
+            case _:
+                return No_Ability()
 
     def generate_modify_stats_ability(self):
         attack_mod = self.get_attack_mod()
@@ -61,4 +67,4 @@ class AbilityGenerator:
                 return ModifyStatsAbilityRandomFriend(self.owner, attack_mod=attack_mod, health_mod=health_mod,
                                                       target_type=target_type, target_n=target_n, trigger_event=trigger)
             case _:
-                return None
+                return No_Ability()
