@@ -1,9 +1,20 @@
 class Pet:
-    def __init__(self, name, attack, health, ability):
+    def __init__(self, name, attack, health, tier, level, ability1, ability2, ability3, ability_generator):
         self.name = name
         self.attack = attack
         self.health = health
-        self.ability = ability
+        self.tier = tier
+        self.level = level
+        self.ability_dicts = {
+            1: ability1,
+            2: ability2,
+            3: ability3
+        }
+        self.abilities = {
+            lvl: ability_generator(ability_dict, self).generate()
+            for lvl, ability_dict in self.ability_dicts.items()
+        }
+        self.ability = self.abilities[self.level]
         self.team = None
         self.fainted = False
 
@@ -32,9 +43,9 @@ class Pet:
 
         if not self.is_alive() or not enemy_pet.is_alive():
             if not self.is_alive():
-                self.ability.trigger("faint", self, self.team, enemy_team=enemy_pet.team)
+                self.ability.trigger("Faint", self, self.team, enemy_team=enemy_pet.team)
             if not enemy_pet.is_alive():
-                enemy_pet.ability.trigger("faint", enemy_pet, enemy_pet.team, enemy_team=self.team)
+                enemy_pet.ability.trigger("Faint", enemy_pet, enemy_pet.team, enemy_team=self.team)
 
             # Clean up dead pets after abilities have been triggered
             if not self.is_alive() and self in self.team.pets:
@@ -43,10 +54,11 @@ class Pet:
                 enemy_pet.team.remove_pet(enemy_pet)
 
     def faint(self):
+        print("Faint")
         if not self.fainted:
             self.fainted = True
             if self.ability:
-                self.ability.trigger("faint", self, self.team)
+                self.ability.trigger("Faint", self, self.team)
 
     def apply_ability(self, team, enemy_team):
         self.ability.apply(self, team, enemy_team)

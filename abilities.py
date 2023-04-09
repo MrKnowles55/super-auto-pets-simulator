@@ -1,18 +1,21 @@
 from abc import ABC, abstractmethod
 from random import choice
 from pet import prioritize_pets, sort_pets_by_attribute
-import math
-import pet_dict
 
 
 class Ability(ABC):
-    @abstractmethod
-    def apply(self, pet, team,  **kwargs):
-        pass
+
+    def __init__(self, owner):
+        self.owner = owner
+        self.trigger_event = None
 
     @abstractmethod
-    def trigger(self, event, *args, **kwargs):
+    def apply(self, pet, team, **kwargs):
         pass
+
+    def trigger(self, event, *args, **kwargs):
+        if event == self.trigger_event:
+            self.apply(*args, **kwargs)
 
     def __repr__(self):
         attributes = ', '.join([f"{k}={repr(v)}" for k, v in vars(self).items()])
@@ -23,7 +26,7 @@ class No_Ability(Ability):
     def __init__(self):
         self.trigger_event = None
 
-    def apply(self, pet, team,  **kwargs):
+    def apply(self, pet, team, **kwargs):
         pass
 
     def trigger(self, event, *args, **kwargs):
@@ -35,7 +38,7 @@ class Summon(Ability):
         self.token = token
         self.trigger_event = trigger_event
 
-    def apply(self, pet, team,  **kwargs):
+    def apply(self, pet, team, **kwargs):
         from pet_factory import create_pet
         if self.trigger_event == "faint":
 
@@ -101,7 +104,7 @@ class Damage(Ability):
         elif self.target == "friend_behind":
             index = team.pets.index(pet)
             if index < 5 and len(team.pets) > 1:
-                target = team.pets[index+1]
+                target = team.pets[index + 1]
 
                 if target:
                     target.health -= self.damage
@@ -114,96 +117,99 @@ class Damage(Ability):
             self.apply(*args, **kwargs)
 
 
-class ModifyStatsAbility(Ability):
-    def __init__(self, attack_change, health_change, target, trigger_event, buff_length=0, scope=None, filter=None, get_best=None, reverse=False, attack_multiplier=0, health_multiplier=0):
-        self.attack_change = attack_change
-        self.health_change = health_change
-        self.target = target
-        self.trigger_event = trigger_event
-        self.buff_length = buff_length
-        self.scope = scope
-        self.get_best = get_best
-        self.reverse = reverse
-        self.filter = filter
-        self.attack_multiplier = attack_multiplier
-        self.health_multiplier = health_multiplier
+# class ModifyStatsAbility(Ability):
+#     def __init__(self, attack_change, health_change, target, trigger_event, buff_length=0, scope=None, filter=None,
+#                  get_best=None, reverse=False, attack_multiplier=0, health_multiplier=0):
+#         self.attack_change = attack_change
+#         self.health_change = health_change
+#         self.target = target
+#         self.trigger_event = trigger_event
+#         self.buff_length = buff_length
+#         self.scope = scope
+#         self.get_best = get_best
+#         self.reverse = reverse
+#         self.filter = filter
+#         self.attack_multiplier = attack_multiplier
+#         self.health_multiplier = health_multiplier
+#
+#     def apply(self, pet, team, **kwargs):
+#         if self.target == "random_friendly":
+#             # Create a list of friendly pets, excluding the triggering pet
+#             available_targets = [p for p in team.pets if p is not pet and p.health > 0]
+#
+#             # Check if there are available targets
+#             if available_targets:
+#                 # Choose a random pet from the available targets
+#                 target_pet = choice(available_targets)
+#
+#                 # Modify the target pet's stats
+#                 target_pet.attack += self.attack_change
+#                 target_pet.health += self.health_change
+#         elif self.target == "front_most_friend":
+#             if team.pets:
+#                 target = team.pets[0]
+#                 target.attack += self.attack_change
+#         elif self.target == "friend_ahead":
+#             index = team.pets.index(pet)
+#             pet_count = len(team.pets)
+#             if index == 0:
+#                 return
+#
+#             target = team.pets[index - 1]
+#
+#             if not self.scope:
+#                 target.attack += self.attack_change
+#                 target.health += self.health_change
+#             else:  # TODO generalize for different scopes
+#                 if self.scope == "self":
+#                     target.attack += self.attack_multiplier * pet.attack
+#                     target.health += self.health_multiplier * pet.health
+#                     target.attack = math.floor(target.attack)
+#                     target.health = math.floor(target.health)
+#
+#         elif self.target == "self":
+#             if not self.scope:
+#                 pet.attack += self.attack_change
+#                 pet.health += self.health_change
+#             else:  # TODO generalize for different scopes
+#                 if self.get_best:
+#                     sorted_list = sort_pets_by_attribute(team.pets, self.get_best)
+#                     if sorted_list:
+#                         reference = sorted_list[0]
+#                         pet.attack += self.attack_multiplier * reference.attack
+#                         pet.health += self.health_multiplier * reference.health
+#                         pet.attack = math.floor(pet.attack)
+#                         pet.health = math.floor(pet.health)
+#                 elif self.filter:
+#                     pet_count = 0
+#                     if self.filter == "faint":
+#                         if self.scope == "all_friends":
+#                             for friend in team.pets:
+#                                 if friend.name in pet_dict.HAS_FAINT_ABILITY:
+#                                     pet_count += 1
+#                             pet.attack += self.attack_multiplier * pet_count
+#                             pet.health += self.health_multiplier * pet_count
+#
+#         elif self.target == "2_friends_behind":
+#             index = team.pets.index(pet)
+#             pet_count = len(team.pets)
+#             if pet_count > 1:
+#                 if index == pet_count - 2:
+#                     behind_1 = team.pets[index + 1]
+#                     behind_1.attack += self.attack_change
+#                     behind_1.health += self.health_change
+#                 elif pet_count - index >= 3:
+#                     behind_1 = team.pets[index + 1]
+#                     behind_1.attack += self.attack_change
+#                     behind_1.health += self.health_change
+#                     behind_2 = team.pets[index + 2]
+#                     behind_2.attack += self.attack_change
+#                     behind_2.health += self.health_change
+#         else:
+#             print(f'{self.__class__}:{self.target} not implemented')
+#
+#     def trigger(self, event, *args, **kwargs):
+#         if event == self.trigger_event:
+#             self.apply(*args, **kwargs)
 
-    def apply(self, pet, team,  **kwargs):
-        if self.target == "random_friendly":
-            # Create a list of friendly pets, excluding the triggering pet
-            available_targets = [p for p in team.pets if p is not pet and p.health > 0]
 
-            # Check if there are available targets
-            if available_targets:
-                # Choose a random pet from the available targets
-                target_pet = choice(available_targets)
-
-                # Modify the target pet's stats
-                target_pet.attack += self.attack_change
-                target_pet.health += self.health_change
-        elif self.target == "front_most_friend":
-            if team.pets:
-                target = team.pets[0]
-                target.attack += self.attack_change
-        elif self.target == "friend_ahead":
-            index = team.pets.index(pet)
-            pet_count = len(team.pets)
-            if index == 0:
-                return
-
-            target = team.pets[index - 1]
-
-            if not self.scope:
-                target.attack += self.attack_change
-                target.health += self.health_change
-            else: # TODO generalize for different scopes
-                if self.scope == "self":
-                    target.attack += self.attack_multiplier * pet.attack
-                    target.health += self.health_multiplier * pet.health
-                    target.attack = math.floor(target.attack)
-                    target.health = math.floor(target.health)
-
-        elif self.target == "self":
-            if not self.scope:
-                pet.attack += self.attack_change
-                pet.health += self.health_change
-            else: # TODO generalize for different scopes
-                if self.get_best:
-                    sorted_list = sort_pets_by_attribute(team.pets, self.get_best)
-                    if sorted_list:
-                        reference = sorted_list[0]
-                        pet.attack += self.attack_multiplier * reference.attack
-                        pet.health += self.health_multiplier * reference.health
-                        pet.attack = math.floor(pet.attack)
-                        pet.health = math.floor(pet.health)
-                elif self.filter:
-                    pet_count = 0
-                    if self.filter == "faint":
-                        if self.scope == "all_friends":
-                            for friend in team.pets:
-                                if friend.name in pet_dict.HAS_FAINT_ABILITY:
-                                    pet_count +=1
-                            pet.attack += self.attack_multiplier * pet_count
-                            pet.health += self.health_multiplier * pet_count
-
-        elif self.target == "2_friends_behind":
-            index = team.pets.index(pet)
-            pet_count = len(team.pets)
-            if pet_count > 1:
-                if index == pet_count - 2:
-                    behind_1 = team.pets[index+1]
-                    behind_1.attack += self.attack_change
-                    behind_1.health += self.health_change
-                elif pet_count - index >= 3:
-                    behind_1 = team.pets[index+1]
-                    behind_1.attack += self.attack_change
-                    behind_1.health += self.health_change
-                    behind_2 = team.pets[index+2]
-                    behind_2.attack += self.attack_change
-                    behind_2.health += self.health_change
-        else:
-            print(f'{self.__class__}:{self.target} not implemented')
-
-    def trigger(self, event, *args, **kwargs):
-        if event == self.trigger_event:
-            self.apply(*args, **kwargs)

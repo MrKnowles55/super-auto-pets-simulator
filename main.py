@@ -5,10 +5,10 @@ import pet_dict
 from battle import fight
 
 total = [0, 0]
-sims = 3
+sims = 5000
 
-friendly_pool = pet_dict.TEST_POOL
-enemy_pool = pet_dict.IMPLEMENTED
+friendly_pool = pet_dict.PET_DICT
+enemy_pool = pet_dict.PET_DICT
 
 for i in range(1, sims+1):
     friendly_team = Team()
@@ -17,7 +17,7 @@ for i in range(1, sims+1):
     for _ in range(5):
         friendly_team.add_pet(create_pet(choice(list(friendly_pool))))
         enemy_team.add_pet(create_pet(choice(list(enemy_pool))))
-    verbose = bool(not(sims > 10))
+    verbose = bool(not(sims > 5))
     debug_friendly_team_list = friendly_team.pets[:]
     debug_enemy_team_list = enemy_team.pets[:]
     result = fight(friendly_team, enemy_team, verbose=verbose)
