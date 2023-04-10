@@ -1,5 +1,5 @@
-from Abilities.modify_stats import *
-from abilities import *
+from .abilities import *
+from .modify_stats import *
 
 
 class AbilityGenerator:

@@ -1,6 +1,6 @@
-from pet import Pet
-from ability_generator import AbilityGenerator
-from pet_dict import PET_DICT
+from src.pet import Pet
+from src.abilities.ability_generator import AbilityGenerator
+from src.pet_data_utils.pet_dict import PET_DICT
 
 
 def create_pet(pet_name, pet_level=1):

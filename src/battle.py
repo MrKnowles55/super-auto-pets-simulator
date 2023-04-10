@@ -1,5 +1,4 @@
-from pet import Pet, prioritize_pets
-from team import Team
+from pet import prioritize_pets
 
 
 def get_battle_string(team1, team2, prefix=''):

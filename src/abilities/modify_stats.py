@@ -1,5 +1,5 @@
-from abilities import Ability
-from random import choice, sample
+from .abilities import Ability
+from random import sample
 
 
 class ModifyStatsAbility(Ability):

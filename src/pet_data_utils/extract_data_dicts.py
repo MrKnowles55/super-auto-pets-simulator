@@ -150,7 +150,7 @@ if __name__ == "__main__":
     # get_tier_and_pack(soup, "Bulldog")
     # print(load_new_pet("iguana"))
     # output = {}
-    # with open("support/pets_to_add", 'r') as file:
+    # with open("notes/pets_to_add", 'r') as file:
     #     lines = file.readlines()
     #     for line in lines:
     #         datum = line.lstrip("\n ").rstrip("\n ")

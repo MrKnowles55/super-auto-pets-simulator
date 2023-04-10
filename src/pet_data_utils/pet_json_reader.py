@@ -103,7 +103,7 @@ def get_ability_intersection(effect=False):
 
 
 if __name__ == "__main__":
-    check_pet_data_status(file="pet_data_wip.json")
+    check_pet_data_status(file="../../data/old/pet_data_wip.json")
 
     # display(get_example_pet("Sell", just_ability=True))
     # get_ability_intersection()

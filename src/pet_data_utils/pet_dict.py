@@ -1,6 +1,9 @@
 import json
+import os
+directory = os.path.dirname(os.path.abspath(__file__))
+filename = os.path.join(directory, "../../data/pet_data.json")
 
-with open("Data/pet_data.json") as f:
+with open(filename) as f:
     PET_DICT = json.load(f)
 
 TEST_POOL = [
@@ -674,7 +677,7 @@ TEST_POOL2 = [
 # TIER_5 = [key for key, value in PET_DEFAULTS.items() if value.get("tier") == 5]
 # TIER_6 = [key for key, value in PET_DEFAULTS.items() if value.get("tier") == 6]
 #
-# # Abilities
+# # abilities
 # HAS_FAINT_ABILITY = [key for key, value in PET_DEFAULTS.items() if value.get("abilities")["1"].trigger_event == "faint"]
 # HAS_SELL_ABILITY = [key for key, value in PET_DEFAULTS.items() if value.get("abilities")["1"].trigger_event == "sell"]
 # HAS_START_OF_BATTLE_ABILITY = [key for key, value in PET_DEFAULTS.items() if

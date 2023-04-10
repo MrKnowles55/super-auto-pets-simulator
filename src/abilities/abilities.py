@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from random import choice
-from pet import prioritize_pets, sort_pets_by_attribute
+from src.pet import prioritize_pets
 
 
 class Ability(ABC):
@@ -39,7 +39,7 @@ class Summon(Ability):
         self.trigger_event = trigger_event
 
     def apply(self, pet, team, **kwargs):
-        from pet_factory import create_pet
+        from src.pet_data_utils.pet_factory import create_pet
         if self.trigger_event == "faint":
 
             index = team.pets.index(pet)

@@ -1,7 +1,7 @@
 from random import choice
-from team import Team
-from pet_factory import create_pet
-import pet_dict
+from src.team.team import Team
+from src.pet_data_utils.pet_factory import create_pet
+from src.pet_data_utils import pet_dict
 from battle import fight
 
 total = [0, 0]

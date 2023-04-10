@@ -138,17 +138,17 @@ def fix_missing_keywords(data, pet):
 
 
 def save_to_wip(data):
-    with open("pet_data_wip.json", "w") as file:
+    with open("../../data/old/pet_data_wip.json", "w") as file:
         json.dump(data, file, indent=4)
 
 
 def save_to_main(data):
-    with open("pet_data.json", "w") as file:
+    with open("../../data/pet_data.json", "w") as file:
         json.dump(data, file, indent=4)
 
 
 if __name__ == "__main__":
-    pet_data = load_data("pet_data_wip.json")
+    pet_data = load_data("../../data/old/pet_data_wip.json")
     # save_to_main(pet_data)
     # pet_to_fix = input("What pet to fix its tier? ").lower()
     # pets_with_bad_tier = get_incomplete_pets(pet_data)["bad_tier"]
