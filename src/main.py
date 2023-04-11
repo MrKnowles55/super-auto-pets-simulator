@@ -1,7 +1,7 @@
 from random import choice
 from src.team.team import Team
 from src.pet_data_utils.pet_factory import create_pet
-from src.pet_data_utils import pet_dict
+from src.pet_data_utils import pet_data_manager
 from battle import fight
 
 
@@ -25,10 +25,9 @@ def run_simulation(num_sims, friendly_pool, enemy_pool, verbose=False):
     return total, num_sims
 
 
-def main():
-    sims = 5000
-    friendly_pool = pet_dict.TEST_POOL
-    enemy_pool = pet_dict.TEST_POOL
+def main(sims):
+    friendly_pool = pet_data_manager.TEST_POOL
+    enemy_pool = pet_data_manager.TEST_POOL
     verbose = sims <= 5
 
     total, num_sims = run_simulation(sims, friendly_pool, enemy_pool, verbose)
@@ -41,4 +40,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    main(5000)

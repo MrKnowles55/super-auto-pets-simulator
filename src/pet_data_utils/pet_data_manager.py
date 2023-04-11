@@ -55,34 +55,34 @@ class PetData:
         return self.pet_dict.keys()
 
 
-pet_data = PetData(filename)
+pet_data_manager = PetData(filename)
 TOKENS = ["Bee", "Bus", "Butterfly", "Chick", "Dirty Rat", "Ram", "Zombie Fly", "Zombie Cricket", "Loyal Chinchilla"]
-BUYABLE = list(set(pet_data.keys()) - set(TOKENS))
+BUYABLE = list(set(pet_data_manager.keys()) - set(TOKENS))
 
 TEST_POOL = ["Ant"]
 TEST_POOL2 = ["Cricket", "Hedgehog"]
 IMPLEMENTED = []
 
 # Tiers
-TIER_1 = pet_data.get_pets_by_tier(1)
-TIER_2 = pet_data.get_pets_by_tier(2)
-TIER_3 = pet_data.get_pets_by_tier(3)
-TIER_4 = pet_data.get_pets_by_tier(4)
-TIER_5 = pet_data.get_pets_by_tier(5)
-TIER_6 = pet_data.get_pets_by_tier(6)
+TIER_1 = pet_data_manager.get_pets_by_tier(1)
+TIER_2 = pet_data_manager.get_pets_by_tier(2)
+TIER_3 = pet_data_manager.get_pets_by_tier(3)
+TIER_4 = pet_data_manager.get_pets_by_tier(4)
+TIER_5 = pet_data_manager.get_pets_by_tier(5)
+TIER_6 = pet_data_manager.get_pets_by_tier(6)
 
 # Packs
-TURTLE_PACK = pet_data.get_pets_by_pack("Turtle")
-PUPPY_PACK = pet_data.get_pets_by_pack("Puppy")
-STAR_PACK = pet_data.get_pets_by_pack("Star")
-TIGER_PACK = pet_data.get_pets_by_pack("Tiger")
-GOLDEN_PACK = pet_data.get_pets_by_pack("Golden")
+TURTLE_PACK = pet_data_manager.get_pets_by_pack("Turtle")
+PUPPY_PACK = pet_data_manager.get_pets_by_pack("Puppy")
+STAR_PACK = pet_data_manager.get_pets_by_pack("Star")
+TIGER_PACK = pet_data_manager.get_pets_by_pack("Tiger")
+GOLDEN_PACK = pet_data_manager.get_pets_by_pack("Golden")
 
 # abilities
-FAINT_PETS = pet_data.get_pets_by_trigger("Faint", triggered_by_kind="Self")
+FAINT_PETS = pet_data_manager.get_pets_by_trigger("Faint", triggered_by_kind="Self")
 
 # Other
-TIER_1_TURTLE_PACK = pet_data.filter_pets_by_pack_and_tier("Turtle", 1)
+TIER_1_TURTLE_PACK = pet_data_manager.filter_pets_by_pack_and_tier("Turtle", 1)
 
 if __name__ == "__main__":
     print(TIER_1_TURTLE_PACK)
