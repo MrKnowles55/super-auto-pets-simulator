@@ -27,7 +27,7 @@ def run_simulation(num_sims, friendly_pool, enemy_pool, verbose=False):
 
 def main(sims):
     friendly_pool = pet_data_manager.TEST_POOL
-    enemy_pool = pet_data_manager.TEST_POOL
+    enemy_pool = pet_data_manager.TEST_POOL2
     verbose = sims <= 5
 
     total, num_sims = run_simulation(sims, friendly_pool, enemy_pool, verbose)
@@ -36,8 +36,9 @@ def main(sims):
     loss_rate = total[1] / num_sims
     tie_rate = (num_sims - total[0] - total[1]) / num_sims
 
+    print("Battle Results")
     print(f'Rounds: {num_sims}, Wins {win_rate:.1%}, Losses {loss_rate:.1%}, Ties {tie_rate:.1%}')
 
 
 if __name__ == "__main__":
-    main(5000)
+    main(5)
