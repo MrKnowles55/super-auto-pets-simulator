@@ -1,12 +1,28 @@
 from pet import prioritize_pets
 
 
-def get_battle_string(team1, team2, prefix=''):
-    return f'{prefix} {list(reversed([str(obj) for obj in team1.pets]))} "VS" {[str(obj) for obj in team2.pets]}'
+def get_battle_string(team1, team2, prefix='', format_buffer=50):
+    team1_pets_str = ['_'] * 5
+    team2_pets_str = ['_'] * 5
+    for i, pet in enumerate(team1.pets):
+        team1_pets_str[i] = f"{pet.name}({pet.attack}/{pet.health})"
+    for i, pet in enumerate(team2.pets):
+        team2_pets_str[i] = f"{pet.name}({pet.attack}/{pet.health})"
+    team1_pets_str = ', '.join(reversed(team1_pets_str))
+    team2_pets_str = ', '.join(team2_pets_str)
+    len1 = len(team1_pets_str)
+    len2 = len(team2_pets_str)
+    max_len = max(len1, len2)
+    # if max_len < format_buffer:
+    #     format_buffer = max_len
+    return f"{prefix:<20} {team1_pets_str:>{format_buffer}}     VS     {team2_pets_str:<{format_buffer}}"
+
+
 
 
 def fight(team1, team2, verbose=True):
     if verbose:
+        print("\n", "- "*10)
         print(get_battle_string(team1, team2, prefix='Start of Battle :'))
 
     # Start of Battle
@@ -42,7 +58,7 @@ def fight(team1, team2, verbose=True):
         pet2.before_attack()
 
         if verbose:
-            print(get_battle_string(team1, team2, prefix=f'Round: {round}'))
+            print(get_battle_string(team1, team2, prefix=f'Round ({round}):'))
 
         pet1.attack_pet(pet2)
 
@@ -67,6 +83,7 @@ def fight(team1, team2, verbose=True):
     # End of Battle
     if verbose:
         print("End of Battle")
-        print(get_battle_string(team1, team2))
+        print(get_battle_string(team1, team2, prefix=f'Final Board State :'))
+        print("\n")
 
     return [int(bool(team1.pets)), int(bool(team2.pets))]

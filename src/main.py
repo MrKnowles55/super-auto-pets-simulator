@@ -36,8 +36,9 @@ def main(sims):
     loss_rate = total[1] / num_sims
     tie_rate = (num_sims - total[0] - total[1]) / num_sims
 
+    print("Battle Results")
     print(f'Rounds: {num_sims}, Wins {win_rate:.1%}, Losses {loss_rate:.1%}, Ties {tie_rate:.1%}')
 
 
 if __name__ == "__main__":
-    main(5000)
+    main(5)
