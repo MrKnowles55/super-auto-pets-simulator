@@ -178,8 +178,8 @@ def save_to_main(data):
 
 if __name__ == "__main__":
     pet_data = load_data("../../data/pet_data.json")
-    normalize_packs(pet_data)
-    save_to_main(pet_data)
+    # normalize_packs(pet_data)
+    # save_to_main(pet_data)
     # pet_to_fix = input("What pet to fix its tier? ").lower()
     # pets_with_bad_tier = get_incomplete_pets(pet_data)["bad_tier"]
     # pets_with_bad_packs = get_incomplete_pets(pet_data)["missing_pack"]
