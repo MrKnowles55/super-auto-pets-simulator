@@ -24,7 +24,7 @@ def fix_tier(data, pet):
     return data
 
 
-def fix_pack(data, pet):
+def fix_pack(data, pet, packs=None):
     pet_dict = get_pet(data, pet)
     if not pet_dict:
         return None
@@ -37,13 +37,42 @@ def fix_pack(data, pet):
         "4": "Tiger",
         "5": "Puppy"
     }
-    while pack_string:
-        pack_string = input(f"What Pack is {pet_dict['name']} in (1: Turtle, 2: Golden, 3: Star, 4: Tiger, 5: Puppy): ")
-        for pack in pack_string:
-            if pack in "12345":
-                new_packs.add(pack_dict[pack])
-    data[pet_dict["id"]]["packs"] = list(new_packs)
+    if not packs:
+        while pack_string:
+            pack_string = input(f"What Pack is {pet_dict['name']} in (1: Turtle, 2: Golden, 3: Star, 4: Tiger, 5: Puppy): ")
+            for pack in pack_string:
+                if pack in "12345":
+                    new_packs.add(pack_dict[pack])
+        data[pet_dict["id"]]["packs"] = list(new_packs)
+    else:
+        data[pet_dict["id"]]["packs"] = packs
     return data
+
+
+def normalize_packs(data):
+    pack_translator = {
+        "StandardPack":"Turtle",
+        "ExpansionPack1": "Puppy",
+        "Weekly": "Tiger",
+        "Custom": "",
+        "Turtle": "Turtle",
+        "Golden": "Golden",
+        "Star": "Star",
+        "Puppy": "Puppy",
+        "Tiger": "Tiger"
+    }
+
+    updated_data = data
+    for pet_name, pet_data in data.items():
+        fixed_packs = []
+        for pack in pet_data["packs"]:
+            if pack in pack_translator:
+                fixed_packs.append(pack_translator[pack])
+            else:
+                print(pack, "not in translator")
+        updated_data = fix_pack(updated_data, pet_name, packs=fixed_packs)
+
+    return updated_data
 
 
 def fix_stats(data, pet):
@@ -148,26 +177,27 @@ def save_to_main(data):
 
 
 if __name__ == "__main__":
-    pet_data = load_data("../../data/old/pet_data_wip.json")
-    # save_to_main(pet_data)
+    pet_data = load_data("../../data/pet_data.json")
+    normalize_packs(pet_data)
+    save_to_main(pet_data)
     # pet_to_fix = input("What pet to fix its tier? ").lower()
     # pets_with_bad_tier = get_incomplete_pets(pet_data)["bad_tier"]
     # pets_with_bad_packs = get_incomplete_pets(pet_data)["missing_pack"]
     # pets_with_bad_stats = get_incomplete_pets(pet_data)["bad_stats"]
     # pets_missing_all = get_incomplete_pets(pet_data)["missing_all"]
-    pets_missing_keywords = get_incomplete_pets(pet_data)["missing_ability_keywords"]
+    # pets_missing_keywords = get_incomplete_pets(pet_data)["missing_ability_keywords"]
 
-    for pet in pets_missing_keywords:
-        pet_to_fix = pet
-        if "pet" not in pet_to_fix:
-            pet_to_fix = "pet-"+pet_to_fix
-        pet_data = fix_missing_keywords(pet_data, pet_to_fix)
-        if not pet_data:
-            print(f"{pet} Invalid")
-            continue
-        display(pet_data[pet_to_fix])
-        if input("Save to WIP? ").lower() in ["y", "yes", "1"]:
-            save_to_wip(pet_data)
-            print(f'Saving {pet_to_fix} to WIP')
-        else:
-            print(f'Did NOT save {pet_to_fix} changes.')
+    # for pet in pets_missing_keywords:
+    #     pet_to_fix = pet
+    #     if "pet" not in pet_to_fix:
+    #         pet_to_fix = "pet-"+pet_to_fix
+    #     pet_data = fix_missing_keywords(pet_data, pet_to_fix)
+    #     if not pet_data:
+    #         print(f"{pet} Invalid")
+    #         continue
+    #     display(pet_data[pet_to_fix])
+    #     if input("Save to WIP? ").lower() in ["y", "yes", "1"]:
+    #         save_to_wip(pet_data)
+    #         print(f'Saving {pet_to_fix} to WIP')
+    #     else:
+    #         print(f'Did NOT save {pet_to_fix} changes.')

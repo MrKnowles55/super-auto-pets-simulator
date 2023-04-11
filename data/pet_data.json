@@ -11,8 +11,8 @@
         "baseAttack": 2,
         "baseHealth": 1,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Faint: Give a random friend +2/+1",
@@ -212,8 +212,8 @@
         "baseAttack": 2,
         "baseHealth": 2,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Sell: Give two random friends +1 health",
@@ -410,7 +410,7 @@
         "baseAttack": 2,
         "baseHealth": 3,
         "packs": [
-            "ExpansionPack1"
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Eat shop food: Give shop animals +1 health",
@@ -585,7 +585,7 @@
         "baseAttack": 2,
         "baseHealth": 1,
         "packs": [
-            "ExpansionPack1"
+            "Puppy"
         ],
         "level1Ability": {
             "description": "End turn: Give left-most friend +1 attack",
@@ -757,8 +757,8 @@
         "baseAttack": 1,
         "baseHealth": 2,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Faint: Summon a 1/1 Cricket",
@@ -949,7 +949,7 @@
         "baseAttack": 1,
         "baseHealth": 3,
         "packs": [
-            "StandardPack"
+            "Turtle"
         ],
         "level1Ability": {
             "description": "Sell: Give shop animals +1 Health",
@@ -1125,8 +1125,8 @@
         "baseAttack": 2,
         "baseHealth": 3,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Level-up: Give all friends +1/+1",
@@ -1307,7 +1307,7 @@
         "baseAttack": 2,
         "baseHealth": 1,
         "packs": [
-            "StandardPack"
+            "Turtle"
         ],
         "level1Ability": {
             "description": "Friend summoned: Give it +1 Attack until end of battle",
@@ -1479,7 +1479,7 @@
         "baseAttack": 1,
         "baseHealth": 3,
         "packs": [
-            "ExpansionPack1"
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Buy food: Gain +1/+1 until end of battle",
@@ -1654,8 +1654,8 @@
         "baseAttack": 2,
         "baseHealth": 2,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Start of battle: Deal 1 damage to a random enemy",
@@ -1849,7 +1849,7 @@
         "baseAttack": 1,
         "baseHealth": 2,
         "packs": [
-            "StandardPack"
+            "Turtle"
         ],
         "level1Ability": {
             "description": "Buy: Give a random friend +1/+1",
@@ -2027,8 +2027,8 @@
         "baseAttack": 3,
         "baseHealth": 1,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Sell: Gain an extra 1 gold",
@@ -2211,9 +2211,8 @@
         "baseAttack": 1,
         "baseHealth": 1,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1",
-            "EasterEgg"
+            "Turtle",
+            "Puppy"
         ]
     },
     "pet-bat": {
@@ -2228,7 +2227,7 @@
         "baseAttack": 1,
         "baseHealth": 2,
         "packs": [
-            "ExpansionPack1"
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Start of battle: Make 1 enemy Weak.",
@@ -2394,7 +2393,7 @@
         "baseAttack": 3,
         "baseHealth": 3,
         "packs": [
-            "StandardPack"
+            "Turtle"
         ],
         "level1Ability": {
             "description": "Buy: Copy Health from the most healthy friend",
@@ -2569,7 +2568,7 @@
         "baseAttack": 2,
         "baseHealth": 3,
         "packs": [
-            "StandardPack"
+            "Turtle"
         ],
         "level1Ability": {
             "description": "Start of battle: Give 50% Attack to friend ahead.",
@@ -2750,8 +2749,8 @@
         "baseAttack": 2,
         "baseHealth": 2,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Friend summoned: Gain +1 Attack or +1 Health.",
@@ -2952,7 +2951,7 @@
         "baseAttack": 2,
         "baseHealth": 4,
         "packs": [
-            "ExpansionPack1"
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Start of turn: Give shop animals +1/+1",
@@ -3124,7 +3123,7 @@
         "baseAttack": 3,
         "baseHealth": 5,
         "packs": [
-            "StandardPack"
+            "Turtle"
         ],
         "level1Ability": {
             "description": "Before Attack: Deal 1 damage to 1 friends behind.",
@@ -3290,8 +3289,8 @@
         "baseAttack": 3,
         "baseHealth": 1,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Faint: Give the two friends behind +1/+1.",
@@ -3483,8 +3482,8 @@
         "baseAttack": 3,
         "baseHealth": 2,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Faint: Deal 2 damage to all.",
@@ -3667,8 +3666,8 @@
         "baseAttack": 1,
         "baseHealth": 5,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Hurt: Gain 50% more Attack. Works 1 time(s) per turn.",
@@ -3854,8 +3853,8 @@
         "baseAttack": 4,
         "baseHealth": 5,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Faint: summon one 1/1 Dirty Rat for the opponent that betrays him.",
@@ -4032,8 +4031,8 @@
         "baseAttack": 2,
         "baseHealth": 3,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Friend sold: Give a random friend +1 Health.",
@@ -4222,8 +4221,8 @@
         "baseAttack": 2,
         "baseHealth": 2,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Faint: Summon a level 1 tier 3 animal as a 2/2",
@@ -4406,8 +4405,8 @@
         "baseAttack": 1,
         "baseHealth": 3,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Start of turn: Gain 1 gold.",
@@ -4581,7 +4580,7 @@
         "baseAttack": 5,
         "baseHealth": 3,
         "packs": [
-            "ExpansionPack1"
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Eats shop food: Give friends +1 Attack until end of battle",
@@ -4747,7 +4746,7 @@
         "baseAttack": 5,
         "baseHealth": 4,
         "packs": [
-            "StandardPack"
+            "Turtle"
         ],
         "level1Ability": {
             "description": "Faint: Deal Attack x1 damage to adjacent animals",
@@ -4896,8 +4895,8 @@
         "baseAttack": 3,
         "baseHealth": 5,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Hurt: Deal 2 damage to a random enemy.",
@@ -5059,7 +5058,7 @@
         "baseAttack": 1,
         "baseHealth": 3,
         "packs": [
-            "ExpansionPack1"
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Start of turn: Gain 1 Experience.",
@@ -5199,7 +5198,7 @@
         "baseAttack": 2,
         "baseHealth": 5,
         "packs": [
-            "StandardPack"
+            "Turtle"
         ],
         "level1Ability": {
             "description": "Hurt: Give friend behind +1/+2",
@@ -5351,7 +5350,7 @@
         "baseAttack": 1,
         "baseHealth": 1,
         "packs": [
-            "ExpansionPack1"
+            "Puppy"
         ],
         "level1Ability": {
             "description": "End turn: Give +5/+5 to friend ahead until end of battle.",
@@ -5501,7 +5500,7 @@
         "baseAttack": 2,
         "baseHealth": 5,
         "packs": [
-            "StandardPack"
+            "Turtle"
         ],
         "level1Ability": {
             "description": "End turn: Give friend ahead +1/+1",
@@ -5653,7 +5652,7 @@
         "baseAttack": 1,
         "baseHealth": 2,
         "packs": [
-            "StandardPack"
+            "Turtle"
         ],
         "level1Ability": {
             "description": "Friend ahead attacks: Gain +2/+2",
@@ -5805,7 +5804,7 @@
         "baseAttack": 5,
         "baseHealth": 3,
         "packs": [
-            "ExpansionPack1"
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Sell: Give a random friend +2/+2",
@@ -5957,7 +5956,7 @@
         "baseAttack": 1,
         "baseHealth": 4,
         "packs": [
-            "StandardPack"
+            "Turtle"
         ],
         "level1Ability": {
             "description": "Friend ahead attacks: Gain Melon Armor and +2 attack",
@@ -6142,7 +6141,7 @@
         "baseAttack": 1,
         "baseHealth": 1,
         "packs": [
-            "ExpansionPack1"
+            "Puppy"
         ],
         "level1Ability": {
             "description": "End turn: If you have 3 or more gold, gain +2/+2",
@@ -6291,8 +6290,8 @@
         "baseAttack": 3,
         "baseHealth": 2,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Pet eats shop food: Give it +1 Health",
@@ -6454,8 +6453,8 @@
         "baseAttack": 2,
         "baseHealth": 2,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Faint: Summon two 2/2 Rams",
@@ -6614,8 +6613,8 @@
         "baseAttack": 2,
         "baseHealth": 2,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Buy: If you lost last battle, give all friends +1/+1",
@@ -6780,7 +6779,7 @@
         "baseAttack": 2,
         "baseHealth": 4,
         "packs": [
-            "ExpansionPack1"
+            "Puppy"
         ],
         "level1Ability": {
             "description": "End turn: Give adjacent friends +1 Health",
@@ -6926,8 +6925,8 @@
         "baseAttack": 1,
         "baseHealth": 2,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Faint: Give friend behind Melon Armor",
@@ -7089,7 +7088,7 @@
         "baseAttack": 3,
         "baseHealth": 8,
         "packs": [
-            "StandardPack"
+            "Turtle"
         ],
         "level1Ability": {
             "description": "Start of battle: Swallow friend ahead and release it as a level 1 after fainting.",
@@ -7212,8 +7211,8 @@
         "baseAttack": 6,
         "baseHealth": 6,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "End turn: Gain +2/+2 if there is at least one Lvl. 3 friend.",
@@ -7354,7 +7353,7 @@
         "baseAttack": 5,
         "baseHealth": 5,
         "packs": [
-            "ExpansionPack1"
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Friend bought: Gain +1/+1",
@@ -7483,8 +7482,8 @@
         "baseAttack": 1,
         "baseHealth": 1,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Faint: Summon a 5/5 Bus with Splash Attack",
@@ -7619,8 +7618,8 @@
         "baseAttack": 4,
         "baseHealth": 6,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Start of battle: Deal 5 damage to the lowest health enemy",
@@ -7755,7 +7754,7 @@
         "baseAttack": 4,
         "baseHealth": 7,
         "packs": [
-            "StandardPack"
+            "Turtle"
         ],
         "level1Ability": {
             "description": "Knock out: Gain +2/+2.",
@@ -7884,7 +7883,7 @@
         "baseAttack": 3,
         "baseHealth": 6,
         "packs": [
-            "ExpansionPack1"
+            "Puppy"
         ],
         "level1Ability": {
             "description": "End turn: If you have 4 or less animals, gain +2/+2.",
@@ -8013,7 +8012,7 @@
         "baseAttack": 4,
         "baseHealth": 5,
         "packs": [
-            "ExpansionPack1"
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Friend summoned: Give it +2/+2 when not in battle.",
@@ -8142,7 +8141,7 @@
         "baseAttack": 1,
         "baseHealth": 2,
         "packs": [
-            "StandardPack"
+            "Turtle"
         ],
         "level1Ability": {
             "description": "End turn: Give right-most friend +2/+3",
@@ -8251,7 +8250,7 @@
         "baseAttack": 1,
         "baseHealth": 2,
         "packs": [
-            "StandardPack"
+            "Turtle"
         ],
         "level1Ability": {
             "description": "End turn: Give other Lvl. 2 and 3 friends +1/+1",
@@ -8380,7 +8379,7 @@
         "baseAttack": 2,
         "baseHealth": 2,
         "packs": [
-            "ExpansionPack1"
+            "Puppy"
         ],
         "level1Ability": {
             "description": "End turn: Give +1/+1 to different tier animals.",
@@ -8489,8 +8488,8 @@
         "baseAttack": 5,
         "baseHealth": 3,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Faint: Summon a Chick with 1 health and half the Attack of this.",
@@ -8619,8 +8618,8 @@
         "baseAttack": 3,
         "baseHealth": 6,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Start of battle: Reduce the highest Health enemy by 33%.",
@@ -8755,8 +8754,8 @@
         "baseAttack": 2,
         "baseHealth": 2,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Start of turn: Discount shop food by 1 gold",
@@ -8882,8 +8881,8 @@
         "baseAttack": 2,
         "baseHealth": 2,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Eats shop food: Gain +1/+1",
@@ -9024,7 +9023,7 @@
         "baseAttack": 1,
         "baseHealth": 2,
         "packs": [
-            "ExpansionPack1"
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Buy tier 1 animal: Give current and future shop animals +1/+1",
@@ -9136,8 +9135,8 @@
         "baseAttack": 4,
         "baseHealth": 6,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Buy: Replace food shop with 2 free milk that gives +1/+2.",
@@ -9242,7 +9241,7 @@
         "baseAttack": 8,
         "baseHealth": 4,
         "packs": [
-            "StandardPack"
+            "Turtle"
         ],
         "level1Ability": {
             "description": "Start of battle: Deal 8 damage to the last enemy",
@@ -9345,7 +9344,7 @@
         "baseAttack": 6,
         "baseHealth": 5,
         "packs": [
-            "ExpansionPack1"
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Faint: Summon one Lvl. 1 tier 6 animal.",
@@ -9442,7 +9441,7 @@
         "baseAttack": 4,
         "baseHealth": 6,
         "packs": [
-            "ExpansionPack1"
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Friend bought: Gain 1 gold.",
@@ -9539,7 +9538,7 @@
         "baseAttack": 1,
         "baseHealth": 1,
         "packs": [
-            "ExpansionPack1"
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Faint: Make all animals Weak.",
@@ -9662,7 +9661,7 @@
         "baseAttack": 5,
         "baseHealth": 3,
         "packs": [
-            "StandardPack"
+            "Turtle"
         ],
         "level1Ability": {
             "description": "End Turn: Copy ability from pet ahead as lvl. 1 until end of battle.",
@@ -9797,8 +9796,8 @@
         "baseAttack": 5,
         "baseHealth": 8,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Knock out: Deal 4 damage to the first enemy.",
@@ -9909,8 +9908,8 @@
         "baseAttack": 1,
         "baseHealth": 1,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "status": "status-poison-attack",
         "probabilities": [
@@ -9980,8 +9979,8 @@
         "baseAttack": 3,
         "baseHealth": 8,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Eats shop food: Give 2 random friends +1/+1.",
@@ -10101,7 +10100,7 @@
         "baseAttack": 4,
         "baseHealth": 4,
         "packs": [
-            "StandardPack"
+            "Turtle"
         ],
         "level1Ability": {
             "description": "Friend faints: Gain +2/+1.",
@@ -10210,7 +10209,7 @@
         "baseAttack": 3,
         "baseHealth": 4,
         "packs": [
-            "StandardPack"
+            "Turtle"
         ],
         "level1Ability": {
             "description": "Friend summoned: Give it +3/+3.",
@@ -10319,7 +10318,7 @@
         "baseAttack": 4,
         "baseHealth": 5,
         "packs": [
-            "StandardPack"
+            "Turtle"
         ],
         "level1Ability": {
             "description": "Food with Health and Attack effects are doubled.",
@@ -10400,8 +10399,8 @@
         "baseAttack": 8,
         "baseHealth": 6,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Before attack: Gain +2/+2.",
@@ -10502,8 +10501,8 @@
         "baseAttack": 6,
         "baseHealth": 8,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Buy tier 1 animal: Give all friends +1/+1.",
@@ -10604,7 +10603,7 @@
         "baseAttack": 5,
         "baseHealth": 5,
         "packs": [
-            "StandardPack"
+            "Turtle"
         ],
         "level1Ability": {
             "description": "Friend faints: Summon a 5/5 fly in its place (Max 3 times)",
@@ -10697,8 +10696,8 @@
         "baseAttack": 6,
         "baseHealth": 9,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Hurt: Gain Coconut Shield.",
@@ -10797,8 +10796,8 @@
         "baseAttack": 10,
         "baseHealth": 4,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Start of battle: Deal 50% Attack damage to a random enemy.",
@@ -10902,8 +10901,8 @@
         "baseAttack": 3,
         "baseHealth": 10,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Faint: Give all friends +2/+2",
@@ -11004,7 +11003,7 @@
         "baseAttack": 8,
         "baseHealth": 8,
         "packs": [
-            "ExpansionPack1"
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Level-up: Gain +8/+8.",
@@ -11109,7 +11108,7 @@
         "baseAttack": 4,
         "baseHealth": 12,
         "packs": [
-            "ExpansionPack1"
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Buy food: Gain 1 gold.",
@@ -11193,7 +11192,7 @@
         "baseAttack": 6,
         "baseHealth": 6,
         "packs": [
-            "StandardPack"
+            "Turtle"
         ],
         "level1Ability": {
             "description": "Friend ahead attacks: Deal 5 damage to a random enemy.",
@@ -11289,8 +11288,8 @@
         "baseAttack": 4,
         "baseHealth": 3,
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "level1Ability": {
             "description": "The friend ahead repeats their ability in battle as if they were level 1.",
@@ -11388,7 +11387,7 @@
         "baseAttack": 9,
         "baseHealth": 4,
         "packs": [
-            "ExpansionPack1"
+            "Puppy"
         ],
         "level1Ability": {
             "description": "End turn: If you have 3 or more gold, give all +2/+1",
@@ -11481,8 +11480,8 @@
             "unicodeCodePoint": "\ud83e\udd97"
         },
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "tier": "Summoned",
         "baseAttack": 1,
@@ -11497,8 +11496,8 @@
             "unicodeCodePoint": "\ud83d\ude8c"
         },
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "tier": "Summoned",
         "baseAttack": 5,
@@ -11514,7 +11513,7 @@
             "unicodeCodePoint": "\ud83e\udeb0"
         },
         "packs": [
-            "StandardPack"
+            "Turtle"
         ],
         "tier": "Summoned",
         "baseAttack": 4,
@@ -11529,8 +11528,8 @@
             "unicodeCodePoint": "\ud83d\udc00"
         },
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "tier": "Summoned",
         "baseAttack": 1,
@@ -11593,8 +11592,8 @@
             "unicodeCodePoint": "\ud83d\udc24"
         },
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "tier": "Summoned",
         "baseAttack": 1,
@@ -11609,8 +11608,8 @@
             "unicodeCodePoint": "\ud83d\udc0f"
         },
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "tier": "Summoned",
         "baseAttack": 2,
@@ -11629,7 +11628,7 @@
         "baseAttack": 1,
         "baseHealth": 1,
         "packs": [
-            "ExpansionPack1"
+            "Puppy"
         ],
         "level1Ability": {
             "description": "Copy stats of the strongest friend (highest attack and health combined).",
@@ -11659,8 +11658,8 @@
             "unicodeCodePoint": "\ud83d\udc1d"
         },
         "packs": [
-            "StandardPack",
-            "ExpansionPack1"
+            "Turtle",
+            "Puppy"
         ],
         "tier": "Summoned",
         "baseAttack": 1,
@@ -11673,8 +11672,7 @@
         "baseAttack": 2,
         "baseHealth": 2,
         "packs": [
-            "Weekly",
-            "Custom"
+            "Tiger"
         ],
         "level1Ability": {
             "description": "Sell: Summon one Loyal Chinchilla.",
@@ -11714,8 +11712,7 @@
         "baseAttack": 1,
         "baseHealth": 1,
         "packs": [
-            "Weekly",
-            "Custom"
+            "Tiger"
         ],
         "level1Ability": {
             "description": "Start of battle: Gain +1  attack and +1  health per faint friend.",
@@ -11755,8 +11752,7 @@
         "baseAttack": 2,
         "baseHealth": 3,
         "packs": [
-            "Weekly",
-            "Custom"
+            "Tiger"
         ],
         "level1Ability": {
             "description": "Sell: Your next roll is free.",
@@ -11796,8 +11792,7 @@
         "baseAttack": 2,
         "baseHealth": 1,
         "packs": [
-            "Weekly",
-            "Custom"
+            "Tiger"
         ],
         "level1Ability": {
             "description": "Start of battle: Give front-most friend +3  attack.",
@@ -12557,8 +12552,7 @@
         "baseAttack": 2,
         "baseHealth": 4,
         "packs": [
-            "Weekly",
-            "Custom"
+            "Tiger"
         ],
         "level1Ability": {
             "description": "Buy: Give one random Hurt friend +2  health.",
@@ -12598,8 +12592,7 @@
         "baseAttack": 1,
         "baseHealth": 2,
         "packs": [
-            "Weekly",
-            "Custom"
+            "Tiger"
         ],
         "level1Ability": {
             "description": "Start of turn: Discount the two left-most shop pets by 1 gold.",
@@ -12679,8 +12672,7 @@
         "baseAttack": 2,
         "baseHealth": 3,
         "packs": [
-            "Weekly",
-            "Custom"
+            "Tiger"
         ],
         "level1Ability": {
             "description": "Faint: Give this pet's food perk to the nearest friend behind.",
@@ -13520,8 +13512,7 @@
         "baseAttack": 3,
         "baseHealth": 5,
         "packs": [
-            "Weekly",
-            "Custom"
+            "Tiger"
         ],
         "level1Ability": {
             "description": "Faint: Give Honey perk to all pets within one space.",
@@ -13561,8 +13552,7 @@
         "baseAttack": 2,
         "baseHealth": 4,
         "packs": [
-            "Weekly",
-            "Custom"
+            "Tiger"
         ],
         "level1Ability": {
             "description": "Sell: Give 50% of Emperor Tamarin's Attack and Health to the leftmost shop pet.",
@@ -14562,8 +14552,7 @@
         "baseAttack": 4,
         "baseHealth": 5,
         "packs": [
-            "Weekly",
-            "Custom"
+            "Tiger"
         ],
         "level1Ability": {
             "description": "Start of battle: If this is your lowest tier pet, gain Coconut +5 attack and +5 health",
@@ -16523,8 +16512,7 @@
         "baseAttack": 4,
         "baseHealth": 9,
         "packs": [
-            "Weekly",
-            "Custom"
+            "Tiger"
         ],
         "level1Ability": {
             "description": "Friend summoned: Give it +1 . Except other Alpacas! Work 2 times per turn.",
@@ -16564,8 +16552,7 @@
         "baseAttack": 4,
         "baseHealth": 5,
         "packs": [
-            "Weekly",
-            "Custom"
+            "Tiger"
         ],
         "level1Ability": {
             "description": "End turn: Give current and future shop pets +2  attack and +2  health.",
@@ -16605,8 +16592,7 @@
         "baseAttack": 4,
         "baseHealth": 3,
         "packs": [
-            "Weekly",
-            "Custom"
+            "Tiger"
         ],
         "level1Ability": {
             "description": "Faint: Summon one level 1 copy of a random friendly pet. Except other Tapirs!",
@@ -16646,8 +16632,7 @@
         "baseAttack": 7,
         "baseHealth": 5,
         "packs": [
-            "Weekly",
-            "Custom"
+            "Tiger"
         ],
         "level1Ability": {
             "description": "Faint: Give 1 random friend  Peanuts.",
