@@ -4,23 +4,41 @@ from src.pet_data_utils.pet_factory import create_pet
 from src.pet_data_utils import pet_dict
 from battle import fight
 
-total = [0, 0]
-sims = 5000
 
-friendly_pool = pet_dict.TEST_POOL
-enemy_pool = pet_dict.TEST_POOL
+def create_random_team(pet_pool, team_size=5):
+    team = Team()
+    for _ in range(team_size):
+        team.add_pet(create_pet(choice(list(pet_pool))))
+    return team
 
-for i in range(1, sims+1):
-    friendly_team = Team()
-    enemy_team = Team()
 
-    for _ in range(5):
-        friendly_team.add_pet(create_pet(choice(list(friendly_pool))))
-        enemy_team.add_pet(create_pet(choice(list(enemy_pool))))
-    verbose = bool(not(sims > 5))
-    debug_friendly_team_list = friendly_team.pets[:]
-    debug_enemy_team_list = enemy_team.pets[:]
-    result = fight(friendly_team, enemy_team, verbose=verbose)
-    total[0] += result[0]
-    total[1] += result[1]
-print(f'Rounds: {i}, Wins {total[0]/i:.1%}, Losses {total[1]/i:.1%}, Ties {(i-total[0]-total[1])/i:.1%}')
+def run_simulation(num_sims, friendly_pool, enemy_pool, verbose=False):
+    total = [0, 0]
+
+    for i in range(num_sims):
+        friendly_team = create_random_team(friendly_pool)
+        enemy_team = create_random_team(enemy_pool)
+        result = fight(friendly_team, enemy_team, verbose=verbose)
+        total[0] += result[0]
+        total[1] += result[1]
+
+    return total, num_sims
+
+
+def main():
+    sims = 5000
+    friendly_pool = pet_dict.TEST_POOL
+    enemy_pool = pet_dict.TEST_POOL
+    verbose = sims <= 5
+
+    total, num_sims = run_simulation(sims, friendly_pool, enemy_pool, verbose)
+
+    win_rate = total[0] / num_sims
+    loss_rate = total[1] / num_sims
+    tie_rate = (num_sims - total[0] - total[1]) / num_sims
+
+    print(f'Rounds: {num_sims}, Wins {win_rate:.1%}, Losses {loss_rate:.1%}, Ties {tie_rate:.1%}')
+
+
+if __name__ == "__main__":
+    main()
