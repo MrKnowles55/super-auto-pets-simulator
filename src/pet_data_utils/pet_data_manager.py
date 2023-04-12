@@ -56,10 +56,8 @@ class PetData:
 
 
 pet_data_manager = PetData(filename)
-TOKENS = ["Bee", "Bus", "Butterfly", "Chick", "Dirty Rat", "Ram", "Zombie Fly", "Zombie Cricket", "Loyal Chinchilla"]
-BUYABLE = list(set(pet_data_manager.keys()) - set(TOKENS))
 
-TEST_POOL = ["Ant"]
+TEST_POOL = ["Cricket"]
 TEST_POOL2 = ["Cricket", "Hedgehog"]
 IMPLEMENTED = ["Ant", "Sloth"]
 
@@ -130,6 +128,7 @@ TIER_3 = pet_data_manager.get_pets_by_tier(3)
 TIER_4 = pet_data_manager.get_pets_by_tier(4)
 TIER_5 = pet_data_manager.get_pets_by_tier(5)
 TIER_6 = pet_data_manager.get_pets_by_tier(6)
+TOKENS = pet_data_manager.get_pets_by_tier("Summoned")
 
 # Packs
 TURTLE_PACK = pet_data_manager.get_pets_by_pack("Turtle")
@@ -148,6 +147,8 @@ TIER_3_TURTLE_PACK = pet_data_manager.filter_pets_by_pack_and_tier("Turtle", 3)
 TIER_4_TURTLE_PACK = pet_data_manager.filter_pets_by_pack_and_tier("Turtle", 4)
 TIER_5_TURTLE_PACK = pet_data_manager.filter_pets_by_pack_and_tier("Turtle", 5)
 TIER_6_TURTLE_PACK = pet_data_manager.filter_pets_by_pack_and_tier("Turtle", 6)
+
+BUYABLE = list(set(pet_data_manager.keys()) - set(TOKENS))
 
 if __name__ == "__main__":
     kinds = {}
