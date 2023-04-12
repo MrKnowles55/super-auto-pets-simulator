@@ -53,7 +53,7 @@ class AbilityGenerator:
             case "ModifyStats":
                 return self.generate_modify_stats_ability()
             case _:
-                return No_Ability()
+                return No_Ability(self.owner)
 
     def generate_modify_stats_ability(self):
         attack_mod = self.get_attack_mod()
@@ -67,4 +67,4 @@ class AbilityGenerator:
                 return ModifyStatsAbilityRandomFriend(self.owner, attack_mod=attack_mod, health_mod=health_mod,
                                                       target_type=target_type, target_n=target_n, trigger_event=trigger)
             case _:
-                return No_Ability()
+                return No_Ability(self.owner)
