@@ -1,4 +1,5 @@
-from .abilities import Ability
+from abc import abstractmethod
+from .ability import Ability
 from random import sample
 
 
@@ -11,6 +12,10 @@ class ModifyStatsAbility(Ability):
         self.target_n = target_n
         self.trigger_event = trigger_event
         self.until_end_of_battle = until_end_of_battle
+
+    @abstractmethod
+    def apply(self, pet, team, **kwargs):
+        pass
 
     def add_modifiers(self, target_pet):
         target_pet.attack += self.attack_mod
@@ -46,5 +51,3 @@ class ModifyStatsAbilityFriendAhead(ModifyStatsAbility):
 
         target = team.pets[index - 1]
         self.add_modifiers(target)
-
-

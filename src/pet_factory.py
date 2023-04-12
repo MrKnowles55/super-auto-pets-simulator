@@ -1,5 +1,5 @@
 from src.pet import Pet
-from src.abilities.ability_generator import AbilityGenerator
+from src.ability.ability_generator import AbilityGenerator
 from src.pet_data_utils.pet_data_manager import pet_data_manager
 
 

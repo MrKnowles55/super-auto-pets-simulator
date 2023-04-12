@@ -59,7 +59,7 @@ def get_ability_data(soup):
         level_label = level.find("h3", class_="pi-data-label pi-secondary-font").text
         ability_description = level.find("div", class_="pi-data-value pi-font").text
         abilities[level_label] = ability_description.strip()
-    # print(abilities)
+    # print(ability)
     return abilities
 
 
@@ -192,11 +192,11 @@ if __name__ == "__main__":
     # for t in sorted(parameters["triggers"]):
     #     trigger_list[t] = []
     #     for pet in PET_DICT.values():
-    #         abilities = [pet.get('level1Ability', {}),
+    #         ability = [pet.get('level1Ability', {}),
     #                      pet.get('level2Ability', {}),
     #                      pet.get('level3Ability', {})]
     #
-    #         for ability in abilities:
+    #         for ability in ability:
     #             trigger = ability.get('trigger')
     #             if trigger == t:
     #                 if pet["name"] not in trigger_list[t]:
@@ -206,11 +206,11 @@ if __name__ == "__main__":
     # for e in sorted(parameters["effect_kinds"]):
     #     effect_kinds_list[e] = []
     #     for pet in PET_DICT.values():
-    #         abilities = [pet.get('level1Ability', {}),
+    #         ability = [pet.get('level1Ability', {}),
     #                      pet.get('level2Ability', {}),
     #                      pet.get('level3Ability', {})]
     #
-    #         for ability in abilities:
+    #         for ability in ability:
     #             effect = ability.get('effect')
     #             if effect:
     #                 effect_kind = effect.get('kind')
@@ -222,11 +222,11 @@ if __name__ == "__main__":
     # for e in sorted(parameters["effect_target_kinds"]):
     #     effect_target_kinds_list[e] = []
     #     for pet in PET_DICT.values():
-    #         abilities = [pet.get('level1Ability', {}),
+    #         ability = [pet.get('level1Ability', {}),
     #                      pet.get('level2Ability', {}),
     #                      pet.get('level3Ability', {})]
     #
-    #         for ability in abilities:
+    #         for ability in ability:
     #             effect = ability.get('effect')
     #             if effect:
     #                 target = effect.get('target')

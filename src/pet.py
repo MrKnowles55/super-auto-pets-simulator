@@ -47,7 +47,7 @@ class Pet:
             if not enemy_pet.is_alive():
                 enemy_pet.ability.trigger("Faint", enemy_pet, enemy_pet.team, enemy_team=self.team)
 
-            # Clean up dead pets after abilities have been triggered
+            # Clean up dead pets after ability have been triggered
             if not self.is_alive() and self in self.team.pets:
                 self.team.remove_pet(self)
             if not enemy_pet.is_alive() and enemy_pet in enemy_pet.team.pets:

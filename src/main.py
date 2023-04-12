@@ -41,4 +41,4 @@ def main(sims):
 
 
 if __name__ == "__main__":
-    main(5)
+    main(4)

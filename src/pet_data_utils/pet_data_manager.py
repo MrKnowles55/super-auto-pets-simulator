@@ -78,7 +78,7 @@ STAR_PACK = pet_data_manager.get_pets_by_pack("Star")
 TIGER_PACK = pet_data_manager.get_pets_by_pack("Tiger")
 GOLDEN_PACK = pet_data_manager.get_pets_by_pack("Golden")
 
-# abilities
+# ability
 FAINT_PETS = pet_data_manager.get_pets_by_trigger("Faint", triggered_by_kind="Self")
 
 # Other

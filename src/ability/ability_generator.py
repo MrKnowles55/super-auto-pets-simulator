@@ -1,4 +1,4 @@
-from .abilities import *
+from .ability import *
 from .modify_stats import *
 
 
