@@ -30,6 +30,7 @@ class TestAbility(unittest.TestCase):
         self.assertIsNone(ability.trigger_event)
         self.assertIsInstance(ability, Ability)
 
+
 # Mock Ability class to be used in tests
 class MockAbility:
     def __init__(self):
