@@ -61,7 +61,49 @@ BUYABLE = list(set(pet_data_manager.keys()) - set(TOKENS))
 
 TEST_POOL = ["Ant"]
 TEST_POOL2 = ["Cricket", "Hedgehog"]
-IMPLEMENTED = []
+IMPLEMENTED = ["Ant", "Sloth"]
+
+# Priority pets to implement for simpler abilities
+
+PRIORITY = [
+    "Cricket", "Zombie Cricket",
+    "Horse",
+    "Mosquito",
+    "Crab",
+    "Dodo",
+    "Elephant",
+    "Flamingo",
+    "Peacock",
+    "Rat",
+    "Hedgehog",
+    "Spider",
+    "Badger",
+    "Blowfish",
+    "Camel",
+    "Dog",
+    "Kangaroo",
+    "Sheep", "Ram",
+    "Turtle",
+    "Ox",
+    "Deer", "Bus",
+    "Dolphin",
+    "Hippo",
+    "Parrot",
+    "Rooster",
+    "Skunk",
+    "Whale",
+    "Crocodile",
+    "Rhino",
+    "Scorpion",
+    "Turkey",
+    "Boar",
+    "Fly", "Zombie Fly",
+    "Gorilla",
+    "Leopard",
+    "Mammoth",
+    "Snake",
+    "Tiger"
+]
 
 # Tiers
 TIER_1 = pet_data_manager.get_pets_by_tier(1)
@@ -83,8 +125,23 @@ FAINT_PETS = pet_data_manager.get_pets_by_trigger("Faint", triggered_by_kind="Se
 
 # Other
 TIER_1_TURTLE_PACK = pet_data_manager.filter_pets_by_pack_and_tier("Turtle", 1)
+TIER_2_TURTLE_PACK = pet_data_manager.filter_pets_by_pack_and_tier("Turtle", 2)
+TIER_3_TURTLE_PACK = pet_data_manager.filter_pets_by_pack_and_tier("Turtle", 3)
+TIER_4_TURTLE_PACK = pet_data_manager.filter_pets_by_pack_and_tier("Turtle", 4)
+TIER_5_TURTLE_PACK = pet_data_manager.filter_pets_by_pack_and_tier("Turtle", 5)
+TIER_6_TURTLE_PACK = pet_data_manager.filter_pets_by_pack_and_tier("Turtle", 6)
 
 if __name__ == "__main__":
-    print(TIER_1_TURTLE_PACK)
-    print(TIER_1)
-    print(TURTLE_PACK)
+    kinds = {}
+    for pet in PRIORITY:
+        pet_id = "pet-"+pet.lower().replace(" ", "-")
+        ability = pet_data_manager.pet_dict[pet_id].get("level1Ability")
+        if ability:
+            kind = ability.get("effect").get("kind")
+            if kind in kinds.keys():
+                kinds[kind].append(pet)
+            else:
+                kinds[kind] = [pet]
+
+    for k, v in kinds.items():
+        print(k, v)
