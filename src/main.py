@@ -1,6 +1,6 @@
 from random import choice
 from src.team.team import Team
-from src.pet_data_utils.pet_factory import create_pet
+from src.pet_factory import create_pet
 from src.pet_data_utils import pet_data_manager
 from battle import fight
 
