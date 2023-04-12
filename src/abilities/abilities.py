@@ -23,13 +23,10 @@ class Ability(ABC):
 
 
 class No_Ability(Ability):
-    def __init__(self):
-        self.trigger_event = None
+    def __init__(self, owner):
+        super().__init__(owner)
 
     def apply(self, pet, team, **kwargs):
-        pass
-
-    def trigger(self, event, *args, **kwargs):
         pass
 
 
@@ -39,7 +36,7 @@ class Summon(Ability):
         self.trigger_event = trigger_event
 
     def apply(self, pet, team, **kwargs):
-        from src.pet_data_utils.pet_factory import create_pet
+        from src.pet_factory import create_pet
         if self.trigger_event == "faint":
 
             index = team.pets.index(pet)
