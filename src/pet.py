@@ -2,6 +2,7 @@ from src.pet_data_utils.enums.trigger_event import TriggerEvent
 from src.pet_data_utils.enums.effect_kind import EffectKind
 from src.pet_data_utils.enums.effect_target_kind import EffectTargetKind
 
+
 class Pet:
     def __init__(self, name, attack, health, tier, level, ability1, ability2, ability3, ability_generator):
         self.name = name
@@ -32,36 +33,31 @@ class Pet:
         return self.health > 0
 
     def attack_pet(self, enemy_pet):
-        old_self_health, old_enemy_health = self.health, enemy_pet.health
+        damage_dealt_to_self = enemy_pet.attack
+        damage_dealt_to_enemy = self.attack
 
-        self.health -= enemy_pet.attack
-        enemy_pet.health -= self.attack
+        self.take_damage(damage_dealt_to_self, enemy_pet)
+        enemy_pet.take_damage(damage_dealt_to_enemy, self)
+
+    def take_damage(self, damage, attacker):
+        old_health = self.health
+        self.health -= damage
 
         if self.is_alive():
-            if self.health < old_self_health:
-                self.ability.trigger(TriggerEvent.Faint, self, self.team)
+            if self.health < old_health:
+                self.hurt()
+        else:
+            self.faint(attacker)
 
-        if enemy_pet.is_alive():
-            if enemy_pet.health < old_enemy_health:
-                enemy_pet.ability.trigger(TriggerEvent.Hurt, enemy_pet, enemy_pet.team)
-
-        if not self.is_alive() or not enemy_pet.is_alive():
-            if not self.is_alive():
-                self.ability.trigger(TriggerEvent.Faint, self, self.team, enemy_team=enemy_pet.team)
-            if not enemy_pet.is_alive():
-                enemy_pet.ability.trigger(TriggerEvent.Faint, enemy_pet, enemy_pet.team, enemy_team=self.team)
-
-            # Clean up dead pets after ability have been triggered
-            if not self.is_alive() and self in self.team.pets:
-                self.team.remove_pet(self)
-            if not enemy_pet.is_alive() and enemy_pet in enemy_pet.team.pets:
-                enemy_pet.team.remove_pet(enemy_pet)
-
-    def faint(self):
+    def faint(self, attacker):
         if not self.fainted:
             self.fainted = True
             if self.ability:
-                self.ability.trigger(TriggerEvent.Faint, self, self.team)
+                self.ability.trigger(TriggerEvent.Faint, self, self.team, enemy_team=attacker.team)
+
+            # Clean up dead pets after abilities have been triggered
+            if not self.is_alive() and self in self.team.pets:
+                self.team.remove_pet(self)
 
     def apply_ability(self, team, enemy_team):
         self.ability.apply(self, team, enemy_team)
