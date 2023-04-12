@@ -11615,6 +11615,16 @@
         "baseAttack": 2,
         "baseHealth": 2
     },
+        "pet-loyal-chinchilla": {
+        "name": "Loyal Chinchilla",
+        "id": "pet-loyal-chinchilla",
+        "packs": [
+            "Tiger"
+        ],
+        "tier": "Summoned",
+        "baseAttack": 2,
+        "baseHealth": 2
+    },
     "pet-butterfly": {
         "name": "Butterfly",
         "id": "pet-butterfly",
