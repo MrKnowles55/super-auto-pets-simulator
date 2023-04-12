@@ -1,3 +1,7 @@
+from src.pet_data_utils.enums.trigger_event import TriggerEvent
+from src.pet_data_utils.enums.effect_kind import EffectKind
+from src.pet_data_utils.enums.effect_target_kind import EffectTargetKind
+
 class Pet:
     def __init__(self, name, attack, health, tier, level, ability1, ability2, ability3, ability_generator):
         self.name = name
@@ -35,17 +39,17 @@ class Pet:
 
         if self.is_alive():
             if self.health < old_self_health:
-                self.ability.trigger("hurt", self, self.team)
+                self.ability.trigger(TriggerEvent.Faint, self, self.team)
 
         if enemy_pet.is_alive():
             if enemy_pet.health < old_enemy_health:
-                enemy_pet.ability.trigger("hurt", enemy_pet, enemy_pet.team)
+                enemy_pet.ability.trigger(TriggerEvent.Hurt, enemy_pet, enemy_pet.team)
 
         if not self.is_alive() or not enemy_pet.is_alive():
             if not self.is_alive():
-                self.ability.trigger("Faint", self, self.team, enemy_team=enemy_pet.team)
+                self.ability.trigger(TriggerEvent.Faint, self, self.team, enemy_team=enemy_pet.team)
             if not enemy_pet.is_alive():
-                enemy_pet.ability.trigger("Faint", enemy_pet, enemy_pet.team, enemy_team=self.team)
+                enemy_pet.ability.trigger(TriggerEvent.Faint, enemy_pet, enemy_pet.team, enemy_team=self.team)
 
             # Clean up dead pets after ability have been triggered
             if not self.is_alive() and self in self.team.pets:
@@ -54,22 +58,21 @@ class Pet:
                 enemy_pet.team.remove_pet(enemy_pet)
 
     def faint(self):
-        print("Faint")
         if not self.fainted:
             self.fainted = True
             if self.ability:
-                self.ability.trigger("Faint", self, self.team)
+                self.ability.trigger(TriggerEvent.Faint, self, self.team)
 
     def apply_ability(self, team, enemy_team):
         self.ability.apply(self, team, enemy_team)
 
     def start_of_battle(self, enemy_team):
         if self.ability:
-            self.ability.trigger("start_of_battle", self, self.team, enemy_team=enemy_team)
+            self.ability.trigger(TriggerEvent.StartOfBattle, self, self.team, enemy_team=enemy_team)
 
     def hurt(self):
         if self.ability:
-            self.ability.trigger("hurt", self, self.team)
+            self.ability.trigger(TriggerEvent.Hurt, self, self.team)
 
         if not self.is_alive() and not self.fainted:
             self.faint()
@@ -77,7 +80,7 @@ class Pet:
 
     def before_attack(self):
         if self.ability:
-            self.ability.trigger("before_attack", self, self.team)
+            self.ability.trigger(TriggerEvent.BeforeAttack, self, self.team)
 
 
 def prioritize_pets(pet_list, priority_key=lambda x: x.attack):
