@@ -66,43 +66,61 @@ IMPLEMENTED = ["Ant", "Sloth"]
 # Priority pets to implement for simpler abilities
 
 PRIORITY = [
-    "Cricket", "Zombie Cricket",
-    "Horse",
-    "Mosquito",
-    "Crab",
-    "Dodo",
-    "Elephant",
-    "Flamingo",
-    "Peacock",
-    "Rat",
-    "Hedgehog",
-    "Spider",
-    "Badger",
-    "Blowfish",
-    "Camel",
-    "Dog",
-    "Kangaroo",
-    "Sheep", "Ram",
-    "Turtle",
-    "Ox",
-    "Deer", "Bus",
-    "Dolphin",
-    "Hippo",
-    "Parrot",
-    "Rooster",
-    "Skunk",
-    "Whale",
-    "Crocodile",
-    "Rhino",
-    "Scorpion",
-    "Turkey",
-    "Boar",
-    "Fly", "Zombie Fly",
-    "Gorilla",
-    "Leopard",
-    "Mammoth",
-    "Snake",
-    "Tiger"
+    #  SummonPet
+    'Cricket',
+    'Deer',
+    'Fly',
+    'Rat',
+    'Rooster',
+    'Sheep',
+    # Tokens
+    'Zombie Cricket',
+    'Bus',
+    'Zombie Fly',
+    'Dirty Rat',
+    'Chick',
+    'Ram',
+    #  ModifyStats
+    'Boar',
+    'Camel',
+    'Flamingo',
+    'Hippo',
+    'Horse',
+    'Kangaroo',
+    'Mammoth',
+    'Peacock',
+    'Turkey',
+    #  DealDamage
+    'Badger',
+    'Blowfish',
+    'Crocodile',
+    'Dolphin',
+    'Elephant',
+    'Hedgehog',
+    'Leopard',
+    'Mosquito',
+    'Rhino',
+    'Snake',
+    #  TransferStats
+    'Crab',
+    'Dodo',
+    #  SummonRandomPet
+    'Spider',
+    #  OneOf (Picks 1 of 2 abilities)
+    'Dog',
+    #  ApplyStatus
+    'Gorilla',
+    'Turtle',
+    #  AllOf (2 abilities with the same trigger)
+    'Ox',
+    #  TransferAbility
+    'Parrot',
+    #  ReduceHealth
+    'Skunk',
+    #  Swallow
+    'Whale',
+    #  RepeatAbility
+    'Tiger',
 ]
 
 # Tiers
@@ -144,4 +162,6 @@ if __name__ == "__main__":
                 kinds[kind] = [pet]
 
     for k, v in kinds.items():
-        print(k, v)
+        print("# ", k)
+        for _ in sorted(v):
+            print(f"'{_}',")
