@@ -18,8 +18,6 @@ def get_battle_string(team1, team2, prefix='', format_buffer=50, name_length=5):
     return f"{prefix:<20} {team1_pets_str:>{format_buffer}}     VS     {team2_pets_str:<{format_buffer}}"
 
 
-
-
 def fight(team1, team2, verbose=True):
     if verbose:
         print("\n", "- "*10)
@@ -64,6 +62,7 @@ def fight(team1, team2, verbose=True):
 
         if verbose:
             print(get_battle_string(team1, team2, prefix=f'After Fight :'))
+            print("\n")
 
         # Double check that pet still exists, then remove if dead from combat
         # if team1.pets:
