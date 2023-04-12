@@ -57,8 +57,8 @@ class PetData:
 
 pet_data_manager = PetData(filename)
 
-TEST_POOL = ["Cricket"]
-TEST_POOL2 = ["Cricket", "Hedgehog"]
+TEST_POOL = ["Ant"]
+TEST_POOL2 = ["Cricket"]
 IMPLEMENTED = ["Ant", "Sloth"]
 
 # Priority pets to implement for simpler abilities
