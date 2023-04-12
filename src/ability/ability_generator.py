@@ -1,5 +1,8 @@
 from .ability import *
 from .modify_stats import *
+from src.pet_data_utils.enums.effect_kind import EffectKind
+from src.pet_data_utils.enums.effect_target_kind import EffectTargetKind
+from src.pet_data_utils.enums.trigger_event import TriggerEvent
 
 
 class AbilityGenerator:
@@ -9,7 +12,9 @@ class AbilityGenerator:
         self.owner = owner
 
     def get_trigger(self):
-        return self.ability_dict.get("trigger")
+        trigger_str = self.ability_dict.get("trigger")
+        # Convert the string to the corresponding Trigger enum value
+        return TriggerEvent[trigger_str]
 
     def get_triggered_by(self):
         return self.ability_dict.get("triggeredBy", {}).get("kind")
@@ -27,11 +32,22 @@ class AbilityGenerator:
         return self.ability_dict.get("effect", {}).get("target", {}).get("n")
 
     def get_target_kind(self):
-        return self.ability_dict.get("effect", {}).get("target", {}).get("kind")
+        if self.ability_dict:
+            effect_target_kind_str = self.ability_dict.get("effect", {}).get("target", {}).get("kind")
+            # Convert the string to the corresponding EffectKind enum value
+            return EffectTargetKind[effect_target_kind_str]
+        else:
+            return None
 
     def get_extra(self):
         keys_to_exclude = ["description", "trigger", "triggeredBy", "effect"]
         return {key: value for key, value in self.ability_dict.items() if key not in keys_to_exclude}
+
+    def get_effect_pet(self):
+        return self.ability_dict.get("effect", {}).get("pet")
+
+    def get_effect_team(self):
+        return self.ability_dict.get("effect", {}).get("team")
 
     def get_extra_effect(self):
         keys_to_exclude = ["kind", "attackAmount", "healthAmount", "target"]
@@ -43,15 +59,29 @@ class AbilityGenerator:
 
     def get_ability_type(self):
         if self.ability_dict:
-            return self.ability_dict.get("effect").get("kind")
+            effect_kind_str = self.ability_dict.get("effect").get("kind")
+            return EffectKind[effect_kind_str]  # Convert the string to the corresponding EffectKind enum value
         else:
             return None
 
     def generate(self):
         ability_type = self.get_ability_type()
         match ability_type:
-            case "ModifyStats":
+            case EffectKind.ModifyStats:
                 return self.generate_modify_stats_ability()
+            case EffectKind.SummonPet:
+                return self.generate_summon_ability()
+            case _:
+                return No_Ability(self.owner)
+
+    def generate_summon_ability(self):
+        trigger = self.get_trigger()
+        pet_to_summon = self.get_effect_pet()
+        team_to_summon_to = self.get_effect_team()
+
+        match team_to_summon_to:
+            case "Friendly":
+                return Summon(self.owner, pet_to_summon, trigger, team_to_summon_to=team_to_summon_to)
             case _:
                 return No_Ability(self.owner)
 
@@ -63,7 +93,7 @@ class AbilityGenerator:
         trigger = self.get_trigger()
 
         match target_type:
-            case "RandomFriend":
+            case EffectTargetKind.RandomFriend:
                 return ModifyStatsAbilityRandomFriend(self.owner, attack_mod=attack_mod, health_mod=health_mod,
                                                       target_type=target_type, target_n=target_n, trigger_event=trigger)
             case _:

@@ -25,8 +25,8 @@ class TestAbility(unittest.TestCase):
 
     def test_modify_stats_ability_random_friend_attributes(self):
         ability = ModifyStatsAbilityRandomFriend(owner=self.test_pet, attack_mod=1, health_mod=1,
-                                                 target_type=EffectTargetKind["RandomFriend"], target_n=2,
-                                                 trigger_event=TriggerEvent["StartOfBattle"], until_end_of_battle=True)
+                                                 target_type=EffectTargetKind.RandomFriend, target_n=2,
+                                                 trigger_event=TriggerEvent.StartOfBattle, until_end_of_battle=True)
 
         self.assertIsInstance(ability, Ability)
         self.assertIn(ability.target_type, EffectTargetKind)
@@ -34,8 +34,8 @@ class TestAbility(unittest.TestCase):
 
     def test_modify_stats_ability_random_friend_apply(self):
         ability = ModifyStatsAbilityRandomFriend(owner=self.test_pet, attack_mod=1, health_mod=1,
-                                                 target_type=EffectTargetKind["RandomFriend"], target_n=2,
-                                                 trigger_event=TriggerEvent["StartOfBattle"], until_end_of_battle=True)
+                                                 target_type=EffectTargetKind.RandomFriend, target_n=2,
+                                                 trigger_event=TriggerEvent.StartOfBattle, until_end_of_battle=True)
 
         ability.trigger(event=TriggerEvent.StartOfBattle, pet=self.test_pet, team=self.test_team)
 

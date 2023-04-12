@@ -1,6 +1,9 @@
 from abc import ABC, abstractmethod
 from random import choice
 from src.pet import prioritize_pets
+from src.pet_data_utils.enums.effect_kind import EffectKind
+from src.pet_data_utils.enums.effect_target_kind import EffectTargetKind
+from src.pet_data_utils.enums.trigger_event import TriggerEvent
 
 
 class Ability(ABC):
@@ -31,13 +34,15 @@ class No_Ability(Ability):
 
 
 class Summon(Ability):
-    def __init__(self, token, trigger_event):
+    def __init__(self, owner, token, trigger_event, team_to_summon_to):
+        super().__init__(owner)
         self.token = token
         self.trigger_event = trigger_event
+        self.team = team_to_summon_to
 
     def apply(self, pet, team, **kwargs):
         from src.pet_factory import create_pet
-        if self.trigger_event == "faint":
+        if self.trigger_event == TriggerEvent.Faint:
 
             index = team.pets.index(pet)
 
