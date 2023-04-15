@@ -1,0 +1,6 @@
+{
+    "SIMULATIONS_TO_RUN": 5000,
+    "FRIENDLY_TEAM_SIZE": 5,
+    "ENEMY_TEAM_SIZE": 5,
+    "DEBUG_MODE": true
+}
