@@ -14291,7 +14291,14 @@
                 "kind": "Self"
             },
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "ModifyStats",
+                "attackAmount": 4,
+                "healthAmount": 2,
+                "target": {
+                    "kind": "FriendBehind",
+                    "n": 1
+                },
+                "untilEndOfBattle": false
             }
         },
         "level2Ability": {
@@ -14301,7 +14308,14 @@
                 "kind": "Self"
             },
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "ModifyStats",
+                "attackAmount": 8,
+                "healthAmount": 4,
+                "target": {
+                    "kind": "FriendBehind",
+                    "n": 1
+                },
+                "untilEndOfBattle": false
             }
         },
         "level3Ability": {
@@ -14311,7 +14325,14 @@
                 "kind": "Self"
             },
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "ModifyStats",
+                "attackAmount": 12,
+                "healthAmount": 6,
+                "target": {
+                    "kind": "FriendBehind",
+                    "n": 1
+                },
+                "untilEndOfBattle": false
             }
         }
     },
