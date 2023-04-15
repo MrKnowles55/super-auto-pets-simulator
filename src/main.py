@@ -2,7 +2,7 @@ from random import choice
 from src.team.team import Team
 from src.pet_factory import create_pet
 from src.pet_data_utils import pet_data_manager
-from battle import fight
+from src.battle import fight
 
 
 def create_random_team(pet_pool, team_size=5):
