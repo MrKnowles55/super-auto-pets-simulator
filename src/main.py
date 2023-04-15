@@ -1,9 +1,9 @@
 from random import choice
-from src.team.team import Team
-from src.pet_factory import create_pet
-from src.pet_data_utils import pet_data_manager
-from src.battle import fight
-
+from team.team import Team
+from pet_factory import create_pet
+from pet_data_utils import pet_data_manager
+from battle import fight
+import config
 
 def create_random_team(pet_pool, team_size=5):
     team = Team()
@@ -40,4 +40,9 @@ def main(sims, friendly_team_size=5, enemy_team_size=5, friendly_pool=pet_data_m
 
 
 if __name__ == "__main__":
-    main(sims=1)
+    print(f"\nRunning {config.SIMULATIONS_TO_RUN} simulations with Parameters:\n"
+          f"Friendly Team Size: {config.FRIENDLY_TEAM_SIZE}\n"
+          f"Enemy Team Size: {config.ENEMY_TEAM_SIZE}\n")
+    main(sims=config.SIMULATIONS_TO_RUN,
+         friendly_team_size=config.FRIENDLY_TEAM_SIZE,
+         enemy_team_size=config.ENEMY_TEAM_SIZE)
