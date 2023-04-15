@@ -38,7 +38,7 @@ class TestPet(unittest.TestCase):
 
     def test_faint(self):
         self.pet.health = 0
-        self.pet.faint()
+        self.pet.faint(self.enemy_pet)
         self.assertTrue(self.pet.fainted)
 
     def test_start_of_battle(self):
