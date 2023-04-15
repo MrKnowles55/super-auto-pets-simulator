@@ -4,7 +4,8 @@ from random import sample
 
 
 class ModifyStatsAbility(Ability):
-    def __init__(self, owner, attack_mod, health_mod, target_type, target_n, trigger_event, until_end_of_battle=False):
+    def __init__(self, owner, attack_mod, health_mod, target_type, target_n, trigger_event, until_end_of_battle=False,
+                 verbose=False):
         super().__init__(owner)
         self.attack_mod = attack_mod
         self.health_mod = health_mod
@@ -12,12 +13,15 @@ class ModifyStatsAbility(Ability):
         self.target_n = target_n
         self.trigger_event = trigger_event
         self.until_end_of_battle = until_end_of_battle
+        self.verbose = verbose
 
     @abstractmethod
     def apply(self, pet, team, **kwargs):
         pass
 
     def add_modifiers(self, target_pet):
+        if self.verbose:
+            print(f"**VERBOSE** {self.owner} modifying {target_pet}  by {self.attack_mod} / {self.health_mod}")
         target_pet.attack += self.attack_mod
         target_pet.health += self.health_mod
 
@@ -41,6 +45,17 @@ class ModifyStatsAbilityFrontFriend(ModifyStatsAbility):
         if team.pets:
             target_pet = team.pets[0]
             self.add_modifiers(target_pet)
+
+
+class ModifyStatsAbilityFriendBehind(ModifyStatsAbility):
+    def apply(self, pet, team, **kwargs):
+        index = team.pets.index(pet)
+        for n in range(self.target_n):
+            if index >= len(team.pets)-1-n:
+                return
+
+            target = team.pets[index + 1 + n]
+            self.add_modifiers(target)
 
 
 class ModifyStatsAbilityFriendAhead(ModifyStatsAbility):

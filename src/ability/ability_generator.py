@@ -96,5 +96,8 @@ class AbilityGenerator:
             case EffectTargetKind.RandomFriend:
                 return ModifyStatsAbilityRandomFriend(self.owner, attack_mod=attack_mod, health_mod=health_mod,
                                                       target_type=target_type, target_n=target_n, trigger_event=trigger)
+            case EffectTargetKind.FriendBehind:
+                return ModifyStatsAbilityFriendBehind(self.owner, attack_mod=attack_mod, health_mod=health_mod,
+                                                      target_type=target_type, target_n=target_n, trigger_event=trigger)
             case _:
                 return No_Ability(self.owner)
