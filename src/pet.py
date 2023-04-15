@@ -70,10 +70,6 @@ class Pet:
         if self.ability:
             self.ability.trigger(TriggerEvent.Hurt, self, self.team)
 
-        if not self.is_alive() and not self.fainted:
-            self.faint()
-            self.team.remove_pet(self)
-
     def before_attack(self):
         if self.ability:
             self.ability.trigger(TriggerEvent.BeforeAttack, self, self.team)
