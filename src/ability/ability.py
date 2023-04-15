@@ -1,9 +1,8 @@
 from abc import ABC, abstractmethod
 from random import choice
-from src.pet import prioritize_pets
-from src.pet_data_utils.enums.effect_kind import EffectKind
-from src.pet_data_utils.enums.effect_target_kind import EffectTargetKind
-from src.pet_data_utils.enums.trigger_event import TriggerEvent
+from pet_data_utils.enums.effect_kind import EffectKind
+from pet_data_utils.enums.effect_target_kind import EffectTargetKind
+from pet_data_utils.enums.trigger_event import TriggerEvent
 
 
 class Ability(ABC):
@@ -62,61 +61,61 @@ class Summon(Ability):
             self.apply(*args, **kwargs)
 
 
-class Damage(Ability):
-    def __init__(self, damage, target, trigger_event):
-        self.damage = damage
-        self.target = target
-        self.trigger_event = trigger_event
-
-    def apply(self, pet, team, **kwargs):
-        enemy_team = kwargs.get('enemy_team', None)
-        if enemy_team is None:
-            pass
-            # print(f'Error: enemy_team is not provided for {self}')
-            # raise ValueError
-        if self.target == "random_enemy":
-            if enemy_team.pets:
-                alive_pets = [p for p in enemy_team.pets if p.is_alive()]
-
-                if alive_pets:
-                    target_pet = choice(alive_pets)
-                else:
-                    target_pet = None
-                if target_pet:
-                    target_pet.health -= self.damage
-                    target_pet.hurt()
-        elif self.target == "all":
-            targets = []
-            # Damage the pets
-            if team:
-                for pet in team.pets:
-                    if pet.is_alive():
-                        pet.health -= self.damage
-                        targets.append(pet)
-            if enemy_team:
-                for pet in enemy_team.pets:
-                    if pet.is_alive():
-                        pet.health -= self.damage
-                        targets.append(pet)
-            priority_dict = prioritize_pets(targets)
-            for target in sorted(priority_dict.keys(), reverse=True):
-                pets_with_same_priority = priority_dict[target]
-                for pet in pets_with_same_priority:
-                    pet.hurt()
-        elif self.target == "friend_behind":
-            index = team.pets.index(pet)
-            if index < 5 and len(team.pets) > 1:
-                target = team.pets[index + 1]
-
-                if target:
-                    target.health -= self.damage
-                    target.hurt()
-        else:
-            print(f'{self.__class__}:{self.target} not implemented')
-
-    def trigger(self, event, *args, **kwargs):
-        if event == self.trigger_event:
-            self.apply(*args, **kwargs)
+# class Damage(Ability):
+#     def __init__(self, damage, target, trigger_event):
+#         self.damage = damage
+#         self.target = target
+#         self.trigger_event = trigger_event
+#
+#     def apply(self, pet, team, **kwargs):
+#         enemy_team = kwargs.get('enemy_team', None)
+#         if enemy_team is None:
+#             pass
+#             # print(f'Error: enemy_team is not provided for {self}')
+#             # raise ValueError
+#         if self.target == "random_enemy":
+#             if enemy_team.pets:
+#                 alive_pets = [p for p in enemy_team.pets if p.is_alive()]
+#
+#                 if alive_pets:
+#                     target_pet = choice(alive_pets)
+#                 else:
+#                     target_pet = None
+#                 if target_pet:
+#                     target_pet.health -= self.damage
+#                     target_pet.hurt()
+#         elif self.target == "all":
+#             targets = []
+#             # Damage the pets
+#             if team:
+#                 for pet in team.pets:
+#                     if pet.is_alive():
+#                         pet.health -= self.damage
+#                         targets.append(pet)
+#             if enemy_team:
+#                 for pet in enemy_team.pets:
+#                     if pet.is_alive():
+#                         pet.health -= self.damage
+#                         targets.append(pet)
+#             priority_dict = prioritize_pets(targets)
+#             for target in sorted(priority_dict.keys(), reverse=True):
+#                 pets_with_same_priority = priority_dict[target]
+#                 for pet in pets_with_same_priority:
+#                     pet.hurt()
+#         elif self.target == "friend_behind":
+#             index = team.pets.index(pet)
+#             if index < 5 and len(team.pets) > 1:
+#                 target = team.pets[index + 1]
+#
+#                 if target:
+#                     target.health -= self.damage
+#                     target.hurt()
+#         else:
+#             print(f'{self.__class__}:{self.target} not implemented')
+#
+#     def trigger(self, event, *args, **kwargs):
+#         if event == self.trigger_event:
+#             self.apply(*args, **kwargs)
 
 
 # class ModifyStatsAbility(Ability):

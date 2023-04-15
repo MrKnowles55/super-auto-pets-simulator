@@ -1,8 +1,8 @@
 import json
 import os
-from src.pet_data_utils.enums.trigger_event import TriggerEvent
-from src.pet_data_utils.enums.effect_kind import EffectKind
-from src.pet_data_utils.enums.effect_target_kind import EffectTargetKind
+from pet_data_utils.enums.trigger_event import TriggerEvent
+from pet_data_utils.enums.effect_kind import EffectKind
+from pet_data_utils.enums.effect_target_kind import EffectTargetKind
 
 directory = os.path.dirname(os.path.abspath(__file__))
 filename = os.path.join(directory, "../../data/pet_data.json")
@@ -24,9 +24,10 @@ def compare_lists(lst1, lst2):
         print("Set 2:", diff2)
 
 
-class PetData:
+class PetDatabase:
     def __init__(self, file_path):
         self.pet_dict = self.load_pet_dict(file_path)
+        self.pool_dict = {}
 
     @staticmethod
     def load_pet_dict(file_path):
@@ -91,9 +92,6 @@ class PetData:
                 pets.append(pet_data["name"])
         return pets
 
-    def keys(self):
-        return self.pet_dict.keys()
-
     def get_filtered_pet_list(self, trigger=None, triggered_by_kind=None, effect_kind=None, tier=None, pack=None):
         trigger_list = []
         effect_kind_list = []
@@ -118,8 +116,14 @@ class PetData:
         intersection = set(lists[0]).intersection(*lists[1:])
         return intersection
 
+    def add_pool(self, pool_name, pool_list):
+        if pool_name in self.pool_dict.keys():
+            print(f"{pool_name} already exists")
+        else:
+            self.pool_dict[pool_name] = pool_list
 
-pet_data_manager = PetData(filename)
+
+pet_db = PetDatabase(filename)
 
 TEST_POOL = ["Betta Fish"]
 TEST_POOL2 = ["Ant"]
@@ -185,42 +189,41 @@ PRIORITY = [
     'Tiger',
 ]
 
-ANT_LIKE = sorted(pet_data_manager.get_filtered_pet_list(trigger=TriggerEvent.Faint.name,
-                                                         triggered_by_kind="Self",
-                                                         effect_kind=EffectKind.ModifyStats.name))
-CRICKET_LIKE = sorted(pet_data_manager.get_filtered_pet_list(trigger=TriggerEvent.Faint.name,
-                                                             triggered_by_kind="Self",
-                                                             effect_kind=EffectKind.SummonPet.name))
+# ANT_LIKE = sorted(pet_data_manager.get_filtered_pet_list(trigger=TriggerEvent.Faint.name,
+#                                                          triggered_by_kind="Self",
+#                                                          effect_kind=EffectKind.ModifyStats.name))
+# CRICKET_LIKE = sorted(pet_data_manager.get_filtered_pet_list(trigger=TriggerEvent.Faint.name,
+#                                                              triggered_by_kind="Self",
+#                                                              effect_kind=EffectKind.SummonPet.name))
 
 # Tiers
-TIER_1 = pet_data_manager.get_pets_by_tier(1)
-TIER_2 = pet_data_manager.get_pets_by_tier(2)
-TIER_3 = pet_data_manager.get_pets_by_tier(3)
-TIER_4 = pet_data_manager.get_pets_by_tier(4)
-TIER_5 = pet_data_manager.get_pets_by_tier(5)
-TIER_6 = pet_data_manager.get_pets_by_tier(6)
-TOKENS = pet_data_manager.get_pets_by_tier("Summoned")
+TOKENS = pet_db.get_pets_by_tier("Summoned")
+for i in range(1, 7):
+    pet_db.add_pool(f"TIER_{i}", pet_db.get_pets_by_tier(i))
+pet_db.add_pool("TOKENS", TOKENS)
 
 # Packs
-TURTLE_PACK = pet_data_manager.get_pets_by_pack("Turtle")
-PUPPY_PACK = pet_data_manager.get_pets_by_pack("Puppy")
-STAR_PACK = pet_data_manager.get_pets_by_pack("Star")
-TIGER_PACK = pet_data_manager.get_pets_by_pack("Tiger")
-GOLDEN_PACK = pet_data_manager.get_pets_by_pack("Golden")
+PACK_NAMES = ["Turtle", "Puppy", "Star", "Tiger", "Golden"]
+for i in PACK_NAMES:
+    pet_db.add_pool(f"{i.upper()}_PACK", pet_db.get_pets_by_pack(i))
 
 # Trigger
-FAINT_PETS = sorted(pet_data_manager.get_pets_by_trigger("Faint", triggered_by_kind="Self"))
+pet_db.add_pool("FAINT_PETS", sorted(pet_db.get_pets_by_trigger(TriggerEvent.Faint.name, triggered_by_kind="Self")))
 
 # Ability
-MODIFY_STATS_PETS = sorted(pet_data_manager.get_pets_by_effect_kind("ModifyStats"))
+# MODIFY_STATS_PETS = sorted(pet_data_manager.get_pets_by_effect_kind("ModifyStats"))
 
 # Other
+pet_db.add_pool("BUYABLE", list(set({pet["name"] for pet in pet_db.pet_dict.values()}) - set(TOKENS)))
 
-BUYABLE = list(set(pet_data_manager.keys()) - set(TOKENS))
+# Add pools to dict
 
 if __name__ == "__main__":
-    print('Ant-Like Pets (Trigger: Faint, Effect: ModifyStats) :', ", ".join(map(str, ANT_LIKE)))
-    print('Cricket-Like Pets (Trigger: Faint, Effect: SummonPet) :', ", ".join(map(str, CRICKET_LIKE)))
+    for pool in list(pet_db.pool_dict.keys()):
+        print(pool)
+        print(', '.join(map(str, sorted(pet_db.pool_dict[pool]))))
+    # print('Ant-Like Pets (Trigger: Faint, Effect: ModifyStats) :', ", ".join(map(str, ANT_LIKE)))
+    # print('Cricket-Like Pets (Trigger: Faint, Effect: SummonPet) :', ", ".join(map(str, CRICKET_LIKE)))
 
 
     # kinds = {}
