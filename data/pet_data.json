@@ -768,7 +768,7 @@
             },
             "effect": {
                 "kind": "SummonPet",
-                "pet": "pet-zombie-cricket",
+                "pet": "pet-zombie_cricket",
                 "withAttack": 1,
                 "withHealth": 1,
                 "team": "Friendly"
@@ -782,7 +782,7 @@
             },
             "effect": {
                 "kind": "SummonPet",
-                "pet": "pet-zombie-cricket",
+                "pet": "pet-zombie_cricket",
                 "withAttack": 2,
                 "withHealth": 2,
                 "team": "Friendly"
@@ -796,7 +796,7 @@
             },
             "effect": {
                 "kind": "SummonPet",
-                "pet": "pet-zombie-cricket",
+                "pet": "pet-zombie_cricket",
                 "withAttack": 3,
                 "withHealth": 3,
                 "team": "Friendly"
@@ -3864,7 +3864,7 @@
             },
             "effect": {
                 "kind": "SummonPet",
-                "pet": "pet-dirty-rat",
+                "pet": "pet-dirty_rat",
                 "team": "Enemy"
             }
         },
@@ -3876,7 +3876,7 @@
             },
             "effect": {
                 "kind": "SummonPet",
-                "pet": "pet-dirty-rat",
+                "pet": "pet-dirty_rat",
                 "team": "Enemy"
             }
         },
@@ -3888,7 +3888,7 @@
             },
             "effect": {
                 "kind": "SummonPet",
-                "pet": "pet-dirty-rat",
+                "pet": "pet-dirty_rat",
                 "team": "Enemy"
             }
         },
@@ -10613,7 +10613,7 @@
             },
             "effect": {
                 "kind": "SummonPet",
-                "pet": "pet-zombie-fly",
+                "pet": "pet-zombie_fly",
                 "withAttack": 5,
                 "withHealth": 5,
                 "team": "Friendly"
@@ -10628,7 +10628,7 @@
             },
             "effect": {
                 "kind": "SummonPet",
-                "pet": "pet-zombie-fly",
+                "pet": "pet-zombie_fly",
                 "withAttack": 10,
                 "withHealth": 10,
                 "team": "Friendly"
@@ -10643,7 +10643,7 @@
             },
             "effect": {
                 "kind": "SummonPet",
-                "pet": "pet-zombie-fly",
+                "pet": "pet-zombie_fly",
                 "withAttack": 15,
                 "withHealth": 15,
                 "team": "Friendly"
@@ -11471,9 +11471,9 @@
             }
         ]
     },
-    "pet-zombie-cricket": {
+    "pet-zombie_cricket": {
         "name": "Zombie Cricket",
-        "id": "pet-zombie-cricket",
+        "id": "pet-zombie_cricket",
         "image": {
             "source": "noto-emoji",
             "commit": "e022fd6573782431ac9a65b520376b57511c31cd",
@@ -11504,9 +11504,9 @@
         "baseHealth": 5,
         "status": "status-splash-attack"
     },
-    "pet-zombie-fly": {
+    "pet-zombie_fly": {
         "name": "Zombie Fly",
-        "id": "pet-zombie-fly",
+        "id": "pet-zombie_fly",
         "image": {
             "source": "noto-emoji",
             "commit": "e022fd6573782431ac9a65b520376b57511c31cd",
@@ -11519,9 +11519,9 @@
         "baseAttack": 4,
         "baseHealth": 4
     },
-    "pet-dirty-rat": {
+    "pet-dirty_rat": {
         "name": "Dirty Rat",
-        "id": "pet-dirty-rat",
+        "id": "pet-dirty_rat",
         "image": {
             "source": "noto-emoji",
             "commit": "e022fd6573782431ac9a65b520376b57511c31cd",
