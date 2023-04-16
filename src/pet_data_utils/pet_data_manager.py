@@ -122,6 +122,9 @@ class PetDatabase:
         else:
             self.pool_dict[pool_name] = pool_list
 
+    def get_pools_list(self):
+        return json.dumps(list(self.pool_dict.keys()))
+
 
 pet_db = PetDatabase(filename)
 
@@ -129,6 +132,9 @@ TEST_POOL = ["Betta Fish"]
 TEST_POOL2 = ["Ant"]
 IMPLEMENTED = ["Ant", "Sloth", "Cricket", "Betta Fish", "Flamingo"]
 
+pet_db.add_pool("TEST_POOL", TEST_POOL)
+pet_db.add_pool("TEST_POOL2", TEST_POOL2)
+pet_db.add_pool("IMPLEMENTED", IMPLEMENTED)
 # Priority pets to implement for simpler abilities
 
 PRIORITY = [
@@ -219,9 +225,7 @@ pet_db.add_pool("BUYABLE", list(set({pet["name"] for pet in pet_db.pet_dict.valu
 # Add pools to dict
 
 if __name__ == "__main__":
-    for pool in list(pet_db.pool_dict.keys()):
-        print(pool)
-        print(', '.join(map(str, sorted(pet_db.pool_dict[pool]))))
+    print(pet_db.pool_dict["TURTLE_PACK"])
     # print('Ant-Like Pets (Trigger: Faint, Effect: ModifyStats) :', ", ".join(map(str, ANT_LIKE)))
     # print('Cricket-Like Pets (Trigger: Faint, Effect: SummonPet) :', ", ".join(map(str, CRICKET_LIKE)))
 
