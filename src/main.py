@@ -3,12 +3,14 @@ from team.team import Team
 from pet_factory import create_pet
 from pet_data_utils import pet_data_manager
 from battle import fight
-import config
+from config import config_handler
+
 
 def create_random_team(pet_pool, team_size=5):
     team = Team()
     for _ in range(team_size):
-        team.add_pet(create_pet(choice(list(pet_pool))))
+        random_pet = choice(list(pet_pool))
+        team.add_pet(create_pet(random_pet))
     return team
 
 
@@ -40,9 +42,25 @@ def main(sims, friendly_team_size=5, enemy_team_size=5, friendly_pool=pet_data_m
 
 
 if __name__ == "__main__":
-    print(f"\nRunning {config.SIMULATIONS_TO_RUN} simulations with Parameters:\n"
-          f"Friendly Team Size: {config.FRIENDLY_TEAM_SIZE}\n"
-          f"Enemy Team Size: {config.ENEMY_TEAM_SIZE}\n")
-    main(sims=config.SIMULATIONS_TO_RUN,
-         friendly_team_size=config.FRIENDLY_TEAM_SIZE,
-         enemy_team_size=config.ENEMY_TEAM_SIZE)
+
+    # Load config data
+    NUMBER_OF_SIMULATIONS = config_handler.config_data['NUMBER_OF_SIMULATIONS']
+    FRIENDLY_TEAM_SIZE = config_handler.config_data['FRIENDLY_TEAM_SIZE']
+    ENEMY_TEAM_SIZE = config_handler.config_data['ENEMY_TEAM_SIZE']
+    FRIENDLY_POOL_ID = config_handler.config_data['FRIENDLY_TEAM_POOL']
+    ENEMY_POOL_ID = config_handler.config_data['ENEMY_TEAM_POOL']
+    FRIENDLY_TEAM_POOL = pet_data_manager.pet_db.pool_dict[FRIENDLY_POOL_ID]
+    ENEMY_TEAM_POOL = pet_data_manager.pet_db.pool_dict[ENEMY_POOL_ID]
+
+    print(f"\nRunning {NUMBER_OF_SIMULATIONS} simulations with Parameters:\n"
+          f"Friendly Team Size: {FRIENDLY_TEAM_SIZE}\n"
+          f"Enemy Team Size: {ENEMY_TEAM_SIZE}\n"
+          f"Friendly Team Pool: {FRIENDLY_POOL_ID}\n"
+          f"Enemy Team Pool: {ENEMY_POOL_ID}\n"
+          )
+
+    main(sims=NUMBER_OF_SIMULATIONS,
+         friendly_team_size=FRIENDLY_TEAM_SIZE,
+         enemy_team_size=ENEMY_TEAM_SIZE,
+         friendly_pool=FRIENDLY_TEAM_POOL,
+         enemy_pool=ENEMY_TEAM_POOL)
