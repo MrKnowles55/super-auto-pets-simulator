@@ -8,22 +8,24 @@
     },
     "FRIENDLY_TEAM_SIZE": {
       "type": "integer",
-      "minimum": 1
+      "minimum": 1,
+      "maximum": 5
     },
     "ENEMY_TEAM_SIZE": {
       "type": "integer",
-      "minimum": 1
+      "minimum": 1,
+      "maximum": 5
     },
     "DEBUG_MODE": {
       "type": "boolean"
     },
     "FRIENDLY_TEAM_POOL": {
       "type": "string",
-      "enum": ["TIER_1", "TIER_2", "TIER_3", "TIER_4", "TIER_5", "TIER_6", "TOKENS", "TURTLE_PACK", "PUPPY_PACK", "STAR_PACK", "TIGER_PACK", "GOLDEN_PACK", "FAINT_PETS", "BUYABLE"]
+      "enum": ["TEST_POOL", "TEST_POOL2", "IMPLEMENTED", "TIER_1", "TIER_2", "TIER_3", "TIER_4", "TIER_5", "TIER_6", "TOKENS", "TURTLE_PACK", "PUPPY_PACK", "STAR_PACK", "TIGER_PACK", "GOLDEN_PACK", "FAINT_PETS", "BUYABLE"]
     },
     "ENEMY_TEAM_POOL": {
       "type": "string",
-      "enum": ["TIER_1", "TIER_2", "TIER_3", "TIER_4", "TIER_5", "TIER_6", "TOKENS", "TURTLE_PACK", "PUPPY_PACK", "STAR_PACK", "TIGER_PACK", "GOLDEN_PACK", "FAINT_PETS", "BUYABLE"]
+      "enum": ["TEST_POOL", "TEST_POOL2", "IMPLEMENTED", "TIER_1", "TIER_2", "TIER_3", "TIER_4", "TIER_5", "TIER_6", "TOKENS", "TURTLE_PACK", "PUPPY_PACK", "STAR_PACK", "TIGER_PACK", "GOLDEN_PACK", "FAINT_PETS", "BUYABLE"]
     }
   },
   "required": [

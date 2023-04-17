@@ -4,6 +4,7 @@ from pet_factory import create_pet
 from pet_data_utils import pet_data_manager
 from battle import fight
 from config import config_handler
+import validate_config
 
 
 def create_random_team(pet_pool, team_size=5):
@@ -42,6 +43,9 @@ def main(sims, friendly_team_size=5, enemy_team_size=5, friendly_pool=pet_data_m
 
 
 if __name__ == "__main__":
+
+    # Validate config.json matches config_schema.json
+    validate_config.load_config()
 
     # Load config data
     NUMBER_OF_SIMULATIONS = config_handler.config_data['NUMBER_OF_SIMULATIONS']
