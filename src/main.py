@@ -5,6 +5,7 @@ from pet_data_utils import pet_data_manager
 from battle import fight
 from config import config_handler
 import validate_config
+from logger import setup_logger
 
 
 def create_random_team(pet_pool, team_size=5):
@@ -44,6 +45,10 @@ def main(sims, friendly_team_size=5, enemy_team_size=5, friendly_pool=pet_data_m
 
 if __name__ == "__main__":
 
+    # Configure Logging
+    logger = setup_logger(__name__)
+    logger.debug("Logging in DEBUG mode.")
+
     # Validate config.json matches config_schema.json
     validate_config.load_config()
 
@@ -56,11 +61,13 @@ if __name__ == "__main__":
     FRIENDLY_TEAM_POOL = pet_data_manager.pet_db.pool_dict[FRIENDLY_POOL_ID]
     ENEMY_TEAM_POOL = pet_data_manager.pet_db.pool_dict[ENEMY_POOL_ID]
 
-    print(f"\nRunning {NUMBER_OF_SIMULATIONS} simulations with Parameters:\n"
-          f"Friendly Team Size: {FRIENDLY_TEAM_SIZE}\n"
-          f"Enemy Team Size: {ENEMY_TEAM_SIZE}\n"
-          f"Friendly Team Pool: {FRIENDLY_POOL_ID}\n"
-          f"Enemy Team Pool: {ENEMY_POOL_ID}\n"
+    print(f"--------------------------------"
+          f"\nRunning {NUMBER_OF_SIMULATIONS} simulations with Parameters:\n\n"
+          f"\tFriendly Team Size: {FRIENDLY_TEAM_SIZE}\n"
+          f"\tEnemy Team Size: {ENEMY_TEAM_SIZE}\n"
+          f"\tFriendly Team Pool: {FRIENDLY_POOL_ID}\n"
+          f"\tEnemy Team Pool: {ENEMY_POOL_ID}\n"
+          f"--------------------------------"
           )
 
     main(sims=NUMBER_OF_SIMULATIONS,
