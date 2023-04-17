@@ -20,7 +20,6 @@ else:
 
 
 def setup_logger(name, log_level=LOG_LEVEL, log_file=log_path):
-    print(name, DEBUG_MODE, log_file)
     logger = logging.getLogger(name)
     logger.setLevel(log_level)
 
