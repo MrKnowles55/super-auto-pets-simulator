@@ -1,5 +1,4 @@
 # Super Auto Pets Simulator 
-## * *(THIS IS A PLACEHOLDER README AND CURRENTLY IS INCORRECT)* *
 
 The Super Auto Pets Simulator is a Python program that simulates thousands of fights between different teams of pets in the Super Auto Pets game. By reverse engineering the game logic the simulator provides insights into how different pets and teams compare in terms of their performance in battles.
 
@@ -44,4 +43,4 @@ If you would like to contribute to the Super Auto Pets Simulator, you can do so 
 
 ### License
 
-The Super Auto Pets Simulator is licensed under the MIT License. See the LICENSE file for more information.
+The Super Auto Pets Simulator is licensed under the MIT License.
