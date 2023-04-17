@@ -40,7 +40,7 @@ class Summon(Ability):
         self.team = team_to_summon_to
 
     def apply(self, pet, team, **kwargs):
-        from src.pet_factory import create_pet
+        from pet_factory import create_pet
         if self.trigger_event == TriggerEvent.Faint:
 
             index = team.pets.index(pet)
