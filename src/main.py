@@ -16,13 +16,13 @@ def create_random_team(pet_pool, team_size=5):
     return team
 
 
-def run_simulation(num_sims, friendly_pool, enemy_pool, verbose=False, friendly_team_size=5, enemy_team_size=5):
+def run_simulation(num_sims, friendly_pool, enemy_pool, friendly_team_size=5, enemy_team_size=5):
     total = [0, 0]
 
     for i in range(num_sims):
         friendly_team = create_random_team(friendly_pool, team_size=friendly_team_size)
         enemy_team = create_random_team(enemy_pool, team_size=enemy_team_size)
-        result = fight(friendly_team, enemy_team, verbose=verbose)
+        result = fight(friendly_team, enemy_team)
         total[0] += result[0]
         total[1] += result[1]
 
@@ -31,9 +31,8 @@ def run_simulation(num_sims, friendly_pool, enemy_pool, verbose=False, friendly_
 
 def main(sims, friendly_team_size=5, enemy_team_size=5, friendly_pool=pet_data_manager.TEST_POOL,
          enemy_pool=pet_data_manager.TEST_POOL2):
-    verbose = sims <= 5
 
-    total, num_sims = run_simulation(sims, friendly_pool, enemy_pool, verbose, friendly_team_size, enemy_team_size)
+    total, num_sims = run_simulation(sims, friendly_pool, enemy_pool, friendly_team_size, enemy_team_size)
 
     win_rate = total[0] / num_sims
     loss_rate = total[1] / num_sims
