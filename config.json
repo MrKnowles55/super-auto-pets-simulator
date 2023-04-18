@@ -1,12 +1,9 @@
 {
-    "NUMBER_OF_SIMULATIONS": 5,
+    "NUMBER_OF_SIMULATIONS": 1,
     "FRIENDLY_TEAM_SIZE": 5,
     "ENEMY_TEAM_SIZE": 5,
     "DEBUG_MODE": true,
-    "DEBUG_FILTER": [
-        "battle",
-        "pet"
-    ],
+    "DEBUG_FILTER": [],
     "FRIENDLY_TEAM_POOL": "TEST_POOL",
     "ENEMY_TEAM_POOL": "TEST_POOL2"
 }
