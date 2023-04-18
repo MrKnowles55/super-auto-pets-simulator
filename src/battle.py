@@ -20,7 +20,7 @@ def get_battle_string(team1, team2, prefix='', format_buffer=50, name_length=5):
 
 
 def fight(team1, team2):
-    log.debug("---------------------")
+    log.debug("Starting Fight")
     log.debug(get_battle_string(team1, team2, prefix='Start of Battle :'))
 
     # Start of Battle
@@ -69,5 +69,6 @@ def fight(team1, team2):
     # End of Battle
     log.debug("End of Battle")
     log.debug(get_battle_string(team1, team2, prefix=f'Final Board State :'))
+    log.debug("Finished Fight")
 
     return [int(bool(team1.pets)), int(bool(team2.pets))]

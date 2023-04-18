@@ -1,6 +1,9 @@
 from pet_data_utils.enums.trigger_event import TriggerEvent
 from pet_data_utils.enums.effect_kind import EffectKind
 from pet_data_utils.enums.effect_target_kind import EffectTargetKind
+import logger
+
+log = logger.setup_logger(__name__)
 
 
 class Pet:
@@ -33,6 +36,7 @@ class Pet:
         return self.health > 0
 
     def attack_pet(self, enemy_pet):
+        log.debug(f"{self.name} attacking {enemy_pet.name}")
         damage_dealt_to_self = enemy_pet.attack
         damage_dealt_to_enemy = self.attack
 
@@ -40,6 +44,7 @@ class Pet:
         enemy_pet.take_damage(damage_dealt_to_enemy, self)
 
     def take_damage(self, damage, attacker):
+        log.debug(f"{self.name} took {damage} damage from {attacker}.")
         old_health = self.health
         self.health -= damage
 
@@ -52,6 +57,7 @@ class Pet:
     def faint(self, attacker):
         if not self.fainted:
             self.fainted = True
+            log.debug(f"{self.name} fainted")
             if self.ability:
                 self.ability.trigger(TriggerEvent.Faint, self, self.team, enemy_team=attacker.team)
 
