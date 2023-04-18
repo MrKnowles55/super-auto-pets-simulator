@@ -14,7 +14,6 @@ parent_dir = os.path.dirname(os.path.dirname(logger_script_path))
 log_path = os.path.join(parent_dir, r"data\logs\debug.log")
 
 MODULE_FILTER = config_handler.config_data.get('DEBUG_FILTER', [])
-print(MODULE_FILTER)
 
 
 class ModuleFilter(logging.Filter):

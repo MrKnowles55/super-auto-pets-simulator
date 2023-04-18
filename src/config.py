@@ -139,7 +139,7 @@ def main():
     while run:
         print("\n")
         config_handler.display()
-        parameter_to_change = input("What parameter would you like to change? ").upper()
+        parameter_to_change = input("What parameter would you like to change? ").upper().replace(" ", "_")
         if parameter_to_change:
             if parameter_to_change in config_handler.config_data.keys():
                 config_handler.display_allowed_values(parameter_to_change)
