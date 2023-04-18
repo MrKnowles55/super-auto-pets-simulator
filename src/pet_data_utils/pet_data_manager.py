@@ -3,6 +3,9 @@ import os
 from pet_data_utils.enums.trigger_event import TriggerEvent
 from pet_data_utils.enums.effect_kind import EffectKind
 from pet_data_utils.enums.effect_target_kind import EffectTargetKind
+import logger
+
+log = logger.setup_logger(__name__)
 
 directory = os.path.dirname(os.path.abspath(__file__))
 filename = os.path.join(directory, "../../data/pet_data.json")
@@ -121,6 +124,7 @@ class PetDatabase:
             print(f"{pool_name} already exists")
         else:
             self.pool_dict[pool_name] = pool_list
+            log.debug(f"Pool Added, {pool_name} : {pool_list}")
 
     def get_pools_list(self):
         return json.dumps(list(self.pool_dict.keys()))
@@ -225,7 +229,7 @@ pet_db.add_pool("BUYABLE", list(set({pet["name"] for pet in pet_db.pet_dict.valu
 # Add pools to dict
 
 if __name__ == "__main__":
-    print(pet_db.get_pools_list())
+    print(IMPLEMENTED)
     # print('Ant-Like Pets (Trigger: Faint, Effect: ModifyStats) :', ", ".join(map(str, ANT_LIKE)))
     # print('Cricket-Like Pets (Trigger: Faint, Effect: SummonPet) :', ", ".join(map(str, CRICKET_LIKE)))
 

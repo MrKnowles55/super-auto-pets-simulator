@@ -1,27 +1,28 @@
 from abc import abstractmethod
 from .ability import Ability
 from random import sample
+import logger
+
+log = logger.setup_logger(__name__)
 
 
 class ModifyStatsAbility(Ability):
-    def __init__(self, owner, attack_mod, health_mod, target_type, target_n, trigger_event, until_end_of_battle=False,
-                 verbose=False):
-        super().__init__(owner)
+    def __init__(self, owner, attack_mod, health_mod, target_type, target_n, trigger_event, until_end_of_battle=False):
+        super().__init__(owner, trigger_event)
         self.attack_mod = attack_mod
         self.health_mod = health_mod
         self.target_type = target_type
         self.target_n = target_n
         self.trigger_event = trigger_event
         self.until_end_of_battle = until_end_of_battle
-        self.verbose = verbose
 
     @abstractmethod
     def apply(self, pet, team, **kwargs):
         pass
 
     def add_modifiers(self, target_pet):
-        if self.verbose:
-            print(f"**VERBOSE** {self.owner} modifying {target_pet}  by {self.attack_mod} / {self.health_mod}")
+        log.debug(f"{self.owner} modifying {target_pet}  by {self.attack_mod} / {self.health_mod} using "
+                  f"{self.__class__.__name__}")
         target_pet.attack += self.attack_mod
         target_pet.health += self.health_mod
 

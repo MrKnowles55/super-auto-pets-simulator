@@ -3,13 +3,17 @@ from random import choice
 from pet_data_utils.enums.effect_kind import EffectKind
 from pet_data_utils.enums.effect_target_kind import EffectTargetKind
 from pet_data_utils.enums.trigger_event import TriggerEvent
+import logger
+
+log = logger.setup_logger(__name__)
 
 
 class Ability(ABC):
 
-    def __init__(self, owner):
+    def __init__(self, owner, trigger_event=None):
         self.owner = owner
-        self.trigger_event = None
+        self.trigger_event = trigger_event
+        log.debug(f"{self.__class__.__name__} created for {self.owner} with trigger {self.trigger_event}")
 
     @abstractmethod
     def apply(self, pet, team, **kwargs):

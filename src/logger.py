@@ -46,7 +46,7 @@ def setup_logger(name, log_level=LOG_LEVEL, log_file=log_path):
     file_handler.setLevel(log_level)
 
     # Create a log formatter and set it for the file handler
-    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    formatter = logging.Formatter('%(asctime)s - %(name)-30s - %(levelname)-8s - %(message)s')
     file_handler.setFormatter(formatter)
 
     # Remove all existing handlers (including the default StreamHandler)
