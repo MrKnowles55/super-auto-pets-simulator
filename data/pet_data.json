@@ -769,8 +769,8 @@
             "effect": {
                 "kind": "SummonPet",
                 "pet": "pet-zombie_cricket",
-                "withAttack": 1,
-                "withHealth": 1,
+                "n": 1,
+                "level": 1,
                 "team": "Friendly"
             }
         },
@@ -783,8 +783,8 @@
             "effect": {
                 "kind": "SummonPet",
                 "pet": "pet-zombie_cricket",
-                "withAttack": 2,
-                "withHealth": 2,
+                "n": 1,
+                "level": 2,
                 "team": "Friendly"
             }
         },
@@ -797,8 +797,8 @@
             "effect": {
                 "kind": "SummonPet",
                 "pet": "pet-zombie_cricket",
-                "withAttack": 3,
-                "withHealth": 3,
+                "n": 1,
+                "level": 3,
                 "team": "Friendly"
             }
         },
@@ -3865,11 +3865,13 @@
             "effect": {
                 "kind": "SummonPet",
                 "pet": "pet-dirty_rat",
+                "n": 1,
+                "level": 1,
                 "team": "Enemy"
             }
         },
         "level2Ability": {
-            "description": "Faint: summon one 1/1 Dirty Rat for the opponent that betrays him.",
+            "description": "Faint: summon two 1/1 Dirty Rats for the opponent that betrays him.",
             "trigger": "Faint",
             "triggeredBy": {
                 "kind": "Self"
@@ -3877,11 +3879,13 @@
             "effect": {
                 "kind": "SummonPet",
                 "pet": "pet-dirty_rat",
+                "n": 2,
+                "level": 1,
                 "team": "Enemy"
             }
         },
         "level3Ability": {
-            "description": "Faint: summon one 1/1 Dirty Rat for the opponent that betrays him.",
+            "description": "Faint: summon three 1/1 Dirty Rats for the opponent that betrays him.",
             "trigger": "Faint",
             "triggeredBy": {
                 "kind": "Self"
@@ -3889,6 +3893,8 @@
             "effect": {
                 "kind": "SummonPet",
                 "pet": "pet-dirty_rat",
+                "n": 3,
+                "level": 1,
                 "team": "Enemy"
             }
         },
@@ -6467,6 +6473,8 @@
                 "pet": "pet-ram",
                 "withAttack": 2,
                 "withHealth": 2,
+                "n": 2,
+                "level": 1,
                 "team": "Friendly"
             }
         },
@@ -6481,6 +6489,8 @@
                 "pet": "pet-ram",
                 "withAttack": 4,
                 "withHealth": 4,
+                "n": 2,
+                "level": 1,
                 "team": "Friendly"
             }
         },
@@ -6495,6 +6505,8 @@
                 "pet": "pet-ram",
                 "withAttack": 6,
                 "withHealth": 6,
+                "n": 2,
+                "level": 1,
                 "team": "Friendly"
             }
         },
@@ -7496,6 +7508,8 @@
                 "pet": "pet-bus",
                 "withAttack": 5,
                 "withHealth": 5,
+                "n": 1,
+                "level": 1,
                 "team": "Friendly"
             }
         },
@@ -7510,6 +7524,8 @@
                 "pet": "pet-bus",
                 "withAttack": 10,
                 "withHealth": 10,
+                "n": 1,
+                "level": 2,
                 "team": "Friendly"
             }
         },
@@ -7524,6 +7540,8 @@
                 "pet": "pet-bus",
                 "withAttack": 15,
                 "withHealth": 15,
+                "n": 1,
+                "level": 2,
                 "team": "Friendly"
             }
         },
@@ -8500,6 +8518,10 @@
             "effect": {
                 "kind": "SummonPet",
                 "pet": "pet-chick",
+                "n": 1,
+                "level": 1,
+                "withAttack": "half",
+                "withHealth": 1,
                 "team": "Friendly"
             }
         },
@@ -8512,6 +8534,10 @@
             "effect": {
                 "kind": "SummonPet",
                 "pet": "pet-chick",
+                "n": 2,
+                "level": 2,
+                "withAttack": "half",
+                "withHealth": 1,
                 "team": "Friendly"
             }
         },
@@ -8524,6 +8550,10 @@
             "effect": {
                 "kind": "SummonPet",
                 "pet": "pet-chick",
+                "n": 3,
+                "level": 3,
+                "withAttack": "half",
+                "withHealth": 1,
                 "team": "Friendly"
             }
         },
@@ -14472,7 +14502,11 @@
                 "kind": "Self"
             },
             "effect": {
-                "kind": "SummonPet"
+                "kind": "SummonPet",
+                "pet": "pet-groundhog",
+                "n": 2,
+                "level": 1,
+                "team": "Friendly"
             }
         },
         "level2Ability": {
@@ -14482,7 +14516,11 @@
                 "kind": "Self"
             },
             "effect": {
-                "kind": "SummonPet"
+                "kind": "SummonPet",
+                "pet": "pet-groundhog",
+                "n": 2,
+                "level": 2,
+                "team": "Friendly"
             }
         },
         "level3Ability": {
@@ -14492,7 +14530,11 @@
                 "kind": "Self"
             },
             "effect": {
-                "kind": "SummonPet"
+                "kind": "SummonPet",
+                "pet": "pet-groundhog",
+                "n": 2,
+                "level": 3,
+                "team": "Friendly"
             }
         }
     },
@@ -14792,7 +14834,11 @@
                 "kind": "Self"
             },
             "effect": {
-                "kind": "SummonPet"
+                "kind": "SummonPet",
+                "pet": "pet-ant",
+                "n": 2,
+                "level": 1,
+                "team": "Friendly"
             }
         },
         "level2Ability": {
@@ -14802,7 +14848,11 @@
                 "kind": "Self"
             },
             "effect": {
-                "kind": "SummonPet"
+                "kind": "SummonPet",
+                "pet": "pet-ant",
+                "n": 2,
+                "level": 2,
+                "team": "Friendly"
             }
         },
         "level3Ability": {
@@ -14812,7 +14862,11 @@
                 "kind": "Self"
             },
             "effect": {
-                "kind": "SummonPet"
+                "kind": "SummonPet",
+                "pet": "pet-ant",
+                "n": 2,
+                "level": 3,
+                "team": "Friendly"
             }
         }
     },
@@ -15392,7 +15446,13 @@
                 "kind": "Self"
             },
             "effect": {
-                "kind": "SummonPet"
+                "kind": "SummonPet",
+                "pet": "pet-smaller_slug",
+                "withAttack": 2,
+                "withHealth": 2,
+                "n": 1,
+                "level": 1,
+                "team": "Friendly"
             }
         },
         "level2Ability": {
@@ -15402,7 +15462,13 @@
                 "kind": "Self"
             },
             "effect": {
-                "kind": "SummonPet"
+                "kind": "SummonPet",
+                "pet": "pet-smaller_slug",
+                "withAttack": 4,
+                "withHealth": 4,
+                "n": 1,
+                "level": 2,
+                "team": "Friendly"
             }
         },
         "level3Ability": {
@@ -15412,9 +15478,83 @@
                 "kind": "Self"
             },
             "effect": {
-                "kind": "SummonPet"
+                "kind": "SummonPet",
+                "pet": "pet-smaller_slug",
+                "withAttack": 6,
+                "withHealth": 6,
+                "n": 1,
+                "level": 3,
+                "team": "Friendly"
             }
         }
+    },
+        "pet-smaller_slug": {
+        "name": "Smaller Slug",
+        "id": "pet-smaller_slug",
+        "tier": 4,
+        "baseAttack": 2,
+        "baseHealth": 2,
+        "packs": [
+            "Golden"
+        ],
+        "level1Ability": {
+            "description": "Faint: Summon one 1/1 Smallest Slug.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonPet",
+                "pet": "pet-smallest_slug",
+                "withAttack": 1,
+                "withHealth": 1,
+                "n": 1,
+                "level": 1,
+                "team": "Friendly"
+            }
+        },
+        "level2Ability": {
+            "description": "Faint: Summon one 2/2 Smallest Slug.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonPet",
+                "pet": "pet-smallest_slug",
+                "withAttack": 2,
+                "withHealth": 2,
+                "n": 1,
+                "level": 2,
+                "team": "Friendly"
+            }
+        },
+        "level3Ability": {
+            "description": "Faint: Summon one 3/3 Smallest Slug.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "SummonPet",
+                "pet": "pet-smallest_slug",
+                "withAttack": 3,
+                "withHealth": 3,
+                "n": 1,
+                "level": 1,
+                "team": "Friendly"
+            }
+        }
+    },
+    "pet-smallest_slug": {
+        "name": "Smallest Slug",
+        "id": "pet-smallest_slug",
+        "tier": 4,
+        "baseAttack": 1,
+        "baseHealth": 1,
+        "packs": [
+            "Golden"
+        ]
     },
     "pet-poison_dart_frog": {
         "name": "Poison Dart Frog",
@@ -16272,7 +16412,11 @@
                 "kind": "Self"
             },
             "effect": {
-                "kind": "SummonPet"
+                "kind": "SummonPet",
+                "pet": "pet-pig",
+                "n": 3,
+                "level": 1,
+                "team": "Friendly"
             }
         },
         "level2Ability": {
@@ -16282,7 +16426,11 @@
                 "kind": "Self"
             },
             "effect": {
-                "kind": "SummonPet"
+                "kind": "SummonPet",
+                "pet": "pet-pig",
+                "n": 3,
+                "level": 2,
+                "team": "Friendly"
             }
         },
         "level3Ability": {
@@ -16292,7 +16440,11 @@
                 "kind": "Self"
             },
             "effect": {
-                "kind": "SummonPet"
+                "kind": "SummonPet",
+                "pet": "pet-pig",
+                "n": 3,
+                "level": 3,
+                "team": "Friendly"
             }
         }
     },
