@@ -17,20 +17,25 @@ def create_random_team(pet_pool, team_size=5):
 
 
 def run_simulation(num_sims, friendly_pool, enemy_pool, friendly_team_size=5, enemy_team_size=5):
+    log.debug("Starting Simulations")
     total = [0, 0]
 
     for i in range(num_sims):
+        log.debug(f"Starting Sim {i+1}")
         friendly_team = create_random_team(friendly_pool, team_size=friendly_team_size)
         enemy_team = create_random_team(enemy_pool, team_size=enemy_team_size)
         result = fight(friendly_team, enemy_team)
         total[0] += result[0]
         total[1] += result[1]
+        log.debug(f"Finished Sim {i+1}")
 
+    log.debug("Fished Simulations")
     return total, num_sims
 
 
 def main(sims, friendly_team_size=5, enemy_team_size=5, friendly_pool=pet_data_manager.TEST_POOL,
          enemy_pool=pet_data_manager.TEST_POOL2):
+    log.debug("Starting Main Loop")
 
     total, num_sims = run_simulation(sims, friendly_pool, enemy_pool, friendly_team_size, enemy_team_size)
 
@@ -40,13 +45,13 @@ def main(sims, friendly_team_size=5, enemy_team_size=5, friendly_pool=pet_data_m
 
     print("Battle Results")
     print(f'Rounds: {num_sims}, Wins {win_rate:.1%}, Losses {loss_rate:.1%}, Ties {tie_rate:.1%}')
+    log.debug("Finished Main Loop")
 
 
 if __name__ == "__main__":
 
     # Configure Logging
-    logger = setup_logger(__name__)
-    logger.debug("Logging in DEBUG mode.")
+    log = setup_logger("main")
 
     # Validate config.json matches config_schema.json
     validate_config.load_config()

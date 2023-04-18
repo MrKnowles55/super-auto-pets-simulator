@@ -13,6 +13,21 @@ parent_dir = os.path.dirname(os.path.dirname(logger_script_path))
 # Set the log file path relative to the 'src' directory
 log_path = os.path.join(parent_dir, r"data\logs\debug.log")
 
+MODULE_FILTER = config_handler.config_data.get('DEBUG_FILTER', [])
+print(MODULE_FILTER)
+
+
+class ModuleFilter(logging.Filter):
+    def __init__(self, module_filter):
+        super().__init__()
+        self.module_filter = module_filter
+
+    def filter(self, record):
+        if not self.module_filter:
+            return True
+        return record.name in self.module_filter
+
+
 if DEBUG_MODE:
     LOG_LEVEL = logging.DEBUG
 else:
@@ -41,6 +56,11 @@ def setup_logger(name, log_level=LOG_LEVEL, log_file=log_path):
     # Add the file handler to the logger
     logger.addHandler(file_handler)
 
+    # Add the custom filter to the logger
+    module_filter = ModuleFilter(MODULE_FILTER)
+    logger.addFilter(module_filter)
+
     logger.propagate = False
 
     return logger
+

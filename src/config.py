@@ -38,6 +38,8 @@ class ConfigHandler:
                     minimum = self.schema_data["properties"][parameter_name].get("minimum", "None")
                     maximum = self.schema_data["properties"][parameter_name].get("maximum", "None")
                     print(f"Allowed values: {property_type} with minimum {minimum} and maximum {maximum}.")
+                if property_type == "array":
+                    print(f"Allowed values: {self.schema_data['properties'][parameter_name]['items']['enum']}")
             except KeyError:
                 print(f"Parameter {parameter_name} not found in schema")
 
@@ -78,7 +80,8 @@ class ConfigHandler:
         else:
             print(f"Parameter {parameter_name} not found.")
 
-    def convert_input(self, input_value, target_type):
+    @staticmethod
+    def convert_input(input_value, target_type):
         try:
             if target_type == int:
                 return int(input_value)
@@ -116,6 +119,17 @@ class ConfigHandler:
             return True
         return value in enum_values
 
+    def set_debug_filter(self, new_filters):
+        if isinstance(new_filters, str):
+            new_filters = [new_filters]
+        if all(isinstance(filter_name, str) for filter_name in new_filters):
+            valid_filters = self.schema_data["properties"]["DEBUG_FILTER"]["items"]["enum"]
+            new_filters = [filter_name for filter_name in new_filters if filter_name in valid_filters]
+            self.config_data["DEBUG_FILTER"] = new_filters
+            self.save_data()
+        else:
+            print("Enter a valid filter name or a list of filter names")
+
 
 config_handler = ConfigHandler()
 
@@ -126,10 +140,19 @@ def main():
         print("\n")
         config_handler.display()
         parameter_to_change = input("What parameter would you like to change? ").upper()
-        if parameter_to_change and parameter_to_change.lower() not in ["no", "none"]:
-            config_handler.display_allowed_values(parameter_to_change)
-            new_parameter_value = input("Enter new value: ")
-            config_handler.set_parameter(parameter_to_change, new_parameter_value)
+        if parameter_to_change:
+            if parameter_to_change in config_handler.config_data.keys():
+                config_handler.display_allowed_values(parameter_to_change)
+                if parameter_to_change == "DEBUG_FILTER":
+                    new_filters = input("Enter new filter names (comma-separated): ")
+                    new_filters = [filter_name.strip() for filter_name in new_filters.split(',')]
+                    config_handler.set_debug_filter(new_filters)
+                else:
+                    new_parameter_value = input("Enter new value: ")
+                    config_handler.set_parameter(parameter_to_change, new_parameter_value)
+            else:
+                print(f"Parameter {parameter_to_change} not valid. "
+                      f"Enter one of the parameters below, or Enter to exit.")
         else:
             run = input("Are you done changing parameters? ")
             if run and run.lower() in ["y", "yes", "1"]:
