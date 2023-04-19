@@ -4,8 +4,12 @@ log = logger.setup_logger(__name__)
 
 
 class Team:
-    def __init__(self):
+    def __init__(self, name):
+        self.name = name
         self.pets = []
+
+    def __repr__(self):
+        return self.name + " Team"
 
     def add_pet(self, pet, index=None):
         log.debug(f"{self} adding {pet} at index {index}")
@@ -36,4 +40,8 @@ class Team:
                 log.debug(f"{self} cannot move {pet} from {old_index} to {new_index}")
             except IndexError:
                 log.debug(f"{self} has no pet at {old_index} to move.")
+
+
+player_team = Team("Player")
+opponent_team = Team("Opponent")
 
