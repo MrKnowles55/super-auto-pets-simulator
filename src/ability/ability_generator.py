@@ -1,6 +1,7 @@
 from .ability import *
 from .modify_stats import *
 from .summon_pet import *
+from .deal_damage import *
 from pet_data_utils.enums.effect_kind import EffectKind
 from pet_data_utils.enums.effect_target_kind import EffectTargetKind
 from pet_data_utils.enums.trigger_event import TriggerEvent
@@ -84,6 +85,8 @@ class AbilityGenerator:
                 return self.generate_modify_stats_ability()
             case EffectKind.SummonPet:
                 return self.generate_summon_ability()
+            case EffectKind.DealDamage:
+                return self.generate_damage_ability()
             case _:
                 return No_Ability(self.owner)
 
@@ -122,5 +125,17 @@ class AbilityGenerator:
             case EffectTargetKind.FriendBehind:
                 return ModifyStatsAbilityFriendBehind(self.owner, attack_mod=attack_mod, health_mod=health_mod,
                                                       target_type=target_type, target_n=target_n, trigger_event=trigger)
+            case _:
+                return No_Ability(self.owner)
+
+    def generate_damage_ability(self):
+        trigger_event = self.get_trigger()
+        target_type = self.get_target_kind()
+        target_n = self.get_target_n()
+        damage_amount = self.get_extra_effect()["amount"]
+
+        match target_type:
+            case EffectTargetKind.RandomEnemy:
+                return DamageRandomEnemy(self.owner, trigger_event, target_type, target_n, damage_amount)
             case _:
                 return No_Ability(self.owner)

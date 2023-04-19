@@ -42,8 +42,8 @@ class SummonSpecific(Summon):
             team_to_add_to.remove_pet(pet)
             while pets_created < self.n:
                 try:
-                    log.debug(f"{self.owner} {self.__class__.__name__} summoning {self.token.name} to {team_to_add_to}")
                     new_pet = create_pet(self.token)
+                    log.debug(f"{self.owner} {self.__class__.__name__} summoning {new_pet.name} to {team_to_add_to}")
                     team_to_add_to.add_pet(new_pet, index)
                 except KeyError:
                     log.debug(f"Cannot create pet of type {self.token}")
