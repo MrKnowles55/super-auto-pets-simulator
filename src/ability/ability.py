@@ -36,33 +36,33 @@ class No_Ability(Ability):
         pass
 
 
-class Summon(Ability):
-    def __init__(self, owner, token, trigger_event, team_to_summon_to):
-        super().__init__(owner)
-        self.token = token
-        self.trigger_event = trigger_event
-        self.team = team_to_summon_to
-
-    def apply(self, pet, team, **kwargs):
-        from pet_factory import create_pet
-        if self.trigger_event == TriggerEvent.Faint:
-
-            index = team.pets.index(pet)
-
-            try:
-                new_pet = create_pet(self.token)
-                team.remove_pet(pet)
-                team.add_pet(new_pet, index)
-            except KeyError:
-                print(f"Cannot create pet of type {self.token}")
-                team.remove_pet(pet)
-
-        else:
-            print(f'{self.__class__}:{self.trigger_event} not implemented')
-
-    def trigger(self, event, *args, **kwargs):
-        if event == self.trigger_event:
-            self.apply(*args, **kwargs)
+# class Summon(Ability):
+#     def __init__(self, owner, token, trigger_event, team_to_summon_to):
+#         super().__init__(owner)
+#         self.token = token
+#         self.trigger_event = trigger_event
+#         self.team = team_to_summon_to
+#
+#     def apply(self, pet, team, **kwargs):
+#         from pet_factory import create_pet
+#         if self.trigger_event == TriggerEvent.Faint:
+#
+#             index = team.pets.index(pet)
+#
+#             try:
+#                 new_pet = create_pet(self.token)
+#                 team.remove_pet(pet)
+#                 team.add_pet(new_pet, index)
+#             except KeyError:
+#                 print(f"Cannot create pet of type {self.token}")
+#                 team.remove_pet(pet)
+#
+#         else:
+#             print(f'{self.__class__}:{self.trigger_event} not implemented')
+#
+#     def trigger(self, event, *args, **kwargs):
+#         if event == self.trigger_event:
+#             self.apply(*args, **kwargs)
 
 
 # class Damage(Ability):

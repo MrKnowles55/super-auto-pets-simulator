@@ -1,5 +1,6 @@
 from .ability import *
 from .modify_stats import *
+from .summon_pet import *
 from pet_data_utils.enums.effect_kind import EffectKind
 from pet_data_utils.enums.effect_target_kind import EffectTargetKind
 from pet_data_utils.enums.trigger_event import TriggerEvent
@@ -46,8 +47,20 @@ class AbilityGenerator:
     def get_effect_pet(self):
         return self.ability_dict.get("effect", {}).get("pet")
 
+    def get_effect_n(self):
+        return self.ability_dict.get("effect", {}).get("n")
+
     def get_effect_team(self):
         return self.ability_dict.get("effect", {}).get("team")
+
+    def get_effect_level(self):
+        return self.ability_dict.get("effect", {}).get("level")
+
+    def get_effect_attack(self):
+        return self.ability_dict.get("effect", {}).get("baseAttack")
+
+    def get_effect_health(self):
+        return self.ability_dict.get("effect", {}).get("baseHealth")
 
     def get_extra_effect(self):
         keys_to_exclude = ["kind", "attackAmount", "healthAmount", "target"]
@@ -77,13 +90,23 @@ class AbilityGenerator:
     def generate_summon_ability(self):
         trigger = self.get_trigger()
         pet_to_summon = self.get_effect_pet()
-        team_to_summon_to = self.get_effect_team()
+        team_tag = self.get_effect_team()
+        n = self.get_effect_n()
+        level = self.get_effect_level()
+        attack = self.get_effect_attack()
+        health = self.get_effect_health()
 
-        match team_to_summon_to:
-            case "Friendly":
-                return Summon(self.owner, pet_to_summon, trigger, team_to_summon_to=team_to_summon_to)
-            case _:
-                return No_Ability(self.owner)
+        if pet_to_summon == "Random":
+            return No_Ability(self.owner)
+        else:
+            return SummonSpecific(self.owner, pet_to_summon, trigger, team_tag=team_tag, n=n,
+                                  level=level, attack=attack, health=health)
+
+        # match team_to_summon_to:
+        #     case "Friendly":
+        #         return Summon(self.owner, pet_to_summon, trigger, team_to_summon_to=team_to_summon_to)
+        #     case _:
+        #         return No_Ability(self.owner)
 
     def generate_modify_stats_ability(self):
         attack_mod = self.get_attack_mod()
