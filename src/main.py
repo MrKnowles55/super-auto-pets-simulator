@@ -1,5 +1,5 @@
 from random import choice
-from team.team import Team
+from team.team import player_team, opponent_team
 from pet_factory import create_pet
 from pet_data_utils import pet_data_manager
 from battle import fight
@@ -8,23 +8,21 @@ import validate_config
 from logger import setup_logger
 
 
-def create_random_team(pet_pool, team_size=5):
-    team = Team()
+def fill_team_random(team, pet_pool, team_size=5):
     for _ in range(team_size):
         random_pet = choice(list(pet_pool))
         team.add_pet(create_pet(random_pet))
-    return team
 
 
-def run_simulation(num_sims, friendly_pool, enemy_pool, friendly_team_size=5, enemy_team_size=5):
+def run_simulation(num_sims, friendly_pool, enemy_pool, friendly_team_size=5, enemy_team_size=5, verbose=False):
     log.debug("Starting Simulations")
     total = [0, 0]
 
     for i in range(num_sims):
         log.debug(f"Starting Sim {i+1}")
-        friendly_team = create_random_team(friendly_pool, team_size=friendly_team_size)
-        enemy_team = create_random_team(enemy_pool, team_size=enemy_team_size)
-        result = fight(friendly_team, enemy_team)
+        fill_team_random(player_team, friendly_pool, team_size=friendly_team_size)
+        fill_team_random(opponent_team, enemy_pool, team_size=enemy_team_size)
+        result = fight(player_team, opponent_team, verbose)
         total[0] += result[0]
         total[1] += result[1]
         log.debug(f"Finished Sim {i+1}")
@@ -37,7 +35,9 @@ def main(sims, friendly_team_size=5, enemy_team_size=5, friendly_pool=pet_data_m
          enemy_pool=pet_data_manager.TEST_POOL2):
     log.debug("Starting Main Loop")
 
-    total, num_sims = run_simulation(sims, friendly_pool, enemy_pool, friendly_team_size, enemy_team_size)
+    verbose = sims <= 5
+
+    total, num_sims = run_simulation(sims, friendly_pool, enemy_pool, friendly_team_size, enemy_team_size, verbose)
 
     win_rate = total[0] / num_sims
     loss_rate = total[1] / num_sims
