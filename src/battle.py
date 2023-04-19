@@ -4,7 +4,7 @@ import logger
 log = logger.setup_logger(__name__)
 
 
-def get_battle_string(team1, team2, prefix='', format_buffer=50, name_length=5):
+def get_battle_string(team1, team2, prefix='', format_buffer=50, name_length=8):
     team1_pets_str = ['_'] * 5
     team2_pets_str = ['_'] * 5
     for i, pet in enumerate(team1.pets):
@@ -19,9 +19,14 @@ def get_battle_string(team1, team2, prefix='', format_buffer=50, name_length=5):
     return f"{prefix:<20} {team1_pets_str:>{format_buffer}}     VS     {team2_pets_str:<{format_buffer}}"
 
 
-def fight(team1, team2):
+def fight(team1, team2, verbose):
     log.debug("Starting Fight")
     log.debug(get_battle_string(team1, team2, prefix='Start of Battle :'))
+
+    if verbose:
+
+        print("\n")
+        print(get_battle_string(team1, team2, prefix='Start of Battle :'))
 
     # Start of Battle
     pet_list = []
@@ -59,6 +64,9 @@ def fight(team1, team2):
         pet1.attack_pet(pet2)
 
         log.debug(get_battle_string(team1, team2, prefix=f'After Fight :'))
+
+        if verbose:
+            print(get_battle_string(team1, team2, prefix=f'After Fight :'))
 
         if not team1.pets:
             log.debug("Team 1 loses")
