@@ -6471,8 +6471,8 @@
             "effect": {
                 "kind": "SummonPet",
                 "pet": "pet-ram",
-                "withAttack": 2,
-                "withHealth": 2,
+                "baseAttack": 2,
+                "baseHealth": 2,
                 "n": 2,
                 "level": 1,
                 "team": "Friendly"
@@ -6487,8 +6487,8 @@
             "effect": {
                 "kind": "SummonPet",
                 "pet": "pet-ram",
-                "withAttack": 4,
-                "withHealth": 4,
+                "baseAttack": 4,
+                "baseHealth": 4,
                 "n": 2,
                 "level": 1,
                 "team": "Friendly"
@@ -6503,8 +6503,8 @@
             "effect": {
                 "kind": "SummonPet",
                 "pet": "pet-ram",
-                "withAttack": 6,
-                "withHealth": 6,
+                "baseAttack": 6,
+                "baseHealth": 6,
                 "n": 2,
                 "level": 1,
                 "team": "Friendly"
@@ -7506,8 +7506,8 @@
             "effect": {
                 "kind": "SummonPet",
                 "pet": "pet-bus",
-                "withAttack": 5,
-                "withHealth": 5,
+                "baseAttack": 5,
+                "baseHealth": 5,
                 "n": 1,
                 "level": 1,
                 "team": "Friendly"
@@ -7522,8 +7522,8 @@
             "effect": {
                 "kind": "SummonPet",
                 "pet": "pet-bus",
-                "withAttack": 10,
-                "withHealth": 10,
+                "baseAttack": 10,
+                "baseHealth": 10,
                 "n": 1,
                 "level": 2,
                 "team": "Friendly"
@@ -7538,8 +7538,8 @@
             "effect": {
                 "kind": "SummonPet",
                 "pet": "pet-bus",
-                "withAttack": 15,
-                "withHealth": 15,
+                "baseAttack": 15,
+                "baseHealth": 15,
                 "n": 1,
                 "level": 2,
                 "team": "Friendly"
@@ -8520,8 +8520,8 @@
                 "pet": "pet-chick",
                 "n": 1,
                 "level": 1,
-                "withAttack": "half",
-                "withHealth": 1,
+                "baseAttack": "half",
+                "baseHealth": 1,
                 "team": "Friendly"
             }
         },
@@ -8536,8 +8536,8 @@
                 "pet": "pet-chick",
                 "n": 2,
                 "level": 2,
-                "withAttack": "half",
-                "withHealth": 1,
+                "baseAttack": "half",
+                "baseHealth": 1,
                 "team": "Friendly"
             }
         },
@@ -8552,8 +8552,8 @@
                 "pet": "pet-chick",
                 "n": 3,
                 "level": 3,
-                "withAttack": "half",
-                "withHealth": 1,
+                "baseAttack": "half",
+                "baseHealth": 1,
                 "team": "Friendly"
             }
         },
@@ -10644,8 +10644,8 @@
             "effect": {
                 "kind": "SummonPet",
                 "pet": "pet-zombie_fly",
-                "withAttack": 5,
-                "withHealth": 5,
+                "baseAttack": 5,
+                "baseHealth": 5,
                 "team": "Friendly"
             },
             "maxTriggers": 3
@@ -10659,8 +10659,8 @@
             "effect": {
                 "kind": "SummonPet",
                 "pet": "pet-zombie_fly",
-                "withAttack": 10,
-                "withHealth": 10,
+                "baseAttack": 10,
+                "baseHealth": 10,
                 "team": "Friendly"
             },
             "maxTriggers": 3
@@ -10674,8 +10674,8 @@
             "effect": {
                 "kind": "SummonPet",
                 "pet": "pet-zombie_fly",
-                "withAttack": 15,
-                "withHealth": 15,
+                "baseAttack": 15,
+                "baseHealth": 15,
                 "team": "Friendly"
             },
             "maxTriggers": 3
@@ -14504,7 +14504,7 @@
             "effect": {
                 "kind": "SummonPet",
                 "pet": "pet-groundhog",
-                "n": 2,
+                "n": 1,
                 "level": 1,
                 "team": "Friendly"
             }
@@ -14532,7 +14532,7 @@
             "effect": {
                 "kind": "SummonPet",
                 "pet": "pet-groundhog",
-                "n": 2,
+                "n": 3,
                 "level": 3,
                 "team": "Friendly"
             }
@@ -15448,8 +15448,8 @@
             "effect": {
                 "kind": "SummonPet",
                 "pet": "pet-smaller_slug",
-                "withAttack": 2,
-                "withHealth": 2,
+                "baseAttack": 2,
+                "baseHealth": 2,
                 "n": 1,
                 "level": 1,
                 "team": "Friendly"
@@ -15464,8 +15464,8 @@
             "effect": {
                 "kind": "SummonPet",
                 "pet": "pet-smaller_slug",
-                "withAttack": 4,
-                "withHealth": 4,
+                "baseAttack": 4,
+                "baseHealth": 4,
                 "n": 1,
                 "level": 2,
                 "team": "Friendly"
@@ -15480,8 +15480,8 @@
             "effect": {
                 "kind": "SummonPet",
                 "pet": "pet-smaller_slug",
-                "withAttack": 6,
-                "withHealth": 6,
+                "baseAttack": 6,
+                "baseHealth": 6,
                 "n": 1,
                 "level": 3,
                 "team": "Friendly"
@@ -15495,7 +15495,7 @@
         "baseAttack": 2,
         "baseHealth": 2,
         "packs": [
-            "Golden"
+            "Summoned"
         ],
         "level1Ability": {
             "description": "Faint: Summon one 1/1 Smallest Slug.",
@@ -15506,8 +15506,8 @@
             "effect": {
                 "kind": "SummonPet",
                 "pet": "pet-smallest_slug",
-                "withAttack": 1,
-                "withHealth": 1,
+                "baseAttack": 1,
+                "baseHealth": 1,
                 "n": 1,
                 "level": 1,
                 "team": "Friendly"
@@ -15522,8 +15522,8 @@
             "effect": {
                 "kind": "SummonPet",
                 "pet": "pet-smallest_slug",
-                "withAttack": 2,
-                "withHealth": 2,
+                "baseAttack": 2,
+                "baseHealth": 2,
                 "n": 1,
                 "level": 2,
                 "team": "Friendly"
@@ -15538,8 +15538,8 @@
             "effect": {
                 "kind": "SummonPet",
                 "pet": "pet-smallest_slug",
-                "withAttack": 3,
-                "withHealth": 3,
+                "baseAttack": 3,
+                "baseHealth": 3,
                 "n": 1,
                 "level": 1,
                 "team": "Friendly"
@@ -15553,7 +15553,7 @@
         "baseAttack": 1,
         "baseHealth": 1,
         "packs": [
-            "Golden"
+            "Summoned"
         ]
     },
     "pet-poison_dart_frog": {
