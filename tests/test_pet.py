@@ -29,7 +29,7 @@ class TestPet(unittest.TestCase):
         self.assertFalse(self.pet.fainted)
 
     def test_is_alive(self):
-        self.assertTrue(self.pet.is_alive())
+        self.assertTrue(self.pet.is_alive)
 
     def test_attack_pet(self):
         self.pet.attack_pet(self.enemy_pet)

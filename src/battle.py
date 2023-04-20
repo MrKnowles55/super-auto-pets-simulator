@@ -4,7 +4,17 @@ import logger
 log = logger.setup_logger(__name__)
 
 
-def get_battle_string(team1, team2, prefix='', format_buffer=50, name_length=8):
+def get_battle_string(team1, team2, prefix='', format_buffer=80, name_length=8):
+    """
+    Create a formatted battle string representing the current state of both teams.
+
+    :param team1: The first team of pets.
+    :param team2: The second team of pets.
+    :param prefix: A string prefix to be added at the beginning of the output string.
+    :param format_buffer: The width of each team string in the formatted output.
+    :param name_length: The maximum length of pet names in the output.
+    :return: A formatted string representing the current state of both teams.
+    """
     team1_pets_str = ['_'] * 5
     team2_pets_str = ['_'] * 5
     for i, pet in enumerate(team1.pets):
@@ -19,7 +29,19 @@ def get_battle_string(team1, team2, prefix='', format_buffer=50, name_length=8):
     return f"{prefix:<20} {team1_pets_str:>{format_buffer}}     VS     {team2_pets_str:<{format_buffer}}"
 
 
+def get_pet_list(team1, team2):
+    return team1.pets + team2.pets
+
+
 def fight(team1, team2, verbose):
+    """
+    Simulate a battle between two teams of pets.
+
+    :param team1: The first team of pets.
+    :param team2: The second team of pets.
+    :param verbose: Whether to print battle information.
+    :return: A list containing the result of the battle for each team (1 if the team won, 0 otherwise).
+    """
     log.debug("Starting Fight")
     log.debug(get_battle_string(team1, team2, prefix='Start of Battle :'))
 
@@ -29,11 +51,7 @@ def fight(team1, team2, verbose):
         print(get_battle_string(team1, team2, prefix='Start of Battle :'))
 
     # Start of Battle
-    pet_list = []
-    for pet in team1.pets:
-        pet_list.append(pet)
-    for pet in team2.pets:
-        pet_list.append(pet)
+    pet_list = get_pet_list(team1, team2)
 
     priority_dict = prioritize_pets(pet_list)
 

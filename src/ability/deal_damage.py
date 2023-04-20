@@ -28,7 +28,7 @@ class DamageRandomEnemy(Damage):
         # Set enemy team to opposite team
         enemy_team = player_team if self.owner.team == opponent_team else opponent_team
         if enemy_team.pets:
-            alive_pets = [p for p in enemy_team.pets if p.is_alive()]
+            alive_pets = [p for p in enemy_team.pets if p.is_alive]
 
             if alive_pets:
                 target_pets = sample(alive_pets, min(self.target_n, len(alive_pets)))
