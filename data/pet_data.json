@@ -9941,7 +9941,48 @@
             "Turtle",
             "Puppy"
         ],
-        "status": "status-poison-attack",
+        "level1Ability": {
+            "description": "Summoned: Gain Peanut",
+            "trigger": "Summoned",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ApplyStatus",
+                "status": "status-poison-attack",
+                "target": {
+                    "kind": "Self"
+                }
+            }
+        },
+        "level2Ability": {
+            "description": "Summoned: Gain Peanut",
+            "trigger": "Summoned",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ApplyStatus",
+                "status": "status-poison-attack",
+                "to": {
+                    "kind": "Self"
+                }
+            }
+        },
+        "level3Ability": {
+            "description": "Summoned: Gain Peanut",
+            "trigger": "Summoned",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ApplyStatus",
+                "status": "status-poison-attack",
+                "to": {
+                    "kind": "Self"
+                }
+            }
+        },
         "probabilities": [
             {
                 "kind": "shop",
@@ -11956,32 +11997,44 @@
         ],
         "level1Ability": {
             "description": "Start of battle: Swap stats of the two adjacent friends.",
-            "trigger": "",
+            "trigger": "StartOfBattle",
             "triggeredBy": {
-                "kind": ""
+                "kind": "Player"
             },
             "effect": {
-                "kind": ""
+                "kind": "SwapStats",
+                "target": {
+                    "kind": "AdjacentFriends"
+                },
+                "untilEndOfBattle": false
             }
         },
         "level2Ability": {
             "description": "Sell: Swap stats of the two adjacent friends.",
-            "trigger": "",
+            "trigger": "Sell",
             "triggeredBy": {
-                "kind": ""
+                "kind": "Player"
             },
             "effect": {
-                "kind": ""
+                "kind": "SwapStats",
+                "target": {
+                    "kind": "AdjacentFriends"
+                },
+                "untilEndOfBattle": false
             }
         },
         "level3Ability": {
             "description": "End of Turn: Swap stats of the two adjacent friends.",
-            "trigger": "",
+            "trigger": "EndOfTurn",
             "triggeredBy": {
-                "kind": ""
+                "kind": "Player"
             },
             "effect": {
-                "kind": ""
+                "kind": "SwapStats",
+                "target": {
+                    "kind": "AdjacentFriends"
+                },
+                "untilEndOfBattle": false
             }
         }
     },
@@ -12038,7 +12091,7 @@
             "description": "Enemy summoned or pushed: Deal 1  damage to it.",
             "trigger": "EnemySummonedOrPushed",
             "triggeredBy": {
-                "kind": ""
+                "kind": "EachEnemy"
             },
             "effect": {
                 "kind": "DealDamage"
@@ -12048,7 +12101,7 @@
             "description": "Enemy summoned or pushed: Deal 2  damage to it.",
             "trigger": "EnemySummonedOrPushed",
             "triggeredBy": {
-                "kind": ""
+                "kind": "EachEnemy"
             },
             "effect": {
                 "kind": "DealDamage"
@@ -12058,7 +12111,7 @@
             "description": "Enemy summoned or pushed: Deal 3  damage to it.",
             "trigger": "EnemySummonedOrPushed",
             "triggeredBy": {
-                "kind": ""
+                "kind": "EachEnemy"
             },
             "effect": {
                 "kind": "DealDamage"
@@ -13358,7 +13411,7 @@
             "description": "Empty Front Space: If in battle, push this to the front and gain +4 health.",
             "trigger": "EmptyFrontSpace",
             "triggeredBy": {
-                "kind": ""
+                "kind": "EachFriend"
             },
             "effect": {
                 "kind": "MoveAndModifyStats"
@@ -13368,7 +13421,7 @@
             "description": "Empty Front Space: If in battle, push this to the front and gain +8 health.",
             "trigger": "EmptyFrontSpace",
             "triggeredBy": {
-                "kind": ""
+                "kind": "EachFriend"
             },
             "effect": {
                 "kind": "MoveAndModifyStats"
@@ -13378,7 +13431,7 @@
             "description": "Empty Front Space: If in battle, push this to the front and gain +12 health.",
             "trigger": "EmptyFrontSpace",
             "triggeredBy": {
-                "kind": ""
+                "kind": "EachFriend"
             },
             "effect": {
                 "kind": "MoveAndModifyStats"
@@ -13518,7 +13571,7 @@
             "description": "Enemy summoned: Gain +2  and +2 .",
             "trigger": "EnemySummoned",
             "triggeredBy": {
-                "kind": ""
+                "kind": "EachEnemy"
             },
             "effect": {
                 "kind": "ModifyStats"
@@ -13528,7 +13581,7 @@
             "description": "Enemy summoned: Gain +4  and +4 .",
             "trigger": "EnemySummoned",
             "triggeredBy": {
-                "kind": ""
+                "kind": "EachEnemy"
             },
             "effect": {
                 "kind": "ModifyStats"
@@ -13538,7 +13591,7 @@
             "description": "Enemy summoned: Gain +6  and +6 .",
             "trigger": "EnemySummoned",
             "triggeredBy": {
-                "kind": ""
+                "kind": "EachEnemy"
             },
             "effect": {
                 "kind": "ModifyStats"
@@ -15607,32 +15660,32 @@
         ],
         "level1Ability": {
             "description": "Two friends faint: give the nearest friend ahead +3 Attack and +3 Health.",
-            "trigger": "",
+            "trigger": "Faint",
             "triggeredBy": {
-                "kind": ""
+                "kind": "EachFriend"
             },
             "effect": {
-                "kind": ""
+                "kind": "ModifyStats"
             }
         },
         "level2Ability": {
             "description": "Two friends faint: give the nearest friend ahead +6 Attack and +6 Health.",
-            "trigger": "",
+            "trigger": "Faint",
             "triggeredBy": {
-                "kind": ""
+                "kind": "EachFriend"
             },
             "effect": {
-                "kind": ""
+                "kind": "ModifyStats"
             }
         },
         "level3Ability": {
             "description": "Two friends faint: give the nearest friend ahead +9 Attack and +9 Health.",
-            "trigger": "",
+            "trigger": "Faint",
             "triggeredBy": {
-                "kind": ""
+                "kind": "EachFriend"
             },
             "effect": {
-                "kind": ""
+                "kind": "ModifyStats"
             }
         }
     },
@@ -16661,7 +16714,7 @@
             "description": "Empty Front Space: If in battle, push the nearest friend ahead to the front and give it +4 Health.",
             "trigger": "EmptyFrontSpace",
             "triggeredBy": {
-                "kind": ""
+                "kind": "EachFriend"
             },
             "effect": {
                 "kind": "MoveAndModifyStats"
@@ -16671,7 +16724,7 @@
             "description": "Empty Front Space: If in battle, push the nearest friend ahead to the front and give it +8 Health.",
             "trigger": "EmptyFrontSpace",
             "triggeredBy": {
-                "kind": ""
+                "kind": "EachFriend"
             },
             "effect": {
                 "kind": "MoveAndModifyStats"
@@ -16681,7 +16734,7 @@
             "description": "Empty Front Space: If in battle, push the nearest friend ahead to the front and give it +12 Health.",
             "trigger": "EmptyFrontSpace",
             "triggeredBy": {
-                "kind": ""
+                "kind": "EachFriend"
             },
             "effect": {
                 "kind": "MoveAndModifyStats"
