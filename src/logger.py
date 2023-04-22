@@ -33,8 +33,15 @@ else:
     LOG_LEVEL = logging.WARNING
 
 
-def setup_logger(name, log_level=LOG_LEVEL, log_file=log_path):
+def delete_log_file(log_file, replace_log_file):
+    if os.path.isfile(log_file) and replace_log_file:
+        with open(log_file, 'w') as file:
+            file.truncate(0)
+
+
+def setup_logger(name, log_level=LOG_LEVEL, log_file=log_path, replace_log_file=False):
     logger = logging.getLogger(name)
+    delete_log_file(log_file, replace_log_file)
     logger.setLevel(log_level)
 
     # Check if logger already has handlers, if yes then return the existing logger
