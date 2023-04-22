@@ -18,7 +18,7 @@ class TestAbility(unittest.TestCase):
                                ability1=None, ability2=None, ability3=None, ability_generator=AbilityGenerator)
         self.friend_pet2 = Pet(name="Test Friend Pet 2", attack=1, health=1, tier=1, level=1,
                                ability1=None, ability2=None, ability3=None, ability_generator=AbilityGenerator)
-        self.test_team = Team()
+        self.test_team = Team("Test")
         self.test_team.add_pet(self.test_pet)
         self.test_team.add_pet(self.friend_pet1)
         self.test_team.add_pet(self.friend_pet2)
@@ -30,20 +30,6 @@ class TestAbility(unittest.TestCase):
         self.assertIsNone(ability.trigger_event)
         self.assertIsInstance(ability, Ability)
 
-
-# Mock Ability class to be used in tests
-class MockAbility:
-    def __init__(self):
-        self.trigger_event = None
-
-    def generate(self):
-        return self
-
-    def trigger(self, event, pet, team, enemy_team=None):
-        self.trigger_event = event
-
-    def apply(self, pet, team, enemy_team):
-        pass
 
 
 if __name__ == '__main__':
