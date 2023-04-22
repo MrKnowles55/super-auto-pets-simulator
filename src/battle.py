@@ -36,7 +36,7 @@ def get_pet_list(team1, team2):
     return team1.pets + team2.pets
 
 
-def start_of_battle(team1, team2, pet_list, verbose):
+def start_of_battle(team1, team2, pet_list, verbose=False):
     actions = []
     priority_dict = prioritize_pets(pet_list)
     priorities = sorted(priority_dict.keys(), reverse=True)
@@ -70,7 +70,7 @@ def start_of_battle(team1, team2, pet_list, verbose):
         print(get_battle_string(team1, team2, prefix="Start of Battle"))
 
 
-def fight_loop(team1, team2, pet_list, verbose=False):
+def fight_loop(team1, team2, verbose=False):
     # Fight Loop
     round = 0
     while team1.pets and team2.pets:
@@ -110,7 +110,7 @@ def end_of_battle(team1, team2, pet_list, verbose=False):
     return [int(bool(team1.pets)), int(bool(team2.pets))]
 
 
-def fight(team1, team2, verbose):
+def fight(team1, team2, verbose=False):
     """
     Simulate a battle between two teams of pets.
 
@@ -133,7 +133,7 @@ def fight(team1, team2, verbose):
     priority_dict = prioritize_pets(pet_list)
 
     start_of_battle(team1, team2, pet_list, verbose)
-    fight_loop(team1, team2, pet_list, verbose)
+    fight_loop(team1, team2, verbose)
 
     return end_of_battle(team1, team2, pet_list, verbose)
 

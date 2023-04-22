@@ -6,7 +6,7 @@ from utils import *
 from pet_data_utils.enums.trigger_event import TriggerEvent
 from pet_data_utils.enums.effect_kind import EffectKind
 from pet_data_utils.enums.effect_target_kind import EffectTargetKind
-from team.team import player_team, opponent_team
+from src.team.team import player_team, opponent_team
 
 log = logger.setup_logger(__name__)
 

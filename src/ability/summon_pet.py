@@ -1,13 +1,16 @@
 from abc import abstractmethod
-from .ability import Ability
+from src.ability.ability import Ability
 from random import sample
 import logger
+import os
 from pet_data_utils.enums.trigger_event import TriggerEvent
 from pet_data_utils.enums.effect_kind import EffectKind
 from pet_data_utils.enums.effect_target_kind import EffectTargetKind
-from team.team import player_team, opponent_team
+from src.team.team import player_team, opponent_team
 
 log = logger.setup_logger(__name__)
+# parent_dir = os.path.abspath(os.path.join(os.getcwd(), ".."))
+# print(parent_dir)
 
 
 class Summon(Ability):
@@ -33,6 +36,7 @@ class SummonSpecific(Summon):
         if self.trigger_event == TriggerEvent.Faint:
             if self.team_tag == "Friendly":
                 team_to_add_to = player_team if my_team == player_team else opponent_team
+                print(team_to_add_to, my_team)
                 index = team_to_add_to.pets.index(pet)
             else:
                 team_to_add_to = opponent_team if my_team == player_team else player_team
