@@ -51,7 +51,7 @@ def main(sims, friendly_team_size=5, enemy_team_size=5, friendly_pool=pet_data_m
 if __name__ == "__main__":
 
     # Configure Logging
-    log = setup_logger("main")
+    log = setup_logger("main", replace_log_file=True)
 
     # Validate config.json matches config_schema.json
     validate_config.load_config()
