@@ -11,6 +11,7 @@ def load_old_data():
 
 def extract_unique_parameters(data):
     triggers = set()
+    trigger_bys = set()
     effect_kinds = set()
     effect_target_kinds = set()
 
@@ -23,6 +24,9 @@ def extract_unique_parameters(data):
             trigger = ability.get('trigger')
             if trigger:
                 triggers.add(trigger)
+                trigger_by = ability.get("triggeredBy").get("kind")
+                if trigger_by:
+                    trigger_bys.add(trigger_by)
 
             effect = ability.get('effect')
             if effect:
@@ -38,6 +42,7 @@ def extract_unique_parameters(data):
 
     return {
         'triggers': list(triggers),
+        'trigger_bys': list(trigger_bys),
         'effect_kinds': list(effect_kinds),
         'effect_target_kinds': list(effect_target_kinds)
     }
@@ -124,10 +129,13 @@ def load_new_pet(pet_name):
 
 
 if __name__ == "__main__":
-    pass
     # Load the first JSON file as a dictionary
-    # with open('pet_data.json') as f:
-    #     dict1 = json.load(f)
+    with open(r'C:\Users\mrkno\PycharmProjects\super-auto-pets-simulator\data\pet_data.json') as f:
+        dict1 = json.load(f)
+
+    unique = extract_unique_parameters(dict1)
+    for key, value in unique.items():
+        print(key, value)
     #
     # # Load the second JSON file as a dictionary
     # with open('pet_data_mine.json') as f:

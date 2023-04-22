@@ -132,11 +132,13 @@ class PetDatabase:
 
 pet_db = PetDatabase(filename)
 
-IMPLEMENTED = ["Ant", "Sloth", "Cricket", "Betta Fish", "Flamingo", 'Anteater', 'Rat',  'Osprey', 'Sheep', 'Slug', 'Wolf', 'Deer']
+IMPLEMENTED = ["Ant", 'Mosquito', "Sloth", "Cricket", "Betta Fish", "Flamingo", 'Anteater', 'Rat',  'Osprey', 'Sheep', 'Slug', 'Wolf', 'Deer']
 TEST_POOL = ['Mosquito']  # Rooster
-TEST_POOL2 = IMPLEMENTED
+TEST_POOL2 = ["Cricket"]
 
-# Crocodile, Dolphin, Leopard, Mosquito
+# Leopard: % of attack
+# Crocodile: Last pet
+# Dolphin: Least Health Pet
 
 
 pet_db.add_pool("TEST_POOL", TEST_POOL)
@@ -219,7 +221,7 @@ for i in PACK_NAMES:
 pet_db.add_pool("FAINT_PETS", sorted(pet_db.get_pets_by_trigger(TriggerEvent.Faint.name, triggered_by_kind="Self")))
 
 # Ability
-# MODIFY_STATS_PETS = sorted(pet_data_manager.get_pets_by_effect_kind("ModifyStats"))
+MODIFY_STATS_PETS = sorted(pet_db.get_pets_by_effect_kind("ModifyStats"))
 
 # Other
 pet_db.add_pool("BUYABLE", list(set({pet["name"] for pet in pet_db.pet_dict.values()}) - set(TOKENS)))
@@ -227,7 +229,7 @@ pet_db.add_pool("BUYABLE", list(set({pet["name"] for pet in pet_db.pet_dict.valu
 # Add pools to dict
 
 if __name__ == "__main__":
-    print(MOSQUITO_LIKE)
+    print(MODIFY_STATS_PETS)
     # print('Ant-Like Pets (Trigger: Faint, Effect: ModifyStats) :', ", ".join(map(str, ANT_LIKE)))
     # print('Cricket-Like Pets (Trigger: Faint, Effect: SummonPet) :', ", ".join(map(str, CRICKET_LIKE)))
 
