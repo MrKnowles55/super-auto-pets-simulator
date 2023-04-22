@@ -1,13 +1,36 @@
 import json
+import os
+
+directory = os.path.dirname(os.path.abspath(__file__))
+filename = os.path.join(directory, "../../data/pet_data.json")
 
 
 def display(data):
     print(json.dumps(data, indent=4))
 
 
-def load_data(file="pet_data.json"):
+def load_data(file=filename):
     with open(file, "r") as f:
         return json.load(f)
+
+
+def get_attribute(data, attribute, subattribute=None):
+    output = {}
+    for id, pet_data in data.items():
+        temp = pet_data.get(attribute)
+        if not temp:
+            for key, value in pet_data.items():
+                try:
+                    temp = pet_data[key][attribute]
+                except Exception as e:
+                    pass
+                if temp and subattribute:
+                    try:
+                        temp = pet_data[key][attribute][subattribute]
+                    except Exception as e:
+                        pass
+        output[id] = temp
+    return output
 
 
 def get_incomplete_pets(data):
@@ -103,7 +126,12 @@ def get_ability_intersection(effect=False):
 
 
 if __name__ == "__main__":
-    check_pet_data_status(file="../../data/old/pet_data_wip.json")
+    data = load_data()
+    x = get_attribute(data, "triggeredBy", "kind")
+    for pet, value in x.items():
+        if value not in ["Self", "Player", "EachFriend", "EachEnemy", "FriendAhead"]:
+            print(value, "\t", pet)
+    # check_pet_data_status(file="../../data/old/pet_data_wip.json")
 
     # display(get_example_pet("Sell", just_ability=True))
     # get_ability_intersection()
