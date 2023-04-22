@@ -16,8 +16,10 @@ class Team:
         if len(self.pets) < 5:
             if index is not None:
                 self.pets.insert(index, pet)
+                pet.position = index
             else:
                 self.pets.append(pet)
+                pet.position = len(self.pets) - 1
             pet.team = self
         else:
             log.debug(f"{self} is full and cannot add {pet} at index {index}.")
