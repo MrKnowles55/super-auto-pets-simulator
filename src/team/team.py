@@ -8,7 +8,7 @@ class Team:
         self.name = name
         self.pets = []
 
-    def __repr__(self):
+    def __str__(self):
         return self.name + " Team"
 
     def add_pet(self, pet, index=None):
