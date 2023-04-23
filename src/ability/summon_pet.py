@@ -35,11 +35,10 @@ class SummonSpecific(Summon):
         my_team = self.owner.team
         if self.trigger_event == TriggerEvent.Faint:
             if self.team_tag == "Friendly":
-                team_to_add_to = player_team if my_team == player_team else opponent_team
-                print(team_to_add_to, my_team)
+                team_to_add_to = team
                 index = team_to_add_to.pets.index(pet)
             else:
-                team_to_add_to = opponent_team if my_team == player_team else player_team
+                team_to_add_to = kwargs["enemy_team"]
                 index = 0
 
             pets_created = 0
