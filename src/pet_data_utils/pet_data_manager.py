@@ -133,8 +133,8 @@ class PetDatabase:
 pet_db = PetDatabase(filename)
 
 IMPLEMENTED = ["Ant", 'Mosquito', "Sloth", "Cricket", "Betta Fish", "Flamingo", 'Anteater', 'Rat',  'Osprey', 'Sheep', 'Slug', 'Wolf', 'Deer']
-TEST_POOL = ['Flamingo']  # Rooster
-TEST_POOL2 = ["Flamingo"]
+TEST_POOL = ['Dolphin']  # Rooster
+TEST_POOL2 = ["Cricket"]
 
 # Leopard: % of attack
 # Crocodile: Last pet

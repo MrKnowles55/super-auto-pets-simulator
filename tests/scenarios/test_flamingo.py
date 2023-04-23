@@ -57,8 +57,8 @@ class TestFlamingo(unittest.TestCase):
 
         # Check teams have correct pets
         team_to_pet_dict = {
-            self.team_of_5: ["Flamingo", 3],  # name and attack
-            self.team_of_2: ["Flamingo", 3],
+            self.team_of_5: ["Flamingo", 4],  # name and attack
+            self.team_of_2: ["Flamingo", 4],
             opponent_team: ["Big Test", 50]
         }
         for team in self.teams_to_test:
@@ -76,24 +76,24 @@ class TestFlamingo(unittest.TestCase):
         self.assertEqual(len(self.team_of_5.pets), 4)
 
         # Check that the first 2 Flamingos behind the fainted one gain +1/+1
-        self.assertEqual(self.team_of_5.pets[0].attack, 4)
-        self.assertEqual(self.team_of_5.pets[0].health, 2)
-        self.assertEqual(self.team_of_5.pets[1].attack, 4)
-        self.assertEqual(self.team_of_5.pets[1].health, 2)
+        self.assertEqual(self.team_of_5.pets[0].attack, 5)
+        self.assertEqual(self.team_of_5.pets[0].health, 3)
+        self.assertEqual(self.team_of_5.pets[1].attack, 5)
+        self.assertEqual(self.team_of_5.pets[1].health, 3)
 
         # Check that last 2 Flamingos did not have stats modified
-        self.assertEqual(self.team_of_5.pets[2].attack, 3)
-        self.assertEqual(self.team_of_5.pets[2].health, 1)
-        self.assertEqual(self.team_of_5.pets[3].attack, 3)
-        self.assertEqual(self.team_of_5.pets[3].health, 1)
+        self.assertEqual(self.team_of_5.pets[2].attack, 4)
+        self.assertEqual(self.team_of_5.pets[2].health, 2)
+        self.assertEqual(self.team_of_5.pets[3].attack, 4)
+        self.assertEqual(self.team_of_5.pets[3].health, 2)
 
         # Check that Flamingo ability works when only 1 Target available
         self.team_of_2.pets[0].apply_damage(50, attacker)
 
         self.assertEqual(len(self.team_of_2.pets), 1)
 
-        self.assertEqual(self.team_of_2.pets[0].attack, 4)
-        self.assertEqual(self.team_of_2.pets[0].health, 2)
+        self.assertEqual(self.team_of_2.pets[0].attack, 5)
+        self.assertEqual(self.team_of_2.pets[0].health, 3)
 
     def test_5_v_2(self):
         expected_results = [1, 0]

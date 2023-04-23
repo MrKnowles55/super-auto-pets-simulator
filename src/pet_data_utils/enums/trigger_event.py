@@ -20,7 +20,7 @@ class TriggerEvent(Enum):
 
     # Phase 0: Automatic End
     EndOfTurn = 11
-    EndOfTurnWith3PlusGold = 12
+    EndOfTurnWith2PlusGold = 12
     EndOfTurnWith4OrLessAnimals = 13
     EndOfTurnWithLvl3Friend = 14
 

@@ -22,3 +22,4 @@ class EffectTargetKind(Enum):
     RightMostFriend = 17
     Self = 18
     TriggeringEntity = 19
+    LeftMostShopAnimal = 20
