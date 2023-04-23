@@ -1,6 +1,6 @@
 from abc import abstractmethod
 from .ability import Ability
-from random import sample
+from random import sample, choice
 import src.logger as logger
 from src.utils import *
 from src.pet_data_utils.enums.trigger_event import TriggerEvent
@@ -31,14 +31,30 @@ class Damage(Ability):
         return applied_damage
 
     @staticmethod
-    def get_optimal_targets(living_pets, applied_damage):
+    def get_optimal_targets(living_pets, applied_damage, mode="random"):
         target_healths = {pet: pet.health - applied_damage.get(pet, 0) for pet in living_pets}
-        target_healths = sorted(target_healths.items(), key=lambda x: x[1])
 
-        for pet, effective_health in target_healths:
-            if effective_health > 0:
-                return pet
-        return None
+        # Filter out pets with health at or below 0
+        viable_pets = [pet for pet, health in target_healths.items() if health > 0]
+
+        if not viable_pets:
+            return None
+
+        # Get the pet based on the mode
+        if mode == "min":
+            min_value = min(target_healths[pet] for pet in viable_pets)
+            pets_with_min_value = [pet for pet in viable_pets if target_healths[pet] == min_value]
+            optimal_pet = choice(pets_with_min_value)
+        elif mode == "max":
+            max_value = max(target_healths[pet] for pet in viable_pets)
+            pets_with_max_value = [pet for pet in viable_pets if target_healths[pet] == max_value]
+            optimal_pet = choice(pets_with_max_value)
+        elif mode == "random":
+            optimal_pet = choice(viable_pets)
+        else:
+            raise ValueError(f"Invalid mode: {mode}. Must be 'min', 'max', or 'random'.")
+
+        return optimal_pet
 
 
 class DamageRandomEnemy(Damage):
@@ -68,21 +84,29 @@ class DamageRandomEnemy(Damage):
 
 
 class DamageEnemyWithAttribute(Damage):
-    def apply(self, pet, team, **kwargs):
-        # Set enemy team to opposite team
-        enemy_team = player_team if self.owner.team == opponent_team else opponent_team
-        if enemy_team.pets:
-            alive_pets = [p for p in enemy_team.pets if p.is_alive]
+    def apply(self, owner, team, enemy_team=None, priority=None, applied_damage=None):
+        actions = []
+        if not enemy_team:
+            return actions
 
-            if alive_pets:
-                # target_pets = sample(alive_pets, min(self.target_n, len(alive_pets)))
-                target_pets = get_lowest_health_pets(enemy_team.pets, self.target_n)
-            else:
-                target_pets = []
+        # Get the living pets in the enemy team
+        living_pets = [pet for pet in enemy_team.pets if pet.is_alive]
 
-            for target_pet in target_pets:
-                log.debug(f"{self.owner} dealing {self.damage_amount} damage to {target_pet}")
-                target_pet.take_damage(damage=self.damage_amount, attacker=self.owner)
+        if not living_pets:
+            return actions
+
+        # Get the optimal target
+        target_pet = self.get_optimal_targets(living_pets, applied_damage, mode="min")
+
+        if target_pet:
+            # Add the "take_damage" action to the actions list
+            actions.append(("take_damage", target_pet, self.damage_amount, owner))
+            log.debug(f"{self.owner} dealing {self.damage_amount} to {target_pet}")
+
+            # Update the applied damage dictionary
+            self.update_applied_damage(target_pet, self.damage_amount, applied_damage)
+
+        return actions
     #     elif self.target == "all":
     #         targets = []
     #         # Damage the pets
