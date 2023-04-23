@@ -1,9 +1,9 @@
 import json
 import os
-from pet_data_utils.enums.trigger_event import TriggerEvent
-from pet_data_utils.enums.effect_kind import EffectKind
-from pet_data_utils.enums.effect_target_kind import EffectTargetKind
-import logger
+from src.pet_data_utils.enums.trigger_event import TriggerEvent
+from src.pet_data_utils.enums.effect_kind import EffectKind
+from src.pet_data_utils.enums.effect_target_kind import EffectTargetKind
+import src.logger as logger
 
 log = logger.setup_logger(__name__)
 

@@ -1,9 +1,9 @@
 from abc import ABC, abstractmethod
 from random import choice
-from pet_data_utils.enums.effect_kind import EffectKind
-from pet_data_utils.enums.effect_target_kind import EffectTargetKind
-from pet_data_utils.enums.trigger_event import TriggerEvent
-import logger
+from src.pet_data_utils.enums.effect_kind import EffectKind
+from src.pet_data_utils.enums.effect_target_kind import EffectTargetKind
+from src.pet_data_utils.enums.trigger_event import TriggerEvent
+import src.logger as logger
 
 log = logger.setup_logger(__name__)
 

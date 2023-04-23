@@ -1,6 +1,6 @@
 import unittest
-from pet_factory import create_pet
-from battle import fight
+from src.pet_factory import create_pet
+from src.battle import fight
 from src.team.team import Team, opponent_team
 
 

@@ -1,4 +1,4 @@
-import logger
+import src.logger as logger
 
 log = logger.setup_logger(__name__)
 

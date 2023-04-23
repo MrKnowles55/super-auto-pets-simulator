@@ -2,9 +2,9 @@ from .ability import *
 from .modify_stats import *
 from .summon_pet import *
 from .deal_damage import *
-from pet_data_utils.enums.effect_kind import EffectKind
-from pet_data_utils.enums.effect_target_kind import EffectTargetKind
-from pet_data_utils.enums.trigger_event import TriggerEvent
+from src.pet_data_utils.enums.effect_kind import EffectKind
+from src.pet_data_utils.enums.effect_target_kind import EffectTargetKind
+from src.pet_data_utils.enums.trigger_event import TriggerEvent
 
 
 class AbilityGenerator:

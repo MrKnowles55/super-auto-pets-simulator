@@ -1,11 +1,11 @@
 from abc import abstractmethod
 from .ability import Ability
 from random import sample
-import logger
-from utils import *
-from pet_data_utils.enums.trigger_event import TriggerEvent
-from pet_data_utils.enums.effect_kind import EffectKind
-from pet_data_utils.enums.effect_target_kind import EffectTargetKind
+import src.logger as logger
+from src.utils import *
+from src.pet_data_utils.enums.trigger_event import TriggerEvent
+from src.pet_data_utils.enums.effect_kind import EffectKind
+from src.pet_data_utils.enums.effect_target_kind import EffectTargetKind
 from src.team.team import player_team, opponent_team
 
 log = logger.setup_logger(__name__)

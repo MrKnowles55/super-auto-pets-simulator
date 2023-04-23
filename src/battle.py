@@ -1,9 +1,11 @@
-from utils import prioritize_pets, collect_triggered_abilities
-from pet_data_utils.enums.trigger_event import TriggerEvent
-from pet_data_utils.enums.effect_kind import EffectKind
-from pet_data_utils.enums.effect_target_kind import EffectTargetKind
-import logger
+from src.utils import prioritize_pets, collect_triggered_abilities
+from src.pet_data_utils.enums.trigger_event import TriggerEvent
+from src.pet_data_utils.enums.effect_kind import EffectKind
+from src.pet_data_utils.enums.effect_target_kind import EffectTargetKind
+import src.logger as logger
+import os
 
+# directory = os.path.dirname(os.path.abspath(__file__))
 log = logger.setup_logger(__name__)
 
 
