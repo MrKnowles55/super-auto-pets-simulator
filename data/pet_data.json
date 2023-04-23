@@ -17740,5 +17740,15 @@
                 "kind": "GainGold"
             }
         }
-    }
+    },
+        "pet-big_test": {
+        "name": "Big Test",
+        "id": "pet-big_test",
+        "tier": 6,
+        "baseAttack": 50,
+        "baseHealth": 50,
+        "packs": [
+            "Test"
+        ]
+        }
 }
