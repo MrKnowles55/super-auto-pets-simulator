@@ -50,8 +50,8 @@ class Pet:
         :param enemy_pet: The enemy pet to attack.
         """
         log.debug(f"{self} attacking {enemy_pet}")
-        self._apply_damage(enemy_pet.attack, enemy_pet)
-        enemy_pet._apply_damage(self.attack, self)
+        self.apply_damage(enemy_pet.attack, enemy_pet)
+        enemy_pet.apply_damage(self.attack, self)
 
     def take_damage(self, damage, attacker):
         """
@@ -65,7 +65,7 @@ class Pet:
         actions.append(("take_damage", self, damage, attacker))
         return actions
 
-    def _apply_damage(self, damage, attacker):
+    def apply_damage(self, damage, attacker):
         log.debug(f"{self} took {damage} damage from {attacker}.")
         old_health = self.health
         self.health -= damage
