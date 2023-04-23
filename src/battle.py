@@ -65,7 +65,7 @@ def start_of_battle(team1, team2, pet_list, verbose=False):
             action_name, *args = action
             if action_name == "take_damage":
                 pet, damage, attacker = args
-                pet._apply_damage(damage, attacker)
+                pet.apply_damage(damage, attacker)
     if verbose:
         print(get_battle_string(team1, team2, prefix="Start of Battle"))
 
@@ -101,7 +101,7 @@ def fight_loop(team1, team2, verbose=False):
             log.debug("It's a tie!")
 
 
-def end_of_battle(team1, team2, pet_list, verbose=False):
+def end_of_battle(team1, team2, verbose=False):
     # End of Battle
     log.debug("End of Battle")
     log.debug(get_battle_string(team1, team2, prefix=f'Final Board State :'))
@@ -135,7 +135,7 @@ def fight(team1, team2, verbose=False):
     start_of_battle(team1, team2, pet_list, verbose)
     fight_loop(team1, team2, verbose)
 
-    return end_of_battle(team1, team2, pet_list, verbose)
+    return end_of_battle(team1, team2, verbose)
 
 
 
