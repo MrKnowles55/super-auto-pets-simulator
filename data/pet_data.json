@@ -7632,15 +7632,15 @@
             "commit": "e022fd6573782431ac9a65b520376b57511c31cd",
             "unicodeCodePoint": "\ud83d\udc2c"
         },
-        "tier": 4,
+        "tier": 3,
         "baseAttack": 4,
-        "baseHealth": 6,
+        "baseHealth": 3,
         "packs": [
             "Turtle",
             "Puppy"
         ],
         "level1Ability": {
-            "description": "Start of battle: Deal 5 damage to the lowest health enemy",
+            "description": "Start of battle: Deal 3 damage to the lowest health enemy",
             "trigger": "StartOfBattle",
             "triggeredBy": {
                 "kind": "Player"
@@ -7650,11 +7650,12 @@
                 "target": {
                     "kind": "LowestHealthEnemy"
                 },
-                "amount": 5
+                "amount": 3,
+                "trigger_count": 1
             }
         },
         "level2Ability": {
-            "description": "Start of battle: Deal 10 damage to the lowest health enemy",
+            "description": "Start of battle: Deal 3 damage to the lowest health enemy. Triggers 2 times.",
             "trigger": "StartOfBattle",
             "triggeredBy": {
                 "kind": "Player"
@@ -7664,11 +7665,12 @@
                 "target": {
                     "kind": "LowestHealthEnemy"
                 },
-                "amount": 10
+                "amount": 3,
+                "trigger_count": 2
             }
         },
         "level3Ability": {
-            "description": "Start of battle: Deal 15 damage to the lowest health enemy",
+            "description": "Start of battle: Deal 3 damage to the lowest health enemy. Triggers 3 times.",
             "trigger": "StartOfBattle",
             "triggeredBy": {
                 "kind": "Player"
@@ -7678,7 +7680,8 @@
                 "target": {
                     "kind": "LowestHealthEnemy"
                 },
-                "amount": 15
+                "amount": 3,
+                "trigger_count": 3
             }
         },
         "probabilities": [

@@ -137,5 +137,7 @@ class AbilityGenerator:
         match target_type:
             case EffectTargetKind.RandomEnemy:
                 return DamageRandomEnemy(self.owner, trigger_event, target_type, target_n, damage_amount)
+            case EffectTargetKind.LowestHealthEnemy:
+                return DamageEnemyWithAttribute(self.owner, trigger_event, target_type, target_n, damage_amount)
             case _:
                 return No_Ability(self.owner)
