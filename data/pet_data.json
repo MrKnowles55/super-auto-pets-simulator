@@ -6263,7 +6263,7 @@
             "unicodeCodePoint": "\ud83d\udc07"
         },
         "tier": 3,
-        "baseAttack": 3,
+        "baseAttack": 1,
         "baseHealth": 2,
         "packs": [
             "Turtle",
@@ -6903,7 +6903,7 @@
             "commit": "e022fd6573782431ac9a65b520376b57511c31cd",
             "unicodeCodePoint": "\ud83d\udc22"
         },
-        "tier": 3,
+        "tier": 4,
         "baseAttack": 1,
         "baseHealth": 2,
         "packs": [
@@ -7190,8 +7190,8 @@
             "unicodeCodePoint": "\ud83e\uddac"
         },
         "tier": 4,
-        "baseAttack": 6,
-        "baseHealth": 6,
+        "baseAttack": 5,
+        "baseHealth": 3,
         "packs": [
             "Turtle",
             "Puppy"
@@ -7332,8 +7332,8 @@
             "unicodeCodePoint": "\ud83d\udc03"
         },
         "tier": 4,
-        "baseAttack": 5,
-        "baseHealth": 5,
+        "baseAttack": 4,
+        "baseHealth": 4,
         "packs": [
             "Puppy"
         ],
@@ -7743,12 +7743,12 @@
         },
         "tier": 4,
         "baseAttack": 4,
-        "baseHealth": 7,
+        "baseHealth": 5,
         "packs": [
             "Turtle"
         ],
         "level1Ability": {
-            "description": "Knock out: Gain +2/+2.",
+            "description": "Knock out: Gain +3/+3.",
             "trigger": "KnockOut",
             "triggeredBy": {
                 "kind": "Self"
@@ -7758,28 +7758,12 @@
                 "target": {
                     "kind": "Self"
                 },
-                "attackAmount": 2,
-                "healthAmount": 2,
+                "attackAmount": 3,
+                "healthAmount": 3,
                 "untilEndOfBattle": false
             }
         },
         "level2Ability": {
-            "description": "Knock out: Gain +4/+4.",
-            "trigger": "KnockOut",
-            "triggeredBy": {
-                "kind": "Self"
-            },
-            "effect": {
-                "kind": "ModifyStats",
-                "target": {
-                    "kind": "Self"
-                },
-                "attackAmount": 4,
-                "healthAmount": 4,
-                "untilEndOfBattle": false
-            }
-        },
-        "level3Ability": {
             "description": "Knock out: Gain +6/+6.",
             "trigger": "KnockOut",
             "triggeredBy": {
@@ -7792,6 +7776,22 @@
                 },
                 "attackAmount": 6,
                 "healthAmount": 6,
+                "untilEndOfBattle": false
+            }
+        },
+        "level3Ability": {
+            "description": "Knock out: Gain +9/+9.",
+            "trigger": "KnockOut",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats",
+                "target": {
+                    "kind": "Self"
+                },
+                "attackAmount": 9,
+                "healthAmount": 9,
                 "untilEndOfBattle": false
             }
         },
@@ -8000,8 +8000,8 @@
             "unicodeCodePoint": "\ud83e\udd9e"
         },
         "tier": 4,
-        "baseAttack": 4,
-        "baseHealth": 5,
+        "baseAttack": 3,
+        "baseHealth": 3,
         "packs": [
             "Puppy"
         ],
@@ -8238,13 +8238,13 @@
             "unicodeCodePoint": "\ud83d\udc27"
         },
         "tier": 4,
-        "baseAttack": 1,
-        "baseHealth": 2,
+        "baseAttack": 2,
+        "baseHealth": 4,
         "packs": [
             "Turtle"
         ],
         "level1Ability": {
-            "description": "End turn: Give other Lvl. 2 and 3 friends +1/+1",
+            "description": "End turn: Give two other Lvl. 2 and 3 friends +1/+1",
             "trigger": "EndOfTurn",
             "triggeredBy": {
                 "kind": "Player"
@@ -8252,7 +8252,8 @@
             "effect": {
                 "kind": "ModifyStats",
                 "target": {
-                    "kind": "Level2And3Friends"
+                    "kind": "Level2And3Friends",
+                    "n": 2
                 },
                 "attackAmount": 1,
                 "healthAmount": 1,
@@ -8260,7 +8261,7 @@
             }
         },
         "level2Ability": {
-            "description": "End turn: Give other Lvl. 2 and 3 friends +2/+2",
+            "description": "End turn: Give two other Lvl. 2 and 3 friends +2/+2",
             "trigger": "EndOfTurn",
             "triggeredBy": {
                 "kind": "Player"
@@ -8268,7 +8269,8 @@
             "effect": {
                 "kind": "ModifyStats",
                 "target": {
-                    "kind": "Level2And3Friends"
+                    "kind": "Level2And3Friends",
+                    "n": 2
                 },
                 "attackAmount": 2,
                 "healthAmount": 2,
@@ -8276,7 +8278,7 @@
             }
         },
         "level3Ability": {
-            "description": "End turn: Give other Lvl. 2 and 3 friends +3/+3",
+            "description": "End turn: Give two other Lvl. 2 and 3 friends +3/+3",
             "trigger": "EndOfTurn",
             "triggeredBy": {
                 "kind": "Player"
@@ -8284,7 +8286,8 @@
             "effect": {
                 "kind": "ModifyStats",
                 "target": {
-                    "kind": "Level2And3Friends"
+                    "kind": "Level2And3Friends",
+                    "n": 2
                 },
                 "attackAmount": 3,
                 "healthAmount": 3,
@@ -8373,7 +8376,7 @@
             "Puppy"
         ],
         "level1Ability": {
-            "description": "End turn: Give +1/+1 to different tier animals.",
+            "description": "End turn: Give +1/+1 to one friend of each tier.",
             "trigger": "EndOfTurn",
             "triggeredBy": {
                 "kind": "Player"
@@ -8389,7 +8392,7 @@
             }
         },
         "level2Ability": {
-            "description": "End turn: Give +2/+2 to different tier animals.",
+            "description": "End turn: Give +2/+2 to one friend of each tier.",
             "trigger": "EndOfTurn",
             "triggeredBy": {
                 "kind": "Player"
@@ -8405,7 +8408,7 @@
             }
         },
         "level3Ability": {
-            "description": "End turn: Give +3/+3 to different tier animals.",
+            "description": "End turn: Give +3/+3 to one friend of each tier.",
             "trigger": "EndOfTurn",
             "triggeredBy": {
                 "kind": "Player"
@@ -8619,7 +8622,7 @@
         },
         "tier": 4,
         "baseAttack": 3,
-        "baseHealth": 6,
+        "baseHealth": 5,
         "packs": [
             "Turtle",
             "Puppy"
@@ -8755,13 +8758,13 @@
         },
         "tier": 4,
         "baseAttack": 2,
-        "baseHealth": 2,
+        "baseHealth": 5,
         "packs": [
             "Turtle",
             "Puppy"
         ],
         "level1Ability": {
-            "description": "Start of turn: Discount shop food by 1 gold",
+            "description": "Start of turn: Add 1 Shop food and discount by 1 gold",
             "trigger": "StartOfTurn",
             "triggeredBy": {
                 "kind": "Self"
@@ -8772,7 +8775,7 @@
             }
         },
         "level2Ability": {
-            "description": "Start of turn: Discount shop food by 2 gold",
+            "description": "Start of turn: Add 1 Shop food and discount by 1 gold",
             "trigger": "StartOfTurn",
             "triggeredBy": {
                 "kind": "Self"
@@ -8783,7 +8786,7 @@
             }
         },
         "level3Ability": {
-            "description": "Start of turn: Discount shop food by 3 gold",
+            "description": "Start of turn: Add 1 Shop food and discount by 1 gold",
             "trigger": "StartOfTurn",
             "triggeredBy": {
                 "kind": "Self"
@@ -8881,8 +8884,8 @@
             "unicodeCodePoint": "\ud83e\udeb1"
         },
         "tier": 4,
-        "baseAttack": 2,
-        "baseHealth": 2,
+        "baseAttack": 3,
+        "baseHealth": 3,
         "packs": [
             "Turtle",
             "Puppy"
@@ -9022,9 +9025,9 @@
             "commit": "793a6a93f303c08877dd6eb589b2fabb3d1c45ee",
             "unicodeCodePoint": "\ud83d\udc13"
         },
-        "tier": 5,
-        "baseAttack": 1,
-        "baseHealth": 2,
+        "tier": 6,
+        "baseAttack": 3,
+        "baseHealth": 4,
         "packs": [
             "Puppy"
         ],
@@ -9257,11 +9260,12 @@
                 "target": {
                     "kind": "LastEnemy"
                 },
-                "amount": 7
+                "amount": 8,
+                "trigger_count": 1
             }
         },
         "level2Ability": {
-            "description": "Start of battle: Deal 16 damage to the last enemy",
+            "description": "Start of battle: Deal 8 damage to the last enemy. Triggers 2 times",
             "trigger": "StartOfBattle",
             "triggeredBy": {
                 "kind": "Player"
@@ -9271,11 +9275,12 @@
                 "target": {
                     "kind": "LastEnemy"
                 },
-                "amount": 14
+                "amount": 8,
+                "trigger_count": 2
             }
         },
         "level3Ability": {
-            "description": "Start of battle: Deal 24 damage to the last enemy",
+            "description": "Start of battle: Deal 8 damage to the last enemy. Triggers 3 times",
             "trigger": "StartOfBattle",
             "triggeredBy": {
                 "kind": "Player"
@@ -9285,7 +9290,8 @@
                 "target": {
                     "kind": "LastEnemy"
                 },
-                "amount": 21
+                "amount": 8,
+                "trigger_count": 3
             }
         },
         "probabilities": [
@@ -9447,7 +9453,7 @@
             "Puppy"
         ],
         "level1Ability": {
-            "description": "Friend bought: Gain 1 gold.",
+            "description": "Friend bought: Gain 1 gold. Works 2 times per turn.",
             "trigger": "Buy",
             "triggeredBy": {
                 "kind": "EachFriend"
@@ -9459,7 +9465,7 @@
             "maxTriggers": 2
         },
         "level2Ability": {
-            "description": "Friend bought: Gain 2 gold.",
+            "description": "Friend bought: Gain 2 gold. Works 2 times per turn.",
             "trigger": "Buy",
             "triggeredBy": {
                 "kind": "EachFriend"
@@ -9471,7 +9477,7 @@
             "maxTriggers": 2
         },
         "level3Ability": {
-            "description": "Friend bought: Gain 3 gold.",
+            "description": "Friend bought: Gain 3 gold. Works 2 times per turn.",
             "trigger": "Buy",
             "triggeredBy": {
                 "kind": "EachFriend"
@@ -9537,7 +9543,7 @@
             "commit": "e022fd6573782431ac9a65b520376b57511c31cd",
             "unicodeCodePoint": "\ud83e\udda0"
         },
-        "tier": 4,
+        "tier": 5,
         "baseAttack": 1,
         "baseHealth": 1,
         "packs": [
@@ -9661,8 +9667,8 @@
             "unicodeCodePoint": "\ud83e\udd9c"
         },
         "tier": 4,
-        "baseAttack": 5,
-        "baseHealth": 3,
+        "baseAttack": 4,
+        "baseHealth": 2,
         "packs": [
             "Turtle"
         ],
@@ -9803,7 +9809,7 @@
             "Puppy"
         ],
         "level1Ability": {
-            "description": "Knock out: Deal 4 damage to the first enemy.",
+            "description": "Knock out: Deal 4 damage to the first enemy. Double against tier 1 pets.",
             "trigger": "KnockOut",
             "triggeredBy": {
                 "kind": "Self"
@@ -9817,7 +9823,7 @@
             }
         },
         "level2Ability": {
-            "description": "Knock out: Deal 8 damage to the first enemy.",
+            "description": "Knock out: Deal 8 damage to the first enemy. Double against tier 1 pets.",
             "trigger": "KnockOut",
             "triggeredBy": {
                 "kind": "Self"
@@ -9831,7 +9837,7 @@
             }
         },
         "level3Ability": {
-            "description": "Knock out: Deal 12 damage to the first enemy.",
+            "description": "Knock out: Deal 12 damage to the first enemy. Double against tier 1 pets.",
             "trigger": "KnockOut",
             "triggeredBy": {
                 "kind": "Self"
@@ -10142,12 +10148,28 @@
         },
         "tier": 5,
         "baseAttack": 4,
-        "baseHealth": 4,
+        "baseHealth": 2,
         "packs": [
             "Turtle"
         ],
         "level1Ability": {
-            "description": "Friend faints: Gain +2/+1.",
+            "description": "Friend faints: Gain +1/+2. Double out of battle.",
+            "trigger": "Faint",
+            "triggeredBy": {
+                "kind": "EachFriend"
+            },
+            "effect": {
+                "kind": "ModifyStats",
+                "target": {
+                    "kind": "Self"
+                },
+                "attackAmount": 1,
+                "healthAmount": 2,
+                "untilEndOfBattle": false
+            }
+        },
+        "level2Ability": {
+            "description": "Friend faints: Gain +2/+4. Double out of battle.",
             "trigger": "Faint",
             "triggeredBy": {
                 "kind": "EachFriend"
@@ -10158,28 +10180,12 @@
                     "kind": "Self"
                 },
                 "attackAmount": 2,
-                "healthAmount": 1,
-                "untilEndOfBattle": false
-            }
-        },
-        "level2Ability": {
-            "description": "Friend faints: Gain +4/+2.",
-            "trigger": "Faint",
-            "triggeredBy": {
-                "kind": "EachFriend"
-            },
-            "effect": {
-                "kind": "ModifyStats",
-                "target": {
-                    "kind": "Self"
-                },
-                "attackAmount": 4,
-                "healthAmount": 2,
+                "healthAmount": 4,
                 "untilEndOfBattle": false
             }
         },
         "level3Ability": {
-            "description": "Friend faints: Gain +6/+3.",
+            "description": "Friend faints: Gain +3/+6. Double out of battle.",
             "trigger": "Faint",
             "triggeredBy": {
                 "kind": "EachFriend"
@@ -10189,8 +10195,8 @@
                 "target": {
                     "kind": "Self"
                 },
-                "attackAmount": 6,
-                "healthAmount": 3,
+                "attackAmount": 3,
+                "healthAmount": 6,
                 "untilEndOfBattle": false
             }
         },
@@ -10440,30 +10446,14 @@
             "unicodeCodePoint": "\ud83d\udc17"
         },
         "tier": 6,
-        "baseAttack": 8,
+        "baseAttack": 10,
         "baseHealth": 6,
         "packs": [
             "Turtle",
             "Puppy"
         ],
         "level1Ability": {
-            "description": "Before attack: Gain +2/+2.",
-            "trigger": "BeforeAttack",
-            "triggeredBy": {
-                "kind": "Self"
-            },
-            "effect": {
-                "kind": "ModifyStats",
-                "target": {
-                    "kind": "Self"
-                },
-                "attackAmount": 2,
-                "healthAmount": 2,
-                "untilEndOfBattle": false
-            }
-        },
-        "level2Ability": {
-            "description": "Before attack: Gain +4/+4.",
+            "description": "Before attack: Gain +4/+2.",
             "trigger": "BeforeAttack",
             "triggeredBy": {
                 "kind": "Self"
@@ -10474,12 +10464,12 @@
                     "kind": "Self"
                 },
                 "attackAmount": 4,
-                "healthAmount": 4,
+                "healthAmount": 2,
                 "untilEndOfBattle": false
             }
         },
-        "level3Ability": {
-            "description": "Before attack: Gain +6/+6.",
+        "level2Ability": {
+            "description": "Before attack: Gain +8/+4.",
             "trigger": "BeforeAttack",
             "triggeredBy": {
                 "kind": "Self"
@@ -10489,7 +10479,23 @@
                 "target": {
                     "kind": "Self"
                 },
-                "attackAmount": 6,
+                "attackAmount": 8,
+                "healthAmount": 4,
+                "untilEndOfBattle": false
+            }
+        },
+        "level3Ability": {
+            "description": "Before attack: Gain +12/+6.",
+            "trigger": "BeforeAttack",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "ModifyStats",
+                "target": {
+                    "kind": "Self"
+                },
+                "attackAmount": 12,
                 "healthAmount": 6,
                 "untilEndOfBattle": false
             }
@@ -10650,7 +10656,7 @@
             "Turtle"
         ],
         "level1Ability": {
-            "description": "Friend faints: Summon a 5/5 fly in its place (Max 3 times)",
+            "description": "Friend faints: Summon a 4/4 fly in its place (Max 3 times)",
             "trigger": "Faint",
             "triggeredBy": {
                 "kind": "EachFriend"
@@ -10658,14 +10664,14 @@
             "effect": {
                 "kind": "SummonPet",
                 "pet": "pet-zombie_fly",
-                "baseAttack": 5,
-                "baseHealth": 5,
+                "baseAttack": 4,
+                "baseHealth": 4,
                 "team": "Friendly"
             },
             "maxTriggers": 3
         },
         "level2Ability": {
-            "description": "Friend faints: Summon a 10/10 fly in its place (Max 3 times)",
+            "description": "Friend faints: Summon a 8/8 fly in its place (Max 3 times)",
             "trigger": "Faint",
             "triggeredBy": {
                 "kind": "EachFriend"
@@ -10673,14 +10679,14 @@
             "effect": {
                 "kind": "SummonPet",
                 "pet": "pet-zombie_fly",
-                "baseAttack": 10,
-                "baseHealth": 10,
+                "baseAttack": 8,
+                "baseHealth": 8,
                 "team": "Friendly"
             },
             "maxTriggers": 3
         },
         "level3Ability": {
-            "description": "Friend faints: Summon a 15/15 fly in its place (Max 3 times)",
+            "description": "Friend faints: Summon a 12/12 fly in its place (Max 3 times)",
             "trigger": "Faint",
             "triggeredBy": {
                 "kind": "EachFriend"
@@ -10688,8 +10694,8 @@
             "effect": {
                 "kind": "SummonPet",
                 "pet": "pet-zombie_fly",
-                "baseAttack": 15,
-                "baseHealth": 15,
+                "baseAttack": 12,
+                "baseHealth": 12,
                 "team": "Friendly"
             },
             "maxTriggers": 3
@@ -10744,7 +10750,7 @@
             "Puppy"
         ],
         "level1Ability": {
-            "description": "Hurt: Gain Coconut Shield.",
+            "description": "Hurt: Gain Coconut Shield. Works 1 times per battle.",
             "trigger": "Hurt",
             "triggeredBy": {
                 "kind": "Self"
@@ -10759,7 +10765,7 @@
             "maxTriggers": 1
         },
         "level2Ability": {
-            "description": "Hurt: Gain Coconut Shield.",
+            "description": "Hurt: Gain Coconut Shield. Works 2 times per battle.",
             "trigger": "Hurt",
             "triggeredBy": {
                 "kind": "Self"
@@ -10771,10 +10777,10 @@
                     "kind": "Self"
                 }
             },
-            "maxTriggers": 1
+            "maxTriggers": 2
         },
         "level3Ability": {
-            "description": "Hurt: Gain Coconut Shield.",
+            "description": "Hurt: Gain Coconut Shield. Works 3 times per battle.",
             "trigger": "Hurt",
             "triggeredBy": {
                 "kind": "Self"
@@ -10786,7 +10792,7 @@
                     "kind": "Self"
                 }
             },
-            "maxTriggers": 1
+            "maxTriggers": 3
         },
         "probabilities": [
             {
@@ -11050,50 +11056,7 @@
             "Puppy"
         ],
         "level1Ability": {
-            "description": "Level-up: Gain +8/+8.",
-            "trigger": "LevelUp",
-            "triggeredBy": {
-                "kind": "Self"
-            },
-            "effect": {
-                "kind": "ModifyStats",
-                "target": {
-                    "kind": "Self"
-                },
-                "attackAmount": 8,
-                "healthAmount": 8,
-                "untilEndOfBattle": false
-            }
-        },
-        "level2Ability": {
-            "description": "Level-up: Gain +8/+8 and a new ability.",
-            "trigger": "LevelUp",
-            "triggeredBy": {
-                "kind": "Self"
-            },
-            "effect": {
-                "kind": "AllOf",
-                "effects": [
-                    {
-                        "kind": "ModifyStats",
-                        "target": {
-                            "kind": "Self"
-                        },
-                        "attackAmount": 8,
-                        "healthAmount": 8,
-                        "untilEndOfBattle": false
-                    },
-                    {
-                        "kind": "GainAbility",
-                        "target": {
-                            "kind": "Self"
-                        }
-                    }
-                ]
-            }
-        },
-        "level3Ability": {
-            "description": "Before attack: Deal 5 damage to all enemies",
+            "description": "Before Attack: deal 6 damage to 1 random enemy.",
             "trigger": "BeforeAttack",
             "triggeredBy": {
                 "kind": "Self"
@@ -11101,7 +11064,38 @@
             "effect": {
                 "kind": "DealDamage",
                 "target": {
-                    "kind": "EachEnemy"
+                    "kind": "RandomEnemy",
+                    "n": 1
+                },
+                "amount": 6
+            }
+        },
+        "level2Ability": {
+            "description": "Before Attack: deal 6 damage to 2 random enemies.",
+            "trigger": "BeforeAttack",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "DealDamage",
+                "target": {
+                    "kind": "RandomEnemy",
+                    "n": 2
+                },
+                "amount": 6
+            }
+        },
+        "level3Ability": {
+            "description": "Before Attack: deal 6 damage to 3 random enemies.",
+            "trigger": "BeforeAttack",
+            "triggeredBy": {
+                "kind": "Self"
+            },
+            "effect": {
+                "kind": "DealDamage",
+                "target": {
+                    "kind": "RandomEnemy",
+                    "n": 3
                 },
                 "amount": 5
             }
@@ -11155,7 +11149,7 @@
             "Puppy"
         ],
         "level1Ability": {
-            "description": "Buy food: Gain 1 gold.",
+            "description": "Buy food: Gain 1 gold. Works 3 times per turn.",
             "trigger": "BuyFood",
             "triggeredBy": {
                 "kind": "Player"
@@ -11167,7 +11161,7 @@
             "maxTriggers": 3
         },
         "level2Ability": {
-            "description": "Buy food: Gain 2 gold.",
+            "description": "Buy food: Gain 2 gold. Works 3 times per turn.",
             "trigger": "BuyFood",
             "triggeredBy": {
                 "kind": "Player"
@@ -11179,7 +11173,7 @@
             "maxTriggers": 3
         },
         "level3Ability": {
-            "description": "Buy food: Gain 3 gold.",
+            "description": "Buy food: Gain 3 gold. Works 3 times per turn.",
             "trigger": "BuyFood",
             "triggeredBy": {
                 "kind": "Player"
