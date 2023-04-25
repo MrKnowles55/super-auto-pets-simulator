@@ -31,7 +31,7 @@ class Damage(Ability):
         return applied_damage
 
     @staticmethod
-    def get_optimal_targets(living_pets, applied_damage, mode="random"):
+    def get_optimal_targets(living_pets, applied_damage, mode):
         target_healths = {pet: pet.health - applied_damage.get(pet, 0) for pet in living_pets}
 
         # Filter out pets with health at or below 0
@@ -41,18 +41,19 @@ class Damage(Ability):
             return None
 
         # Get the pet based on the mode
-        if mode == "min":
-            min_value = min(target_healths[pet] for pet in viable_pets)
-            pets_with_min_value = [pet for pet in viable_pets if target_healths[pet] == min_value]
-            optimal_pet = choice(pets_with_min_value)
-        elif mode == "max":
-            max_value = max(target_healths[pet] for pet in viable_pets)
-            pets_with_max_value = [pet for pet in viable_pets if target_healths[pet] == max_value]
-            optimal_pet = choice(pets_with_max_value)
-        elif mode == "random":
-            optimal_pet = choice(viable_pets)
-        else:
-            raise ValueError(f"Invalid mode: {mode}. Must be 'min', 'max', or 'random'.")
+        match mode:
+            case EffectTargetKind.LowestHealthEnemy:
+                min_value = min(target_healths[pet] for pet in viable_pets)
+                pets_with_min_value = [pet for pet in viable_pets if target_healths[pet] == min_value]
+                optimal_pet = choice(pets_with_min_value)
+            case EffectTargetKind.HighestHealthEnemy:
+                max_value = max(target_healths[pet] for pet in viable_pets)
+                pets_with_max_value = [pet for pet in viable_pets if target_healths[pet] == max_value]
+                optimal_pet = choice(pets_with_max_value)
+            case EffectTargetKind.RandomEnemy:
+                optimal_pet = choice(viable_pets)
+            case _:
+                raise ValueError(f"Invalid mode: {mode}. an EffectTargetKind.")
 
         return optimal_pet
 
@@ -70,7 +71,7 @@ class DamageRandomEnemy(Damage):
             return actions
 
         # Get the optimal target
-        target_pet = self.get_optimal_targets(living_pets, applied_damage)
+        target_pet = self.get_optimal_targets(living_pets, applied_damage, self.target_type)
 
         if target_pet:
             # Add the "take_damage" action to the actions list
@@ -96,7 +97,7 @@ class DamageEnemyWithAttribute(Damage):
             return actions
 
         # Get the optimal target
-        target_pet = self.get_optimal_targets(living_pets, applied_damage, mode="min")
+        target_pet = self.get_optimal_targets(living_pets, applied_damage, mode=self.target_type)
 
         if target_pet:
             # Add the "take_damage" action to the actions list
