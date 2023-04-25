@@ -53,3 +53,8 @@ class SummonSpecific(Summon):
                 pets_created += 1
         else:
             print(f'{self.__class__}:{self.trigger_event} not implemented')
+
+
+class SummonRandom(Summon):
+    def apply(self, pet, team, **kwargs):
+        pass
