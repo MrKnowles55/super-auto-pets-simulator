@@ -21,17 +21,21 @@ class Damage(AbilityBase):
 
     @staticmethod
     def update_applied_damage(pet, damage, applied_damage):
+        log.debug(f"Updating applied_damage. Before: {applied_damage}")
         if pet not in applied_damage:
             applied_damage[pet] = 0
         applied_damage[pet] += damage
+        log.debug(f"Updated applied_damage. After: {applied_damage}")
         return applied_damage
 
-    @staticmethod
-    def get_optimal_targets(living_pets, applied_damage, mode):
+    def get_optimal_targets(self, living_pets, applied_damage, mode):
+        log.debug(f"Getting optimal targets for {self.__class__.__name__} of {self.owner} with mode {mode}")
         target_healths = {pet: pet.health - applied_damage.get(pet, 0) for pet in living_pets}
+        log.debug(f"target_healths {target_healths}")
 
         # Filter out pets with health at or below 0
         viable_pets = [pet for pet, health in target_healths.items() if health > 0]
+        log.debug(f"viable_pets {viable_pets}")
 
         if not viable_pets:
             return None
@@ -50,20 +54,21 @@ class Damage(AbilityBase):
                 optimal_pet = choice(viable_pets)
             case _:
                 raise ValueError(f"Invalid mode: {mode}. an EffectTargetKind.")
-
+        log.debug(f"Optimal pet selected: {optimal_pet}")
         return optimal_pet
 
-
-class DamageRandomEnemy(Damage):
-    def apply(self, owner, team, enemy_team=None, priority=None, applied_damage=None):
+    def apply_damage(self, owner, enemy_team=None, applied_damage=None):
+        log.debug(f"{self.__class__.__name__} using generic apply_damage()")
         actions = []
         if not enemy_team:
+            log.debug(f"No enemy_team")
             return actions
 
         # Get the living pets in the enemy team
         living_pets = [pet for pet in enemy_team.pets if pet.is_alive]
 
         if not living_pets:
+            log.debug(f"No living_pets")
             return actions
 
         # Get the optimal target
@@ -72,38 +77,23 @@ class DamageRandomEnemy(Damage):
         if target_pet:
             # Add the "take_damage" action to the actions list
             actions.append(generate_damage_action(target_pet=target_pet, damage_amount=self.damage_amount, source=owner))
-            log.debug(f"{self.owner} dealing {self.damage_amount} to {target_pet}")
 
             # Update the applied damage dictionary
             self.update_applied_damage(target_pet, self.damage_amount, applied_damage)
 
         return actions
+
+
+class DamageRandomEnemy(Damage):
+    def apply(self, owner, team, enemy_team=None, applied_damage=None):
+        log.debug(f"Applying {self.__class__.__name__} from {owner} on team {team}")
+        return self.apply_damage(owner, enemy_team, applied_damage)
 
 
 class DamageEnemyWithAttribute(Damage):
-    def apply(self, owner, team, enemy_team=None, priority=None, applied_damage=None):
-        actions = []
-        if not enemy_team:
-            return actions
+    def apply(self, owner, team, enemy_team=None, applied_damage=None):
+        return self.apply_damage(owner, enemy_team, applied_damage)
 
-        # Get the living pets in the enemy team
-        living_pets = [pet for pet in enemy_team.pets if pet.is_alive]
-
-        if not living_pets:
-            return actions
-
-        # Get the optimal target
-        target_pet = self.get_optimal_targets(living_pets, applied_damage, mode=self.target_type)
-
-        if target_pet:
-            # Add the "take_damage" action to the actions list
-            actions.append(("take_damage", target_pet, self.damage_amount, owner))
-            log.debug(f"{self.owner} dealing {self.damage_amount} to {target_pet}")
-
-            # Update the applied damage dictionary
-            self.update_applied_damage(target_pet, self.damage_amount, applied_damage)
-
-        return actions
     #     elif self.target == "all":
     #         targets = []
     #         # Damage the pets
