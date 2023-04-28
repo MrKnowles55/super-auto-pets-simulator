@@ -6,7 +6,7 @@ import src.logger as logger
 log = logger.setup_logger(__name__)
 
 
-class Pet:
+class PetEntity:
     """
     A class representing a pet in the game.
     """

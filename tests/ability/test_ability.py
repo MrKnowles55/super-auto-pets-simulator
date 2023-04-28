@@ -1,5 +1,5 @@
 import unittest
-from src.pet import Pet
+from src.pet_entity import PetEntity
 from src.ability.ability_generator import AbilityGenerator
 from src.ability.ability_abstract import AbilityBase, No_Ability
 from src.ability.modify_stats import ModifyStatsAbilityRandomFriend
@@ -12,12 +12,12 @@ from src.team.team import Team
 class TestAbility(unittest.TestCase):
 
     def setUp(self):
-        self.test_pet = Pet(name="Test Pet", attack=1, health=1, tier=1, level=1,
-                            ability1=None, ability2=None, ability3=None, ability_generator=AbilityGenerator)
-        self.friend_pet1 = Pet(name="Test Friend Pet 1", attack=1, health=1, tier=1, level=1,
-                               ability1=None, ability2=None, ability3=None, ability_generator=AbilityGenerator)
-        self.friend_pet2 = Pet(name="Test Friend Pet 2", attack=1, health=1, tier=1, level=1,
-                               ability1=None, ability2=None, ability3=None, ability_generator=AbilityGenerator)
+        self.test_pet = PetEntity(name="Test Pet", attack=1, health=1, tier=1, level=1,
+                                  ability1=None, ability2=None, ability3=None, ability_generator=AbilityGenerator)
+        self.friend_pet1 = PetEntity(name="Test Friend Pet 1", attack=1, health=1, tier=1, level=1,
+                                     ability1=None, ability2=None, ability3=None, ability_generator=AbilityGenerator)
+        self.friend_pet2 = PetEntity(name="Test Friend Pet 2", attack=1, health=1, tier=1, level=1,
+                                     ability1=None, ability2=None, ability3=None, ability_generator=AbilityGenerator)
         self.test_team = Team("Test")
         self.test_team.add_pet(self.test_pet)
         self.test_team.add_pet(self.friend_pet1)
