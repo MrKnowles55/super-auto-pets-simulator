@@ -32,7 +32,6 @@ class ActionHandler:
 
     def execute(self, action):
         log.info(f"Executing {action.name} with kwargs {action.kwargs}")
-        print(action.name, action.kwargs)
         match action.name:
             case "Damage":
                 target = action.kwargs.get("target_pet")
