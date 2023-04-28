@@ -4,12 +4,12 @@ import sys
 import os
 import logging
 
-parent_dir = os.path.abspath(os.path.join(os.getcwd(), "../.."))
-config_path = os.path.join(parent_dir, "../../config.json")
-config_schema_path = os.path.join(parent_dir, "../../config_schema.json")
+root_dir = os.path.dirname(os.path.abspath(__file__))
+config_path = os.path.join(root_dir, "..", "..", "config.json")
+schema_path = os.path.join(root_dir, "..", "..", "config_schema.json")
 
 
-def load_config(config_file=config_path, schema_file=config_schema_path):
+def load_config(config_file=config_path, schema_file=schema_path):
     with open(config_file, 'r') as f:
         config_data = json.load(f)
 
@@ -27,4 +27,4 @@ def load_config(config_file=config_path, schema_file=config_schema_path):
 
 
 if __name__ == "__main__":
-    config = load_config(config_path, config_schema_path)
+    config = load_config(config_path, schema_path)

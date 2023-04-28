@@ -11,7 +11,7 @@ logger_script_path = os.path.abspath(__file__)
 parent_dir = os.path.dirname(os.path.dirname(logger_script_path))
 
 # Set the log file path relative to the 'src' directory
-log_path = os.path.join(parent_dir, r"../../data/logs/debug.log")
+log_path = os.path.join(parent_dir, r"../data/logs/debug.log")
 
 MODULE_FILTER = config_handler.config_data.get('DEBUG_FILTER', [])
 
