@@ -26,7 +26,7 @@ class PetEntity:
         self.fainted = False
 
     def __str__(self):
-        return f"{self.name}(A:{self.attack}/H:{self.health}/P:{self.position})"
+        return f"{self.name}({self.attack}/{self.health}/P:{self.position})"
 
     def __repr__(self):
         return f"{self.name}({self.attack}/{self.health}/P:{self.position})"
