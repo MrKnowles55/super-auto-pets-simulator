@@ -4544,9 +4544,9 @@
             }
         ]
     },
-    "pet-tabby-cat": {
+    "pet-tabby_cat": {
         "name": "Tabby Cat",
-        "id": "pet-tabby-cat",
+        "id": "pet-tabby_cat",
         "image": {
             "source": "noto-emoji",
             "commit": "e022fd6573782431ac9a65b520376b57511c31cd",
@@ -5314,9 +5314,9 @@
             }
         ]
     },
-    "pet-hatching-chick": {
+    "pet-hatching_chick": {
         "name": "Hatching Chick",
-        "id": "pet-hatching-chick",
+        "id": "pet-hatching_chick",
         "image": {
             "source": "noto-emoji",
             "commit": "e022fd6573782431ac9a65b520376b57511c31cd",
@@ -6749,9 +6749,9 @@
             }
         ]
     },
-    "pet-tropical-fish": {
+    "pet-tropical_fish": {
         "name": "Tropical Fish",
-        "id": "pet-tropical-fish",
+        "id": "pet-tropical_fish",
         "image": {
             "source": "twemoji",
             "commit": "793a6a93f303c08877dd6eb589b2fabb3d1c45ee",
