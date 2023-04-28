@@ -1,5 +1,5 @@
 from abc import abstractmethod
-from .ability import Ability
+from .ability_abstract import AbilityBase
 from random import sample, choice
 import src.logger as logger
 from src.action_utils import *
@@ -12,7 +12,7 @@ from src.team.team import player_team, opponent_team
 log = logger.setup_logger(__name__)
 
 
-class Damage(Ability):
+class Damage(AbilityBase):
     def __init__(self, owner, trigger_event, target_type, target_n, damage_amount):
         super().__init__(owner, trigger_event)
         self.damage_amount = damage_amount

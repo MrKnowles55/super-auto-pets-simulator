@@ -1,12 +1,12 @@
 from abc import abstractmethod
-from .ability import Ability
+from .ability_abstract import AbilityBase
 from random import sample
 import src.logger as logger
 
 log = logger.setup_logger(__name__)
 
 
-class ModifyStatsAbility(Ability):
+class ModifyStatsAbilityBase(AbilityBase):
     def __init__(self, owner, attack_mod, health_mod, target_type, target_n, trigger_event, until_end_of_battle=False):
         super().__init__(owner, trigger_event)
         self.attack_mod = attack_mod
@@ -27,7 +27,7 @@ class ModifyStatsAbility(Ability):
         target_pet.health += self.health_mod
 
 
-class ModifyStatsAbilityRandomFriend(ModifyStatsAbility):
+class ModifyStatsAbilityRandomFriend(ModifyStatsAbilityBase):
     def apply(self, pet, team, **kwargs):
         # Create a list of friendly pets, excluding the triggering pet
         available_targets = [p for p in team.pets if p is not pet and p.health > 0]
@@ -41,14 +41,14 @@ class ModifyStatsAbilityRandomFriend(ModifyStatsAbility):
                 self.add_modifiers(target_pet)
 
 
-class ModifyStatsAbilityFrontFriend(ModifyStatsAbility):
+class ModifyStatsAbilityFrontFriend(ModifyStatsAbilityBase):
     def apply(self, pet, team, **kwargs):
         if team.pets:
             target_pet = team.pets[0]
             self.add_modifiers(target_pet)
 
 
-class ModifyStatsAbilityFriendBehind(ModifyStatsAbility):
+class ModifyStatsAbilityFriendBehind(ModifyStatsAbilityBase):
     def apply(self, pet, team, **kwargs):
         index = team.pets.index(pet)
         for n in range(self.target_n):
@@ -59,7 +59,7 @@ class ModifyStatsAbilityFriendBehind(ModifyStatsAbility):
             self.add_modifiers(target)
 
 
-class ModifyStatsAbilityFriendAhead(ModifyStatsAbility):
+class ModifyStatsAbilityFriendAhead(ModifyStatsAbilityBase):
     def apply(self, pet, team, **kwargs):
         index = team.pets.index(pet)
         if index == 0:

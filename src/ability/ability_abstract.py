@@ -8,7 +8,7 @@ import src.logger as logger
 log = logger.setup_logger(__name__)
 
 
-class Ability(ABC):
+class AbilityBase(ABC):
 
     def __init__(self, owner, trigger_event=None):
         self.owner = owner
@@ -28,7 +28,7 @@ class Ability(ABC):
         return f"{self.__class__.__name__}({attributes})"
 
 
-class No_Ability(Ability):
+class No_Ability(AbilityBase):
     def __init__(self, owner):
         super().__init__(owner)
 

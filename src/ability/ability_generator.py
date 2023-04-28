@@ -1,4 +1,4 @@
-from .ability import *
+from .ability_abstract import *
 from .modify_stats import *
 from .summon_pet import *
 from .deal_damage import *

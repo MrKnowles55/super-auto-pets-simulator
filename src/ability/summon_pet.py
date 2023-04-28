@@ -1,5 +1,5 @@
 from abc import abstractmethod
-from src.ability.ability import Ability
+from src.ability.ability_abstract import AbilityBase
 from random import sample
 import src.logger as logger
 import os
@@ -13,7 +13,7 @@ log = logger.setup_logger(__name__)
 # print(parent_dir)
 
 
-class Summon(Ability):
+class Summon(AbilityBase):
     def __init__(self, owner, token, trigger_event, team_tag, n=1, level=1, attack=None, health=None):
         super().__init__(owner, trigger_event)
         self.token = token

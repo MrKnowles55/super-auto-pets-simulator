@@ -1,7 +1,7 @@
 import unittest
 from src.pet import Pet
 from src.ability.ability_generator import AbilityGenerator
-from src.ability.ability import Ability, No_Ability
+from src.ability.ability_abstract import AbilityBase, No_Ability
 from src.ability.modify_stats import ModifyStatsAbilityRandomFriend
 from src.pet_data_utils.enums.trigger_event import TriggerEvent
 from src.pet_data_utils.enums.effect_kind import EffectKind
@@ -28,7 +28,7 @@ class TestAbility(unittest.TestCase):
 
         ability.apply(self.test_pet, None)
         self.assertIsNone(ability.trigger_event)
-        self.assertIsInstance(ability, Ability)
+        self.assertIsInstance(ability, AbilityBase)
 
 
 
