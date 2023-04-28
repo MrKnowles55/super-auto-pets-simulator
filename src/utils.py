@@ -43,13 +43,3 @@ def sort_pets_by_attribute(pet_list, attribute, reverse=True):
 
 def get_lowest_health_pets(pet_list, n, reverse=False):
     return sort_pets_by_attribute(pet_list, "health", reverse)[:n]
-
-
-def collect_triggered_abilities(pet_list, trigger_event, priority, enemy_team=None, applied_damage=None):
-    triggered_abilities = []
-    for pet in pet_list:
-        if pet.ability and pet.ability.trigger_event == trigger_event:
-            triggered_abilities.append((priority, pet.ability, enemy_team, applied_damage))
-    return triggered_abilities
-
-
