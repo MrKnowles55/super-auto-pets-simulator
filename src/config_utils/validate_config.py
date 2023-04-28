@@ -4,9 +4,9 @@ import sys
 import os
 import logging
 
-parent_dir = os.path.abspath(os.path.join(os.getcwd(), ".."))
-config_path = os.path.join(parent_dir, "config.json")
-config_schema_path = os.path.join(parent_dir, "config_schema.json")
+parent_dir = os.path.abspath(os.path.join(os.getcwd(), "../.."))
+config_path = os.path.join(parent_dir, "../../config.json")
+config_schema_path = os.path.join(parent_dir, "../../config_schema.json")
 
 
 def load_config(config_file=config_path, schema_file=config_schema_path):

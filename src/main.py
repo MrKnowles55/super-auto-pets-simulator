@@ -1,11 +1,11 @@
 from random import choice
 from src.team.team import player_team, opponent_team
-from src.pet_factory import create_pet
+from pet.pet_factory import create_pet
 from src.pet_data_utils import pet_data_manager
 from src.battle import fight
-from src.config import config_handler
-import validate_config
-from src.logger import setup_logger
+from config_utils.config import config_handler
+from config_utils import validate_config
+from config_utils.logger import setup_logger
 
 
 def fill_team_random(team, pet_pool, team_size=5):

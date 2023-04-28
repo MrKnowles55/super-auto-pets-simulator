@@ -1,13 +1,8 @@
 from abc import abstractmethod
 from .ability_abstract import AbilityBase
-from random import sample, choice
-import src.logger as logger
-from src.action_utils import *
-from src.utils import *
-from src.pet_data_utils.enums.trigger_event import TriggerEvent
-from src.pet_data_utils.enums.effect_kind import EffectKind
+from random import choice
+from action.action_utils import *
 from src.pet_data_utils.enums.effect_target_kind import EffectTargetKind
-from src.team.team import player_team, opponent_team
 
 log = logger.setup_logger(__name__)
 

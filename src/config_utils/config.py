@@ -2,9 +2,9 @@ import os
 import json
 
 base_dir = os.path.dirname(os.path.abspath(__file__))
-parent_dir = os.path.abspath(os.path.join(base_dir, ".."))
-config_path = os.path.join(parent_dir, "config.json")
-schema_path = os.path.join(parent_dir, "config_schema.json")
+parent_dir = os.path.abspath(os.path.join(base_dir, "../.."))
+config_path = os.path.join(parent_dir, "../../config.json")
+schema_path = os.path.join(parent_dir, "../../config_schema.json")
 
 
 class ConfigHandler:

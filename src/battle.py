@@ -1,11 +1,7 @@
-from src.utils import prioritize_pets
-from src.action_utils import collect_triggered_abilities
-from src.action_utils import action_handler
+from action.action_utils import collect_triggered_abilities
+from action.action_utils import action_handler
 from src.pet_data_utils.enums.trigger_event import TriggerEvent
-from src.pet_data_utils.enums.effect_kind import EffectKind
-from src.pet_data_utils.enums.effect_target_kind import EffectTargetKind
-import src.logger as logger
-import os
+import config_utils.logger as logger
 
 # directory = os.path.dirname(os.path.abspath(__file__))
 log = logger.setup_logger(__name__)
@@ -142,6 +138,21 @@ def fight(team1, team2, verbose=False):
     return end_of_battle(team1, team2, verbose)
 
 
+def prioritize_pets(pet_list, priority_key=lambda x: x.attack):
+    """
+    Create a dictionary of pets prioritized by a given attribute.
 
+    :param pet_list: A list of pets to prioritize.
+    :param priority_key: A function that takes a pet and returns a value to prioritize the pet by.
+    :return: A dictionary where keys are priorities and values are lists of pets with that priority.
+    """
+    sorted_pets = sorted(pet_list, key=priority_key, reverse=True)
 
+    priority_dict = {}
+    for pet in sorted_pets:
+        priority = priority_key(pet)
+        if priority not in priority_dict:
+            priority_dict[priority] = []
+        priority_dict[priority].append(pet)
 
+    return priority_dict

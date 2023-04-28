@@ -1,11 +1,7 @@
 import unittest
-from src.pet_entity import PetEntity
+from pet.pet_entity import PetEntity
 from src.ability.ability_generator import AbilityGenerator
 from src.ability.ability_abstract import AbilityBase, No_Ability
-from src.ability.modify_stats import ModifyStatsAbilityRandomFriend
-from src.pet_data_utils.enums.trigger_event import TriggerEvent
-from src.pet_data_utils.enums.effect_kind import EffectKind
-from src.pet_data_utils.enums.effect_target_kind import EffectTargetKind
 from src.team.team import Team
 
 

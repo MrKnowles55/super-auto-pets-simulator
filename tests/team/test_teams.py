@@ -1,5 +1,5 @@
 import unittest
-from src.pet_entity import PetEntity
+from pet.pet_entity import PetEntity
 from src.ability.ability_generator import AbilityGenerator
 from src.team.team import Team
 

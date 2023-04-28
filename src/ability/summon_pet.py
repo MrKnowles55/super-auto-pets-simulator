@@ -1,12 +1,7 @@
 from abc import abstractmethod
 from src.ability.ability_abstract import AbilityBase
-from random import sample
-import src.logger as logger
-import os
+import config_utils.logger as logger
 from src.pet_data_utils.enums.trigger_event import TriggerEvent
-from src.pet_data_utils.enums.effect_kind import EffectKind
-from src.pet_data_utils.enums.effect_target_kind import EffectTargetKind
-from src.team.team import player_team, opponent_team
 
 log = logger.setup_logger(__name__)
 # parent_dir = os.path.abspath(os.path.join(os.getcwd(), ".."))
@@ -31,7 +26,7 @@ class Summon(AbilityBase):
 
 class SummonSpecific(Summon):
     def apply(self, pet, team, **kwargs):
-        from src.pet_factory import create_pet
+        from pet.pet_factory import create_pet
         my_team = self.owner.team
         if self.trigger_event == TriggerEvent.Faint:
             if self.team_tag == "Friendly":
