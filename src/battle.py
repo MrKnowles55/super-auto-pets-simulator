@@ -1,4 +1,6 @@
-from src.utils import prioritize_pets, collect_triggered_abilities
+from src.utils import prioritize_pets
+from action_utils import collect_triggered_abilities
+from src.action_utils import action_handler
 from src.pet_data_utils.enums.trigger_event import TriggerEvent
 from src.pet_data_utils.enums.effect_kind import EffectKind
 from src.pet_data_utils.enums.effect_target_kind import EffectTargetKind
@@ -61,15 +63,14 @@ def start_of_battle(team1, team2, pet_list, verbose=False):
                                                                    enemy_team=team1, applied_damage=applied_damage)
 
         # Execute the collected abilities
-        for ability_priority, ability, enemy_team, applied_damage in triggered_abilities:
-            actions += ability.apply(ability.owner, ability.owner.team, enemy_team=enemy_team, applied_damage=applied_damage)
-
-        for action in actions:
-            print("Action: ", action)
-            action_name, *args = action
-            if action_name == "take_damage":
-                pet, damage, attacker = args
-                pet.apply_damage(damage, attacker)
+        action_handler.create_actions_from_triggered_abilities(triggered_abilities)
+        action_handler.execute_actions()
+        # for action in actions:
+        #     print("Action: ", action)
+        #     action_name, *args = action
+        #     if action_name == "take_damage":
+        #         pet, damage, attacker = args
+        #         pet.apply_damage(damage, attacker)
     if verbose:
         print(get_battle_string(team1, team2, prefix="Start of Battle"))
     log.info(get_battle_string(team1, team2, "End start_of_battle(): "))
