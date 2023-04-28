@@ -1,4 +1,5 @@
 import config_utils.logger as logger
+import random
 
 log = logger.setup_logger(__name__)
 
@@ -9,13 +10,18 @@ class ActionHandler:
 
     def execute_actions(self):
         log.info(f"Preparing to Execute {len(self.action_list)} Actions")
+        self.randomize_actions_order()
+        log.info(f"Actions List: {[(action.name, action.kwargs) for action in self.action_list]}")
         actions_to_remove = []
         for action in self.action_list:
             self.execute(action)
             actions_to_remove.append(action)
 
-        for action in actions_to_remove:
-            self.remove_actions(action)
+        self.remove_actions(actions_to_remove)
+
+    def randomize_actions_order(self):
+        log.info(f"Shuffling action_list order")
+        random.shuffle(self.action_list)
 
     def remove_actions(self, action):
         if isinstance(action, list):
@@ -72,7 +78,12 @@ def collect_triggered_abilities(pet_list, trigger_event, priority, enemy_team=No
 
 
 def generate_damage_action(target_pet, damage_amount, source):
-    return Action("Damage", target_pet=target_pet, damage_amount=damage_amount, source=source)
+    return generate_action("Damage", target_pet=target_pet, damage_amount=damage_amount, source=source)
+
+
+def generate_action(name, **kwargs):
+    log.info(f"Generating action {name} with kwargs {kwargs}")
+    return Action(name, **kwargs)
 
 
 action_handler = ActionHandler()
