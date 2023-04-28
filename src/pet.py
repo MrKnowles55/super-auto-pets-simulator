@@ -31,7 +31,7 @@ class Pet:
         return f"{self.name}(A:{self.attack}/H:{self.health}/P:{self.position})"
 
     def __repr__(self):
-        return f"{self.name}({self.attack}/{self.health})"
+        return f"{self.name}({self.attack}/{self.health}/P:{self.position})"
 
     @property
     def is_alive(self):
