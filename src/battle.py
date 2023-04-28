@@ -1,5 +1,5 @@
 from src.utils import prioritize_pets
-from action_utils import collect_triggered_abilities
+from src.action_utils import collect_triggered_abilities
 from src.action_utils import action_handler
 from src.pet_data_utils.enums.trigger_event import TriggerEvent
 from src.pet_data_utils.enums.effect_kind import EffectKind
