@@ -41,12 +41,14 @@ def start_of_battle(team1, team2, pet_list, verbose=False):
     actions = []
     priority_dict = prioritize_pets(pet_list)
     priorities = sorted(priority_dict.keys(), reverse=True)
+    log.info(f"start_of_battle priorities list {priorities}")
 
     # Initialize applied damage dictionary
     applied_damage = {}
 
     for priority in priorities:
         pets_with_same_priority = priority_dict[priority]
+        log.info(f"start_of_battle pets in priority {priority} : {pets_with_same_priority}")
 
         # Collect abilities that should trigger for StartOfBattle event
         triggered_abilities = []
@@ -57,7 +59,7 @@ def start_of_battle(team1, team2, pet_list, verbose=False):
             else:
                 triggered_abilities += collect_triggered_abilities([pet], TriggerEvent.StartOfBattle, priority,
                                                                    enemy_team=team1, applied_damage=applied_damage)
-
+        log.info(f"start_of_battle triggered_abilities {triggered_abilities}")
         # Execute the collected abilities
         action_handler.create_actions_from_triggered_abilities(triggered_abilities)
         action_handler.execute_actions()
