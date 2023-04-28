@@ -2,6 +2,7 @@ from abc import abstractmethod
 from .ability import Ability
 from random import sample, choice
 import src.logger as logger
+from src.action_utils import *
 from src.utils import *
 from src.pet_data_utils.enums.trigger_event import TriggerEvent
 from src.pet_data_utils.enums.effect_kind import EffectKind
@@ -75,7 +76,7 @@ class DamageRandomEnemy(Damage):
 
         if target_pet:
             # Add the "take_damage" action to the actions list
-            actions.append(("take_damage", target_pet, self.damage_amount, owner))
+            actions.append(generate_damage_action(target_pet=target_pet, damage_amount=self.damage_amount, source=owner))
             log.debug(f"{self.owner} dealing {self.damage_amount} to {target_pet}")
 
             # Update the applied damage dictionary
