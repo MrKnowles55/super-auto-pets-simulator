@@ -10,7 +10,7 @@ class ActionHandler:
 
     def execute_actions(self):
         log.info(f"Preparing to Execute {len(self.action_list)} Actions")
-        self.randomize_actions_order()
+        # self.randomize_actions_order()
         log.info(f"Actions List: {[(action.name, action.kwargs) for action in self.action_list]}")
         actions_to_remove = []
         for action in self.action_list:
@@ -19,9 +19,9 @@ class ActionHandler:
 
         self.remove_actions(actions_to_remove)
 
-    def randomize_actions_order(self):
-        log.info(f"Shuffling action_list order")
-        random.shuffle(self.action_list)
+    # def randomize_actions_order(self):
+    #     log.info(f"Shuffling action_list order")
+    #     random.shuffle(self.action_list)
 
     def remove_actions(self, action):
         if isinstance(action, list):
@@ -29,7 +29,7 @@ class ActionHandler:
                 self.action_list.remove(act)
                 log.info(f"Removing {act.name} with {act.kwargs} from action_list")
         else:
-            log.info(f"Removing {action.name} with kwargs {action.kwargs} from action_list")
+            log.info(f"Removing {action.name} action with kwargs {action.kwargs} from action_list")
             self.action_list.remove(action)
 
     def clear_actions(self):
@@ -47,6 +47,23 @@ class ActionHandler:
                     target.apply_damage(damage, source)
                 else:
                     print(f"ERROR!!! Target {target}, damage {damage}, or source {source} are invalid for {action.name}")
+            case "Remove":
+                team = action.kwargs.get("team")
+                pet = action.kwargs.get("pet_to_remove")
+                team.remove_pet(pet)
+            case "Summon":
+                from pet.pet_factory import create_pet
+                pet_name = action.kwargs.get("pet_to_summon")
+                team = action.kwargs.get("team")
+                index = action.kwargs.get("index")
+                try:
+                    new_pet = create_pet(pet_name)
+                    team.add_pet(new_pet, index)
+                except KeyError:
+                    log.debug(f"{pet_name} invalid pet.")
+            case _:
+                print(f"Default Action for {action.name} with kwargs {action.kwargs}")
+                log.info(f"Default Action for {action.name} with kwargs {action.kwargs}")
 
     def add(self, action):
         if isinstance(action, list):
@@ -79,6 +96,14 @@ def collect_triggered_abilities(pet_list, trigger_event, priority, enemy_team=No
 
 def generate_damage_action(target_pet, damage_amount, source):
     return generate_action("Damage", target_pet=target_pet, damage_amount=damage_amount, source=source)
+
+
+def generate_remove_action(pet_to_remove, team):
+    return generate_action("Remove", pet_to_remove=pet_to_remove, team=team)
+
+
+def generate_summon_action(pet_to_summon, team, index):
+    return generate_action("Summon", pet_to_summon=pet_to_summon, team=team, index=index)
 
 
 def generate_action(name, **kwargs):
