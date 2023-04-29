@@ -1,5 +1,6 @@
 from src.pet_data_utils.enums.trigger_event import TriggerEvent
 import config_utils.logger as logger
+from action.action_utils import action_handler
 
 log = logger.setup_logger(__name__)
 
@@ -84,7 +85,8 @@ class PetEntity:
             self.fainted = True
             log.debug(f"{self} fainted")
             if self.ability:
-                self.ability.trigger(TriggerEvent.Faint, self, self.team, enemy_team=attacker.team)
+                actions = self.ability.trigger(TriggerEvent.Faint, self, self.team, enemy_team=attacker.team)
+                action_handler.add(actions)
 
             # Clean up dead pets after abilities have been triggered,
             # Pets that summon pets on faint may remove themselves from the team during the ability
