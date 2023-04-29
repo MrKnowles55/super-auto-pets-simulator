@@ -23,7 +23,7 @@
       "type": "array",
       "items": {
         "type": "string",
-        "enum": ["ability", "ability.summon_pet", "ability_generator", "ability.deal_damage", "battle", "config", "main", "ability.modify_stats", "pet", "pet_data_manager", "pet_factory", "shop", "team", "utils", "validate_config"]
+        "enum": ["ability.ability_abstract", "ability.ability_generator", "ability.deal_damage", "ability.modify_stats", "ability.summon_pet", "action.action_utils", "battle", "config_utils.config", "config_utils.validate_config", "main", "pet.pet_entity", "pet.pet_factory", "pet_data_utils.pet_data_manager", "shop.shop", "team.team", "utils"]
       }
     },
     "FRIENDLY_TEAM_POOL": {
