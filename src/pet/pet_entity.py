@@ -86,7 +86,8 @@ class PetEntity:
             if self.ability:
                 self.ability.trigger(TriggerEvent.Faint, self, self.team, enemy_team=attacker.team)
 
-            # Clean up dead pets after abilities have been triggered
+            # Clean up dead pets after abilities have been triggered,
+            # Pets that summon pets on faint may remove themselves from the team during the ability
             if not self.is_alive and self in self.team.pets:
                 self.team.remove_pet(self)
 
