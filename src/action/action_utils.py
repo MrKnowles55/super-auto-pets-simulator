@@ -9,9 +9,7 @@ class ActionHandler:
         self.action_list = []
 
     def execute_actions(self):
-        log.info(f"Preparing to Execute {len(self.action_list)} Actions")
-        # self.randomize_actions_order()
-        log.info(f"Actions List: {[(action.name, action.kwargs) for action in self.action_list]}")
+        log.info(f"execute_actions({[(action.name, action.kwargs) for action in self.action_list]})")
         actions_to_remove = []
         for action in self.action_list:
             self.execute(action)
@@ -27,17 +25,17 @@ class ActionHandler:
         if isinstance(action, list):
             for act in action:
                 self.action_list.remove(act)
-                log.info(f"Removing {act.name} with {act.kwargs} from action_list")
+                log.info(f"remove_actions({act.name},{act.kwargs})")
         else:
-            log.info(f"Removing {action.name} action with kwargs {action.kwargs} from action_list")
+            log.info(f"remove_actions({action.name},{action.kwargs})")
             self.action_list.remove(action)
 
     def clear_actions(self):
-        log.info("Clearing action_list")
+        log.info("clear_actions()")
         self.action_list = []
 
     def execute(self, action):
-        log.info(f"Executing {action.name} with kwargs {action.kwargs}")
+        log.info(f"execute({action.name},{action.kwargs})")
         match action.name:
             case "Damage":
                 target = action.kwargs.get("target_pet")
@@ -66,12 +64,14 @@ class ActionHandler:
                 log.info(f"Default Action for {action.name} with kwargs {action.kwargs}")
 
     def add(self, action):
+        if not action:
+            return
         if isinstance(action, list):
             self.action_list.extend(action)
             for act in action:
-                log.info(f"Adding {act.name} with {act.kwargs}")
+                log.info(f"add({act.name},{act.kwargs})")
         else:
-            log.info(f"Adding {action.name} with {action.kwargs}")
+            log.info(f"add({action.name},{action.kwargs})")
             self.action_list.append(action)
 
     def create_actions_from_triggered_abilities(self, triggered_abilities):
@@ -107,7 +107,7 @@ def generate_summon_action(pet_to_summon, team, index):
 
 
 def generate_action(name, **kwargs):
-    log.info(f"Generating action {name} with kwargs {kwargs}")
+    log.info(f"generate_action({name},{kwargs})")
     return Action(name, **kwargs)
 
 
