@@ -17,7 +17,7 @@ class AbilityBase(ABC):
 
     def trigger(self, event, *args, **kwargs):
         if event == self.trigger_event:
-            self.apply(*args, **kwargs)
+            return self.apply(*args, **kwargs)
 
     def __repr__(self):
         attributes = ', '.join([f"{k}={repr(v)}" for k, v in vars(self).items()])
