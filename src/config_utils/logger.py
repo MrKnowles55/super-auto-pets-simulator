@@ -40,6 +40,7 @@ def delete_log_file(log_file, replace_log_file):
 
 
 def setup_logger(name, log_level=LOG_LEVEL, log_file=log_path, replace_log_file=False):
+    name = name.replace("src.", "")
     logger = logging.getLogger(name)
     delete_log_file(log_file, replace_log_file)
     logger.setLevel(log_level)
