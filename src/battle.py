@@ -61,6 +61,7 @@ def start_of_battle(team1, team2, pet_list, verbose=False):
                                                                    enemy_team=team1, applied_damage=applied_damage)
         log.info(f"start_of_battle triggered_abilities {triggered_abilities}")
         # Execute the collected abilities
+        # TODO pets/actions need to be removed from the action_list if the pet dies before it is triggered
         action_handler.create_actions_from_triggered_abilities(triggered_abilities)
         action_handler.execute_actions()
 
@@ -74,6 +75,7 @@ def fight_loop(team1, team2, verbose=False):
     log.info(get_battle_string(team1, team2, "Begin fight_loop(): "))
     round = 0
     while team1.pets and team2.pets:
+        action_handler.execute_actions()
         pet1 = team1.pets[0]
         pet2 = team2.pets[0]
 
