@@ -63,12 +63,7 @@ def start_of_battle(team1, team2, pet_list, verbose=False):
         # Execute the collected abilities
         action_handler.create_actions_from_triggered_abilities(triggered_abilities)
         action_handler.execute_actions()
-        # for action in actions:
-        #     print("Action: ", action)
-        #     action_name, *args = action
-        #     if action_name == "take_damage":
-        #         pet, damage, attacker = args
-        #         pet.apply_damage(damage, attacker)
+
     if verbose:
         print(get_battle_string(team1, team2, prefix="Start of Battle"))
     log.info(get_battle_string(team1, team2, "End start_of_battle(): "))
