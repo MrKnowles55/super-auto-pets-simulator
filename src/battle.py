@@ -61,7 +61,6 @@ def start_of_battle(team1, team2, pet_list, verbose=False):
                                                                    enemy_team=team1, applied_damage=applied_damage)
         log.info(f"start_of_battle triggered_abilities {triggered_abilities}")
         # Execute the collected abilities
-        # TODO pets/actions need to be removed from the action_list if the pet dies before it is triggered
         action_handler.create_actions_from_triggered_abilities(triggered_abilities)
         action_handler.execute_actions()
 
