@@ -49,7 +49,7 @@ def setup_logger(name, log_level=LOG_LEVEL, log_file=log_path, replace_log_file=
     if logger.hasHandlers():
         return logger
     # Create a file handler for writing log messages to the specified file
-    file_handler = RotatingFileHandler(log_file, maxBytes=1_000_000, backupCount=5)
+    file_handler = RotatingFileHandler(log_file, maxBytes=1_000_000_000, backupCount=5)
     file_handler.setLevel(log_level)
 
     # Create a log formatter and set it for the file handler
