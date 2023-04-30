@@ -76,7 +76,7 @@ class Damage(AbilityBase):
 
         if target_pet:
             # Add the "take_damage" action to the actions list
-            actions.append(generate_damage_action(target_pet=target_pet, damage_amount=self.damage_amount, source=owner))
+            actions.append(generate_damage_action(self.owner, target_pet=target_pet, damage_amount=self.damage_amount))
 
             # Update the applied damage dictionary
             self.update_applied_damage(target_pet, self.damage_amount, applied_damage)

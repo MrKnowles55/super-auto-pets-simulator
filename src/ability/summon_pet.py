@@ -37,9 +37,9 @@ class SummonSpecific(Summon):
                 index = 0
 
             pets_created = 0
-            actions.append(generate_remove_action(self.owner, self.owner.team))
+            actions.append(generate_remove_action(self.owner, self.owner, self.owner.team))
             while pets_created < self.n:
-                actions.append(generate_summon_action(self.token, team_to_add_to, index))
+                actions.append(generate_summon_action(None, self.token, team_to_add_to, index, is_faint_ability=True))
                 pets_created += 1
 
             return actions
