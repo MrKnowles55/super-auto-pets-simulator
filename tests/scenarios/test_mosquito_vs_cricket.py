@@ -2,6 +2,7 @@ import unittest
 from src.pet.pet_factory import create_pet
 from src.battle import fight, start_of_battle, get_pet_list, fight_loop, end_of_battle
 from src.team.team import Team, player_team, opponent_team
+from src.action.action_utils import action_handler, generate_summon_action, generate_damage_action
 
 
 class TestMosquitoVsCricket(unittest.TestCase):
@@ -113,21 +114,25 @@ class TestMosquitoVsCricket(unittest.TestCase):
     def test_fight_loop(self):
         """
         Checks that fight_loop ends with 4 Mosquitoes (2/2) and an empty enemy team.
-        Manually does Mosquito Abilities since they are tested above.
+        Simulates the Start of Battle section by applying 2 damage to the crickets, then executing their abilities
+        before the fight loop.
         :return:
         """
+
         match self.get_mode():
             case "Mosquito":
                 attacker = player_team.pets[0]
-                opponent_team.pets[0].apply_damage(2, attacker)
                 opponent_team.pets[1].apply_damage(2, attacker)
+                opponent_team.pets[0].apply_damage(2, attacker)
+                action_handler.execute_actions()
                 fight_loop(player_team, opponent_team)
                 self.assertEqual(len(opponent_team.pets), 0)
                 self.assertEqual(len(player_team.pets), 4)
             case "Cricket":
                 attacker = opponent_team.pets[0]
-                player_team.pets[0].apply_damage(2, attacker)
                 player_team.pets[1].apply_damage(2, attacker)
+                player_team.pets[0].apply_damage(2, attacker)
+                action_handler.execute_actions()
                 fight_loop(player_team, opponent_team)
                 self.assertEqual(len(opponent_team.pets), 4)
                 self.assertEqual(len(player_team.pets), 0)
