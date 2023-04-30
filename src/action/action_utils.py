@@ -9,7 +9,7 @@ class ActionHandler:
         self.action_list = []
 
     def execute_actions(self):
-        log.info(f"execute_actions({[(action.name, action.kwargs) for action in self.action_list]})")
+        log.info(f"execute_actions({[(action.name, action.source, action.kwargs) for action in self.action_list]})")
         actions_to_remove = []
         for action in self.action_list:
             self.execute(action)
@@ -17,17 +17,13 @@ class ActionHandler:
 
         self.remove_actions(actions_to_remove)
 
-    # def randomize_actions_order(self):
-    #     log.info(f"Shuffling action_list order")
-    #     random.shuffle(self.action_list)
-
     def remove_actions(self, action):
         if isinstance(action, list):
             for act in action:
                 self.action_list.remove(act)
-                log.info(f"remove_actions({act.name},{act.kwargs})")
+                log.info(f"remove_actions({act.name},{act.source},{act.kwargs})")
         else:
-            log.info(f"remove_actions({action.name},{action.kwargs})")
+            log.info(f"remove_actions({action.name},{action.source},{action.kwargs})")
             self.action_list.remove(action)
 
     def clear_actions(self):
@@ -35,12 +31,20 @@ class ActionHandler:
         self.action_list = []
 
     def execute(self, action):
-        log.info(f"execute({action.name},{action.kwargs})")
+        source = action.source
+        is_faint_ability = action.kwargs.get("is_faint_ability", False)
+        # check if source is not None, and then only actually execute the action if the source pet is still alive, or if
+        # the ability is a faint ability.
+        if source:
+            if source.is_alive or is_faint_ability:
+                pass
+            else:
+                return
+        log.info(f"execute({action.name},{action.source}{action.kwargs})")
         match action.name:
             case "Damage":
                 target = action.kwargs.get("target_pet")
                 damage = action.kwargs.get("damage_amount")
-                source = action.kwargs.get("source")
                 if target and damage and source:
                     target.apply_damage(damage, source)
                 else:
@@ -60,8 +64,8 @@ class ActionHandler:
                 except KeyError:
                     log.debug(f"{pet_name} invalid pet.")
             case _:
-                print(f"Default Action for {action.name} with kwargs {action.kwargs}")
-                log.info(f"Default Action for {action.name} with kwargs {action.kwargs}")
+                print(f"Default case for ({action.name},{action.source},{action.kwargs})")
+                log.info(f"Default case for ({action.name},{action.source},{action.kwargs})")
 
     def add(self, action):
         if not action:
@@ -69,9 +73,9 @@ class ActionHandler:
         if isinstance(action, list):
             self.action_list.extend(action)
             for act in action:
-                log.info(f"add({act.name},{act.kwargs})")
+                log.info(f"add({act.name},{act.source},{act.kwargs})")
         else:
-            log.info(f"add({action.name},{action.kwargs})")
+            log.info(f"add({action.name},{action.source},{action.kwargs})")
             self.action_list.append(action)
 
     def create_actions_from_triggered_abilities(self, triggered_abilities):
@@ -81,8 +85,9 @@ class ActionHandler:
 
 
 class Action:
-    def __init__(self, name, **kwargs):
+    def __init__(self, name, source, **kwargs):
         self.name = name
+        self.source = source
         self.kwargs = kwargs
 
 
@@ -94,21 +99,24 @@ def collect_triggered_abilities(pet_list, trigger_event, priority, enemy_team=No
     return triggered_abilities
 
 
-def generate_damage_action(target_pet, damage_amount, source):
-    return generate_action("Damage", target_pet=target_pet, damage_amount=damage_amount, source=source)
+def generate_damage_action(source, target_pet, damage_amount, is_faint_ability=False):
+    return generate_action("Damage", source, target_pet=target_pet, damage_amount=damage_amount,
+                           is_faint_ability=is_faint_ability)
 
 
-def generate_remove_action(pet_to_remove, team):
-    return generate_action("Remove", pet_to_remove=pet_to_remove, team=team)
+def generate_remove_action(source, pet_to_remove, team, is_faint_ability=False):
+    return generate_action("Remove", source, pet_to_remove=pet_to_remove, team=team,
+                           is_faint_ability=is_faint_ability)
 
 
-def generate_summon_action(pet_to_summon, team, index):
-    return generate_action("Summon", pet_to_summon=pet_to_summon, team=team, index=index)
+def generate_summon_action(source, pet_to_summon, team, index, is_faint_ability=False):
+    return generate_action("Summon", source, pet_to_summon=pet_to_summon, team=team, index=index,
+                           is_faint_ability=is_faint_ability)
 
 
-def generate_action(name, **kwargs):
-    log.info(f"generate_action({name},{kwargs})")
-    return Action(name, **kwargs)
+def generate_action(name, source, **kwargs):
+    log.info(f"generate_action({name},{source}, {kwargs})")
+    return Action(name, source, **kwargs)
 
 
 action_handler = ActionHandler()
