@@ -54,7 +54,7 @@ class ActionHandler:
                 pet = action.kwargs.get("pet_to_remove")
                 team.remove_pet(pet)
             case "Summon":
-                from pet.pet_factory import create_pet
+                from src.pet.pet_factory import create_pet
                 pet_name = action.kwargs.get("pet_to_summon")
                 team = action.kwargs.get("team")
                 index = action.kwargs.get("index")
