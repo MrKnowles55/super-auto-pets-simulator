@@ -1,5 +1,5 @@
 import unittest
-from pet.pet_factory import create_pet
+from src.pet.pet_factory import create_pet
 from src.battle import fight, start_of_battle, get_pet_list, fight_loop, end_of_battle
 from src.team.team import Team, player_team, opponent_team
 

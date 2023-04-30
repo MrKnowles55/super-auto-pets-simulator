@@ -1,7 +1,7 @@
 from abc import abstractmethod
 from .ability_abstract import AbilityBase
 from random import choice
-from action.action_utils import *
+from src.action.action_utils import *
 from src.pet_data_utils.enums.effect_target_kind import EffectTargetKind
 
 log = logger.setup_logger(__name__)

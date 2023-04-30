@@ -1,8 +1,8 @@
 {
-    "NUMBER_OF_SIMULATIONS": 50000,
+    "NUMBER_OF_SIMULATIONS": 1,
     "FRIENDLY_TEAM_SIZE": 5,
     "ENEMY_TEAM_SIZE": 5,
-    "DEBUG_MODE": false,
+    "DEBUG_MODE": true,
     "DEBUG_FILTER": ["action.action_utils", "battle"],
     "FRIENDLY_TEAM_POOL": "TEST_POOL",
     "ENEMY_TEAM_POOL": "TEST_POOL2"

@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-import config_utils.logger as logger
+import src.config_utils.logger as logger
 
 log = logger.setup_logger(__name__)
 

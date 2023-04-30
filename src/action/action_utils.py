@@ -1,4 +1,4 @@
-import config_utils.logger as logger
+import src.config_utils.logger as logger
 import random
 
 log = logger.setup_logger(__name__)
@@ -95,7 +95,8 @@ def collect_triggered_abilities(pet_list, trigger_event, priority, enemy_team=No
     triggered_abilities = []
     for pet in pet_list:
         if pet.ability and pet.ability.trigger_event == trigger_event:
-            triggered_abilities.append((priority, pet.ability, enemy_team, applied_damage))
+            if pet.is_alive:
+                triggered_abilities.append((priority, pet.ability, enemy_team, applied_damage))
     return triggered_abilities
 
 

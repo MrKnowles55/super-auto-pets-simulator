@@ -2,7 +2,7 @@ import json
 import os
 from src.pet_data_utils.enums.trigger_event import TriggerEvent
 from src.pet_data_utils.enums.effect_kind import EffectKind
-import config_utils.logger as logger
+import src.config_utils.logger as logger
 
 log = logger.setup_logger(__name__)
 
@@ -134,8 +134,8 @@ pet_db = PetDatabase(filename)
 IMPLEMENTED = ["Ant", 'Mosquito', "Sloth", "Cricket", "Betta Fish", "Flamingo", 'Anteater', 'Rat',  'Osprey', 'Sheep',
                'Slug', 'Wolf', 'Deer']
 
-TEST_POOL = ['Dolphin', 'Mosquito', 'Cricket']  # Rooster
-TEST_POOL2 = ['Dolphin', 'Mosquito', 'Cricket']
+TEST_POOL = ['Dolphin', "Cricket", "Mosquito"]  # Rooster
+TEST_POOL2 = ['Cricket', 'Dolphin', "Mosquito"]
 
 # Leopard: % of attack
 # Crocodile: Last pet

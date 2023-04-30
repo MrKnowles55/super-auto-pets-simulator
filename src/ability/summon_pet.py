@@ -1,6 +1,6 @@
 from abc import abstractmethod
 from src.ability.ability_abstract import AbilityBase
-import config_utils.logger as logger
+import src.config_utils.logger as logger
 from src.pet_data_utils.enums.trigger_event import TriggerEvent
 from src.action.action_utils import *
 

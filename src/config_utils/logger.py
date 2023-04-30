@@ -1,6 +1,6 @@
 import logging
 import os
-from config_utils.config import config_handler
+from src.config_utils.config import config_handler
 from logging.handlers import RotatingFileHandler
 
 DEBUG_MODE = config_handler.config_data['DEBUG_MODE']

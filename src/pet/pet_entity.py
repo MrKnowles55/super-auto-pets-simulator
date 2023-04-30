@@ -1,6 +1,6 @@
 from src.pet_data_utils.enums.trigger_event import TriggerEvent
-import config_utils.logger as logger
-from action.action_utils import action_handler
+import src.config_utils.logger as logger
+from src.action.action_utils import action_handler
 
 log = logger.setup_logger(__name__)
 
