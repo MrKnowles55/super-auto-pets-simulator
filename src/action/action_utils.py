@@ -35,7 +35,15 @@ class ActionHandler:
         self.action_list = []
 
     @log_call(log)
-    def execute(self, action):
+    def retarget_action(self, action):
+        source = action.source
+        new_actions = source.ability.apply()
+        for act in new_actions:
+            if act.name == action.name:
+                return act
+
+    @log_call(log)
+    def execute(self, action, retarget_flag=False):
         source = action.source
         trigger_event = action.kwargs.get("trigger_event")
         # check if source is not None, and then only actually execute the action if the source pet is still alive, or if
@@ -69,6 +77,7 @@ class ActionHandler:
                     team.add_pet(new_pet, index)
                 except KeyError:
                     log.print(f"{pet_name} invalid pet.")
+
             case "Modify_Stats":
                 target_pet = action.kwargs.get("target_pet")
                 attack_mod = action.kwargs.get("attack_mod")
@@ -99,7 +108,15 @@ class ActionHandler:
                         target_pet.attack = max(target_pet.attack, 0)
                         target_pet.health = min(target_pet.health, 50)
                     else:
-                        log.print(f"{target_pet} is fainted. Cannot modify its stats.")
+                        if not retarget_flag:
+                            log.print(f"{target_pet} is fainted. Retargeting.")
+                            new_action = self.retarget_action(action)
+                            if new_action:
+                                self.execute(new_action, retarget_flag=True)
+                            else:
+                                log.print(f"{target_pet} is fainted. No other Targets available.")
+                        else:
+                            log.print(f"Retarget failed.")
                 else:
                     log.print(f"Targeted pet is {target_pet}. Cannot modify its stats.")
             case _:
