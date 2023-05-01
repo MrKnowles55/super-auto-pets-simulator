@@ -24,7 +24,7 @@ class TestAbility(unittest.TestCase):
     def test_no_ability_instance_and_trigger_event(self):
         ability = No_Ability(self.test_pet)
 
-        ability.apply(self.test_pet, None)
+        ability.apply()
         self.assertIsNone(ability.trigger_event)
         self.assertIsInstance(ability, AbilityBase)
 
