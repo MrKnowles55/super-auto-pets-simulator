@@ -131,11 +131,10 @@ class PetDatabase:
 
 pet_db = PetDatabase(filename)
 
-IMPLEMENTED = ["Ant", 'Mosquito', "Sloth", "Cricket", "Betta Fish", "Flamingo", 'Anteater', 'Rat',  'Osprey', 'Sheep',
-               'Slug', 'Wolf', 'Deer']
+IMPLEMENTED = ["Ant", 'Mosquito', "Sloth", "Cricket", "Dolphin"]
 
-TEST_POOL = ['Dolphin', "Cricket", "Mosquito"]  # Rooster
-TEST_POOL2 = ['Cricket', 'Dolphin', "Mosquito"]
+TEST_POOL = ["Ant"]
+TEST_POOL2 = ['Mosquito']
 
 # Leopard: % of attack
 # Crocodile: Last pet
