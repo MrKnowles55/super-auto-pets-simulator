@@ -1,6 +1,6 @@
 from src.action.action_utils import action_handler, collect_triggered_abilities
 from src.pet_data_utils.enums.trigger_event import TriggerEvent
-from config_utils.logger import setup_logger, log_call
+from src.config_utils.logger import setup_logger, log_call
 
 # directory = os.path.dirname(os.path.abspath(__file__))
 log = setup_logger(__name__)

@@ -3,7 +3,7 @@ from .ability_abstract import AbilityBase
 from random import choice
 from src.action.action_utils import *
 from src.pet_data_utils.enums.effect_target_kind import EffectTargetKind
-from config_utils.logger import setup_logger, log_call, log_class_init
+from src.config_utils.logger import setup_logger, log_call, log_class_init
 
 log = setup_logger(__name__)
 

@@ -1,7 +1,7 @@
 from src.pet.pet_entity import PetEntity
 from src.ability.ability_generator import AbilityGenerator
 from src.pet_data_utils.pet_data_manager import pet_db
-from config_utils.logger import setup_logger, log_call
+from src.config_utils.logger import setup_logger, log_call
 
 log = setup_logger(__name__)
 

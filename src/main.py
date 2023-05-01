@@ -3,9 +3,9 @@ from src.team.team import player_team, opponent_team
 from pet.pet_factory import create_pet
 from src.pet_data_utils import pet_data_manager
 from src.battle import fight
-from config_utils.config import config_handler
-from config_utils import validate_config
-from config_utils.logger import setup_logger, log_call
+from src.config_utils.config import config_handler
+from src.config_utils import validate_config
+from src.config_utils.logger import setup_logger, log_call
 
 # Configure Logging
 log = setup_logger("main", replace_log_file=True)
