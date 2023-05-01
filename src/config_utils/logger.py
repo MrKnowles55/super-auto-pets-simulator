@@ -3,7 +3,6 @@ import os
 from src.config_utils.config import config_handler
 from logging.handlers import RotatingFileHandler
 
-DEBUG_MODE = config_handler.config_data['DEBUG_MODE']
 
 # Get the path of the logger.py script
 logger_script_path = os.path.abspath(__file__)
@@ -27,10 +26,17 @@ class ModuleFilter(logging.Filter):
         return record.name in self.module_filter
 
 
-if DEBUG_MODE:
-    LOG_LEVEL = logging.DEBUG
-else:
-    LOG_LEVEL = logging.WARNING
+LOG_DICT = {
+    "CRITICAL": logging.CRITICAL,
+    "ERROR": logging.ERROR,
+    "WARNING": logging.WARNING,
+    "INFO": logging.INFO,
+    "DEBUG": logging.DEBUG,
+    "": logging.NOTSET
+}
+
+
+LOG_LEVEL = LOG_DICT[config_handler.config_data['LOGGING_LEVEL']]
 
 
 def delete_log_file(log_file, replace_log_file):
@@ -54,7 +60,7 @@ def setup_logger(name, log_level=LOG_LEVEL, log_file=log_path, replace_log_file=
 
     # Create a log formatter and set it for the file handler
     # formatter = logging.Formatter('%(asctime)s - %(name)-30s - %(levelname)-8s - %(message)s')
-    formatter = logging.Formatter('%(name)-30s - %(message)s')
+    formatter = logging.Formatter('%(name)-25s | %(funcName)-25s | %(message)s')
     file_handler.setFormatter(formatter)
 
     # Remove all existing handlers (including the default StreamHandler)

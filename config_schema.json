@@ -16,10 +16,11 @@
       "minimum": 1,
       "maximum": 5
     },
-    "DEBUG_MODE": {
-      "type": "boolean"
+    "LOGGING_LEVEL": {
+      "type": "string",
+      "enum": ["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL", ""]
     },
-    "DEBUG_FILTER": {
+    "LOGGING_FILTER": {
       "type": "array",
       "items": {
         "type": "string",
@@ -39,7 +40,7 @@
     "NUMBER_OF_SIMULATIONS",
     "FRIENDLY_TEAM_SIZE",
     "ENEMY_TEAM_SIZE",
-    "DEBUG_MODE",
+    "LOGGING_LEVEL",
     "FRIENDLY_TEAM_POOL",
     "ENEMY_TEAM_POOL"
   ]
