@@ -88,7 +88,7 @@ class PetEntity:
             self.fainted = True
             if self.ability:
                 actions = self.ability.trigger(TriggerEvent.Faint, enemy_team=attacker.team)
-                action_handler.add(actions)
+                action_handler.add_action(actions)
 
             # Clean up dead pets after abilities have been triggered,
             # Pets that summon pets on faint may remove themselves from the team during the ability
