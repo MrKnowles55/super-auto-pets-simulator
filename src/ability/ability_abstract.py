@@ -21,7 +21,8 @@ class AbilityBase(ABC):
 
     def __repr__(self):
         attributes = ', '.join([f"{k}={repr(v)}" for k, v in vars(self).items()])
-        return f"{self.__class__.__name__}({attributes})"
+        # return f"{self.__class__.__name__}({attributes})"
+        return f"{self.__class__.__name__}"
 
 
 @log_class_init(log)
