@@ -16,7 +16,7 @@ class Damage(AbilityBase):
         self.trigger_event = trigger_event
 
     @abstractmethod
-    def apply(self, pet, team, **kwargs):
+    def apply(self, **kwargs):
         pass
 
     @staticmethod
@@ -57,7 +57,7 @@ class Damage(AbilityBase):
         log.debug(f"Optimal pet selected: {optimal_pet}")
         return optimal_pet
 
-    def apply_damage(self, owner, enemy_team=None, applied_damage=None):
+    def apply_damage(self, enemy_team=None, applied_damage=None):
         log.debug(f"{self.__class__.__name__} using generic apply_damage()")
         actions = []
         if not enemy_team:
@@ -85,14 +85,14 @@ class Damage(AbilityBase):
 
 
 class DamageRandomEnemy(Damage):
-    def apply(self, owner, team, enemy_team=None, applied_damage=None):
-        log.debug(f"Applying {self.__class__.__name__} from {owner} on team {team}")
-        return self.apply_damage(owner, enemy_team, applied_damage)
+    def apply(self, enemy_team=None, applied_damage=None):
+        log.debug(f"Applying {self.__class__.__name__} from {self.owner} on team {self.owner.team}")
+        return self.apply_damage(enemy_team, applied_damage)
 
 
 class DamageEnemyWithAttribute(Damage):
-    def apply(self, owner, team, enemy_team=None, applied_damage=None):
-        return self.apply_damage(owner, enemy_team, applied_damage)
+    def apply(self, enemy_team=None, applied_damage=None):
+        return self.apply_damage(enemy_team, applied_damage)
 
     #     elif self.target == "all":
     #         targets = []

@@ -12,12 +12,12 @@ class AbilityBase(ABC):
         log.debug(f"{self.__class__.__name__} created for {self.owner} with trigger {self.trigger_event}")
 
     @abstractmethod
-    def apply(self, pet, team, **kwargs):
+    def apply(self, **kwargs):
         pass
 
-    def trigger(self, event, *args, **kwargs):
+    def trigger(self, event, **kwargs):
         if event == self.trigger_event:
-            return self.apply(*args, **kwargs)
+            return self.apply(**kwargs)
 
     def __repr__(self):
         attributes = ', '.join([f"{k}={repr(v)}" for k, v in vars(self).items()])
@@ -28,7 +28,7 @@ class No_Ability(AbilityBase):
     def __init__(self, owner):
         super().__init__(owner)
 
-    def apply(self, pet, team, **kwargs):
+    def apply(self, **kwargs):
         pass
 
 

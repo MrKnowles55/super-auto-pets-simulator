@@ -17,7 +17,7 @@ class ModifyStatsAbilityBase(AbilityBase):
         self.until_end_of_battle = until_end_of_battle
 
     @abstractmethod
-    def apply(self, pet, team, **kwargs):
+    def apply(self, **kwargs):
         pass
 
     def add_modifiers(self, target_pet):
@@ -28,9 +28,9 @@ class ModifyStatsAbilityBase(AbilityBase):
 
 
 class ModifyStatsAbilityRandomFriend(ModifyStatsAbilityBase):
-    def apply(self, pet, team, **kwargs):
+    def apply(self, **kwargs):
         # Create a list of friendly pets, excluding the triggering pet
-        available_targets = [p for p in team.pets if p is not pet and p.health > 0]
+        available_targets = [p for p in self.owner.team.pets if p is not self.owner and p.health > 0]
         if available_targets:
             # Choose the specified number of target pets from the available targets
             num_targets = min(len(available_targets), self.target_n)
@@ -42,28 +42,28 @@ class ModifyStatsAbilityRandomFriend(ModifyStatsAbilityBase):
 
 
 class ModifyStatsAbilityFrontFriend(ModifyStatsAbilityBase):
-    def apply(self, pet, team, **kwargs):
-        if team.pets:
-            target_pet = team.pets[0]
+    def apply(self, **kwargs):
+        if self.owner.team.pets:
+            target_pet = self.owner.team.pets[0]
             self.add_modifiers(target_pet)
 
 
 class ModifyStatsAbilityFriendBehind(ModifyStatsAbilityBase):
-    def apply(self, pet, team, **kwargs):
-        index = team.pets.index(pet)
+    def apply(self, **kwargs):
+        index = self.owner.team.pets.index(self.owner)
         for n in range(self.target_n):
-            if index >= len(team.pets)-1-n:
+            if index >= len(self.owner.team.pets)-1-n:
                 return
 
-            target = team.pets[index + 1 + n]
+            target = self.owner.team.pets[index + 1 + n]
             self.add_modifiers(target)
 
 
 class ModifyStatsAbilityFriendAhead(ModifyStatsAbilityBase):
-    def apply(self, pet, team, **kwargs):
-        index = team.pets.index(pet)
+    def apply(self, **kwargs):
+        index = self.owner.team.pets.index(self.owner)
         if index == 0:
             return
 
-        target = team.pets[index - 1]
+        target = self.owner.team.pets[index - 1]
         self.add_modifiers(target)

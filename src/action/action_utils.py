@@ -81,7 +81,7 @@ class ActionHandler:
     def create_actions_from_triggered_abilities(self, triggered_abilities):
         for ability_priority, ability, enemy_team, applied_damage in triggered_abilities:
             self.add(
-                ability.apply(ability.owner, ability.owner.team, enemy_team=enemy_team, applied_damage=applied_damage))
+                ability.apply(enemy_team=enemy_team, applied_damage=applied_damage))
 
 
 class Action:

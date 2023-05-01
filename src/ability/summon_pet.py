@@ -21,17 +21,17 @@ class Summon(AbilityBase):
         self.health = health
 
     @abstractmethod
-    def apply(self, pet, team, **kwargs):
+    def apply(self, **kwargs):
         pass
 
 
 class SummonSpecific(Summon):
-    def apply(self, pet, team, **kwargs):
+    def apply(self, **kwargs):
         actions = []
         if self.trigger_event == TriggerEvent.Faint:
             if self.team_tag == "Friendly":
-                team_to_add_to = team
-                index = team_to_add_to.pets.index(pet)
+                team_to_add_to = self.owner.team
+                index = team_to_add_to.pets.index(self.owner)
             else:
                 team_to_add_to = kwargs["enemy_team"]
                 index = 0
@@ -43,18 +43,11 @@ class SummonSpecific(Summon):
                 pets_created += 1
 
             return actions
-            # while pets_created < self.n:
-            #     try:
-            #         new_pet = create_pet(self.token)
-            #         log.debug(f"{self.owner} {self.__class__.__name__} summoning {new_pet.name} to {team_to_add_to}")
-            #         team_to_add_to.add_pet(new_pet, index)
-            #     except KeyError:
-            #         log.debug(f"Cannot create pet of type {self.token}")
-            #     pets_created += 1
+
         else:
             print(f'{self.__class__}:{self.trigger_event} not implemented')
 
 
 class SummonRandom(Summon):
-    def apply(self, pet, team, **kwargs):
+    def apply(self, **kwargs):
         pass

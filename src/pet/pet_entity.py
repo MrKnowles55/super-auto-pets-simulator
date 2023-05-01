@@ -85,7 +85,7 @@ class PetEntity:
             self.fainted = True
             log.debug(f"{self} fainted")
             if self.ability:
-                actions = self.ability.trigger(TriggerEvent.Faint, self, self.team, enemy_team=attacker.team)
+                actions = self.ability.trigger(TriggerEvent.Faint, enemy_team=attacker.team)
                 action_handler.add(actions)
 
             # Clean up dead pets after abilities have been triggered,
@@ -98,15 +98,15 @@ class PetEntity:
 
     def start_of_battle(self, enemy_team):
         if self.ability:
-            self.ability.trigger(TriggerEvent.StartOfBattle, self, self.team, enemy_team=enemy_team)
+            self.ability.trigger(TriggerEvent.StartOfBattle, enemy_team=enemy_team)
 
     def hurt(self):
         if self.ability:
-            self.ability.trigger(TriggerEvent.Hurt, self, self.team)
+            self.ability.trigger(TriggerEvent.Hurt)
 
     def before_attack(self):
         if self.ability:
-            self.ability.trigger(TriggerEvent.BeforeAttack, self, self.team)
+            self.ability.trigger(TriggerEvent.BeforeAttack)
 
 
 
