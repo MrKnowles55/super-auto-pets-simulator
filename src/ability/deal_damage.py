@@ -24,22 +24,19 @@ class Damage(AbilityBase):
     @staticmethod
     @log_call(log)
     def update_applied_damage(pet, damage, applied_damage):
-        log.debug(f"Updating applied_damage. Before: {applied_damage}")
         if pet not in applied_damage:
             applied_damage[pet] = 0
         applied_damage[pet] += damage
-        log.debug(f"Updated applied_damage. After: {applied_damage}")
         return applied_damage
 
     @log_call(log)
     def get_optimal_targets(self, living_pets, applied_damage, mode):
-        log.debug(f"Getting optimal targets for {self.__class__.__name__} of {self.owner} with mode {mode}")
         target_healths = {pet: pet.health - applied_damage.get(pet, 0) for pet in living_pets}
-        log.debug(f"target_healths {target_healths}")
+        log.print(f"target_healths {target_healths}")
 
         # Filter out pets with health at or below 0
         viable_pets = [pet for pet, health in target_healths.items() if health > 0]
-        log.debug(f"viable_pets {viable_pets}")
+        log.print(f"viable_pets {viable_pets}")
 
         if not viable_pets:
             return None
@@ -58,22 +55,21 @@ class Damage(AbilityBase):
                 optimal_pet = choice(viable_pets)
             case _:
                 raise ValueError(f"Invalid mode: {mode}. an EffectTargetKind.")
-        log.debug(f"Optimal pet selected: {optimal_pet}")
+        log.print(f"Optimal pet selected: {optimal_pet}")
         return optimal_pet
 
     @log_call(log)
     def apply_damage(self, enemy_team=None, applied_damage=None):
-        log.debug(f"{self.__class__.__name__} using generic apply_damage()")
         actions = []
         if not enemy_team:
-            log.debug(f"No enemy_team")
+            log.print(f"No enemy_team")
             return actions
 
         # Get the living pets in the enemy team
         living_pets = [pet for pet in enemy_team.pets if pet.is_alive]
 
         if not living_pets:
-            log.debug(f"No living_pets")
+            log.print(f"No living_pets")
             return actions
 
         # Get the optimal target
@@ -93,7 +89,6 @@ class Damage(AbilityBase):
 class DamageRandomEnemy(Damage):
     @log_call(log)
     def apply(self, enemy_team=None, applied_damage=None):
-        log.debug(f"Applying {self.__class__.__name__} from {self.owner} on team {self.owner.team}")
         return self.apply_damage(enemy_team, applied_damage)
 
 
