@@ -58,7 +58,7 @@ def log_call(logger):
             result = func(*args, **kwargs)
             nesting_level -= 1
 
-            logger.debug(f"{tab_prefix}Exiting {func.__name__}")
+            logger.debug(f"{tab_prefix}Exiting {func.__name__} --> {result}")
 
             return result
 
