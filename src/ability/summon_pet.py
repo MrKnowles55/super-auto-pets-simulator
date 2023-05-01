@@ -1,10 +1,10 @@
 from abc import abstractmethod
 from src.ability.ability_abstract import AbilityBase
-import src.config_utils.logger as logger
+from config_utils.logger import setup_logger, log_call, log_class_init
 from src.pet_data_utils.enums.trigger_event import TriggerEvent
 from src.action.action_utils import *
 
-log = logger.setup_logger(__name__)
+log = setup_logger(__name__)
 # parent_dir = os.path.abspath(os.path.join(os.getcwd(), ".."))
 # print(parent_dir)
 
@@ -20,12 +20,15 @@ class Summon(AbilityBase):
         self.attack = attack
         self.health = health
 
+    @log_call(log)
     @abstractmethod
     def apply(self, **kwargs):
         pass
 
 
+@log_class_init(log)
 class SummonSpecific(Summon):
+    @log_call(log)
     def apply(self, **kwargs):
         actions = []
         if self.trigger_event == TriggerEvent.Faint:
@@ -48,6 +51,8 @@ class SummonSpecific(Summon):
             print(f'{self.__class__}:{self.trigger_event} not implemented')
 
 
+@log_class_init(log)
 class SummonRandom(Summon):
+    @log_call(log)
     def apply(self, **kwargs):
         pass

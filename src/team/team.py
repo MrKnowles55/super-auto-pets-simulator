@@ -1,8 +1,9 @@
-import src.config_utils.logger as logger
+from config_utils.logger import setup_logger, log_call, log_class_init
 
-log = logger.setup_logger(__name__)
+log = setup_logger(__name__)
 
 
+@log_class_init(log)
 class Team:
     def __init__(self, name):
         self.name = name
@@ -11,8 +12,8 @@ class Team:
     def __str__(self):
         return self.name + " Team"
 
+    @log_call(log)
     def add_pet(self, pet, index=None):
-        log.debug(f"{self} adding {pet} at index {index}")
         if len(self.pets) < 5:
             if index is not None:
                 self.pets.insert(index, pet)
@@ -24,16 +25,16 @@ class Team:
         else:
             log.debug(f"{self} is full and cannot add {pet} at index {index}.")
 
+    @log_call(log)
     def remove_pet(self, pet):
         if pet in self.pets:
-            log.debug(f"{self} removing {pet}")
             self.pets.remove(pet)
         else:
             log.debug(f"{self} cannot remove {pet} because it does not exist")
 
+    @log_call(log)
     def move_pet(self, old_index, new_index):
         if 0 <= old_index < len(self.pets) and 0 <= new_index < len(self.pets):
-            log.debug(f"{self} moving {self.pets[old_index]} from {old_index} to {new_index}")
             pet = self.pets.pop(old_index)
             self.pets.insert(new_index, pet)
         else:

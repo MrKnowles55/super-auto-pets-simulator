@@ -5,21 +5,25 @@ from src.pet_data_utils import pet_data_manager
 from src.battle import fight
 from config_utils.config import config_handler
 from config_utils import validate_config
-from config_utils.logger import setup_logger
+from config_utils.logger import setup_logger, log_call, log_test
+
+# Configure Logging
+log = setup_logger("main", replace_log_file=True)
 
 
+@log_call(log)
 def fill_team_random(team, pet_pool, team_size=5):
     for _ in range(team_size):
         random_pet = choice(list(pet_pool))
         team.add_pet(create_pet(random_pet))
 
 
+@log_call(log)
 def run_simulation(num_sims, friendly_pool, enemy_pool, friendly_team_size=5, enemy_team_size=5, verbose=False):
-    log.debug("Starting Simulations")
     total = [0, 0]
 
     for i in range(num_sims):
-        log.debug(f"Starting Sim {i+1}")
+        log.print(f"Starting Sim {i+1}")
         if player_team.pets:
             player_team.pets = []
         if opponent_team.pets:
@@ -29,15 +33,14 @@ def run_simulation(num_sims, friendly_pool, enemy_pool, friendly_team_size=5, en
         result = fight(player_team, opponent_team, verbose)
         total[0] += result[0]
         total[1] += result[1]
-        log.debug(f"Finished Sim {i+1}")
+        log.print(f"Finished Sim {i+1}")
 
-    log.debug("Fished Simulations")
     return total, num_sims
 
 
+@log_call(log)
 def main(sims, friendly_team_size=5, enemy_team_size=5, friendly_pool=pet_data_manager.TEST_POOL,
          enemy_pool=pet_data_manager.TEST_POOL2):
-    log.debug("Starting Main Loop")
 
     verbose = sims <= 5
 
@@ -49,13 +52,9 @@ def main(sims, friendly_team_size=5, enemy_team_size=5, friendly_pool=pet_data_m
 
     print("Battle Results")
     print(f'Rounds: {num_sims}, Wins {win_rate:.1%}, Losses {loss_rate:.1%}, Ties {tie_rate:.1%}')
-    log.debug("Finished Main Loop")
 
 
 if __name__ == "__main__":
-
-    # Configure Logging
-    log = setup_logger("main", replace_log_file=True)
 
     # Validate config.json matches config_schema.json
     validate_config.load_config()

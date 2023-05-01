@@ -1,9 +1,9 @@
 from abc import abstractmethod
 from .ability_abstract import AbilityBase
 from random import sample
-import src.config_utils.logger as logger
+from config_utils.logger import setup_logger, log_call, log_class_init
 
-log = logger.setup_logger(__name__)
+log = setup_logger(__name__)
 
 
 class ModifyStatsAbilityBase(AbilityBase):
@@ -16,10 +16,12 @@ class ModifyStatsAbilityBase(AbilityBase):
         self.trigger_event = trigger_event
         self.until_end_of_battle = until_end_of_battle
 
+    @log_call(log)
     @abstractmethod
     def apply(self, **kwargs):
         pass
 
+    @log_call(log)
     def add_modifiers(self, target_pet):
         log.debug(f"{self.owner} modifying {target_pet}  by {self.attack_mod} / {self.health_mod} using "
                   f"{self.__class__.__name__}")
@@ -27,7 +29,9 @@ class ModifyStatsAbilityBase(AbilityBase):
         target_pet.health += self.health_mod
 
 
+@log_class_init(log)
 class ModifyStatsAbilityRandomFriend(ModifyStatsAbilityBase):
+    @log_call(log)
     def apply(self, **kwargs):
         # Create a list of friendly pets, excluding the triggering pet
         available_targets = [p for p in self.owner.team.pets if p is not self.owner and p.health > 0]
@@ -41,14 +45,18 @@ class ModifyStatsAbilityRandomFriend(ModifyStatsAbilityBase):
                 self.add_modifiers(target_pet)
 
 
+@log_class_init(log)
 class ModifyStatsAbilityFrontFriend(ModifyStatsAbilityBase):
+    @log_call(log)
     def apply(self, **kwargs):
         if self.owner.team.pets:
             target_pet = self.owner.team.pets[0]
             self.add_modifiers(target_pet)
 
 
+@log_class_init(log)
 class ModifyStatsAbilityFriendBehind(ModifyStatsAbilityBase):
+    @log_call(log)
     def apply(self, **kwargs):
         index = self.owner.team.pets.index(self.owner)
         for n in range(self.target_n):
@@ -59,7 +67,9 @@ class ModifyStatsAbilityFriendBehind(ModifyStatsAbilityBase):
             self.add_modifiers(target)
 
 
+@log_class_init(log)
 class ModifyStatsAbilityFriendAhead(ModifyStatsAbilityBase):
+    @log_call(log)
     def apply(self, **kwargs):
         index = self.owner.team.pets.index(self.owner)
         if index == 0:

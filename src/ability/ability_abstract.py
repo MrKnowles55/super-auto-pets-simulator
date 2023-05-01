@@ -1,20 +1,20 @@
 from abc import ABC, abstractmethod
-import src.config_utils.logger as logger
+from config_utils.logger import setup_logger, log_call, log_class_init
 
-log = logger.setup_logger(__name__)
+log = setup_logger(__name__)
 
 
 class AbilityBase(ABC):
-
     def __init__(self, owner, trigger_event=None):
         self.owner = owner
         self.trigger_event = trigger_event
-        log.debug(f"{self.__class__.__name__} created for {self.owner} with trigger {self.trigger_event}")
 
+    @log_call(log)
     @abstractmethod
     def apply(self, **kwargs):
         pass
 
+    @log_call(log)
     def trigger(self, event, **kwargs):
         if event == self.trigger_event:
             return self.apply(**kwargs)
@@ -24,10 +24,12 @@ class AbilityBase(ABC):
         return f"{self.__class__.__name__}({attributes})"
 
 
+@log_class_init(log)
 class No_Ability(AbilityBase):
     def __init__(self, owner):
         super().__init__(owner)
 
+    @log_call(log)
     def apply(self, **kwargs):
         pass
 

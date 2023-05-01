@@ -1,15 +1,16 @@
-import src.config_utils.logger as logger
+from config_utils.logger import setup_logger, log_call, log_class_init
 import random
 
-log = logger.setup_logger(__name__)
+log = setup_logger(__name__)
 
 
+@log_class_init(log)
 class ActionHandler:
     def __init__(self):
         self.action_list = []
 
+    @log_call(log)
     def execute_actions(self):
-        log.info(f"execute_actions({[(action.name, action.source, action.kwargs) for action in self.action_list]})")
         actions_to_remove = []
         for action in self.action_list:
             self.execute(action)
@@ -17,19 +18,19 @@ class ActionHandler:
 
         self.remove_actions(actions_to_remove)
 
+    @log_call(log)
     def remove_actions(self, action):
         if isinstance(action, list):
             for act in action:
                 self.action_list.remove(act)
-                log.info(f"remove_actions({act.name},{act.source},{act.kwargs})")
         else:
-            log.info(f"remove_actions({action.name},{action.source},{action.kwargs})")
             self.action_list.remove(action)
 
+    @log_call(log)
     def clear_actions(self):
-        log.info("clear_actions()")
         self.action_list = []
 
+    @log_call(log)
     def execute(self, action):
         source = action.source
         is_faint_ability = action.kwargs.get("is_faint_ability", False)
@@ -40,7 +41,6 @@ class ActionHandler:
                 pass
             else:
                 return
-        log.info(f"execute({action.name},{action.source}{action.kwargs})")
         match action.name:
             case "Damage":
                 target = action.kwargs.get("target_pet")
@@ -67,23 +67,23 @@ class ActionHandler:
                 print(f"Default case for ({action.name},{action.source},{action.kwargs})")
                 log.info(f"Default case for ({action.name},{action.source},{action.kwargs})")
 
+    @log_call(log)
     def add(self, action):
         if not action:
             return
         if isinstance(action, list):
             self.action_list.extend(action)
-            for act in action:
-                log.info(f"add({act.name},{act.source},{act.kwargs})")
         else:
-            log.info(f"add({action.name},{action.source},{action.kwargs})")
             self.action_list.append(action)
 
+    @log_call(log)
     def create_actions_from_triggered_abilities(self, triggered_abilities):
         for ability_priority, ability, enemy_team, applied_damage in triggered_abilities:
             self.add(
                 ability.apply(enemy_team=enemy_team, applied_damage=applied_damage))
 
 
+@log_class_init(log)
 class Action:
     def __init__(self, name, source, **kwargs):
         self.name = name
@@ -91,6 +91,7 @@ class Action:
         self.kwargs = kwargs
 
 
+@log_call(log)
 def collect_triggered_abilities(pet_list, trigger_event, priority, enemy_team=None, applied_damage=None):
     triggered_abilities = []
     for pet in pet_list:
@@ -115,8 +116,8 @@ def generate_summon_action(source, pet_to_summon, team, index, is_faint_ability=
                            is_faint_ability=is_faint_ability)
 
 
+@log_call(log)
 def generate_action(name, source, **kwargs):
-    log.info(f"generate_action({name},{source}, {kwargs})")
     return Action(name, source, **kwargs)
 
 

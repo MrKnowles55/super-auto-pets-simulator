@@ -1,10 +1,11 @@
 from src.pet_data_utils.enums.trigger_event import TriggerEvent
-import src.config_utils.logger as logger
+from config_utils.logger import setup_logger, log_call, log_class_init
 from src.action.action_utils import action_handler
 
-log = logger.setup_logger(__name__)
+log = setup_logger(__name__)
 
 
+@log_class_init(log)
 class PetEntity:
     """
     A class representing a pet in the game.
@@ -42,16 +43,17 @@ class PetEntity:
             for lvl, ability_dict in self.ability_dicts.items()
         }
 
+    @log_call(log)
     def attack_pet(self, enemy_pet):
         """
         Attack an enemy pet.
 
         :param enemy_pet: The enemy pet to attack.
         """
-        log.debug(f"{self} attacking {enemy_pet}")
         self.apply_damage(enemy_pet.attack, enemy_pet)
         enemy_pet.apply_damage(self.attack, self)
 
+    @log_call(log)
     def take_damage(self, damage, attacker):
         """
         Create a list of actions to apply damage to the pet.
@@ -64,8 +66,8 @@ class PetEntity:
         actions.append(("take_damage", self, damage, attacker))
         return actions
 
+    @log_call(log)
     def apply_damage(self, damage, attacker):
-        log.debug(f"{self} took {damage} damage from {attacker}.")
         old_health = self.health
         self.health -= damage
 
@@ -75,6 +77,7 @@ class PetEntity:
         else:
             self.faint(attacker)
 
+    @log_call(log)
     def faint(self, attacker):
         """
         Make the pet faint and trigger its ability if applicable.
@@ -83,7 +86,6 @@ class PetEntity:
         """
         if not self.fainted:
             self.fainted = True
-            log.debug(f"{self} fainted")
             if self.ability:
                 actions = self.ability.trigger(TriggerEvent.Faint, enemy_team=attacker.team)
                 action_handler.add(actions)
@@ -93,17 +95,12 @@ class PetEntity:
             if not self.is_alive and self in self.team.pets:
                 self.team.remove_pet(self)
 
-    def apply_ability(self, team, enemy_team):
-        self.ability.apply(self, team, enemy_team)
-
-    def start_of_battle(self, enemy_team):
-        if self.ability:
-            self.ability.trigger(TriggerEvent.StartOfBattle, enemy_team=enemy_team)
-
+    @log_call(log)
     def hurt(self):
         if self.ability:
             self.ability.trigger(TriggerEvent.Hurt)
 
+    @log_call(log)
     def before_attack(self):
         if self.ability:
             self.ability.trigger(TriggerEvent.BeforeAttack)

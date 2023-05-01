@@ -3,8 +3,9 @@ from .ability_abstract import AbilityBase
 from random import choice
 from src.action.action_utils import *
 from src.pet_data_utils.enums.effect_target_kind import EffectTargetKind
+from config_utils.logger import setup_logger, log_call, log_class_init
 
-log = logger.setup_logger(__name__)
+log = setup_logger(__name__)
 
 
 class Damage(AbilityBase):
@@ -15,11 +16,13 @@ class Damage(AbilityBase):
         self.target_n = target_n
         self.trigger_event = trigger_event
 
+    @log_call(log)
     @abstractmethod
     def apply(self, **kwargs):
         pass
 
     @staticmethod
+    @log_call(log)
     def update_applied_damage(pet, damage, applied_damage):
         log.debug(f"Updating applied_damage. Before: {applied_damage}")
         if pet not in applied_damage:
@@ -28,6 +31,7 @@ class Damage(AbilityBase):
         log.debug(f"Updated applied_damage. After: {applied_damage}")
         return applied_damage
 
+    @log_call(log)
     def get_optimal_targets(self, living_pets, applied_damage, mode):
         log.debug(f"Getting optimal targets for {self.__class__.__name__} of {self.owner} with mode {mode}")
         target_healths = {pet: pet.health - applied_damage.get(pet, 0) for pet in living_pets}
@@ -57,6 +61,7 @@ class Damage(AbilityBase):
         log.debug(f"Optimal pet selected: {optimal_pet}")
         return optimal_pet
 
+    @log_call(log)
     def apply_damage(self, enemy_team=None, applied_damage=None):
         log.debug(f"{self.__class__.__name__} using generic apply_damage()")
         actions = []
@@ -84,13 +89,17 @@ class Damage(AbilityBase):
         return actions
 
 
+@log_class_init(log)
 class DamageRandomEnemy(Damage):
+    @log_call(log)
     def apply(self, enemy_team=None, applied_damage=None):
         log.debug(f"Applying {self.__class__.__name__} from {self.owner} on team {self.owner.team}")
         return self.apply_damage(enemy_team, applied_damage)
 
 
+@log_class_init(log)
 class DamageEnemyWithAttribute(Damage):
+    @log_call(log)
     def apply(self, enemy_team=None, applied_damage=None):
         return self.apply_damage(enemy_team, applied_damage)
 
