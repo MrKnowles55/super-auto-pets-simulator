@@ -1,5 +1,6 @@
 from abc import abstractmethod
 from .ability_abstract import AbilityBase
+from src.action.action_utils import generate_modify_stats_action
 from random import sample
 from src.config_utils.logger import setup_logger, log_call, log_class_init
 
@@ -23,16 +24,15 @@ class ModifyStatsAbilityBase(AbilityBase):
 
     @log_call(log)
     def add_modifiers(self, target_pet):
-        log.debug(f"{self.owner} modifying {target_pet}  by {self.attack_mod} / {self.health_mod} using "
-                  f"{self.__class__.__name__}")
-        target_pet.attack += self.attack_mod
-        target_pet.health += self.health_mod
+        return generate_modify_stats_action(self.owner, trigger_event=self.trigger_event, target_pet=target_pet, attack_mod=self.attack_mod,
+                                            health_mod=self.health_mod)
 
 
 @log_class_init(log)
 class ModifyStatsAbilityRandomFriend(ModifyStatsAbilityBase):
     @log_call(log)
     def apply(self, **kwargs):
+        actions = []
         # Create a list of friendly pets, excluding the triggering pet
         available_targets = [p for p in self.owner.team.pets if p is not self.owner and p.health > 0]
         if available_targets:
@@ -42,7 +42,9 @@ class ModifyStatsAbilityRandomFriend(ModifyStatsAbilityBase):
 
             # Modify the target pets' stats
             for target_pet in target_pets:
-                self.add_modifiers(target_pet)
+                actions.append(self.add_modifiers(target_pet))
+
+        return actions
 
 
 @log_class_init(log)
