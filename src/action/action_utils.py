@@ -35,9 +35,9 @@ class ActionHandler:
         self.action_list = []
 
     @log_call(log)
-    def retarget_action(self, action):
+    def retarget_action(self, action, **kwargs):
         source = action.source
-        new_actions = source.ability.apply()
+        new_actions = source.ability.apply(**kwargs)
         for act in new_actions:
             if act.name == action.name:
                 return act
@@ -110,7 +110,11 @@ class ActionHandler:
                     else:
                         if not retarget_flag:
                             log.print(f"{target_pet} is fainted. Retargeting.")
-                            new_action = self.retarget_action(action)
+                            index = action.kwargs.get("index")
+                            if index is not None:
+                                new_action = self.retarget_action(action, index=index)
+                            else:
+                                new_action = self.retarget_action(action)
                             if new_action:
                                 self.execute(new_action, retarget_flag=True)
                             else:
@@ -176,10 +180,10 @@ def generate_summon_action(source, trigger_event, pet_to_summon, team, index):
 
 
 def generate_modify_stats_action(source, trigger_event, target_pet, attack_mod, health_mod, transfer_to=False,
-                                 transfer_from=False, percentage=0):
+                                 transfer_from=False, percentage=0, **kwargs):
     return generate_action("Modify_Stats", source, trigger_event=trigger_event, target_pet=target_pet,
                            attack_mod=attack_mod, health_mod=health_mod, transfer_to=transfer_to,
-                           transfer_from=transfer_from, percentage=percentage)
+                           transfer_from=transfer_from, percentage=percentage, **kwargs)
 
 
 @log_call(log)
