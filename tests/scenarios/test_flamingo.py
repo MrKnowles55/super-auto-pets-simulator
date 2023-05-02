@@ -75,9 +75,11 @@ from src.config_utils.logger import setup_logger, log_call, log_class_init
 
 log = setup_logger(__name__)
 
+
 @log_class_init(log)
 class TestFlamingo(unittest.TestCase):
 
+    @log_call(log)
     def setUp(self) -> None:
 
         self.team_of_5_flamingos = Team("5 Flamingos")
@@ -108,6 +110,7 @@ class TestFlamingo(unittest.TestCase):
             self.team_of_5_big_guys.name: self.team_of_5_big_guys.pets[:]
         }
 
+    @log_call(log)
     def test_team_setup(self):
 
         # Check team sizes
@@ -126,6 +129,7 @@ class TestFlamingo(unittest.TestCase):
                 self.assertEqual(pet.name, team_to_pet_dict[team][0])
                 self.assertEqual(pet.attack, team_to_pet_dict[team][1])
 
+    @log_call(log)
     def test_first_flamingo_faints_with_2_friends_behind_get_buffed(self):
 
         # Knockout first Flamingo
@@ -150,6 +154,7 @@ class TestFlamingo(unittest.TestCase):
         self.assertEqual(self.team_of_5_flamingos.pets[3].attack, 4)
         self.assertEqual(self.team_of_5_flamingos.pets[3].health, 2)
 
+    @log_call(log)
     def test_second_to_last_flamingo_faints_with_one_friend_behind_buffed(self):
         attacker = self.team_of_5_big_guys.pets[0]
         self.team_of_5_flamingos.pets[3].apply_damage(50, attacker)
@@ -171,6 +176,7 @@ class TestFlamingo(unittest.TestCase):
         self.assertEqual(self.team_of_5_flamingos.pets[3].attack, 5)
         self.assertEqual(self.team_of_5_flamingos.pets[3].health, 3)
 
+    @log_call(log)
     def test_last_flamingo_faints_buffs_none(self):
         attacker = self.team_of_5_big_guys.pets[0]
         self.team_of_5_flamingos.pets[1].apply_damage(50, attacker)
@@ -183,6 +189,7 @@ class TestFlamingo(unittest.TestCase):
         self.assertEqual(self.team_of_5_flamingos.pets[0].attack, 4)
         self.assertEqual(self.team_of_5_flamingos.pets[0].health, 2)
 
+    @log_call(log)
     def test_flamingo_faints_no_friends(self):
 
         # remove all the flamingos friends
@@ -194,15 +201,19 @@ class TestFlamingo(unittest.TestCase):
 
         self.assertFalse(self.team_of_5_flamingos.pets)
 
+    @log_call(log)
     def test_first_2_flamingo_faints_simultaneously_with_friends_behind(self):
+        print(self.team_of_5_flamingos.pets)
         attacker = self.team_of_5_big_guys.pets[0]
         self.team_of_5_flamingos.pets[0].apply_damage(50, attacker)
-        self.team_of_5_flamingos.pets[1].apply_damage(50, attacker)
-
-        self.assertEqual(len(self.team_of_5_flamingos.pets), 3)
         print(self.team_of_5_flamingos.pets)
+        self.team_of_5_flamingos.pets[0].apply_damage(50, attacker)
+        print(self.team_of_5_flamingos.pets)
+        self.team_of_5_flamingos.pets[0].apply_damage(50, attacker)
+        print(self.team_of_5_flamingos.pets)
+
+        self.assertEqual(len(self.team_of_5_flamingos.pets), 2)
         # Action execution
         action_handler.execute_actions()
 
         print(self.team_of_5_flamingos.pets)
-        log.debug("test")
