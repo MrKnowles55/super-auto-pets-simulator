@@ -88,14 +88,14 @@ class Damage(AbilityBase):
 @log_class_init(log)
 class DamageRandomEnemy(Damage):
     @log_call(log)
-    def apply(self, enemy_team=None, applied_damage=None):
+    def apply(self, enemy_team=None, applied_damage=None, **kwargs):
         return self.apply_damage(enemy_team, applied_damage)
 
 
 @log_class_init(log)
 class DamageEnemyWithAttribute(Damage):
     @log_call(log)
-    def apply(self, enemy_team=None, applied_damage=None):
+    def apply(self, enemy_team=None, applied_damage=None, **kwargs):
         return self.apply_damage(enemy_team, applied_damage)
 
     #     elif self.target == "all":
