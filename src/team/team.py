@@ -29,6 +29,7 @@ class Team:
     def remove_pet(self, pet):
         if pet in self.pets:
             self.pets.remove(pet)
+            self.fill()
         else:
             log.debug(f"{self} cannot remove {pet} because it does not exist")
 
@@ -43,6 +44,12 @@ class Team:
                 log.debug(f"{self} cannot move {pet} from {old_index} to {new_index}")
             except IndexError:
                 log.debug(f"{self} has no pet at {old_index} to move.")
+
+    @log_call(log)
+    def fill(self):
+        self.pets = [pet for pet in self.pets if pet is not None]
+        for i, pet in enumerate(self.pets):
+            pet.position = i
 
 
 player_team = Team("Player")
