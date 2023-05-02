@@ -1,4 +1,5 @@
 from src.config_utils.logger import setup_logger, log_call, log_class_init
+from src.action.action_utils import action_handler, generate_fill_action
 
 log = setup_logger(__name__)
 
@@ -29,7 +30,7 @@ class Team:
     def remove_pet(self, pet):
         if pet in self.pets:
             self.pets.remove(pet)
-            self.fill()
+            action_handler.add_action(generate_fill_action(self, None))
         else:
             log.debug(f"{self} cannot remove {pet} because it does not exist")
 

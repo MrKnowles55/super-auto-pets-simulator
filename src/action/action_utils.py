@@ -44,12 +44,19 @@ class ActionHandler:
 
     @log_call(log)
     def execute(self, action, retarget_flag=False):
+
         source = action.source
         trigger_event = action.kwargs.get("trigger_event")
         # check if source is not None, and then only actually execute the action if the source pet is still alive, or if
-        # the ability is a faint ability.
+        # the ability is a faint ability. Try method to capture is_alive attribute for pets, but bypass if
+        # source is not a pet.
+        try:
+            source_alive_flag = source.is_alive
+        except AttributeError:
+            source_alive_flag = True
+
         if source:
-            if source.is_alive or trigger_event == TriggerEvent.Faint:
+            if source_alive_flag or trigger_event == TriggerEvent.Faint:
                 pass
             else:
                 log.print("Ability not executed due to the source being dead and it not being a faint ability.")
@@ -123,6 +130,9 @@ class ActionHandler:
                             log.print(f"Retarget failed.")
                 else:
                     log.print(f"Targeted pet is {target_pet}. Cannot modify its stats.")
+            case "Fill":
+                if source:
+                    source.fill()
             case _:
                 print(f"Default case for ({action.name},{action.source},{action.kwargs})")
                 log.print(f"Default case for ({action.name},{action.source},{action.kwargs})")
@@ -184,6 +194,10 @@ def generate_modify_stats_action(source, trigger_event, target_pet, attack_mod, 
     return generate_action("Modify_Stats", source, trigger_event=trigger_event, target_pet=target_pet,
                            attack_mod=attack_mod, health_mod=health_mod, transfer_to=transfer_to,
                            transfer_from=transfer_from, percentage=percentage, **kwargs)
+
+
+def generate_fill_action(source, trigger_event=None):
+    return generate_action("Fill", source, trigger_event=trigger_event)
 
 
 @log_call(log)
