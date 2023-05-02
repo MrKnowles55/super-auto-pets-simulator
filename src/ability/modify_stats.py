@@ -23,9 +23,9 @@ class ModifyStatsAbilityBase(AbilityBase):
         pass
 
     @log_call(log)
-    def add_modifiers(self, target_pet):
+    def add_modifiers(self, target_pet, **kwargs):
         return generate_modify_stats_action(self.owner, trigger_event=self.trigger_event, target_pet=target_pet, attack_mod=self.attack_mod,
-                                            health_mod=self.health_mod)
+                                            health_mod=self.health_mod, **kwargs)
 
 
 @log_class_init(log)
@@ -51,31 +51,40 @@ class ModifyStatsAbilityRandomFriend(ModifyStatsAbilityBase):
 class ModifyStatsAbilityFrontFriend(ModifyStatsAbilityBase):
     @log_call(log)
     def apply(self, **kwargs):
+        actions = []
         if self.owner.team.pets:
             target_pet = self.owner.team.pets[0]
-            self.add_modifiers(target_pet)
+            actions.append(self.add_modifiers(target_pet))
+        return actions
 
 
 @log_class_init(log)
 class ModifyStatsAbilityFriendBehind(ModifyStatsAbilityBase):
     @log_call(log)
     def apply(self, **kwargs):
-        index = self.owner.team.pets.index(self.owner)
+        actions = []
+        index = kwargs.get("index")
+        if index is None:
+            index = self.owner.team.pets.index(self.owner)
         for n in range(self.target_n):
             if index >= len(self.owner.team.pets)-1-n:
-                return
+                return actions
 
             target = self.owner.team.pets[index + 1 + n]
-            self.add_modifiers(target)
+            actions.append(self.add_modifiers(target, index=index))
+        return actions
 
 
 @log_class_init(log)
 class ModifyStatsAbilityFriendAhead(ModifyStatsAbilityBase):
     @log_call(log)
     def apply(self, **kwargs):
+        actions = []
         index = self.owner.team.pets.index(self.owner)
         if index == 0:
-            return
+            return actions
 
         target = self.owner.team.pets[index - 1]
-        self.add_modifiers(target)
+        actions.append(self.add_modifiers(target))
+
+        return actions
