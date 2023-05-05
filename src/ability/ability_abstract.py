@@ -12,7 +12,7 @@ class AbilityBase(ABC):
     @log_call(log)
     @abstractmethod
     def apply(self, **kwargs):
-        pass
+        return
 
     @log_call(log)
     def trigger(self, event, **kwargs):
@@ -27,12 +27,12 @@ class AbilityBase(ABC):
 
 @log_class_init(log)
 class No_Ability(AbilityBase):
-    def __init__(self, owner):
-        super().__init__(owner)
+    def __init__(self, owner, trigger_event=None):
+        super().__init__(owner, trigger_event)
 
     @log_call(log)
     def apply(self, **kwargs):
-        pass
+        return
 
 
 # class Summon(Ability):
