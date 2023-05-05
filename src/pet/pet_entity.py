@@ -53,18 +53,18 @@ class PetEntity:
         self.apply_damage(enemy_pet.attack, enemy_pet)
         enemy_pet.apply_damage(self.attack, self)
 
-    @log_call(log)
-    def take_damage(self, damage, attacker):
-        """
-        Create a list of actions to apply damage to the pet.
-
-        :param damage: The amount of damage to apply.
-        :param attacker: The pet dealing the damage.
-        :return: A list of actions to apply damage to the pet.
-        """
-        actions = []
-        actions.append(("take_damage", self, damage, attacker))
-        return actions
+    # @log_call(log)
+    # def take_damage(self, damage, attacker):
+    #     """
+    #     Create a list of actions to apply damage to the pet.
+    #
+    #     :param damage: The amount of damage to apply.
+    #     :param attacker: The pet dealing the damage.
+    #     :return: A list of actions to apply damage to the pet.
+    #     """
+    #     actions = []
+    #     actions.append(("take_damage", self, damage, attacker))
+    #     return actions
 
     @log_call(log)
     def apply_damage(self, damage, attacker):
@@ -98,12 +98,14 @@ class PetEntity:
     @log_call(log)
     def hurt(self):
         if self.ability:
-            self.ability.trigger(TriggerEvent.Hurt)
+            actions = self.ability.trigger(TriggerEvent.Hurt)
+            action_handler.add_action(actions)
 
     @log_call(log)
     def before_attack(self):
         if self.ability:
-            self.ability.trigger(TriggerEvent.BeforeAttack)
+            actions = self.ability.trigger(TriggerEvent.BeforeAttack)
+            action_handler.add_action(actions)
 
 
 
