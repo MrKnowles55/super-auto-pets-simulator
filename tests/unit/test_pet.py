@@ -2,23 +2,23 @@ import unittest
 from src.pet.pet_entity import PetEntity
 from src.config_utils.logger import setup_logger, log_call, log_class_init
 from src.action.action_utils import action_handler
-from tests.unit.ability.test_ability import generate_test_ability
+from tests.dummy.dummy_ability import generate_dummy_ability
 from src.team.team import Team
 log = setup_logger(__name__)
 
 
 @log_class_init(log)
-class TestAbilityGenerator:
+class FakeAbilityGenerator:
     def __init__(self, ability_dict, owner):
         self.ability_dict = ability_dict
         self.owner = owner
 
     def generate(self):
-        return generate_test_ability(self.owner, trigger_event=None)
+        return generate_dummy_ability(self.owner, trigger_event=None)
 
 
 @log_class_init(log)
-class TestPet(unittest.TestCase):
+class TestPetEntity(unittest.TestCase):
 
     @log_call(log)
     def setUp(self):
@@ -27,8 +27,8 @@ class TestPet(unittest.TestCase):
 
         # Setup default abilities for PetEntity Initialization
         self.test_ability_data = {}
-        self.test_ability = generate_test_ability(None)
-        self.test_ability_generator = TestAbilityGenerator
+        self.test_ability = generate_dummy_ability(None)
+        self.test_ability_generator = FakeAbilityGenerator
 
         # Initialize 2 pets.
 
@@ -100,20 +100,20 @@ class TestPet(unittest.TestCase):
 
     def test_hurt(self):
         # No action returned when trigger_event is not Hurt
-        self.pet.ability = generate_test_ability(self.pet)
+        self.pet.ability = generate_dummy_ability(self.pet)
         self.pet.hurt()
         self.assertEqual(action_handler.action_list, [])
 
         # Hurt action returned when trigger_event is Hurt
-        self.pet.ability = generate_test_ability(self.pet, "Hurt")
+        self.pet.ability = generate_dummy_ability(self.pet, "Hurt")
         self.pet.hurt()
 
         self.assertIn(action_handler.action_list[0][0], "Hurt")
 
     def test_faint(self):
         attacker = self.enemy_pet
-        ability_none = generate_test_ability(self.pet)
-        ability_faint = generate_test_ability(self.pet, "Faint")
+        ability_none = generate_dummy_ability(self.pet)
+        ability_faint = generate_dummy_ability(self.pet, "Faint")
         # No action returned when trigger_event is not Faint
         action_handler.clear_actions()
         self.pet.fainted = False
@@ -159,12 +159,12 @@ class TestPet(unittest.TestCase):
 
     def test_before_attack(self):
         # No action returned when trigger_event is not BeforeAttack
-        self.pet.ability = generate_test_ability(self.pet)
+        self.pet.ability = generate_dummy_ability(self.pet)
         self.pet.before_attack()
         self.assertEqual(action_handler.action_list, [])
 
         # BeforeAttack action returned when trigger_event is BeforeAttack
-        self.pet.ability = generate_test_ability(self.pet, "BeforeAttack")
+        self.pet.ability = generate_dummy_ability(self.pet, "BeforeAttack")
         self.pet.before_attack()
 
         self.assertIn(action_handler.action_list[0][0], "BeforeAttack")
@@ -181,6 +181,9 @@ class TestPet(unittest.TestCase):
 
         self.assertEqual(self.pet.health, 50)
         self.assertEqual(self.enemy_pet.health, 49)
+
+
+# For other tests to import pets
 
 
 if __name__ == '__main__':
