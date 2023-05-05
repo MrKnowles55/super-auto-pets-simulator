@@ -18,7 +18,7 @@ class TestMosquitoVsCricket(unittest.TestCase):
         opponent_team : Cricket(1/2), Cricket(1/2), _, _, _
         :return:
         """
-        player_team.pets = [
+        player_team.pets_list = [
             create_pet("Mosquito"),
             create_pet("Mosquito"),
             create_pet("Mosquito"),
@@ -26,22 +26,22 @@ class TestMosquitoVsCricket(unittest.TestCase):
             create_pet("Mosquito")
         ]
 
-        opponent_team.pets = [
+        opponent_team.pets_list = [
             create_pet("Cricket"),
             create_pet("Cricket")
         ]
 
         # Set the team for each pet in player_team
-        for pet in player_team.pets:
+        for pet in player_team.pets_list:
             pet.team = player_team
 
         # Set the team for each pet in opponent_team
-        for pet in opponent_team.pets:
+        for pet in opponent_team.pets_list:
             pet.team = opponent_team
 
     @staticmethod
     def get_mode():
-        return player_team.pets[0].name
+        return player_team.pets_list[0].name
 
     def test_team_setup(self):
         """
@@ -50,25 +50,25 @@ class TestMosquitoVsCricket(unittest.TestCase):
         """
         match self.get_mode():
             case "Mosquito":
-                self.assertEqual(len(player_team.pets), 5)
-                self.assertEqual(len(opponent_team.pets), 2)
+                self.assertEqual(len(player_team.pets_list), 5)
+                self.assertEqual(len(opponent_team.pets_list), 2)
                 self.assertEqual(len(get_pet_list(player_team, opponent_team)), 7)
 
-                self.assertEqual(player_team.pets[0].name, "Mosquito")
-                self.assertEqual(opponent_team.pets[0].name, "Cricket")
+                self.assertEqual(player_team.pets_list[0].name, "Mosquito")
+                self.assertEqual(opponent_team.pets_list[0].name, "Cricket")
 
-                self.assertEqual(player_team.pets[0].attack, 2)
-                self.assertEqual(opponent_team.pets[0].attack, 1)
+                self.assertEqual(player_team.pets_list[0].attack, 2)
+                self.assertEqual(opponent_team.pets_list[0].attack, 1)
             case "Cricket":
-                self.assertEqual(len(player_team.pets), 2)
-                self.assertEqual(len(opponent_team.pets), 5)
+                self.assertEqual(len(player_team.pets_list), 2)
+                self.assertEqual(len(opponent_team.pets_list), 5)
                 self.assertEqual(len(get_pet_list(player_team, opponent_team)), 7)
 
-                self.assertEqual(player_team.pets[0].name, "Cricket")
-                self.assertEqual(opponent_team.pets[0].name, "Mosquito")
+                self.assertEqual(player_team.pets_list[0].name, "Cricket")
+                self.assertEqual(opponent_team.pets_list[0].name, "Mosquito")
 
-                self.assertEqual(player_team.pets[0].attack, 1)
-                self.assertEqual(opponent_team.pets[0].attack, 2)
+                self.assertEqual(player_team.pets_list[0].attack, 1)
+                self.assertEqual(opponent_team.pets_list[0].attack, 2)
 
     def test_get_pet_list(self):
         """
@@ -102,14 +102,14 @@ class TestMosquitoVsCricket(unittest.TestCase):
         match self.get_mode():
             case "Mosquito":
                 start_of_battle(player_team, opponent_team, pet_list)
-                for pet in opponent_team.pets:
+                for pet in opponent_team.pets_list:
                     self.assertEqual(pet.name, "Zombie Cricket")
-                self.assertEqual(len(opponent_team.pets), 2)
+                self.assertEqual(len(opponent_team.pets_list), 2)
             case "Cricket":
                 start_of_battle(player_team, opponent_team, pet_list)
-                for pet in player_team.pets:
+                for pet in player_team.pets_list:
                     self.assertEqual(pet.name, "Zombie Cricket")
-                self.assertEqual(len(player_team.pets), 2)
+                self.assertEqual(len(player_team.pets_list), 2)
 
     def test_fight_loop(self):
         """
@@ -121,21 +121,21 @@ class TestMosquitoVsCricket(unittest.TestCase):
 
         match self.get_mode():
             case "Mosquito":
-                attacker = player_team.pets[0]
-                opponent_team.pets[1].apply_damage(2, attacker)
-                opponent_team.pets[0].apply_damage(2, attacker)
+                attacker = player_team.pets_list[0]
+                opponent_team.pets_list[1].apply_damage(2, attacker)
+                opponent_team.pets_list[0].apply_damage(2, attacker)
                 action_handler.execute_actions()
                 fight_loop(player_team, opponent_team)
-                self.assertEqual(len(opponent_team.pets), 0)
-                self.assertEqual(len(player_team.pets), 4)
+                self.assertEqual(len(opponent_team.pets_list), 0)
+                self.assertEqual(len(player_team.pets_list), 4)
             case "Cricket":
-                attacker = opponent_team.pets[0]
-                player_team.pets[1].apply_damage(2, attacker)
-                player_team.pets[0].apply_damage(2, attacker)
+                attacker = opponent_team.pets_list[0]
+                player_team.pets_list[1].apply_damage(2, attacker)
+                player_team.pets_list[0].apply_damage(2, attacker)
                 action_handler.execute_actions()
                 fight_loop(player_team, opponent_team)
-                self.assertEqual(len(opponent_team.pets), 4)
-                self.assertEqual(len(player_team.pets), 0)
+                self.assertEqual(len(opponent_team.pets_list), 4)
+                self.assertEqual(len(player_team.pets_list), 0)
 
     def test_end_of_battle(self):
         impossible_both_teams_have_pet = end_of_battle(player_team, opponent_team)
@@ -160,12 +160,12 @@ class TestCricketVsMosquito(TestMosquitoVsCricket):
         opponent_team : Mosquito(2/2), Mosquito(2/2), Mosquito(2/2), Mosquito(2/2), Mosquito(2/2)
         :return:
         """
-        player_team.pets = [
+        player_team.pets_list = [
             create_pet("Cricket"),
             create_pet("Cricket")
         ]
 
-        opponent_team.pets = [
+        opponent_team.pets_list = [
             create_pet("Mosquito"),
             create_pet("Mosquito"),
             create_pet("Mosquito"),
@@ -174,11 +174,11 @@ class TestCricketVsMosquito(TestMosquitoVsCricket):
         ]
 
         # Set the team for each pet in player_team
-        for pet in player_team.pets:
+        for pet in player_team.pets_list:
             pet.team = player_team
 
         # Set the team for each pet in opponent_team
-        for pet in opponent_team.pets:
+        for pet in opponent_team.pets_list:
             pet.team = opponent_team
 
 

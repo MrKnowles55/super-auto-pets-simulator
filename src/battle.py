@@ -19,9 +19,9 @@ def get_battle_string(team1, team2, prefix='', format_buffer=80, name_length=8):
     """
     team1_pets_str = ['_'] * 5
     team2_pets_str = ['_'] * 5
-    for i, pet in enumerate(team1.pets):
+    for i, pet in enumerate(team1.pets_list):
         team1_pets_str[i] = f"{pet.name[:name_length]}({pet.attack}/{pet.health})"
-    for i, pet in enumerate(team2.pets):
+    for i, pet in enumerate(team2.pets_list):
         team2_pets_str[i] = f"{pet.name[:name_length]}({pet.attack}/{pet.health})"
     team1_pets_str = ', '.join(reversed(team1_pets_str))
     team2_pets_str = ', '.join(team2_pets_str)
@@ -32,7 +32,7 @@ def get_battle_string(team1, team2, prefix='', format_buffer=80, name_length=8):
 
 
 def get_pet_list(team1, team2):
-    return team1.pets + team2.pets
+    return team1.pets_list + team2.pets_list
 
 
 def start_of_battle(team1, team2, pet_list, verbose=False):
@@ -72,10 +72,10 @@ def fight_loop(team1, team2, verbose=False):
     # Fight Loop
     log.print(get_battle_string(team1, team2, "Begin fight_loop(): "))
     round = 0
-    while team1.pets and team2.pets:
+    while team1.pets_list and team2.pets_list:
         action_handler.execute_actions()
-        pet1 = team1.pets[0]
-        pet2 = team2.pets[0]
+        pet1 = team1.pets_list[0]
+        pet2 = team2.pets_list[0]
 
         round += 1
 
@@ -93,11 +93,11 @@ def fight_loop(team1, team2, verbose=False):
             print(get_battle_string(team1, team2, prefix=f'After Attack :'))
 
     if verbose:
-        if not team1.pets:
+        if not team1.pets_list:
             print("Player Loses! =(")
-        if not team2.pets:
+        if not team2.pets_list:
             print("Player Wins!!! =D")
-        if not team1.pets and not team2.pets:
+        if not team1.pets_list and not team2.pets_list:
             print("It's a tie. =/")
     log.print(get_battle_string(team1, team2, "End fight_loop(): "))
 
@@ -105,7 +105,7 @@ def fight_loop(team1, team2, verbose=False):
 def end_of_battle(team1, team2, verbose=False):
     # End of Battle
     log.print(get_battle_string(team1, team2, prefix=f'End fight() :'))
-    return [int(bool(team1.pets)), int(bool(team2.pets))]
+    return [int(bool(team1.pets_list)), int(bool(team2.pets_list))]
 
 @log_call(log)
 def fight(team1, team2, verbose=False):

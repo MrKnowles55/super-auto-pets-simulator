@@ -66,7 +66,7 @@ class Damage(AbilityBase):
             return actions
 
         # Get the living pets in the enemy team
-        living_pets = [pet for pet in enemy_team.pets if pet.is_alive]
+        living_pets = [pet for pet in enemy_team.pets_list if pet.is_alive]
 
         if not living_pets:
             log.print(f"No living_pets")

@@ -11,7 +11,7 @@ class TestTeam(unittest.TestCase):
         pet = PetEntity("Test Pet", 5, 10, 1, 1, None, None, None, AbilityGenerator)
 
         team.add_pet(pet)
-        self.assertIn(pet, team.pets)
+        self.assertIn(pet, team.pets_list)
 
     def test_remove_pet(self):
         team = Team("Test")
@@ -19,7 +19,7 @@ class TestTeam(unittest.TestCase):
 
         team.add_pet(pet)
         team.remove_pet(pet)
-        self.assertNotIn(pet, team.pets)
+        self.assertNotIn(pet, team.pets_list)
 
     def test_move_pet(self):
         team = Team("Test")
@@ -30,7 +30,7 @@ class TestTeam(unittest.TestCase):
         team.add_pet(pet2)
         team.move_pet(0, 1)
 
-        self.assertEqual(team.pets, [pet2, pet1])
+        self.assertEqual(team.pets_list, [pet2, pet1])
 
     def test_add_pet_with_index(self):
         team = Team("Test")
@@ -40,7 +40,7 @@ class TestTeam(unittest.TestCase):
         team.add_pet(pet1)
         team.add_pet(pet2, 0)
 
-        self.assertEqual(team.pets, [pet2, pet1])
+        self.assertEqual(team.pets_list, [pet2, pet1])
 
 
 # Mock Team class to be used in tests

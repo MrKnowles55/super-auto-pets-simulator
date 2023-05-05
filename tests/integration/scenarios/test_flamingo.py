@@ -105,18 +105,18 @@ class TestFlamingo(unittest.TestCase):
 
         # Store the initial pets for each team
         self.initial_pets = {
-            self.team_of_5_flamingos.name: self.team_of_5_flamingos.pets[:],
-            self.team_of_2_flamingos.name: self.team_of_2_flamingos.pets[:],
-            self.team_of_5_big_guys.name: self.team_of_5_big_guys.pets[:]
+            self.team_of_5_flamingos.name: self.team_of_5_flamingos.pets_list[:],
+            self.team_of_2_flamingos.name: self.team_of_2_flamingos.pets_list[:],
+            self.team_of_5_big_guys.name: self.team_of_5_big_guys.pets_list[:]
         }
 
     @log_call(log)
     def test_team_setup(self):
 
         # Check team sizes
-        self.assertEqual(len(self.team_of_5_flamingos.pets), 5)
-        self.assertEqual(len(self.team_of_2_flamingos.pets), 2)
-        self.assertEqual(len(self.team_of_5_big_guys.pets), 5)
+        self.assertEqual(len(self.team_of_5_flamingos.pets_list), 5)
+        self.assertEqual(len(self.team_of_2_flamingos.pets_list), 2)
+        self.assertEqual(len(self.team_of_5_big_guys.pets_list), 5)
 
         # Check teams have correct pets
         team_to_pet_dict = {
@@ -125,7 +125,7 @@ class TestFlamingo(unittest.TestCase):
             self.team_of_5_big_guys: ["Big Test", 50]
         }
         for team in self.teams_to_test:
-            for pet in team.pets:
+            for pet in team.pets_list:
                 self.assertEqual(pet.name, team_to_pet_dict[team][0])
                 self.assertEqual(pet.attack, team_to_pet_dict[team][1])
 
@@ -133,87 +133,87 @@ class TestFlamingo(unittest.TestCase):
     def test_first_flamingo_faints_with_2_friends_behind_get_buffed(self):
 
         # Knockout first Flamingo
-        attacker = self.team_of_5_big_guys.pets[0]
-        self.team_of_5_flamingos.pets[0].apply_damage(50, attacker)
+        attacker = self.team_of_5_big_guys.pets_list[0]
+        self.team_of_5_flamingos.pets_list[0].apply_damage(50, attacker)
 
         # check that Flamingo fainted
-        self.assertEqual(len(self.team_of_5_flamingos.pets), 4)
+        self.assertEqual(len(self.team_of_5_flamingos.pets_list), 4)
 
         # Action execution
         action_handler.execute_actions()
 
         # Check that the first 2 Flamingos behind the fainted one gain +1/+1
-        self.assertEqual(self.team_of_5_flamingos.pets[0].attack, 5)
-        self.assertEqual(self.team_of_5_flamingos.pets[0].health, 3)
-        self.assertEqual(self.team_of_5_flamingos.pets[1].attack, 5)
-        self.assertEqual(self.team_of_5_flamingos.pets[1].health, 3)
+        self.assertEqual(self.team_of_5_flamingos.pets_list[0].attack, 5)
+        self.assertEqual(self.team_of_5_flamingos.pets_list[0].health, 3)
+        self.assertEqual(self.team_of_5_flamingos.pets_list[1].attack, 5)
+        self.assertEqual(self.team_of_5_flamingos.pets_list[1].health, 3)
 
         # Check that last 2 Flamingos did not have stats modified
-        self.assertEqual(self.team_of_5_flamingos.pets[2].attack, 4)
-        self.assertEqual(self.team_of_5_flamingos.pets[2].health, 2)
-        self.assertEqual(self.team_of_5_flamingos.pets[3].attack, 4)
-        self.assertEqual(self.team_of_5_flamingos.pets[3].health, 2)
+        self.assertEqual(self.team_of_5_flamingos.pets_list[2].attack, 4)
+        self.assertEqual(self.team_of_5_flamingos.pets_list[2].health, 2)
+        self.assertEqual(self.team_of_5_flamingos.pets_list[3].attack, 4)
+        self.assertEqual(self.team_of_5_flamingos.pets_list[3].health, 2)
 
     @log_call(log)
     def test_second_to_last_flamingo_faints_with_one_friend_behind_buffed(self):
-        attacker = self.team_of_5_big_guys.pets[0]
-        self.team_of_5_flamingos.pets[3].apply_damage(50, attacker)
+        attacker = self.team_of_5_big_guys.pets_list[0]
+        self.team_of_5_flamingos.pets_list[3].apply_damage(50, attacker)
 
-        self.assertEqual(len(self.team_of_5_flamingos.pets), 4)
+        self.assertEqual(len(self.team_of_5_flamingos.pets_list), 4)
 
         # Action execution
         action_handler.execute_actions()
 
-        self.assertEqual(self.team_of_5_flamingos.pets[0].attack, 4)
-        self.assertEqual(self.team_of_5_flamingos.pets[0].health, 2)
+        self.assertEqual(self.team_of_5_flamingos.pets_list[0].attack, 4)
+        self.assertEqual(self.team_of_5_flamingos.pets_list[0].health, 2)
 
-        self.assertEqual(self.team_of_5_flamingos.pets[1].attack, 4)
-        self.assertEqual(self.team_of_5_flamingos.pets[1].health, 2)
+        self.assertEqual(self.team_of_5_flamingos.pets_list[1].attack, 4)
+        self.assertEqual(self.team_of_5_flamingos.pets_list[1].health, 2)
 
-        self.assertEqual(self.team_of_5_flamingos.pets[2].attack, 4)
-        self.assertEqual(self.team_of_5_flamingos.pets[2].health, 2)
+        self.assertEqual(self.team_of_5_flamingos.pets_list[2].attack, 4)
+        self.assertEqual(self.team_of_5_flamingos.pets_list[2].health, 2)
 
-        self.assertEqual(self.team_of_5_flamingos.pets[3].attack, 5)
-        self.assertEqual(self.team_of_5_flamingos.pets[3].health, 3)
+        self.assertEqual(self.team_of_5_flamingos.pets_list[3].attack, 5)
+        self.assertEqual(self.team_of_5_flamingos.pets_list[3].health, 3)
 
     @log_call(log)
     def test_last_flamingo_faints_buffs_none(self):
-        attacker = self.team_of_5_big_guys.pets[0]
-        self.team_of_5_flamingos.pets[1].apply_damage(50, attacker)
+        attacker = self.team_of_5_big_guys.pets_list[0]
+        self.team_of_5_flamingos.pets_list[1].apply_damage(50, attacker)
 
-        self.assertEqual(len(self.team_of_5_flamingos.pets), 4)
+        self.assertEqual(len(self.team_of_5_flamingos.pets_list), 4)
 
         # Action execution
         action_handler.execute_actions()
 
-        self.assertEqual(self.team_of_5_flamingos.pets[0].attack, 4)
-        self.assertEqual(self.team_of_5_flamingos.pets[0].health, 2)
+        self.assertEqual(self.team_of_5_flamingos.pets_list[0].attack, 4)
+        self.assertEqual(self.team_of_5_flamingos.pets_list[0].health, 2)
 
     @log_call(log)
     def test_flamingo_faints_no_friends(self):
 
         # remove all the flamingos friends
-        while len(self.team_of_5_flamingos.pets) > 1:
-            self.team_of_5_flamingos.remove_pet(self.team_of_5_flamingos.pets[0])
+        while len(self.team_of_5_flamingos.pets_list) > 1:
+            self.team_of_5_flamingos.remove_pet(self.team_of_5_flamingos.pets_list[0])
 
-        attacker = self.team_of_5_big_guys.pets[0]
-        self.team_of_5_flamingos.pets[0].apply_damage(50, attacker)
+        attacker = self.team_of_5_big_guys.pets_list[0]
+        self.team_of_5_flamingos.pets_list[0].apply_damage(50, attacker)
 
-        self.assertFalse(self.team_of_5_flamingos.pets)
+        self.assertFalse(self.team_of_5_flamingos.pets_list)
 
     @log_call(log)
     def test_first_2_flamingo_faints_simultaneously_with_friends_behind(self):
-        print(self.team_of_5_flamingos.pets)
-        attacker = self.team_of_5_big_guys.pets[0]
-        self.team_of_5_flamingos.pets[0].apply_damage(50, attacker)
-        print(self.team_of_5_flamingos.pets)
-        self.team_of_5_flamingos.pets[0].apply_damage(50, attacker)
-        print(self.team_of_5_flamingos.pets)
-        self.team_of_5_flamingos.pets[0].apply_damage(50, attacker)
-        print(self.team_of_5_flamingos.pets)
+        print(self.team_of_5_flamingos.pets_list)
+        attacker = self.team_of_5_big_guys.pets_list[0]
+        self.team_of_5_flamingos.pets_list[0].apply_damage(50, attacker)
+        print(self.team_of_5_flamingos.pets_list)
+        self.team_of_5_flamingos.pets_list[0].apply_damage(50, attacker)
+        print(self.team_of_5_flamingos.pets_list)
+        self.team_of_5_flamingos.pets_list[0].apply_damage(50, attacker)
+        print(self.team_of_5_flamingos.pets_list)
 
-        self.assertEqual(len(self.team_of_5_flamingos.pets), 2)
+        self.assertEqual(len(self.team_of_5_flamingos.pets_list), 2)
         # Action execution
         action_handler.execute_actions()
 
-        print(self.team_of_5_flamingos.pets)
+        print(self.team_of_5_flamingos.pets_list)

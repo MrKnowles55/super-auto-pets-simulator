@@ -34,7 +34,7 @@ class ModifyStatsAbilityRandomFriend(ModifyStatsAbilityBase):
     def apply(self, **kwargs):
         actions = []
         # Create a list of friendly pets, excluding the triggering pet
-        available_targets = [p for p in self.owner.team.pets if p is not self.owner and p.health > 0]
+        available_targets = [p for p in self.owner.team.pets_list if p is not self.owner and p.health > 0]
         if available_targets:
             # Choose the specified number of target pets from the available targets
             num_targets = min(len(available_targets), self.target_n)
@@ -52,8 +52,8 @@ class ModifyStatsAbilityFrontFriend(ModifyStatsAbilityBase):
     @log_call(log)
     def apply(self, **kwargs):
         actions = []
-        if self.owner.team.pets:
-            target_pet = self.owner.team.pets[0]
+        if self.owner.team.pets_list:
+            target_pet = self.owner.team.pets_list[0]
             actions.append(self.add_modifiers(target_pet))
         return actions
 
@@ -65,12 +65,12 @@ class ModifyStatsAbilityFriendBehind(ModifyStatsAbilityBase):
         actions = []
         index = kwargs.get("index")
         if index is None:
-            index = self.owner.team.pets.index(self.owner)
+            index = self.owner.team.pets_list.index(self.owner)
         for n in range(self.target_n):
-            if index >= len(self.owner.team.pets)-1-n:
+            if index >= len(self.owner.team.pets_list)-1-n:
                 return actions
 
-            target = self.owner.team.pets[index + 1 + n]
+            target = self.owner.team.pets_list[index + 1 + n]
             actions.append(self.add_modifiers(target, index=index))
         return actions
 
@@ -80,11 +80,11 @@ class ModifyStatsAbilityFriendAhead(ModifyStatsAbilityBase):
     @log_call(log)
     def apply(self, **kwargs):
         actions = []
-        index = self.owner.team.pets.index(self.owner)
+        index = self.owner.team.pets_list.index(self.owner)
         if index == 0:
             return actions
 
-        target = self.owner.team.pets[index - 1]
+        target = self.owner.team.pets_list[index - 1]
         actions.append(self.add_modifiers(target))
 
         return actions

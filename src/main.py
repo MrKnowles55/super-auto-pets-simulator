@@ -24,10 +24,10 @@ def run_simulation(num_sims, friendly_pool, enemy_pool, friendly_team_size=5, en
 
     for i in range(num_sims):
         log.print(f"Starting Sim {i+1}")
-        if player_team.pets:
-            player_team.pets = []
-        if opponent_team.pets:
-            opponent_team.pets = []
+        if player_team.pets_list:
+            player_team.pets_list = []
+        if opponent_team.pets_list:
+            opponent_team.pets_list = []
         fill_team_random(player_team, friendly_pool, team_size=friendly_team_size)
         fill_team_random(opponent_team, enemy_pool, team_size=enemy_team_size)
         result = fight(player_team, opponent_team, verbose)
