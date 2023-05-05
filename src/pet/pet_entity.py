@@ -1,6 +1,5 @@
 from src.pet_data_utils.enums.trigger_event import TriggerEvent
 from src.config_utils.logger import setup_logger, log_call, log_class_init
-from src.action.action_utils import action_handler
 
 log = setup_logger(__name__)
 
@@ -10,7 +9,7 @@ class PetEntity:
     """
     A class representing a pet in the game.
     """
-    def __init__(self, name, attack, health, tier, level, ability1, ability2, ability3, ability_generator):
+    def __init__(self, name, attack, health, tier, level, ability1, ability2, ability3, ability_generator, action_handler):
         self.name = name
         self.attack = attack
         self.health = health
@@ -26,6 +25,7 @@ class PetEntity:
         self.ability = self.abilities[self.level]
         self.team = None
         self.fainted = False
+        self.action_handler = action_handler
 
     def __str__(self):
         return f"{self.name}({self.attack}/{self.health}/P:{self.position})"
@@ -88,24 +88,24 @@ class PetEntity:
             self.fainted = True
             if self.ability:
                 actions = self.ability.trigger(TriggerEvent.Faint, enemy_team=attacker.team)
-                action_handler.add_action(actions)
+                self.action_handler.add_action(actions)
 
             # Clean up dead pets after abilities have been triggered,
             # Pets that summon pets on faint may remove themselves from the team during the ability
-            if not self.is_alive and self in self.team.pets:
+            if not self.is_alive and self in self.team.pets_list:
                 self.team.remove_pet(self)
 
     @log_call(log)
     def hurt(self):
         if self.ability:
             actions = self.ability.trigger(TriggerEvent.Hurt)
-            action_handler.add_action(actions)
+            self.action_handler.add_action(actions)
 
     @log_call(log)
     def before_attack(self):
         if self.ability:
             actions = self.ability.trigger(TriggerEvent.BeforeAttack)
-            action_handler.add_action(actions)
+            self.action_handler.add_action(actions)
 
 
 
