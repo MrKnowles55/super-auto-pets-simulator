@@ -107,10 +107,3 @@ class PetEntity:
             actions = self.ability.trigger(TriggerEvent.BeforeAttack)
             self.action_handler.add_action(actions)
 
-
-
-
-
-
-
-
