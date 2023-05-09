@@ -38,15 +38,72 @@ class TestBattle(unittest.TestCase):
     def test_start_of_battle(self):
         pass
 
+    def test_perform_round(self):
+        team1 = Dummy_Team("Team 1")
+        team2 = Dummy_Team("Team 2")
+
+        team1.add_pet(generate_dummy_pet("friendly"))
+        team2.add_pet(generate_dummy_pet("enemy"))
+
+        battle.perform_round(team1, team2)
+
+    def test_before_attack(self):
+        team1 = Dummy_Team("Team 1")
+        team2 = Dummy_Team("Team 2")
+
+        team1.add_pet(generate_dummy_pet("friendly"))
+        team2.add_pet(generate_dummy_pet("enemy"))
+
+        battle.before_attack(team1.first, team2.first)
+
+    def test_attack(self):
+        team1 = Dummy_Team("Team 1")
+        team2 = Dummy_Team("Team 2")
+
+        team1.add_pet(generate_dummy_pet("friendly"))
+        team2.add_pet(generate_dummy_pet("enemy"))
+
+        battle.attack(team1.first, team2.first)
+
+    def test_after_attack(self):
+        team1 = Dummy_Team("Team 1")
+        team2 = Dummy_Team("Team 2")
+
+        team1.add_pet(generate_dummy_pet("friendly"))
+        team2.add_pet(generate_dummy_pet("enemy"))
+
+        battle.after_attack(team1.first, team2.first)
+
+    def test_is_battle_over(self):
+        team1 = Dummy_Team("Team 1")
+        team2 = Dummy_Team("Team 2")
+
+        # Both empty
+        self.assertTrue(battle.is_battle_over(team1, team2))
+
+        # Team1 has pet
+        team1.add_pet(generate_dummy_pet("friendly"))
+
+        self.assertTrue(battle.is_battle_over(team1, team2))
+
+        # Both has pet
+        team2.add_pet(generate_dummy_pet("enemy"))
+
+        self.assertFalse(battle.is_battle_over(team1, team2))
+
+        # Team2 has pet
+        team1.pets_list = []
+
+        self.assertTrue(battle.is_battle_over(team1, team2))
+
     def test_fight_loop(self):
         team1 = Dummy_Team("Team 1")
         team2 = Dummy_Team("Team 2")
 
-        for _ in range(5):
-            team1.add_pet(generate_dummy_pet("friendly " + str(_)))
-            team2.add_pet(generate_dummy_pet("enemy " + str(_)))
+        team1.add_pet(generate_dummy_pet("friendly"))
+        team2.add_pet(generate_dummy_pet("enemy"))
 
-        battle.fight_loop(team1, team2)
+        self.assertEqual(battle.fight_loop(team1, team2, loop_limit=10), 10)
 
     def test_end_of_battle(self):
         team1 = Dummy_Team("Team 1")
