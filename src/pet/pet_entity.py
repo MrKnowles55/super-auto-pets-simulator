@@ -15,6 +15,7 @@ class PetEntity:
         self.health = health
         self.tier = tier
         self.level = level
+        self.start_position = -1
         self.position = -1
         self.ability_dicts = {
             1: ability1,
@@ -28,10 +29,10 @@ class PetEntity:
         self.action_handler = action_handler
 
     def __str__(self):
-        return f"{self.name}({self.attack}/{self.health}/P:{self.position})"
+        return f"{self.name[:2]}({self.attack}/{self.health} P:({self.start_position}/{self.position}))"
 
     def __repr__(self):
-        return f"{self.name}({self.attack}/{self.health}/P:{self.position})"
+        return f"{self.name[:2]}({self.attack}/{self.health} P:{self.position})"
 
     @property
     def is_alive(self):
@@ -42,6 +43,11 @@ class PetEntity:
             lvl: ability_generator(ability_dict, self).generate()
             for lvl, ability_dict in self.ability_dicts.items()
         }
+
+    def update_position(self, new_position):
+        self.position = new_position
+        if self.start_position == -1:
+            self.start_position = self.position
 
     @log_call(log)
     def attack_pet(self, enemy_pet):

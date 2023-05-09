@@ -66,7 +66,7 @@ class Team:
 
     def update_positions(self):
         for pet in self.pets_list:
-            pet.position = self.pets_list.index(pet)
+            pet.update_position(self.pets_list.index(pet))
 
 
 player_team = Team("Player")

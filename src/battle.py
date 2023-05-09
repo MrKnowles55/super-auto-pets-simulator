@@ -20,9 +20,9 @@ def get_battle_string(team1, team2, prefix='', prefix_buffer=10,format_buffer=80
     team1_pets_str = ['_'] * 5
     team2_pets_str = ['_'] * 5
     for i, pet in enumerate(team1.pets_list):
-        team1_pets_str[i] = f"{pet.name[:name_length]}({pet.attack}/{pet.health})"
+        team1_pets_str[i] = pet.__str__()
     for i, pet in enumerate(team2.pets_list):
-        team2_pets_str[i] = f"{pet.name[:name_length]}({pet.attack}/{pet.health})"
+        team2_pets_str[i] = pet.__str__()
     team1_pets_str = ', '.join(reversed(team1_pets_str))
     team2_pets_str = ', '.join(team2_pets_str)
     len1 = len(team1_pets_str)
