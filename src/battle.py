@@ -35,7 +35,7 @@ def get_pet_list(team1, team2):
     return team1.pets_list + team2.pets_list
 
 
-def start_of_battle(team1, team2, pet_list, verbose=False):
+def old_start_of_battle(team1, team2, pet_list, verbose=False):
     log.print(get_battle_string(team1, team2, "Begin start_of_battle(): "))
     if verbose:
         print(get_battle_string(team1, team2, f"Begin: "))
@@ -66,6 +66,19 @@ def start_of_battle(team1, team2, pet_list, verbose=False):
         action_handler.execute_actions()
 
     log.print(get_battle_string(team1, team2, "End start_of_battle(): "))
+
+
+@log_call(log)
+def start_of_battle(team1, team2, verbose=False):
+    if verbose:
+        print(get_battle_string(team1, team2, f"Start of Battle: "))
+    action_handler.execute_actions()
+
+    for pet in team1.pets_list:
+        pet.start_of_battle(team2)
+
+    for pet in team2.pets_list:
+        pet.start_of_battle(team1)
 
 
 @log_call(log)
@@ -115,6 +128,7 @@ def is_battle_over(team1, team2):
 def fight_loop(team1, team2, loop_limit=1000, verbose=False):
     round = 0
     while not is_battle_over(team1, team2):
+        action_handler.execute_actions()
         round += 1
         if verbose:
             print(get_battle_string(team1, team2, f"Round {round}: "))
@@ -148,7 +162,7 @@ def fight(team1, team2, verbose=False):
     # Start of Battle
     pet_list = get_pet_list(team1, team2)
 
-    start_of_battle(team1, team2, pet_list, verbose)
+    start_of_battle(team1, team2, verbose)
     rounds = fight_loop(team1, team2, verbose=verbose)
 
     return end_of_battle(team1, team2, verbose)

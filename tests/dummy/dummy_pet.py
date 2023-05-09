@@ -41,6 +41,9 @@ class DummyPet:
     def after_attack(self):
         return
 
+    def start_of_battle(self, enemy_team):
+        return
+
 
 def generate_dummy_pet(name="test pet", attack=1, health=1, tier=1, level=1, ability1=None, ability2=None, ability3=None, ability_generator=None):
     return DummyPet(name, attack, health, tier, level, ability1, ability2, ability3, ability_generator)

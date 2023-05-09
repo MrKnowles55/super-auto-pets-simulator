@@ -102,6 +102,12 @@ class PetEntity:
             self.action_handler.add_action(actions)
 
     @log_call(log)
+    def start_of_battle(self, enemy_team):
+        if self.ability:
+            actions = self.ability.trigger(TriggerEvent.StartOfBattle, enemy_team=enemy_team)
+            self.action_handler.add_action(actions)
+
+    @log_call(log)
     def before_attack(self):
         if self.ability:
             actions = self.ability.trigger(TriggerEvent.BeforeAttack)

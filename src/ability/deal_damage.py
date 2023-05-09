@@ -31,7 +31,8 @@ class Damage(AbilityBase):
 
     @log_call(log)
     def get_optimal_targets(self, living_pets, applied_damage, mode):
-        target_healths = {pet: pet.health - applied_damage.get(pet, 0) for pet in living_pets}
+        # target_healths = {pet: pet.health - applied_damage.get(pet, 0) for pet in living_pets}
+        target_healths = {pet: pet.health for pet in living_pets}
         log.print(f"target_healths {target_healths}")
 
         # Filter out pets with health at or below 0
@@ -80,7 +81,7 @@ class Damage(AbilityBase):
             actions.append(generate_damage_action(source=self.owner, trigger_event=self.trigger_event, target_pet=target_pet, damage_amount=self.damage_amount))
 
             # Update the applied damage dictionary
-            self.update_applied_damage(target_pet, self.damage_amount, applied_damage)
+            # self.update_applied_damage(target_pet, self.damage_amount, applied_damage)
 
         return actions
 

@@ -36,7 +36,13 @@ class TestBattle(unittest.TestCase):
                 self.assertIn(pet, pet_list)
 
     def test_start_of_battle(self):
-        pass
+        team1 = Dummy_Team("Team 1")
+        team2 = Dummy_Team("Team 2")
+
+        team1.add_pet(generate_dummy_pet("friendly"))
+        team2.add_pet(generate_dummy_pet("enemy"))
+
+        battle.start_of_battle(team1, team2)
 
     def test_perform_round(self):
         team1 = Dummy_Team("Team 1")
