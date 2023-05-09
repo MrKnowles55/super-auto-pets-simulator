@@ -9,3 +9,15 @@ class Dummy_Team:
     def remove_pet(self, pet):
         if pet in self.pets_list:
             self.pets_list.remove(pet)
+
+    @property
+    def length(self):
+        return len(self.pets_list)
+
+    @property
+    def first(self):
+        if self.length:
+            return self.pets_list[0]
+        else:
+            return None
+
