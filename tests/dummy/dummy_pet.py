@@ -8,6 +8,7 @@ class DummyPet:
         self.health = health
         self.tier = tier
         self.level = level
+        self.start_position = -1
         self.position = -1
         self.ability_dicts = {
             1: {},
@@ -43,6 +44,11 @@ class DummyPet:
 
     def start_of_battle(self, enemy_team):
         return
+
+    def update_position(self, new_position):
+        self.position = new_position
+        if self.start_position == -1:
+            self.start_position = self.position
 
 
 def generate_dummy_pet(name="test pet", attack=1, health=1, tier=1, level=1, ability1=None, ability2=None, ability3=None, ability_generator=None):
