@@ -50,8 +50,8 @@ def main(sims, friendly_team_size=5, enemy_team_size=5, friendly_pool=pet_data_m
     loss_rate = total[1] / num_sims
     tie_rate = (num_sims - total[0] - total[1]) / num_sims
 
-    print("Battle Results")
-    print(f'Rounds: {num_sims}, Wins {win_rate:.1%}, Losses {loss_rate:.1%}, Ties {tie_rate:.1%}')
+    print("\nSimulation Results")
+    print(f'Battles: {num_sims}, Wins {win_rate:.1%}, Losses {loss_rate:.1%}, Ties {tie_rate:.1%}')
 
 
 if __name__ == "__main__":
