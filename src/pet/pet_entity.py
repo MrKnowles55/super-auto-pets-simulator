@@ -107,3 +107,9 @@ class PetEntity:
             actions = self.ability.trigger(TriggerEvent.BeforeAttack)
             self.action_handler.add_action(actions)
 
+    @log_call(log)
+    def after_attack(self):
+        if self.ability:
+            actions = self.ability.trigger(TriggerEvent.AfterAttack)
+            self.action_handler.add_action(actions)
+
