@@ -98,6 +98,8 @@ class ActionHandler:
 
     @log_call(log)
     def execute(self, action, retarget_flag=False):
+        from src.team.team import player_team, opponent_team
+        log.print(f"{list(reversed(player_team.pets_list))} vs {opponent_team.pets_list}")
         source = action.source
         trigger_event = action.kwargs.get("trigger_event")
         # check if source is not None, and then only actually execute the action if the source pet is still alive, or if
@@ -155,6 +157,7 @@ class ActionHandler:
                 percentage = action.kwargs.get("percentage")
                 transfer_to = action.kwargs.get("transfer_to")
                 transfer_from = action.kwargs.get("transfer_from")
+                exclude = action.kwargs.get("exclude")
                 if target_pet:
                     if target_pet.is_alive:
                         if percentage:
@@ -177,12 +180,17 @@ class ActionHandler:
                         target_pet.attack = min(target_pet.attack, 50)
                         target_pet.attack = max(target_pet.attack, 0)
                         target_pet.health = min(target_pet.health, 50)
+
+                        log.print(f"{source} modified {target_pet} from {source.team.pets_list}")
                     else:
                         if not retarget_flag:
                             log.print(f"{target_pet} is fainted. Retargeting.")
                             index = action.kwargs.get("index")
                             if index is not None:
-                                new_action = self.retarget_action(action, index=index)
+                                if exclude is not None:
+                                    new_action = self.retarget_action(action, index=index, exclude=exclude)
+                                else:
+                                    new_action = self.retarget_action(action, index=index)
                             else:
                                 new_action = self.retarget_action(action)
                             if new_action:

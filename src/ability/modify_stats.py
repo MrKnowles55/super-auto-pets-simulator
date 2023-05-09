@@ -64,15 +64,26 @@ class ModifyStatsAbilityFriendBehind(ModifyStatsAbilityBase):
     def apply(self, **kwargs):
         actions = []
         index = kwargs.get("index")
+        exclude = kwargs.get("exclude", [])
         if index is None:
             index = self.owner.team.pets_list.index(self.owner)
-        for n in range(self.target_n):
-            if index >= len(self.owner.team.pets_list)-1-n:
-                return actions
-
-            target = self.owner.team.pets_list[index + 1 + n]
-            actions.append(self.add_modifiers(target, index=index))
+        viable_pets = [x for x in self.owner.team.pets_list if self.owner.team.pets_list.index(x) > index and x.is_alive]
+        print(self.owner, viable_pets)
+        if viable_pets:
+            for n in range(self.target_n):
+                if n < len(viable_pets):
+                    if viable_pets[n] not in exclude:
+                        target = viable_pets[n]
+                        actions.append(self.add_modifiers(target, index=index, exclude=exclude))
+                        exclude.append(target)
         return actions
+
+        #     if index >= len(self.owner.team.pets_list)-1-n:
+        #         return actions
+        #
+        #     target = self.owner.team.pets_list[index + 1 + n]
+        #     actions.append(self.add_modifiers(target, index=index, exclude=exclude))
+        # return actions
 
 
 @log_class_init(log)
