@@ -1,14 +1,14 @@
 import unittest
 from tests.dummy.dummy_pet import generate_dummy_pet
-# from tests.dummy.dummy_action import Dummy_ActionHandler
+from tests.dummy.dummy_action import Dummy_ActionHandler
 from src.team.team import Team
 
 
 class TestTeam(unittest.TestCase):
 
     def setUp(self) -> None:
-        # self.action_handler = Dummy_ActionHandler()
-        # self.action_handler.clear_actions()
+        self.action_handler = Dummy_ActionHandler()
+        self.action_handler.clear_actions()
         self.test_team = Team(name="Name")
 
     def test_add_pet(self):
@@ -44,44 +44,46 @@ class TestTeam(unittest.TestCase):
         self.assertEqual(self.test_team.length, 5)
 
     def test_remove_pet(self):
-        pet = generate_dummy_pet(name="Pet 0")
-        pet1 = generate_dummy_pet(name="Pet 1")
-        pet2 = generate_dummy_pet(name="Pet 2")
-
-        # Remove from front
-        self.test_team.pets_list = []
-        self.test_team.pets_list.append(pet)
-
-        self.test_team.remove_pet(pet)
-
-        self.assertFalse(self.test_team.pets_list)
+        # Action handler now deals with this, tested there.
+        pass
+        # pet = generate_dummy_pet(name="Pet 0")
+        # pet1 = generate_dummy_pet(name="Pet 1")
+        # pet2 = generate_dummy_pet(name="Pet 2")
+        #
+        # # Remove from front
+        # self.test_team.pets_list = []
+        # self.test_team.pets_list.append(pet)
+        #
+        # self.test_team.remove_pet(pet)
+        # print(self.action_handler.action_list)
         # self.assertTrue(self.action_handler.action_list)
-
-        # Remove 1 from front with pets behind
+        #
+        #
+        # # Remove 1 from front with pets behind
         # self.action_handler.clear_actions()
-        self.test_team.pets_list = []
-        self.test_team.pets_list.append(pet)
-        self.test_team.pets_list.append(pet1)
-
-        self.test_team.remove_pet(pet)
-
-        self.assertNotIn(pet, self.test_team.pets_list)
-        self.assertIn(pet1, self.test_team.pets_list)
-        self.assertEqual(pet1.position, 0)
-
-        # Remove 1 pet from middle
+        # self.test_team.pets_list = []
+        # self.test_team.pets_list.append(pet)
+        # self.test_team.pets_list.append(pet1)
+        #
+        # self.test_team.remove_pet(pet)
+        #
+        # self.assertNotIn(pet, self.test_team.pets_list)
+        # self.assertIn(pet1, self.test_team.pets_list)
+        # self.assertEqual(pet1.position, 0)
+        #
+        # # Remove 1 pet from middle
         # self.action_handler.clear_actions()
-        self.test_team.pets_list = []
-        self.test_team.pets_list.append(pet)
-        self.test_team.pets_list.append(pet1)
-        self.test_team.pets_list.append(pet2)
-
-        self.test_team.remove_pet(pet1)
-
-        self.assertEqual(self.test_team.first, pet)
-        self.assertEqual(pet.position, 0)
-        self.assertEqual(self.test_team.pets_list[1], pet2)
-        self.assertEqual(pet2.position, 1)
+        # self.test_team.pets_list = []
+        # self.test_team.pets_list.append(pet)
+        # self.test_team.pets_list.append(pet1)
+        # self.test_team.pets_list.append(pet2)
+        #
+        # self.test_team.remove_pet(pet1)
+        #
+        # self.assertEqual(self.test_team.first, pet)
+        # self.assertEqual(pet.position, 0)
+        # self.assertEqual(self.test_team.pets_list[1], pet2)
+        # self.assertEqual(pet2.position, 1)
 
     def test_move_pet(self):
         pet = generate_dummy_pet(name="Pet 0")

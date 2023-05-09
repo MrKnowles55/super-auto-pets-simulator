@@ -9,18 +9,69 @@ log = setup_logger(__name__)
 class ActionHandler:
     def __init__(self):
         self.action_list = []
+        self.priority_dict = {}
+        self.team_action_list = []
 
     def __repr__(self):
         return f"{self.__class__.__name__}"
 
     @log_call(log)
+    @log_call(log)
     def execute_actions(self):
-        actions_to_remove = []
-        for action in self.action_list:
-            self.execute(action)
-            actions_to_remove.append(action)
+        while self.action_list:
+            self.priority_dict = self.prioritize_actions()
+            priorities = sorted(list(self.priority_dict.keys()), reverse=True)
 
-        self.remove_actions(actions_to_remove)
+            for priority in priorities:
+                # Execute pet actions with the current priority
+                for action in self.priority_dict[priority]:
+                    self.execute(action)
+                    self.remove_actions(action)
+
+                # Execute team actions after each priority
+                for team_action in self.team_action_list:
+                    self.execute(team_action)
+                    self.remove_actions(team_action)
+
+                self.team_action_list = []  # Clear team_action_list after executing team actions for the current priority
+
+            # for priority in priorities:
+            #     log.print(f"Inside Team {self.team_action_list}")
+            #     for action in self.priority_dict[priority]:
+            #         self.execute(action)
+            #     for action in self.team_action_list:
+            #         self.execute(action)
+            # self.clear_actions()
+        #     actions_to_remove.append(action)
+        #
+        # self.remove_actions(actions_to_remove)
+
+    @log_call(log)
+    def prioritize_actions(self):
+        from src.team.team import Team
+        actions_to_prioritize = [x for x in self.action_list if x is not None and x.source is not None and
+                                 not isinstance(x.source, Team)]
+        unique_priorities = set(x.source.attack for x in actions_to_prioritize)
+        priority_dict = {priority: [x for x in actions_to_prioritize if x.source.attack == priority] for priority in
+                         unique_priorities}
+
+        # Get team actions
+        team_actions = [x for x in self.action_list if isinstance(x.source, Team)]
+        self.team_action_list.extend(team_actions)
+
+        # Get the top priority
+        if unique_priorities:
+            top_priority = max(unique_priorities)
+        else:
+            top_priority = 0.5
+
+        # Insert team actions just below the top priority
+        priority_dict[top_priority - 0.5] = team_actions
+
+        # Sort the priority_dict by priority in descending order
+        sorted_priority_dict = dict(sorted(priority_dict.items(), key=lambda item: item[0], reverse=True))
+
+        return sorted_priority_dict
 
     @log_call(log)
     def remove_actions(self, action):
@@ -28,7 +79,10 @@ class ActionHandler:
             for act in action:
                 self.action_list.remove(act)
         else:
-            self.action_list.remove(action)
+            try:
+                self.action_list.remove(action)
+            except ValueError:
+                pass
 
     @log_call(log)
     def clear_actions(self):
@@ -44,7 +98,6 @@ class ActionHandler:
 
     @log_call(log)
     def execute(self, action, retarget_flag=False):
-
         source = action.source
         trigger_event = action.kwargs.get("trigger_event")
         # check if source is not None, and then only actually execute the action if the source pet is still alive, or if
@@ -66,14 +119,24 @@ class ActionHandler:
                 target = action.kwargs.get("target_pet")
                 damage = action.kwargs.get("damage_amount")
                 if target and damage and source:
-                    target.apply_damage(damage, source)
+                    if target.is_alive:
+                        target.apply_damage(damage, source)
+                    else:
+                        from src.team.team import player_team, opponent_team
+                        enemy_team = opponent_team if action.source.team == player_team else player_team
+                        new_action = self.retarget_action(action, enemy_team=enemy_team)
+                        self.execute(new_action, retarget_flag=True)
                 else:
                     print(
                         f"ERROR!!! Target {target}, damage {damage}, or source {source} are invalid for {action.name}")
             case "Remove":
                 team = action.kwargs.get("team")
                 pet = action.kwargs.get("pet_to_remove")
-                team.remove_pet(pet)
+                try:
+                    team.pets_list.remove(pet)
+                except ValueError:
+                    pass
+                team.update_positions()
             case "Summon":
                 from src.pet.pet_factory import create_pet
                 pet_name = action.kwargs.get("pet_to_summon")
