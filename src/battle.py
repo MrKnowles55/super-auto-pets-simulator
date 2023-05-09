@@ -6,7 +6,7 @@ from src.config_utils.logger import setup_logger, log_call
 log = setup_logger(__name__)
 
 
-def get_battle_string(team1, team2, prefix='', format_buffer=80, name_length=8):
+def get_battle_string(team1, team2, prefix='', prefix_buffer=10,format_buffer=80, name_length=8):
     """
     Create a formatted battle string representing the current state of both teams.
 
@@ -28,7 +28,7 @@ def get_battle_string(team1, team2, prefix='', format_buffer=80, name_length=8):
     len1 = len(team1_pets_str)
     len2 = len(team2_pets_str)
     max_len = max(len1, len2)
-    return f"{prefix} {team1_pets_str:>{format_buffer}}     VS     {team2_pets_str:<{format_buffer}}"
+    return f"{prefix:{prefix_buffer}} {team1_pets_str:>{format_buffer}}     VS     {team2_pets_str:<{format_buffer}}"
 
 
 def get_pet_list(team1, team2):
@@ -37,6 +37,8 @@ def get_pet_list(team1, team2):
 
 def start_of_battle(team1, team2, pet_list, verbose=False):
     log.print(get_battle_string(team1, team2, "Begin start_of_battle(): "))
+    if verbose:
+        print(get_battle_string(team1, team2, f"Begin: "))
     actions = []
     priority_dict = prioritize_pets(pet_list)
     priorities = sorted(priority_dict.keys(), reverse=True)
@@ -63,49 +65,74 @@ def start_of_battle(team1, team2, pet_list, verbose=False):
         action_handler.create_actions_from_triggered_abilities(triggered_abilities)
         action_handler.execute_actions()
 
-    if verbose:
-        print(get_battle_string(team1, team2, prefix="Start of Battle"))
     log.print(get_battle_string(team1, team2, "End start_of_battle(): "))
 
 
-def fight_loop(team1, team2, verbose=False):
-    # Fight Loop
-    log.print(get_battle_string(team1, team2, "Begin fight_loop(): "))
+@log_call(log)
+def perform_round(team1, team2, verbose=False):
+    action_handler.execute_actions()
+
+    pet1 = team1.first
+    pet2 = team2.first
+
+    before_attack(pet1, pet2)
+
+    attack(pet1, pet2)
+
+    after_attack(pet1, pet2)
+
+
+@log_call(log)
+def before_attack(pet1, pet2, verbose=False):
+    action_handler.execute_actions()
+    pet1.before_attack()
+    pet2.before_attack()
+
+
+@log_call(log)
+def attack(pet1, pet2, verbose=False):
+    action_handler.execute_actions()
+
+    pet1.attack_pet(pet2)
+
+
+@log_call(log)
+def after_attack(pet1, pet2, verbose=False):
+    action_handler.execute_actions()
+
+    pet1.after_attack()
+    pet2.after_attack()
+
+    action_handler.execute_actions()
+
+
+@log_call(log)
+def is_battle_over(team1, team2):
+    return not (team1.pets_list and team2.pets_list)
+
+
+@log_call(log)
+def fight_loop(team1, team2, loop_limit=1000, verbose=False):
     round = 0
-    while team1.pets_list and team2.pets_list:
-        action_handler.execute_actions()
-        pet1 = team1.pets_list[0]
-        pet2 = team2.pets_list[0]
-
+    while not is_battle_over(team1, team2):
         round += 1
-
-        log.print(get_battle_string(team1, team2, prefix=f'Before Attack :'))
-
-        pet1.before_attack()
-        pet2.before_attack()
-
-        log.print(get_battle_string(team1, team2, prefix=f'Attack Round ({round}):'))
-
-        pet1.attack_pet(pet2)
-
-        log.print(get_battle_string(team1, team2, prefix=f'After Attack :'))
         if verbose:
-            print(get_battle_string(team1, team2, prefix=f'After Attack :'))
+            print(get_battle_string(team1, team2, f"Round {round}: "))
+        perform_round(team1, team2)
 
-    if verbose:
-        if not team1.pets_list:
-            print("Player Loses! =(")
-        if not team2.pets_list:
-            print("Player Wins!!! =D")
-        if not team1.pets_list and not team2.pets_list:
-            print("It's a tie. =/")
-    log.print(get_battle_string(team1, team2, "End fight_loop(): "))
+        if round >= loop_limit:
+            break
+    return round
 
 
+@log_call(log)
 def end_of_battle(team1, team2, verbose=False):
     # End of Battle
+    if verbose:
+        print(get_battle_string(team1, team2, f"End: "))
     log.print(get_battle_string(team1, team2, prefix=f'End fight() :'))
     return [int(bool(team1.pets_list)), int(bool(team2.pets_list))]
+
 
 @log_call(log)
 def fight(team1, team2, verbose=False):
@@ -117,20 +144,12 @@ def fight(team1, team2, verbose=False):
     :param verbose: Whether to print battle information.
     :return: A list containing the result of the battle for each team (1 if the team won, 0 otherwise).
     """
-    log.print(get_battle_string(team1, team2, prefix='Begin fight() :'))
-
-    if verbose:
-
-        print("\n")
-        print(get_battle_string(team1, team2, prefix='Initial Board :'))
 
     # Start of Battle
     pet_list = get_pet_list(team1, team2)
 
-    priority_dict = prioritize_pets(pet_list)
-
     start_of_battle(team1, team2, pet_list, verbose)
-    fight_loop(team1, team2, verbose)
+    rounds = fight_loop(team1, team2, verbose=verbose)
 
     return end_of_battle(team1, team2, verbose)
 
