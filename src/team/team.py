@@ -1,15 +1,15 @@
 from src.config_utils.logger import setup_logger, log_call, log_class_init
-from src.action.action_utils import action_handler, generate_fill_action
+# from src.action.action_utils import action_handler, generate_fill_action
 
 log = setup_logger(__name__)
 
 
 @log_class_init(log)
 class Team:
-    def __init__(self, name, handler=action_handler):
+    def __init__(self, name):
         self.name = name
         self.pets_list = []
-        self.action_handler = handler
+        # self.action_handler = handler
 
     def __str__(self):
         return self.name + " Team"

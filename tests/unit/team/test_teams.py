@@ -1,15 +1,15 @@
 import unittest
 from tests.dummy.dummy_pet import generate_dummy_pet
-from tests.dummy.dummy_action import Dummy_ActionHandler
+# from tests.dummy.dummy_action import Dummy_ActionHandler
 from src.team.team import Team
 
 
 class TestTeam(unittest.TestCase):
 
     def setUp(self) -> None:
-        self.action_handler = Dummy_ActionHandler()
-        self.action_handler.clear_actions()
-        self.test_team = Team(name="Name", handler=self.action_handler)
+        # self.action_handler = Dummy_ActionHandler()
+        # self.action_handler.clear_actions()
+        self.test_team = Team(name="Name")
 
     def test_add_pet(self):
         pet = generate_dummy_pet(name="Pet 0")
@@ -55,10 +55,10 @@ class TestTeam(unittest.TestCase):
         self.test_team.remove_pet(pet)
 
         self.assertFalse(self.test_team.pets_list)
-        self.assertTrue(self.action_handler.action_list)
+        # self.assertTrue(self.action_handler.action_list)
 
         # Remove 1 from front with pets behind
-        self.action_handler.clear_actions()
+        # self.action_handler.clear_actions()
         self.test_team.pets_list = []
         self.test_team.pets_list.append(pet)
         self.test_team.pets_list.append(pet1)
@@ -70,7 +70,7 @@ class TestTeam(unittest.TestCase):
         self.assertEqual(pet1.position, 0)
 
         # Remove 1 pet from middle
-        self.action_handler.clear_actions()
+        # self.action_handler.clear_actions()
         self.test_team.pets_list = []
         self.test_team.pets_list.append(pet)
         self.test_team.pets_list.append(pet1)
