@@ -54,3 +54,6 @@ class TriggerEvent(Enum):
     FriendLevelUp = 31
     HurtAndFaint = 32
     EndOfTurnAndStartOfBattle = 33
+
+    # Test
+    Test = 100
