@@ -24,6 +24,10 @@ class DummyPet:
         self.team = None
         self.fainted = False
 
+    @property
+    def is_alive(self):
+        return self.health > 0
+
     def display(self, **kwargs):
         output = []
         if not kwargs:
@@ -49,6 +53,9 @@ class DummyPet:
         self.position = new_position
         if self.start_position == -1:
             self.start_position = self.position
+
+    def apply_damage(self, damage, attacker):
+        self.health -= damage
 
 
 def generate_dummy_pet(name="test pet", attack=1, health=1, tier=1, level=1, ability1=None, ability2=None, ability3=None, ability_generator=None):
