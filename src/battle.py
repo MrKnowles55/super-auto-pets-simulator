@@ -35,37 +35,37 @@ def get_pet_list(team1, team2):
     return team1.pets_list + team2.pets_list
 
 
-def old_start_of_battle(team1, team2, pet_list, verbose=False):
-    log.print(get_battle_string(team1, team2, "Begin start_of_battle(): "))
-    if verbose:
-        print(get_battle_string(team1, team2, f"Begin: "))
-    actions = []
-    priority_dict = prioritize_pets(pet_list)
-    priorities = sorted(priority_dict.keys(), reverse=True)
-    log.print(f"start_of_battle priorities list {priorities}")
-
-    # Initialize applied damage dictionary
-    applied_damage = {}
-
-    for priority in priorities:
-        pets_with_same_priority = priority_dict[priority]
-        log.print(f"start_of_battle pets in priority {priority} : {pets_with_same_priority}")
-
-        # Collect abilities that should trigger for StartOfBattle event
-        triggered_abilities = []
-        for pet in pets_with_same_priority:
-            if pet.team == team1:
-                triggered_abilities += collect_triggered_abilities([pet], TriggerEvent.StartOfBattle, priority,
-                                                                   enemy_team=team2, applied_damage=applied_damage)
-            else:
-                triggered_abilities += collect_triggered_abilities([pet], TriggerEvent.StartOfBattle, priority,
-                                                                   enemy_team=team1, applied_damage=applied_damage)
-        log.print(f"start_of_battle triggered_abilities {triggered_abilities}")
-        # Execute the collected abilities
-        action_handler.create_actions_from_triggered_abilities(triggered_abilities)
-        action_handler.execute_actions()
-
-    log.print(get_battle_string(team1, team2, "End start_of_battle(): "))
+# def old_start_of_battle(team1, team2, pet_list, verbose=False):
+#     log.print(get_battle_string(team1, team2, "Begin start_of_battle(): "))
+#     if verbose:
+#         print(get_battle_string(team1, team2, f"Begin: "))
+#     actions = []
+#     priority_dict = prioritize_pets(pet_list)
+#     priorities = sorted(priority_dict.keys(), reverse=True)
+#     log.print(f"start_of_battle priorities list {priorities}")
+#
+#     # Initialize applied damage dictionary
+#     applied_damage = {}
+#
+#     for priority in priorities:
+#         pets_with_same_priority = priority_dict[priority]
+#         log.print(f"start_of_battle pets in priority {priority} : {pets_with_same_priority}")
+#
+#         # Collect abilities that should trigger for StartOfBattle event
+#         triggered_abilities = []
+#         for pet in pets_with_same_priority:
+#             if pet.team == team1:
+#                 triggered_abilities += collect_triggered_abilities([pet], TriggerEvent.StartOfBattle, priority,
+#                                                                    enemy_team=team2, applied_damage=applied_damage)
+#             else:
+#                 triggered_abilities += collect_triggered_abilities([pet], TriggerEvent.StartOfBattle, priority,
+#                                                                    enemy_team=team1, applied_damage=applied_damage)
+#         log.print(f"start_of_battle triggered_abilities {triggered_abilities}")
+#         # Execute the collected abilities
+#         action_handler.create_actions_from_triggered_abilities(triggered_abilities)
+#         action_handler.execute_actions()
+#
+#     log.print(get_battle_string(team1, team2, "End start_of_battle(): "))
 
 
 @log_call(log)
