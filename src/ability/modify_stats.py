@@ -68,7 +68,6 @@ class ModifyStatsAbilityFriendBehind(ModifyStatsAbilityBase):
         if index is None:
             index = self.owner.team.pets_list.index(self.owner)
         viable_pets = [x for x in self.owner.team.pets_list if self.owner.team.pets_list.index(x) > index and x.is_alive]
-        print(self.owner, viable_pets)
         if viable_pets:
             for n in range(self.target_n):
                 if n < len(viable_pets):

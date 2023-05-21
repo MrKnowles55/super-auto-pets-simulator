@@ -73,10 +73,8 @@ def start_of_battle(team1, team2, verbose=False):
     if verbose:
         print(get_battle_string(team1, team2, f"Start of Battle: "))
     action_handler.execute_actions()
-
     for pet in team1.pets_list:
         pet.start_of_battle(team2)
-
     for pet in team2.pets_list:
         pet.start_of_battle(team1)
 
@@ -160,7 +158,7 @@ def fight(team1, team2, verbose=False):
     """
 
     # Start of Battle
-    pet_list = get_pet_list(team1, team2)
+    # pet_list = get_pet_list(team1, team2)
 
     start_of_battle(team1, team2, verbose)
     rounds = fight_loop(team1, team2, verbose=verbose)
