@@ -19,22 +19,27 @@ class ActionHandler:
     @log_call(log)
     def add_action(self, action):
         if not action:
+            log.print(f"Error: Action is {action}")
             return
         if isinstance(action, list):
             self.action_list.extend(action)
+            log.print(f"Adding action list: {action}")
         else:
             self.action_list.append(action)
+            log.print(f"Adding action: {action}")
 
     @log_call(log)
     def remove_actions(self, action):
         if isinstance(action, list):
             for act in action:
                 self.action_list.remove(act)
+                log.print(f"{act} was removed")
         else:
             try:
                 self.action_list.remove(action)
+                log.print(f"{action} was removed")
             except ValueError:
-                pass
+                log.print(f"ValueError: {action} was NOT removed.")
 
     @log_call(log)
     def clear_actions(self):
@@ -44,10 +49,12 @@ class ActionHandler:
 
     @log_call(log)
     def execute_actions(self):
+        log.print("Start Execute Actions")
+        log.print(f"Action list:{len(self.action_list)}, Priority dict:{len(self.priority_dict)}, ")
         while self.action_list:
             self.prioritize_actions()
+            log.print(f"DICT: {self.__dict__}")
             priorities = sorted(list(self.priority_dict.keys()), reverse=True)
-
             for priority in priorities:
                 # Execute pet actions with the current priority
                 for action in self.priority_dict[priority]:
@@ -61,6 +68,7 @@ class ActionHandler:
 
                 self.team_action_list = []  # Clear team_action_list after executing team actions for the current priority
 
+
             # for priority in priorities:
             #     log.print(f"Inside Team {self.team_action_list}")
             #     for action in self.priority_dict[priority]:
@@ -72,10 +80,12 @@ class ActionHandler:
         #
         # self.remove_actions(actions_to_remove)
 
+
     @log_call(log)
     def execute(self, action, retarget_flag=False):
-        from src.team.team import player_team, opponent_team
-        log.print(f"{list(reversed(player_team.pets_list))} vs {opponent_team.pets_list}")
+        if not action:
+            log.print(f"ERROR!!! Action is None? {action}")
+            return
         source = action.source
         trigger_event = action.kwargs.get("trigger_event")
         # check if source is not None, and then only actually execute the action if the source pet is still alive, or if
