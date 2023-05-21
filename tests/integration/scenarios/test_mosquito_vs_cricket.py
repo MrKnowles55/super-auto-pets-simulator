@@ -1,3 +1,152 @@
+import unittest
+
+from tests.dummy.dummy_pet import generate_big_pet
+
+from src.pet.pet_factory import create_pet
+from src.battle import fight, start_of_battle
+from src.team.team import Team
+from src.action.action_utils import action_handler
+
+from src.config_utils.logger import setup_logger, log_call, log_class_init
+
+log = setup_logger(__name__)
+
+
+class TestMosquitoVsCricket(unittest.TestCase):
+
+    def setUp(self):
+        self.handler = action_handler
+        self.handler.clear_actions()
+        self.teams = {}
+        print()
+
+    def create_team(self, team_name, pet_names):
+        team = Team(team_name)
+        pets = {pet_name: [] for pet_name in pet_names}
+
+        for pet_name in pet_names:
+            pet = create_pet(pet_name)
+            team.add_pet(pet)
+            pets[pet_name].append(pet)
+
+        self.teams[team_name] = {"team": team, "pets": pets}
+
+    @log_call(log)
+    def test1_Mosquito_v_1_Cricket(self):
+        """
+        Mosquito does 1 Damage to Cricket
+        """
+        self.create_team("A", ["mosquito"])
+        self.create_team("B", ["cricket"])
+
+        start_of_battle(self.teams["A"]["team"], self.teams["B"]["team"])
+        self.handler.execute_actions()
+
+        # Both pets still alive
+        self.assertTrue(self.teams["A"]["team"].pets_list)
+        self.assertTrue(self.teams["B"]["team"].pets_list)
+
+        # Cricket is hurt
+        first_cricket = self.teams["B"]["pets"]["cricket"][0]
+        self.assertEqual(first_cricket.health, 1)
+
+    @log_call(log)
+    def test2_Mosquito_v_1_Cricket(self):
+        """
+        2 Mosquitos damage and knockout the Cricket, which then summons a Zombie Cricket
+        """
+        self.create_team("A", ["mosquito", "mosquito"])
+        self.create_team("B", ["cricket"])
+
+        start_of_battle(self.teams["A"]["team"], self.teams["B"]["team"])
+        self.handler.execute_actions()
+
+        # 2 Mosquitos and 1 Zombie Cricket
+        self.assertEqual(self.teams["A"]["team"].length, 2)
+        self.assertEqual(self.teams["B"]["team"].length, 1)
+
+        # Cricket is fainted
+        first_cricket = self.teams["B"]["pets"]["cricket"][0]
+        self.assertEqual(first_cricket.health, 0)
+        self.assertFalse(first_cricket.is_alive)
+
+        # Zombie Cricket summoned
+        self.assertEqual(self.teams["B"]["team"].first.name, "Zombie Cricket")
+
+    @log_call(log)
+    def test4_Mosquito_v_1_Cricket_Sequentially(self):
+        self.create_team("A", ["mosquito", "mosquito", "mosquito", "mosquito"])
+        self.create_team("B", ["cricket"])
+
+        self.teams["A"]["team"].pets_list[0].attack = 4
+        self.teams["A"]["team"].pets_list[1].attack = 3
+        self.teams["A"]["team"].pets_list[2].attack = 2
+        self.teams["A"]["team"].pets_list[3].attack = 1
+
+        start_of_battle(self.teams["A"]["team"], self.teams["B"]["team"])
+        self.handler.execute_actions()
+        print(self.teams["A"]["pets"])
+
+
+
+    # def test4_Mosquito_v_2_Cricket(self):
+    #     """
+    #     4 Mosquitos damage and knockout 2 Crickets, which then summons 2 Zombie Crickets
+    #     """
+    #     self.create_team("A", ["mosquito", "mosquito", "mosquito", "mosquito"])
+    #     self.create_team("B", ["cricket", "cricket"])
+    #
+    #     start_of_battle(self.teams["A"]["team"], self.teams["B"]["team"])
+    #     self.handler.execute_actions()
+    #
+    #     # 4 Mosquitos and 2 Zombie Cricket
+    #     self.assertEqual(self.teams["A"]["team"].length, 4)
+    #     self.assertEqual(self.teams["B"]["team"].length, 2)
+    #
+    #     # Crickets are fainted
+    #     self.assertEqual(self.teams["B"]["pets"]["cricket"][0].health, 0)
+    #     self.assertFalse(self.teams["B"]["pets"]["cricket"][0].is_alive)
+    #
+    #     self.assertEqual(self.teams["B"]["pets"]["cricket"][1].health, 0)
+    #     self.assertFalse(self.teams["B"]["pets"]["cricket"][1].is_alive)
+    #
+    #     # Zombie Crickets summoned
+    #     self.assertEqual(self.teams["B"]["team"].first.name, "Zombie Cricket")
+    #     self.assertEqual(self.teams["B"]["team"].pets_list[1].name, "Zombie Cricket")
+    #
+    # def test4_Mosquito_v_1_Cricket(self):
+    #     team_a = Team("A")
+    #     first_mosq = create_pet("mosquito")
+    #     second_mosq = create_pet("mosquito")
+    #     third_mosq = create_pet("mosquito")
+    #     fourth_mosq = create_pet("mosquito")
+    #     team_a.add_pet(first_mosq)
+    #     team_a.add_pet(second_mosq)
+    #     team_a.add_pet(third_mosq)
+    #     team_a.add_pet(fourth_mosq)
+    #
+    #     team_b = Team("B")
+    #     first_cricket = create_pet("cricket")
+    #     team_b.add_pet(first_cricket)
+    #     start_of_battle(team_a, team_b)
+    #
+    #     self.handler.execute_actions()
+    #
+    #     # Team A has 1 pets and Team B has 2
+    #     self.assertEqual(team_a.length, 1)
+    #     self.assertEqual(team_b.length, 2)
+    #
+    #     # Cricket fainted
+    #     self.assertEqual(first_cricket.health, 0)
+    #     self.assertFalse(first_cricket.is_alive)
+    #
+    #     # Zombie Cricket exists and is at full health
+    #     self.assertEqual(team_a.pets_list[0].name, "Zombie Cricket")
+    #     self.assertEqual(team_a.first.health, 1)
+    #     self.assertTrue(team_a.first.isalive)
+
+
+
 # import unittest
 # from src.pet.pet_factory import create_pet
 # from src.battle import fight, start_of_battle, get_pet_list, fight_loop, end_of_battle
