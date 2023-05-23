@@ -196,9 +196,9 @@ PRIORITY = [
     'Tiger',
 ]
 
-# ANT_LIKE = sorted(pet_data_manager.get_filtered_pet_list(trigger=TriggerEvent.Faint.name,
-#                                                          triggered_by_kind="Self",
-#                                                          effect_kind=EffectKind.ModifyStats.name))
+ANT_LIKE = sorted(pet_db.get_filtered_pet_list(trigger=TriggerEvent.Faint.name,
+                                                         triggered_by_kind="Self",
+                                                         effect_kind=EffectKind.ModifyStats.name))
 CRICKET_LIKE = sorted(pet_db.get_filtered_pet_list(trigger=TriggerEvent.Faint.name,
                                                    triggered_by_kind="Self",
                                                    effect_kind=EffectKind.SummonPet.name))
@@ -229,8 +229,7 @@ pet_db.add_pool("BUYABLE", list(set({pet["name"] for pet in pet_db.pet_dict.valu
 # Add pools to dict
 
 if __name__ == "__main__":
-    print(MODIFY_STATS_PETS)
-    # print('Ant-Like Pets (Trigger: Faint, Effect: ModifyStats) :', ", ".join(map(str, ANT_LIKE)))
+    print('Ant-Like Pets (Trigger: Faint, Effect: ModifyStats) :', ", ".join(map(str, ANT_LIKE)))
     # print('Cricket-Like Pets (Trigger: Faint, Effect: SummonPet) :', ", ".join(map(str, CRICKET_LIKE)))
 
     # kinds = {}
