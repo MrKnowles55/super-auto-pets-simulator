@@ -2,6 +2,9 @@ import heapq
 
 
 class PriorityQueue:
+    """
+    Stores actions in a queue, executing them in order of priority (typically the pets attack value)
+    """
     def __init__(self):
         self.queue = []
         self.counter = 0
@@ -22,6 +25,10 @@ class PriorityQueue:
 
 
 class Action:
+    """
+    Stores information for an action that is queued and executed by the PriorityQueue.
+    The actual action is executed as a method from the instance that initially created the action.
+    """
     def __init__(self, pet, method, **kwargs):
         self.pet = pet
         self.method = method
