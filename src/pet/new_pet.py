@@ -1,4 +1,8 @@
-
+import signals
+from src.pet_data_utils.enums.trigger_event import TriggerEvent
+from src.pet_data_utils.enums.trigger_by_kind import TriggerByKind
+from src.pet_data_utils.enums.effect_target_kind import EffectTargetKind
+from src.pet_data_utils.enums.effect_kind import EffectKind
 
 class Pet:
 
@@ -33,6 +37,12 @@ class Pet:
         self.attack = self.base_attack + self.attack_mod
         self.health = self.base_health + self.health_mod
 
+    def __str__(self):
+        return f"{self.name}({self.attack}/{self.health} P:({self.start_position}/{self.position}))"
+
+    def __repr__(self):
+        return f"{self.name}({self.attack}/{self.health} P:{self.position})"
+
     # Properties
     @property
     def alive(self):
@@ -42,11 +52,31 @@ class Pet:
     def trigger(self):
         return self.ability.get("trigger")
 
-    def __str__(self):
-        return f"{self.name[:2]}({self.attack}/{self.health} P:({self.start_position}/{self.position}))"
+    @property
+    def triggered_by(self):
+        return self.ability.get("triggered_by")
 
-    def __repr__(self):
-        return f"{self.name[:2]}({self.attack}/{self.health} P:{self.position})"
+    # Utility
+    def get_relationship(self, pet):
+        if not isinstance(pet, Pet):
+            return TriggerByKind.Player
+        if pet is self:
+            return TriggerByKind.Self
+
+        if pet in self.team.pets_list:
+            if pet.position < self.position:
+                return TriggerByKind.FriendAhead
+            else:
+                return TriggerByKind.EachFriend
+        else:
+            return TriggerByKind.EachEnemy
+
+    def check_if_triggered(self, trigger):
+        return self.ability["trigger"] == trigger
+
+    def check_if_relevant_signal(self, signal):
+        # TODO exception for FriendAhead overwriting EachFriend
+        return self.get_relationship(signal.sender) == self.ability['triggered_by']
 
     # Team
     def update_position(self, new_position):
@@ -54,7 +84,57 @@ class Pet:
         if self.start_position == -1:
             self.start_position = self.position
 
+    # Signals
+    def send_signal(self, message, receiver, broadcast=False):
+        signals.send_signal(message, self, receiver, broadcast)
+        # print(f"{self.name} sending signal {trigger} to {target}")
+        # action = self.team.create_action(self, self.ability, trigger)
+        # print(action)
+        # self.team.send_action(action)
+
+    def broadcast(self, message):
+        print(f"{self} is broadcasting {message}")
+        self.send_signal(message, self.team, broadcast=True)
+
+    def read_signal(self, signal, broadcast):
+        if not self.check_if_relevant_signal(signal):
+            return
+        print(f"{self} ability triggered")
+
+
+        # if sender is self:
+        #     print(f"{self} sent a signal to itself.")
+        #     if self.ability["triggered_by"] == "Self":
+        #         print(f"It is triggered by Self")
+        #     else:
+        #         print(f"It is not triggered")
+        # else:
+        #     if sender.team == self.team:
+        #         print(f"{sender} sent a signal to its friend {self} on team {self.team}")
+        #         if self.ability["triggered_by"] == "EachFriend":
+        #             print(f"It is triggered by EachFriend")
+        #         elif self.ability["triggered_by"] == "FriendAhead":
+        #             if self.position > sender.position:
+        #                 print(f"It is triggered by FriendAhead")
+        #             else:
+        #                 print(f"Friend was behind, so no trigger.")
+        #         else:
+        #             print(f"It is not triggered")
+        #     else:
+        #         print(f"{sender} sent a signal to its enemy {self} on team {self.team}")
+        #         if self.ability["triggered_by"] == "EachEnemy":
+        #             print(f"It is triggered by EachEnemy")
+        #         else:
+        #             print(f"It is not triggered")
+
+    def faint(self):
+        pass
+
+    def hurt(self):
+        pass
+
     # Effects
+
     @staticmethod
     def apply_status(**kwargs):
         return kwargs
