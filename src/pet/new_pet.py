@@ -4,9 +4,13 @@ from src.pet_data_utils.enums.trigger_by_kind import TriggerByKind
 from src.pet_data_utils.enums.effect_target_kind import EffectTargetKind
 from src.pet_data_utils.enums.effect_kind import EffectKind
 
+
 class Pet:
+    global_pet_count = 0
 
     def __init__(self, name, **kwargs):
+        self.id = Pet.global_pet_count
+        Pet.global_pet_count += 1
         # Base Stats from Template
         self.name = name
         self.base_attack = 1
@@ -38,10 +42,10 @@ class Pet:
         self.health = self.base_health + self.health_mod
 
     def __str__(self):
-        return f"{self.name}({self.attack}/{self.health} P:({self.start_position}/{self.position}))"
+        return f"{self.name}_{self.id}"
 
     def __repr__(self):
-        return f"{self.name}({self.attack}/{self.health} P:{self.position})"
+        return f"{self.name}_{self.id}({self.attack}/{self.health}/{self.position})"
 
     # Properties
     @property
