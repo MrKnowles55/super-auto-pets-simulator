@@ -15,6 +15,9 @@ class Team:
     def __str__(self):
         return self.name + " Team"
 
+    def __repr__(self):
+        return self.name + " Team"
+
     @property
     def length(self):
         return len(self.pets_list)
@@ -88,5 +91,8 @@ class Team:
         for pet in self.pets_list:
             receiver = pet
             self.send_signal(message, receiver, sender)
+        if broadcast:
+            other_team = self.action_handler.player_team if self != self.action_handler.player_team else self.action_handler.enemy_team
+            self.send_signal(message, other_team,sender, broadcast=False)
 
 
