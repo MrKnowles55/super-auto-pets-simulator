@@ -7,6 +7,7 @@ class Signal:
 
     def send(self, broadcast=False):
         if self.receiver:
+            print(f"Signal sent {self}{' as broadcast' if broadcast else ''}")
             self.receiver.read_signal(self, broadcast)
 
     def __str__(self):
@@ -14,4 +15,6 @@ class Signal:
 
 
 def send_signal(message, sender, receiver, broadcast=False):
-    Signal(message, sender, receiver).send(broadcast)
+    signal = Signal(message, sender, receiver)
+    signal.send(broadcast)
+    return signal

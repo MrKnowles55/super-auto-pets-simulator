@@ -68,7 +68,12 @@ class TestAnt(unittest.TestCase):
         ant2 = create_ant()
         self.player_team.add_pet(ant)
         self.player_team.add_pet(ant2)
+
+        ant3 = create_ant()
+        self.enemy_team.add_pet(ant3)
+
         ant2.ability["triggered_by"] = TriggerByKind.FriendAhead
+        ant3.ability["triggered_by"] = TriggerByKind.EachEnemy
         battle = Battle(self.player_team, self.enemy_team)
         ant.broadcast(TriggerEvent.Faint)
 
