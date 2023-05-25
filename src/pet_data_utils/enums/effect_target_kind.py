@@ -23,3 +23,5 @@ class EffectTargetKind(Enum):
     Self = 18
     TriggeringEntity = 19
     LeftMostShopAnimal = 20
+
+    Test = 100

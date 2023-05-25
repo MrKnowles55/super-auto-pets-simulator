@@ -7,3 +7,5 @@ class TriggerByKind(Enum):
     EachFriend = 2
     FriendAhead = 3
     Player = 4
+
+    Test = 100
