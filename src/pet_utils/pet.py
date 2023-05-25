@@ -1,4 +1,4 @@
-from action_utils import signals
+from src.action_utils import signals
 from src.data_utils.enums.trigger_event import TriggerEvent
 from src.data_utils.enums.trigger_by_kind import TriggerByKind
 from src.data_utils.enums.effect_target_kind import EffectTargetKind

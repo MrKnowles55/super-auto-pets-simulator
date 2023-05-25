@@ -1,7 +1,8 @@
 import unittest
-from pet_utils.pet import Pet
-from action_utils.battle import Battle
-from team_utils.team import Team
+
+from src.pet_utils.pet import Pet
+from src.action_utils.battle import Battle
+from src.team_utils.team import Team
 
 from src.data_utils.enums.trigger_event import TriggerEvent
 from src.data_utils.enums.trigger_by_kind import TriggerByKind
@@ -49,7 +50,7 @@ class TestAnt(unittest.TestCase):
             "level": 1,
             "attack_mod": 0,
             "health_mod": 0,
-            "team_utils": None,
+            "team": None,
             "start_position": -1,
             "position": -1,
             "attack": 2,

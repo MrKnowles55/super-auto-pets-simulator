@@ -1,9 +1,10 @@
 import unittest
 from unittest.mock import MagicMock, patch
-from pet_utils.pet import Pet
-from action_utils.battle import Battle
-from team_utils.team import Team
-from action_utils.signals import send_signal
+
+from src.pet_utils.pet import Pet
+from src.action_utils.battle import Battle
+from src.team_utils.team import Team
+from src.action_utils.signals import send_signal
 
 from src.data_utils.enums.trigger_event import TriggerEvent
 
@@ -36,7 +37,7 @@ class TestSignalBroadcast(unittest.TestCase):
         self.enemy_team.action_handler = self.battle
         print("\n")
 
-    @patch("signals.send_signal")
+    @patch("src.action_utils.signals.send_signal")
     def test_broadcast_from_pet(self, mock_send_signal):
         test_message = TriggerEvent.Test
 
@@ -45,7 +46,7 @@ class TestSignalBroadcast(unittest.TestCase):
         # Verify that send_signal was called with the correct arguments.
         mock_send_signal.assert_called_with(test_message, self.pet, self.pet.team, True)
 
-    @patch("signals.send_signal")
+    @patch("src.action_utils.signals.send_signal")
     def test_team_broadcast(self, mock_send_signal):
         # Setup
         sender_pet = Pet("test")

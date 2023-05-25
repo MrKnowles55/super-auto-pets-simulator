@@ -1,6 +1,7 @@
 import unittest
 from unittest.mock import MagicMock
-from pet_utils.pet import Pet
+
+from src.pet_utils.pet import Pet
 
 from src.data_utils.enums.trigger_event import TriggerEvent
 from src.data_utils.enums.trigger_by_kind import TriggerByKind
@@ -8,7 +9,7 @@ from src.data_utils.enums.effect_target_kind import EffectTargetKind
 from src.data_utils.enums.effect_kind import EffectKind
 
 
-class TestAnt(unittest.TestCase):
+class TestPet(unittest.TestCase):
     def setUp(self):
         self.pet = Pet("TestPet")
         # self.friend_pet = Pet("FriendPet")
@@ -21,7 +22,7 @@ class TestAnt(unittest.TestCase):
         :return:
         """
         expected_dict = {
-            "id": 0,
+            # Not checking id because the tests are run in random order, so no guarantee on what the id will be
             "name": "TestPet",
             "base_attack": 1,
             "base_health": 1,
@@ -35,7 +36,7 @@ class TestAnt(unittest.TestCase):
             "level": 1,
             "attack_mod": 0,
             "health_mod": 0,
-            "team_utils": None,
+            "team": None,
             "start_position": -1,
             "position": -1,
             "attack": 1,

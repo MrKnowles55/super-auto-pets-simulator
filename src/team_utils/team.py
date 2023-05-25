@@ -1,6 +1,6 @@
 from src.config_utils.logger import setup_logger
-from action_utils.action import Action
-from action_utils import signals
+from src.action_utils.action import Action
+from src.action_utils import signals
 
 log = setup_logger(__name__)
 
