@@ -3,7 +3,7 @@ import unittest
 from data.old.depreciated.ability import AbilityBase, No_Ability
 from src.data_utils.enums.trigger_event import TriggerEvent
 
-from tests.dummy.dummy_pet import DummyPet
+from data.old.depreciated.dummy.dummy_pet import DummyPet
 
 
 class Fake_Ability(AbilityBase):

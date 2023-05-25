@@ -1,8 +1,8 @@
 import unittest
-from tests.dummy.dummy_action import generate_dummy_action
-from tests.dummy.dummy_pet import generate_dummy_pet
-from tests.dummy.dummy_ability import generate_dummy_ability
-from tests.dummy.dummy_team import Dummy_Team
+from data.old.depreciated.dummy.dummy_action import generate_dummy_action
+from data.old.depreciated.dummy.dummy_pet import generate_dummy_pet
+from data.old.depreciated.dummy.dummy_ability import generate_dummy_ability
+from data.old.depreciated.dummy.dummy_team import Dummy_Team
 
 from data.old.depreciated.action_utils import ActionHandler
 from src.data_utils.enums.trigger_event import TriggerEvent

@@ -1,4 +1,4 @@
-from tests.dummy.dummy_ability import generate_dummy_ability
+from data.old.depreciated.dummy.dummy_ability import generate_dummy_ability
 
 
 class DummyPet:

@@ -1,6 +1,6 @@
 import unittest
-from tests.dummy.dummy_pet import generate_dummy_pet
-from tests.dummy.dummy_action import Dummy_ActionHandler
+from data.old.depreciated.dummy.dummy_pet import generate_dummy_pet
+from data.old.depreciated.dummy.dummy_action import Dummy_ActionHandler
 from data.old.depreciated.team import Team
 
 

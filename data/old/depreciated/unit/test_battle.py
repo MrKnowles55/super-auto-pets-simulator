@@ -1,7 +1,7 @@
 import unittest
 import data.old.depreciated.battle as battle
-from tests.dummy.dummy_team import Dummy_Team
-from tests.dummy.dummy_pet import generate_dummy_pet
+from data.old.depreciated.dummy.dummy_team import Dummy_Team
+from data.old.depreciated.dummy.dummy_pet import generate_dummy_pet
 
 
 class TestBattle(unittest.TestCase):

@@ -1,6 +1,6 @@
 import unittest
 
-from tests.dummy.dummy_pet import generate_big_pet
+from data.old.depreciated.dummy.dummy_pet import generate_big_pet
 
 from src.pet_utils.pet_factory import create_pet
 from data.old.depreciated.battle import fight

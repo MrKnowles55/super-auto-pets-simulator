@@ -2,9 +2,9 @@ import unittest
 
 from data.old.depreciated.pet_entity import PetEntity
 
-from tests.dummy.dummy_ability import generate_dummy_ability
-from tests.dummy.dummy_action import Dummy_ActionHandler
-from tests.dummy.dummy_team import Dummy_Team
+from data.old.depreciated.dummy.dummy_ability import generate_dummy_ability
+from data.old.depreciated.dummy.dummy_action import Dummy_ActionHandler
+from data.old.depreciated.dummy.dummy_team import Dummy_Team
 
 
 class FakeAbilityGenerator:
