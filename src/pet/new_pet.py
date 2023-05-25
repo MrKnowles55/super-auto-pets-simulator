@@ -17,10 +17,10 @@ class Pet:
         self.base_health = 1
         self.tier = 1
         self.ability = {
-            "trigger": "",
-            "triggered_by": "",
-            "effect": "",
-            "effect_dict": {}
+            "trigger": TriggerEvent.Test,
+            "triggered_by": TriggerByKind.Test,
+            "effect": EffectKind.Test,
+            "effect_dict": {"target": EffectTargetKind.Test}
         }
 
         # Default assumed parameters
