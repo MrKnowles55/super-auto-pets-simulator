@@ -26,8 +26,8 @@ class PriorityQueue:
 
 class Action:
     """
-    Stores information for an action that is queued and executed by the PriorityQueue.
-    The actual action is executed as a method from the instance that initially created the action.
+    Stores information for an action_utils that is queued and executed by the PriorityQueue.
+    The actual action_utils is executed as a method from the instance that initially created the action_utils.
     """
     def __init__(self, pet, method, **kwargs):
         self.pet = pet

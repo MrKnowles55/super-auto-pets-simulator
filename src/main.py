@@ -1,8 +1,8 @@
 from random import choice
-from src.team.team import player_team, opponent_team
-from pet.pet_factory import create_pet
-from src.pet_data_utils import pet_data_manager
-from src.battle import fight
+from data.old.depreciated.team import player_team, opponent_team
+from pet_utils.pet_factory import create_pet
+from src.data_utils import pet_data_manager
+from data.old.depreciated.battle import fight
 from src.config_utils.config import config_handler
 from src.config_utils import validate_config
 from src.config_utils.logger import setup_logger, log_call

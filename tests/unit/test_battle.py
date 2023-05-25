@@ -1,5 +1,5 @@
 import unittest
-import src.battle as battle
+import data.old.depreciated.battle as battle
 from tests.dummy.dummy_team import Dummy_Team
 from tests.dummy.dummy_pet import generate_dummy_pet
 
@@ -13,13 +13,13 @@ class TestBattle(unittest.TestCase):
         # team1 = Dummy_Team("Team 1")
         # team2 = Dummy_Team("Team 2")
         # prefix = "Test prefix"
-        # expected_value = "Test prefix                       pet 4(1/1), pet 3(1/1), pet 2(1/1), pet 1(1/1), " \
-        #                  "pet 0(1/1)     VS     pet 0(1/1), pet 1(1/1), pet 2(1/1), pet 3(1/1), pet 4(1/1)" \
+        # expected_value = "Test prefix                       pet_utils 4(1/1), pet_utils 3(1/1), pet_utils 2(1/1), pet_utils 1(1/1), " \
+        #                  "pet_utils 0(1/1)     VS     pet_utils 0(1/1), pet_utils 1(1/1), pet_utils 2(1/1), pet_utils 3(1/1), pet_utils 4(1/1)" \
         #                  "                      "
         # name_length = 5
         # for _ in range(5):
-        #     team1.add_pet(generate_dummy_pet("pet "+str(_)+"excess text"))
-        #     team2.add_pet(generate_dummy_pet("pet "+str(_)+"excess text"))
+        #     team1.add_pet(generate_dummy_pet("pet_utils "+str(_)+"excess text"))
+        #     team2.add_pet(generate_dummy_pet("pet_utils "+str(_)+"excess text"))
         # self.assertEqual(battle.get_battle_string(team1, team2, prefix=prefix, name_length=name_length), expected_value)
 
     def test_get_pet_list(self):
@@ -88,17 +88,17 @@ class TestBattle(unittest.TestCase):
         # Both empty
         self.assertTrue(battle.is_battle_over(team1, team2))
 
-        # Team1 has pet
+        # Team1 has pet_utils
         team1.add_pet(generate_dummy_pet("friendly"))
 
         self.assertTrue(battle.is_battle_over(team1, team2))
 
-        # Both has pet
+        # Both has pet_utils
         team2.add_pet(generate_dummy_pet("enemy"))
 
         self.assertFalse(battle.is_battle_over(team1, team2))
 
-        # Team2 has pet
+        # Team2 has pet_utils
         team1.pets_list = []
 
         self.assertTrue(battle.is_battle_over(team1, team2))
@@ -116,7 +116,7 @@ class TestBattle(unittest.TestCase):
         team1 = Dummy_Team("Team 1")
         team2 = Dummy_Team("Team 2")
 
-        # Impossible Tie with both teams having a pet
+        # Impossible Tie with both teams having a pet_utils
 
         team1.pets_list = []
         team2.pets_list = []
@@ -127,7 +127,7 @@ class TestBattle(unittest.TestCase):
 
         self.assertEqual(battle.end_of_battle(team1, team2), [1, 1])
 
-        # First team wins
+        # First team_utils wins
 
         team1.pets_list = []
         team2.pets_list = []
@@ -137,7 +137,7 @@ class TestBattle(unittest.TestCase):
 
         self.assertEqual(battle.end_of_battle(team1, team2), [1, 0])
 
-        # Second team wins
+        # Second team_utils wins
 
         team1.pets_list = []
         team2.pets_list = []

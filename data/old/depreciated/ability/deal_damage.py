@@ -1,8 +1,8 @@
 from abc import abstractmethod
 from .ability_abstract import AbilityBase
 from random import choice
-from src.action.action_utils import *
-from src.pet_data_utils.enums.effect_target_kind import EffectTargetKind
+from data.old.depreciated.action_utils import *
+from src.data_utils.enums.effect_target_kind import EffectTargetKind
 from src.config_utils.logger import setup_logger, log_call, log_class_init
 
 log = setup_logger(__name__)
@@ -31,7 +31,7 @@ class Damage(AbilityBase):
 
     @log_call(log)
     def get_optimal_targets(self, living_pets, applied_damage, mode):
-        # target_healths = {pet: pet.health - applied_damage.get(pet, 0) for pet in living_pets}
+        # target_healths = {pet_utils: pet_utils.health - applied_damage.get(pet_utils, 0) for pet_utils in living_pets}
         target_healths = {pet: pet.health for pet in living_pets}
         log.print(f"target_healths {target_healths}")
 
@@ -42,7 +42,7 @@ class Damage(AbilityBase):
         if not viable_pets:
             return None
 
-        # Get the pet based on the mode
+        # Get the pet_utils based on the mode
         match mode:
             case EffectTargetKind.LowestHealthEnemy:
                 min_value = min(target_healths[pet] for pet in viable_pets)
@@ -66,7 +66,7 @@ class Damage(AbilityBase):
             log.print(f"No enemy_team")
             return actions
 
-        # Get the living pets in the enemy team
+        # Get the living pets in the enemy team_utils
         living_pets = [pet for pet in enemy_team.pets_list if pet.is_alive]
 
         if not living_pets:
@@ -77,7 +77,7 @@ class Damage(AbilityBase):
         target_pet = self.get_optimal_targets(living_pets, applied_damage, self.target_type)
 
         if target_pet:
-            # Add the "take_damage" action to the actions list
+            # Add the "take_damage" action_utils to the actions list
             actions.append(generate_damage_action(source=self.owner, trigger_event=self.trigger_event, target_pet=target_pet, damage_amount=self.damage_amount))
 
             # Update the applied damage dictionary
@@ -102,25 +102,25 @@ class DamageEnemyWithAttribute(Damage):
     #     elif self.target == "all":
     #         targets = []
     #         # Damage the pets
-    #         if team:
-    #             for pet in team.pets:
-    #                 if pet.is_alive():
-    #                     pet.health -= self.damage
-    #                     targets.append(pet)
+    #         if team_utils:
+    #             for pet_utils in team_utils.pets:
+    #                 if pet_utils.is_alive():
+    #                     pet_utils.health -= self.damage
+    #                     targets.append(pet_utils)
     #         if enemy_team:
-    #             for pet in enemy_team.pets:
-    #                 if pet.is_alive():
-    #                     pet.health -= self.damage
-    #                     targets.append(pet)
+    #             for pet_utils in enemy_team.pets:
+    #                 if pet_utils.is_alive():
+    #                     pet_utils.health -= self.damage
+    #                     targets.append(pet_utils)
     #         priority_dict = prioritize_pets(targets)
     #         for target in sorted(priority_dict.keys(), reverse=True):
     #             pets_with_same_priority = priority_dict[target]
-    #             for pet in pets_with_same_priority:
-    #                 pet.hurt()
+    #             for pet_utils in pets_with_same_priority:
+    #                 pet_utils.hurt()
     #     elif self.target == "friend_behind":
-    #         index = team.pets.index(pet)
-    #         if index < 5 and len(team.pets) > 1:
-    #             target = team.pets[index + 1]
+    #         index = team_utils.pets.index(pet_utils)
+    #         if index < 5 and len(team_utils.pets) > 1:
+    #             target = team_utils.pets[index + 1]
     #
     #             if target:
     #                 target.health -= self.damage

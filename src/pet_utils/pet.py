@@ -1,8 +1,8 @@
-import signals
-from src.pet_data_utils.enums.trigger_event import TriggerEvent
-from src.pet_data_utils.enums.trigger_by_kind import TriggerByKind
-from src.pet_data_utils.enums.effect_target_kind import EffectTargetKind
-from src.pet_data_utils.enums.effect_kind import EffectKind
+from action_utils import signals
+from src.data_utils.enums.trigger_event import TriggerEvent
+from src.data_utils.enums.trigger_by_kind import TriggerByKind
+from src.data_utils.enums.effect_target_kind import EffectTargetKind
+from src.data_utils.enums.effect_kind import EffectKind
 
 
 class Pet:
@@ -92,9 +92,9 @@ class Pet:
     def send_signal(self, message, receiver, broadcast=False):
         signals.send_signal(message, self, receiver, broadcast)
         # print(f"{self.name} sending signal {trigger} to {target}")
-        # action = self.team.create_action(self, self.ability, trigger)
-        # print(action)
-        # self.team.send_action(action)
+        # action_utils = self.team_utils.create_action(self, self.ability, trigger)
+        # print(action_utils)
+        # self.team_utils.send_action(action_utils)
 
     def broadcast(self, message):
         print(f"{self} is broadcasting {message}")
@@ -113,8 +113,8 @@ class Pet:
         #     else:
         #         print(f"It is not triggered")
         # else:
-        #     if sender.team == self.team:
-        #         print(f"{sender} sent a signal to its friend {self} on team {self.team}")
+        #     if sender.team_utils == self.team_utils:
+        #         print(f"{sender} sent a signal to its friend {self} on team_utils {self.team_utils}")
         #         if self.ability["triggered_by"] == "EachFriend":
         #             print(f"It is triggered by EachFriend")
         #         elif self.ability["triggered_by"] == "FriendAhead":
@@ -125,7 +125,7 @@ class Pet:
         #         else:
         #             print(f"It is not triggered")
         #     else:
-        #         print(f"{sender} sent a signal to its enemy {self} on team {self.team}")
+        #         print(f"{sender} sent a signal to its enemy {self} on team_utils {self.team_utils}")
         #         if self.ability["triggered_by"] == "EachEnemy":
         #             print(f"It is triggered by EachEnemy")
         #         else:

@@ -1,4 +1,4 @@
-from src.pet_data_utils.enums.trigger_event import TriggerEvent
+from src.data_utils.enums.trigger_event import TriggerEvent
 from src.config_utils.logger import setup_logger, log_call, log_class_init
 
 log = setup_logger(__name__)
@@ -7,7 +7,7 @@ log = setup_logger(__name__)
 @log_class_init(log)
 class PetEntity:
     """
-    A class representing a pet in the game.
+    A class representing a pet_utils in the game.
     """
     def __init__(self, name, attack, health, tier, level, ability1, ability2, ability3, ability_generator, action_handler):
         self.name = name
@@ -52,9 +52,9 @@ class PetEntity:
     @log_call(log)
     def attack_pet(self, enemy_pet):
         """
-        Attack an enemy pet.
+        Attack an enemy pet_utils.
 
-        :param enemy_pet: The enemy pet to attack.
+        :param enemy_pet: The enemy pet_utils to attack.
         """
         self.apply_damage(enemy_pet.attack, enemy_pet)
         enemy_pet.apply_damage(self.attack, self)
@@ -62,11 +62,11 @@ class PetEntity:
     # @log_call(log)
     # def take_damage(self, damage, attacker):
     #     """
-    #     Create a list of actions to apply damage to the pet.
+    #     Create a list of actions to apply damage to the pet_utils.
     #
     #     :param damage: The amount of damage to apply.
-    #     :param attacker: The pet dealing the damage.
-    #     :return: A list of actions to apply damage to the pet.
+    #     :param attacker: The pet_utils dealing the damage.
+    #     :return: A list of actions to apply damage to the pet_utils.
     #     """
     #     actions = []
     #     actions.append(("take_damage", self, damage, attacker))
@@ -86,9 +86,9 @@ class PetEntity:
     @log_call(log)
     def faint(self, attacker):
         """
-        Make the pet faint and trigger its ability if applicable.
+        Make the pet_utils faint and trigger its ability if applicable.
 
-        :param attacker: The pet that caused the fainting.
+        :param attacker: The pet_utils that caused the fainting.
         """
         if not self.fainted:
             self.fainted = True
@@ -97,7 +97,7 @@ class PetEntity:
                 self.action_handler.add_action(actions)
 
             # Clean up dead pets after abilities have been triggered,
-            # Pets that summon pets on faint may remove themselves from the team during the ability
+            # Pets that summon pets on faint may remove themselves from the team_utils during the ability
             if not self.is_alive and self in self.team.pets_list:
                 self.team.remove_pet(self)
 

@@ -1,7 +1,7 @@
 import json
 import os
-from src.pet_data_utils.enums.trigger_event import TriggerEvent
-from src.pet_data_utils.enums.effect_kind import EffectKind
+from src.data_utils.enums.trigger_event import TriggerEvent
+from src.data_utils.enums.effect_kind import EffectKind
 import src.config_utils.logger as logger
 
 log = logger.setup_logger(__name__)
@@ -137,7 +137,7 @@ TEST_POOL = ["Flamingo"]
 TEST_POOL2 = ['Dolphin']
 
 # Leopard: % of attack
-# Crocodile: Last pet
+# Crocodile: Last pet_utils
 # Dolphin: Least Health Pet
 
 
@@ -233,15 +233,15 @@ if __name__ == "__main__":
     # print('Cricket-Like Pets (Trigger: Faint, Effect: SummonPet) :', ", ".join(map(str, CRICKET_LIKE)))
 
     # kinds = {}
-    # for pet in PRIORITY:
-    #     pet_id = "pet-"+pet.lower().replace(" ", "-")
+    # for pet_utils in PRIORITY:
+    #     pet_id = "pet_utils-"+pet_utils.lower().replace(" ", "-")
     #     ability = pet_data_manager.pet_dict[pet_id].get("level1Ability")
     #     if ability:
     #         kind = ability.get("effect").get("kind")
     #         if kind in kinds.keys():
-    #             kinds[kind].append(pet)
+    #             kinds[kind].append(pet_utils)
     #         else:
-    #             kinds[kind] = [pet]
+    #             kinds[kind] = [pet_utils]
     #
     # for k, v in kinds.items():
     #     print("# ", k)

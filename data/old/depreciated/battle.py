@@ -1,5 +1,4 @@
-from src.action.action_utils import action_handler, collect_triggered_abilities
-from src.pet_data_utils.enums.trigger_event import TriggerEvent
+from data.old.depreciated.action_utils import action_handler
 from src.config_utils.logger import setup_logger, log_call
 
 # directory = os.path.dirname(os.path.abspath(__file__))
@@ -10,11 +9,11 @@ def get_battle_string(team1, team2, prefix='', prefix_buffer=10,format_buffer=80
     """
     Create a formatted battle string representing the current state of both teams.
 
-    :param team1: The first team of pets.
-    :param team2: The second team of pets.
+    :param team1: The first team_utils of pets.
+    :param team2: The second team_utils of pets.
     :param prefix: A string prefix to be added at the beginning of the output string.
-    :param format_buffer: The width of each team string in the formatted output.
-    :param name_length: The maximum length of pet names in the output.
+    :param format_buffer: The width of each team_utils string in the formatted output.
+    :param name_length: The maximum length of pet_utils names in the output.
     :return: A formatted string representing the current state of both teams.
     """
     team1_pets_str = ['_'] * 5
@@ -53,12 +52,12 @@ def get_pet_list(team1, team2):
 #
 #         # Collect abilities that should trigger for StartOfBattle event
 #         triggered_abilities = []
-#         for pet in pets_with_same_priority:
-#             if pet.team == team1:
-#                 triggered_abilities += collect_triggered_abilities([pet], TriggerEvent.StartOfBattle, priority,
+#         for pet_utils in pets_with_same_priority:
+#             if pet_utils.team_utils == team1:
+#                 triggered_abilities += collect_triggered_abilities([pet_utils], TriggerEvent.StartOfBattle, priority,
 #                                                                    enemy_team=team2, applied_damage=applied_damage)
 #             else:
-#                 triggered_abilities += collect_triggered_abilities([pet], TriggerEvent.StartOfBattle, priority,
+#                 triggered_abilities += collect_triggered_abilities([pet_utils], TriggerEvent.StartOfBattle, priority,
 #                                                                    enemy_team=team1, applied_damage=applied_damage)
 #         log.print(f"start_of_battle triggered_abilities {triggered_abilities}")
 #         # Execute the collected abilities
@@ -151,10 +150,10 @@ def fight(team1, team2, verbose=False):
     """
     Simulate a battle between two teams of pets.
 
-    :param team1: The first team of pets.
-    :param team2: The second team of pets.
+    :param team1: The first team_utils of pets.
+    :param team2: The second team_utils of pets.
     :param verbose: Whether to print battle information.
-    :return: A list containing the result of the battle for each team (1 if the team won, 0 otherwise).
+    :return: A list containing the result of the battle for each team_utils (1 if the team_utils won, 0 otherwise).
     """
 
     # Start of Battle
@@ -171,7 +170,7 @@ def prioritize_pets(pet_list, priority_key=lambda x: x.attack):
     Create a dictionary of pets prioritized by a given attribute.
 
     :param pet_list: A list of pets to prioritize.
-    :param priority_key: A function that takes a pet and returns a value to prioritize the pet by.
+    :param priority_key: A function that takes a pet_utils and returns a value to prioritize the pet_utils by.
     :return: A dictionary where keys are priorities and values are lists of pets with that priority.
     """
     sorted_pets = sorted(pet_list, key=priority_key, reverse=True)

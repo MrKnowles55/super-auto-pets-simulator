@@ -4,8 +4,8 @@ from tests.dummy.dummy_pet import generate_dummy_pet
 from tests.dummy.dummy_ability import generate_dummy_ability
 from tests.dummy.dummy_team import Dummy_Team
 
-from src.action.action_utils import ActionHandler
-from src.pet_data_utils.enums.trigger_event import TriggerEvent
+from data.old.depreciated.action_utils import ActionHandler
+from src.data_utils.enums.trigger_event import TriggerEvent
 
 
 def modify_ability_apply(ability, action_name, action_source, action_trigger_event, **action_kwargs):
@@ -33,7 +33,7 @@ class TestActionHandler(unittest.TestCase):
         dummy_action = generate_dummy_action(action_name, action_source, action_trigger_event, **action_kwargs)
         action_list = [dummy_action, dummy_action]
 
-        # Add single action
+        # Add single action_utils
         self.handler.add_action(dummy_action)
 
         self.assertEqual(self.handler.action_list[0], dummy_action)
@@ -51,13 +51,13 @@ class TestActionHandler(unittest.TestCase):
         action_kwargs = {"foo": 1, "bar": 2}
         dummy_action = generate_dummy_action(action_name, action_source, action_trigger_event, **action_kwargs)
 
-        # Remove single action with list of len 1
+        # Remove single action_utils with list of len 1
         self.handler.action_list.append(dummy_action)
         self.handler.remove_actions(dummy_action)
 
         self.assertFalse(self.handler.action_list)
 
-        # Remove single action with large list
+        # Remove single action_utils with large list
         self.handler.action_list = []
         self.handler.action_list.append(dummy_action)
         self.handler.action_list.append(dummy_action)
@@ -80,7 +80,7 @@ class TestActionHandler(unittest.TestCase):
         action_kwargs = {"foo": 1, "bar": 2}
         test_action = generate_dummy_action(action_name, action_source, action_trigger_event, **action_kwargs)
 
-        # Clear action list
+        # Clear action_utils list
         self.handler.action_list.append(test_action)
         self.handler.action_list.append(test_action)
         self.handler.action_list.append(test_action)
@@ -143,7 +143,7 @@ class TestActionHandler(unittest.TestCase):
 
     def test_execute_modify_stats(self):
         dummy_pet = generate_dummy_pet()
-        dummy_target = generate_dummy_pet(name="target pet")
+        dummy_target = generate_dummy_pet(name="target pet_utils")
         dummy_team = Dummy_Team()
         dummy_team.add_pet(dummy_pet)
 
@@ -162,14 +162,14 @@ class TestActionHandler(unittest.TestCase):
         print()
         print(dummy_pet.display(), dummy_target.display())
 
-        # +1/+1 from 1 pet to another pet
+        # +1/+1 from 1 pet_utils to another pet_utils
 
         self.handler._execute_modify_stats(dummy_action, retarget_flag=False)
 
         self.assertEqual(dummy_target.attack, 2)
         self.assertEqual(dummy_target.health, 2)
 
-        # +1/+1 to pet that does not exist
+        # +1/+1 to pet_utils that does not exist
         dummy_action = generate_dummy_action(**base_action_dict)
         dummy_action.kwargs["target_pet"] = None
 

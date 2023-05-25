@@ -1,4 +1,4 @@
-from actions import PriorityQueue, Action
+from action_utils.action import PriorityQueue, Action
 
 
 class Battle:

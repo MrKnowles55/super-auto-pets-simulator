@@ -1,12 +1,12 @@
 # import unittest
-# from src.pet import Pet
+# from src.pet_utils import Pet
 # from src.ability.ability_generator import AbilityGenerator
 # from src.ability.ability import Ability
 # from src.ability.modify_stats import ModifyStatsAbilityRandomFriend
-# from src.pet_data_utils.enums.trigger_event import TriggerEvent
-# from src.pet_data_utils.enums.effect_kind import EffectKind
-# from src.pet_data_utils.enums.effect_target_kind import EffectTargetKind
-# from src.team.team import Team
+# from src.data_utils.enums.trigger_event import TriggerEvent
+# from src.data_utils.enums.effect_kind import EffectKind
+# from src.data_utils.enums.effect_target_kind import EffectTargetKind
+# from src.team_utils.team_utils import Team
 #
 #
 # class TestAbility(unittest.TestCase):
@@ -37,7 +37,7 @@
 #                                                  target_type=EffectTargetKind.RandomFriend, target_n=2,
 #                                                  trigger_event=TriggerEvent.StartOfBattle, until_end_of_battle=True)
 #
-#         ability.trigger(event=TriggerEvent.StartOfBattle, pet=self.test_pet, team=self.test_team)
+#         ability.trigger(event=TriggerEvent.StartOfBattle, pet_utils=self.test_pet, team_utils=self.test_team)
 #
 #         self.assertEqual(self.friend_pet1.attack, 2)
 #         self.assertEqual(self.friend_pet1.health, 2)

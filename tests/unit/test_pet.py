@@ -1,6 +1,6 @@
 import unittest
 
-from src.pet.pet_entity import PetEntity
+from data.old.depreciated.pet_entity import PetEntity
 
 from tests.dummy.dummy_ability import generate_dummy_ability
 from tests.dummy.dummy_action import Dummy_ActionHandler
@@ -37,7 +37,7 @@ class TestPetEntity(unittest.TestCase):
                                    self.test_ability_data, self.test_ability_generator, self.action_handler)
 
     def test_pet_creation(self):
-        # Check pet initialization has expected results
+        # Check pet_utils initialization has expected results
         expected_name = "name"
         expected_attack = 1
         expected_health = 1
@@ -81,11 +81,11 @@ class TestPetEntity(unittest.TestCase):
         self.assertFalse(self.pet.is_alive)
 
     def test_apply_damage(self):
-        # Set pet stats
+        # Set pet_utils stats
         self.pet.attack = 1
         self.pet.health = 50
 
-        # set enemy pet stats
+        # set enemy pet_utils stats
         self.enemy_pet.attack = 0
         self.enemy_pet.health = 50
 
@@ -96,12 +96,12 @@ class TestPetEntity(unittest.TestCase):
         self.assertEqual(self.enemy_pet.health, 49)
 
     def test_hurt(self):
-        # No action returned when trigger_event is not Hurt
+        # No action_utils returned when trigger_event is not Hurt
         self.pet.ability = generate_dummy_ability(self.pet)
         self.pet.hurt()
         self.assertEqual(self.action_handler.action_list, [])
 
-        # Hurt action returned when trigger_event is Hurt
+        # Hurt action_utils returned when trigger_event is Hurt
         self.pet.ability = generate_dummy_ability(self.pet, "Hurt")
         self.pet.hurt()
 
@@ -111,7 +111,7 @@ class TestPetEntity(unittest.TestCase):
         attacker = self.enemy_pet
         ability_none = generate_dummy_ability(self.pet)
         ability_faint = generate_dummy_ability(self.pet, "Faint")
-        # No action returned when trigger_event is not Faint
+        # No action_utils returned when trigger_event is not Faint
         self.action_handler.clear_actions()
         self.pet.fainted = False
         self.pet.ability = ability_none
@@ -121,7 +121,7 @@ class TestPetEntity(unittest.TestCase):
         self.assertEqual(self.action_handler.action_list, [])
         self.assertTrue(self.pet.fainted)
 
-        # Faint action returned when trigger_event is Faint
+        # Faint action_utils returned when trigger_event is Faint
         self.action_handler.clear_actions()
         self.pet.fainted = False
         self.pet.ability = ability_faint
@@ -131,7 +131,7 @@ class TestPetEntity(unittest.TestCase):
         self.assertIn(self.action_handler.action_list[0][0], "Faint")
         self.assertTrue(self.pet.fainted)
 
-        # Assure pet cannot faint twice
+        # Assure pet_utils cannot faint twice
         self.action_handler.clear_actions()
         self.pet.fainted = True
         self.pet.ability = ability_faint
@@ -141,7 +141,7 @@ class TestPetEntity(unittest.TestCase):
         self.assertEqual(self.action_handler.action_list, [])
         self.assertTrue(self.pet.fainted)
 
-        # Assure pet is cleaned up if faint ability does not remove the pet from team
+        # Assure pet_utils is cleaned up if faint ability does not remove the pet_utils from team_utils
         self.action_handler.clear_actions()
         self.pet.fainted = False
         self.pet.ability = ability_none
@@ -155,23 +155,23 @@ class TestPetEntity(unittest.TestCase):
         self.assertFalse(team.pets_list)
 
     def test_before_attack(self):
-        # No action returned when trigger_event is not BeforeAttack
+        # No action_utils returned when trigger_event is not BeforeAttack
         self.pet.ability = generate_dummy_ability(self.pet)
         self.pet.before_attack()
         self.assertEqual(self.action_handler.action_list, [])
 
-        # BeforeAttack action returned when trigger_event is BeforeAttack
+        # BeforeAttack action_utils returned when trigger_event is BeforeAttack
         self.pet.ability = generate_dummy_ability(self.pet, "BeforeAttack")
         self.pet.before_attack()
 
         self.assertIn(self.action_handler.action_list[0][0], "BeforeAttack")
 
     def test_attack_pet(self):
-        # Set pet stats
+        # Set pet_utils stats
         self.pet.attack = 1
         self.pet.health = 50
 
-        # set enemy pet stats
+        # set enemy pet_utils stats
         self.enemy_pet.attack = 0
         self.enemy_pet.health = 50
         self.pet.attack_pet(self.enemy_pet)

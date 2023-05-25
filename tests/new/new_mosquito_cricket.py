@@ -1,8 +1,7 @@
 import unittest
-from actions import PriorityQueue, Action
-from pet.new_pet import Pet
-from new_battle import Battle
-from team.team import Team
+from pet_utils.pet import Pet
+from action_utils.battle import Battle
+from data.old.depreciated.team import Team
 
 
 def create_mosquito(team):
@@ -38,7 +37,7 @@ class TestNewPet(unittest.TestCase):
         # Start of battle trigger
         battle.start_of_battle()
 
-        # 1 action in queue
+        # 1 action_utils in queue
         self.assertEqual(len(battle.action_queue.queue), 1)
 
         # Queue and Queued Action are correct

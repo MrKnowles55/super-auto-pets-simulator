@@ -1,6 +1,6 @@
 from abc import abstractmethod
 from .ability_abstract import AbilityBase
-from src.action.action_utils import generate_modify_stats_action
+from data.old.depreciated.action_utils import generate_modify_stats_action
 from random import sample
 from src.config_utils.logger import setup_logger, log_call, log_class_init
 
@@ -33,7 +33,7 @@ class ModifyStatsAbilityRandomFriend(ModifyStatsAbilityBase):
     @log_call(log)
     def apply(self, **kwargs):
         actions = []
-        # Create a list of friendly pets, excluding the triggering pet
+        # Create a list of friendly pets, excluding the triggering pet_utils
         available_targets = [p for p in self.owner.team.pets_list if p is not self.owner and p.health > 0]
         if available_targets:
             # Choose the specified number of target pets from the available targets
@@ -77,10 +77,10 @@ class ModifyStatsAbilityFriendBehind(ModifyStatsAbilityBase):
                         exclude.append(target)
         return actions
 
-        #     if index >= len(self.owner.team.pets_list)-1-n:
+        #     if index >= len(self.owner.team_utils.pets_list)-1-n:
         #         return actions
         #
-        #     target = self.owner.team.pets_list[index + 1 + n]
+        #     target = self.owner.team_utils.pets_list[index + 1 + n]
         #     actions.append(self.add_modifiers(target, index=index, exclude=exclude))
         # return actions
 

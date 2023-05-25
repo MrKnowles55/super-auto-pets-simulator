@@ -1,14 +1,11 @@
 import unittest
 from unittest.mock import MagicMock, patch
-from pet.new_pet import Pet
-from new_battle import Battle
-from new_team import Team
-from signals import Signal, send_signal
+from pet_utils.pet import Pet
+from action_utils.battle import Battle
+from team_utils.team import Team
+from action_utils.signals import send_signal
 
-from src.pet_data_utils.enums.trigger_event import TriggerEvent
-from src.pet_data_utils.enums.trigger_by_kind import TriggerByKind
-from src.pet_data_utils.enums.effect_target_kind import EffectTargetKind
-from src.pet_data_utils.enums.effect_kind import EffectKind
+from src.data_utils.enums.trigger_event import TriggerEvent
 
 
 class TestSignal(unittest.TestCase):
@@ -67,7 +64,7 @@ class TestSignalBroadcast(unittest.TestCase):
         # so we do it manually
         self.enemy_team.read_signal(signal=MagicMock(message=TriggerEvent.Test, sender=sender_pet), broadcast=False)
         # Verify
-        # It should call send_signal for each pet in the team plus once for the enemy team
+        # It should call send_signal for each pet_utils in the team_utils plus once for the enemy team_utils
         self.assertEqual(mock_send_signal.call_count,
                          len(self.player_team.pets_list) + len(self.enemy_team.pets_list) + 1)
 

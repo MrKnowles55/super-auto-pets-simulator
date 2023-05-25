@@ -1,13 +1,11 @@
 import unittest
 
-from tests.dummy.dummy_pet import generate_big_pet
+from src.pet_utils.pet_factory import create_pet
+from data.old.depreciated.battle import start_of_battle
+from data.old.depreciated.team import Team
+from data.old.depreciated.action_utils import action_handler
 
-from src.pet.pet_factory import create_pet
-from src.battle import fight, start_of_battle
-from src.team.team import Team
-from src.action.action_utils import action_handler
-
-from src.config_utils.logger import setup_logger, log_call, log_class_init
+from src.config_utils.logger import setup_logger, log_call
 
 log = setup_logger(__name__)
 
@@ -29,7 +27,7 @@ class TestMosquitoVsCricket(unittest.TestCase):
             team.add_pet(pet)
             pets[pet_name].append(pet)
 
-        self.teams[team_name] = {"team": team, "pets": pets}
+        self.teams[team_name] = {"team_utils": team, "pets": pets}
 
     @log_call(log)
     def test1_Mosquito_v_1_Cricket(self):
@@ -39,12 +37,12 @@ class TestMosquitoVsCricket(unittest.TestCase):
         self.create_team("A", ["mosquito"])
         self.create_team("B", ["cricket"])
 
-        start_of_battle(self.teams["A"]["team"], self.teams["B"]["team"])
+        start_of_battle(self.teams["A"]["team_utils"], self.teams["B"]["team_utils"])
         self.handler.execute_actions()
 
         # Both pets still alive
-        self.assertTrue(self.teams["A"]["team"].pets_list)
-        self.assertTrue(self.teams["B"]["team"].pets_list)
+        self.assertTrue(self.teams["A"]["team_utils"].pets_list)
+        self.assertTrue(self.teams["B"]["team_utils"].pets_list)
 
         # Cricket is hurt
         first_cricket = self.teams["B"]["pets"]["cricket"][0]
@@ -58,12 +56,12 @@ class TestMosquitoVsCricket(unittest.TestCase):
         self.create_team("A", ["mosquito", "mosquito"])
         self.create_team("B", ["cricket"])
 
-        start_of_battle(self.teams["A"]["team"], self.teams["B"]["team"])
+        start_of_battle(self.teams["A"]["team_utils"], self.teams["B"]["team_utils"])
         self.handler.execute_actions()
 
         # 2 Mosquitos and 1 Zombie Cricket
-        self.assertEqual(self.teams["A"]["team"].length, 2)
-        self.assertEqual(self.teams["B"]["team"].length, 1)
+        self.assertEqual(self.teams["A"]["team_utils"].length, 2)
+        self.assertEqual(self.teams["B"]["team_utils"].length, 1)
 
         # Cricket is fainted
         first_cricket = self.teams["B"]["pets"]["cricket"][0]
@@ -71,19 +69,19 @@ class TestMosquitoVsCricket(unittest.TestCase):
         self.assertFalse(first_cricket.is_alive)
 
         # Zombie Cricket summoned
-        self.assertEqual(self.teams["B"]["team"].first.name, "Zombie Cricket")
+        self.assertEqual(self.teams["B"]["team_utils"].first.name, "Zombie Cricket")
 
     @log_call(log)
     def test4_Mosquito_v_1_Cricket_Sequentially(self):
         self.create_team("A", ["mosquito", "mosquito", "mosquito", "mosquito"])
         self.create_team("B", ["cricket"])
 
-        self.teams["A"]["team"].pets_list[0].attack = 4
-        self.teams["A"]["team"].pets_list[1].attack = 3
-        self.teams["A"]["team"].pets_list[2].attack = 2
-        self.teams["A"]["team"].pets_list[3].attack = 1
+        self.teams["A"]["team_utils"].pets_list[0].attack = 4
+        self.teams["A"]["team_utils"].pets_list[1].attack = 3
+        self.teams["A"]["team_utils"].pets_list[2].attack = 2
+        self.teams["A"]["team_utils"].pets_list[3].attack = 1
 
-        start_of_battle(self.teams["A"]["team"], self.teams["B"]["team"])
+        start_of_battle(self.teams["A"]["team_utils"], self.teams["B"]["team_utils"])
         self.handler.execute_actions()
         print(self.teams["A"]["pets"])
 
@@ -96,12 +94,12 @@ class TestMosquitoVsCricket(unittest.TestCase):
     #     self.create_team("A", ["mosquito", "mosquito", "mosquito", "mosquito"])
     #     self.create_team("B", ["cricket", "cricket"])
     #
-    #     start_of_battle(self.teams["A"]["team"], self.teams["B"]["team"])
+    #     start_of_battle(self.teams["A"]["team_utils"], self.teams["B"]["team_utils"])
     #     self.handler.execute_actions()
     #
     #     # 4 Mosquitos and 2 Zombie Cricket
-    #     self.assertEqual(self.teams["A"]["team"].length, 4)
-    #     self.assertEqual(self.teams["B"]["team"].length, 2)
+    #     self.assertEqual(self.teams["A"]["team_utils"].length, 4)
+    #     self.assertEqual(self.teams["B"]["team_utils"].length, 2)
     #
     #     # Crickets are fainted
     #     self.assertEqual(self.teams["B"]["pets"]["cricket"][0].health, 0)
@@ -111,8 +109,8 @@ class TestMosquitoVsCricket(unittest.TestCase):
     #     self.assertFalse(self.teams["B"]["pets"]["cricket"][1].is_alive)
     #
     #     # Zombie Crickets summoned
-    #     self.assertEqual(self.teams["B"]["team"].first.name, "Zombie Cricket")
-    #     self.assertEqual(self.teams["B"]["team"].pets_list[1].name, "Zombie Cricket")
+    #     self.assertEqual(self.teams["B"]["team_utils"].first.name, "Zombie Cricket")
+    #     self.assertEqual(self.teams["B"]["team_utils"].pets_list[1].name, "Zombie Cricket")
     #
     # def test4_Mosquito_v_1_Cricket(self):
     #     team_a = Team("A")
@@ -148,18 +146,18 @@ class TestMosquitoVsCricket(unittest.TestCase):
 
 
 # import unittest
-# from src.pet.pet_factory import create_pet
+# from src.pet_utils.pet_factory import create_pet
 # from src.battle import fight, start_of_battle, get_pet_list, fight_loop, end_of_battle
-# from src.team.team import Team, player_team, opponent_team
-# from src.action.action_utils import action_handler, generate_summon_action, generate_damage_action
+# from src.team_utils.team_utils import Team, player_team, opponent_team
+# from src.action_utils.action_utils import action_handler, generate_summon_action, generate_damage_action
 #
 #
 # class TestMosquitoVsCricket(unittest.TestCase):
 #     """
-#     Tests a team of 5 Mosquitoes vs 2 Crickets to ensure Damage Ability and Summon ability follow layering.
+#     Tests a team_utils of 5 Mosquitoes vs 2 Crickets to ensure Damage Ability and Summon ability follow layering.
 #     Once the fight starts, 4 mosquitoes should deal damage to the 2 Crickets which have 2 health. The last Mosquito will
 #     have no valid targets and do nothing. The crickets should faint, then summon their tokens. Now the fight_loop can
-#     commence ending the fight with 4 Mosquitoes (2/2) against an empty team.
+#     commence ending the fight with 4 Mosquitoes (2/2) against an empty team_utils.
 #     """
 #     def setUp(self):
 #         """
@@ -180,13 +178,13 @@ class TestMosquitoVsCricket(unittest.TestCase):
 #             create_pet("Cricket")
 #         ]
 #
-#         # Set the team for each pet in player_team
-#         for pet in player_team.pets_list:
-#             pet.team = player_team
+#         # Set the team_utils for each pet_utils in player_team
+#         for pet_utils in player_team.pets_list:
+#             pet_utils.team_utils = player_team
 #
-#         # Set the team for each pet in opponent_team
-#         for pet in opponent_team.pets_list:
-#             pet.team = opponent_team
+#         # Set the team_utils for each pet_utils in opponent_team
+#         for pet_utils in opponent_team.pets_list:
+#             pet_utils.team_utils = opponent_team
 #
 #     @staticmethod
 #     def get_mode():
@@ -194,7 +192,7 @@ class TestMosquitoVsCricket(unittest.TestCase):
 #
 #     def test_team_setup(self):
 #         """
-#         Checks the setup by checking team sizes, and samples the first pet in each team.
+#         Checks the setup by checking team_utils sizes, and samples the first pet_utils in each team_utils.
 #         :return:
 #         """
 #         match self.get_mode():
@@ -221,7 +219,7 @@ class TestMosquitoVsCricket(unittest.TestCase):
 #
 #     def test_get_pet_list(self):
 #         """
-#         Checks the get_pet_list properly combines the two team lists into a single list.
+#         Checks the get_pet_list properly combines the two team_utils lists into a single list.
 #         :return:
 #         """
 #         pet_list = get_pet_list(player_team, opponent_team)
@@ -251,18 +249,18 @@ class TestMosquitoVsCricket(unittest.TestCase):
 #         match self.get_mode():
 #             case "Mosquito":
 #                 start_of_battle(player_team, opponent_team, pet_list)
-#                 for pet in opponent_team.pets_list:
-#                     self.assertEqual(pet.name, "Zombie Cricket")
+#                 for pet_utils in opponent_team.pets_list:
+#                     self.assertEqual(pet_utils.name, "Zombie Cricket")
 #                 self.assertEqual(len(opponent_team.pets_list), 2)
 #             case "Cricket":
 #                 start_of_battle(player_team, opponent_team, pet_list)
-#                 for pet in player_team.pets_list:
-#                     self.assertEqual(pet.name, "Zombie Cricket")
+#                 for pet_utils in player_team.pets_list:
+#                     self.assertEqual(pet_utils.name, "Zombie Cricket")
 #                 self.assertEqual(len(player_team.pets_list), 2)
 #
 #     def test_fight_loop(self):
 #         """
-#         Checks that fight_loop ends with 4 Mosquitoes (2/2) and an empty enemy team.
+#         Checks that fight_loop ends with 4 Mosquitoes (2/2) and an empty enemy team_utils.
 #         Simulates the Start of Battle section by applying 2 damage to the crickets, then executing their abilities
 #         before the fight loop.
 #         :return:
@@ -300,7 +298,7 @@ class TestMosquitoVsCricket(unittest.TestCase):
 #
 # class TestCricketVsMosquito(TestMosquitoVsCricket):
 #     """
-#     Tests a team of 2 Crickets vs 5 Mosquitoes.
+#     Tests a team_utils of 2 Crickets vs 5 Mosquitoes.
 #     This class will reuse test methods from TestMosquitoVsCricket with swapped teams.
 #     """
 #     def setUp(self):
@@ -322,13 +320,13 @@ class TestMosquitoVsCricket(unittest.TestCase):
 #             create_pet("Mosquito")
 #         ]
 #
-#         # Set the team for each pet in player_team
-#         for pet in player_team.pets_list:
-#             pet.team = player_team
+#         # Set the team_utils for each pet_utils in player_team
+#         for pet_utils in player_team.pets_list:
+#             pet_utils.team_utils = player_team
 #
-#         # Set the team for each pet in opponent_team
-#         for pet in opponent_team.pets_list:
-#             pet.team = opponent_team
+#         # Set the team_utils for each pet_utils in opponent_team
+#         for pet_utils in opponent_team.pets_list:
+#             pet_utils.team_utils = opponent_team
 #
 #
 # if __name__ == '__main__':

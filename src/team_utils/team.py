@@ -1,7 +1,6 @@
-from src.config_utils.logger import setup_logger, log_call, log_class_init
-from src.action.action_utils import action_handler, generate_remove_action
-from src.actions import PriorityQueue, Action
-import signals
+from src.config_utils.logger import setup_logger
+from action_utils.action import Action
+from action_utils import signals
 
 log = setup_logger(__name__)
 
@@ -44,7 +43,7 @@ class Team:
         if self.action_handler:
             self.action_handler.create_action(pet, None, None)
         else:
-            print("Remove Pet Not implemented without action handler")
+            print("Remove Pet Not implemented without action_utils handler")
 
     def move_pet(self, old_index, new_index):
         if 0 <= old_index < len(self.pets_list) and 0 <= new_index < len(self.pets_list):
@@ -56,7 +55,7 @@ class Team:
                 pet = self.pets_list[old_index]
                 log.debug(f"{self} cannot move {pet} from {old_index} to {new_index}")
             except IndexError:
-                log.debug(f"{self} has no pet at {old_index} to move.")
+                log.debug(f"{self} has no pet_utils at {old_index} to move.")
 
     def fill(self):
         self.pets_list = [pet for pet in self.pets_list if pet is not None]

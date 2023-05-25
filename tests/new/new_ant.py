@@ -1,13 +1,10 @@
 import unittest
-from actions import PriorityQueue, Action
-from pet.new_pet import Pet
-from new_battle import Battle
-from new_team import Team
+from pet_utils.pet import Pet
+from action_utils.battle import Battle
+from team_utils.team import Team
 
-from src.pet_data_utils.enums.trigger_event import TriggerEvent
-from src.pet_data_utils.enums.trigger_by_kind import TriggerByKind
-from src.pet_data_utils.enums.effect_target_kind import EffectTargetKind
-from src.pet_data_utils.enums.effect_kind import EffectKind
+from src.data_utils.enums.trigger_event import TriggerEvent
+from src.data_utils.enums.trigger_by_kind import TriggerByKind
 
 
 def create_ant():
@@ -35,7 +32,7 @@ class TestAnt(unittest.TestCase):
 
     def test_ant_init(self):
         """
-        Test pet creation and initialization
+        Test pet_utils creation and initialization
         :return:
         """
         expected_values = {
@@ -52,7 +49,7 @@ class TestAnt(unittest.TestCase):
             "level": 1,
             "attack_mod": 0,
             "health_mod": 0,
-            "team": None,
+            "team_utils": None,
             "start_position": -1,
             "position": -1,
             "attack": 2,

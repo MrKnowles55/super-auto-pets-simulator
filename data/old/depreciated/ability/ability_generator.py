@@ -2,9 +2,9 @@ from .ability_abstract import *
 from .modify_stats import *
 from .summon_pet import *
 from .deal_damage import *
-from src.pet_data_utils.enums.effect_kind import EffectKind
-from src.pet_data_utils.enums.effect_target_kind import EffectTargetKind
-from src.pet_data_utils.enums.trigger_event import TriggerEvent
+from src.data_utils.enums.effect_kind import EffectKind
+from src.data_utils.enums.effect_target_kind import EffectTargetKind
+from src.data_utils.enums.trigger_event import TriggerEvent
 
 
 class AbilityGenerator:
@@ -46,13 +46,13 @@ class AbilityGenerator:
         return {key: value for key, value in self.ability_dict.items() if key not in keys_to_exclude}
 
     def get_effect_pet(self):
-        return self.ability_dict.get("effect", {}).get("pet")
+        return self.ability_dict.get("effect", {}).get("pet_utils")
 
     def get_effect_n(self):
         return self.ability_dict.get("effect", {}).get("n")
 
     def get_effect_team(self):
-        return self.ability_dict.get("effect", {}).get("team")
+        return self.ability_dict.get("effect", {}).get("team_utils")
 
     def get_effect_level(self):
         return self.ability_dict.get("effect", {}).get("level")

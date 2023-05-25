@@ -1,7 +1,7 @@
 import unittest
 from tests.dummy.dummy_pet import generate_dummy_pet
 from tests.dummy.dummy_action import Dummy_ActionHandler
-from src.team.team import Team
+from data.old.depreciated.team import Team
 
 
 class TestTeam(unittest.TestCase):
@@ -46,15 +46,15 @@ class TestTeam(unittest.TestCase):
     def test_remove_pet(self):
         # Action handler now deals with this, tested there.
         pass
-        # pet = generate_dummy_pet(name="Pet 0")
+        # pet_utils = generate_dummy_pet(name="Pet 0")
         # pet1 = generate_dummy_pet(name="Pet 1")
         # pet2 = generate_dummy_pet(name="Pet 2")
         #
         # # Remove from front
         # self.test_team.pets_list = []
-        # self.test_team.pets_list.append(pet)
+        # self.test_team.pets_list.append(pet_utils)
         #
-        # self.test_team.remove_pet(pet)
+        # self.test_team.remove_pet(pet_utils)
         # print(self.action_handler.action_list)
         # self.assertTrue(self.action_handler.action_list)
         #
@@ -62,26 +62,26 @@ class TestTeam(unittest.TestCase):
         # # Remove 1 from front with pets behind
         # self.action_handler.clear_actions()
         # self.test_team.pets_list = []
-        # self.test_team.pets_list.append(pet)
+        # self.test_team.pets_list.append(pet_utils)
         # self.test_team.pets_list.append(pet1)
         #
-        # self.test_team.remove_pet(pet)
+        # self.test_team.remove_pet(pet_utils)
         #
-        # self.assertNotIn(pet, self.test_team.pets_list)
+        # self.assertNotIn(pet_utils, self.test_team.pets_list)
         # self.assertIn(pet1, self.test_team.pets_list)
         # self.assertEqual(pet1.position, 0)
         #
-        # # Remove 1 pet from middle
+        # # Remove 1 pet_utils from middle
         # self.action_handler.clear_actions()
         # self.test_team.pets_list = []
-        # self.test_team.pets_list.append(pet)
+        # self.test_team.pets_list.append(pet_utils)
         # self.test_team.pets_list.append(pet1)
         # self.test_team.pets_list.append(pet2)
         #
         # self.test_team.remove_pet(pet1)
         #
-        # self.assertEqual(self.test_team.first, pet)
-        # self.assertEqual(pet.position, 0)
+        # self.assertEqual(self.test_team.first, pet_utils)
+        # self.assertEqual(pet_utils.position, 0)
         # self.assertEqual(self.test_team.pets_list[1], pet2)
         # self.assertEqual(pet2.position, 1)
 
@@ -102,7 +102,7 @@ class TestTeam(unittest.TestCase):
         self.assertEqual(self.test_team.first, pet)
         self.assertEqual(self.test_team.length, 1)
 
-        # Move in place, 1 pet
+        # Move in place, 1 pet_utils
         self.test_team.pets_list = []
         self.test_team.pets_list.append(pet)
         pet.position = 0
@@ -112,7 +112,7 @@ class TestTeam(unittest.TestCase):
         self.assertEqual(self.test_team.first, pet)
         self.assertEqual(pet.position, 0)
 
-        # Move in place, full team
+        # Move in place, full team_utils
         self.test_team.pets_list = []
         self.test_team.pets_list.append(pet)
         self.test_team.pets_list.append(pet1)
@@ -138,7 +138,7 @@ class TestTeam(unittest.TestCase):
         self.assertEqual(self.test_team.pets_list[4], pet4)
         self.assertEqual(pet4.position, 4)
 
-        # Move to index > team length
+        # Move to index > team_utils length
         self.test_team.pets_list = []
         self.test_team.pets_list.append(pet)
         pet.position = 0

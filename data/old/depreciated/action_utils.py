@@ -1,6 +1,5 @@
 from src.config_utils.logger import setup_logger, log_call, log_class_init
-from src.pet_data_utils.enums.trigger_event import TriggerEvent
-import random
+from src.data_utils.enums.trigger_event import TriggerEvent
 
 log = setup_logger(__name__)
 
@@ -56,27 +55,27 @@ class ActionHandler:
             log.print(f"DICT: {self.__dict__}")
             priorities = sorted(list(self.priority_dict.keys()), reverse=True)
             for priority in priorities:
-                # Execute pet actions with the current priority
+                # Execute pet_utils actions with the current priority
                 for action in self.priority_dict[priority]:
                     self.execute(action)
                     self.remove_actions(action)
 
-                # Execute team actions after each priority
+                # Execute team_utils actions after each priority
                 for team_action in self.team_action_list:
                     self.execute(team_action)
                     self.remove_actions(team_action)
 
-                self.team_action_list = []  # Clear team_action_list after executing team actions for the current priority
+                self.team_action_list = []  # Clear team_action_list after executing team_utils actions for the current priority
 
 
             # for priority in priorities:
             #     log.print(f"Inside Team {self.team_action_list}")
-            #     for action in self.priority_dict[priority]:
-            #         self.execute(action)
-            #     for action in self.team_action_list:
-            #         self.execute(action)
+            #     for action_utils in self.priority_dict[priority]:
+            #         self.execute(action_utils)
+            #     for action_utils in self.team_action_list:
+            #         self.execute(action_utils)
             # self.clear_actions()
-        #     actions_to_remove.append(action)
+        #     actions_to_remove.append(action_utils)
         #
         # self.remove_actions(actions_to_remove)
 
@@ -88,9 +87,9 @@ class ActionHandler:
             return
         source = action.source
         trigger_event = action.kwargs.get("trigger_event")
-        # check if source is not None, and then only actually execute the action if the source pet is still alive, or if
+        # check if source is not None, and then only actually execute the action_utils if the source pet_utils is still alive, or if
         # the ability is a faint ability. Try method to capture is_alive attribute for pets, but bypass if
-        # source is not a pet.
+        # source is not a pet_utils.
         try:
             source_alive_flag = source.is_alive
         except AttributeError:
@@ -122,7 +121,7 @@ class ActionHandler:
             if target.is_alive:
                 target.apply_damage(damage, action.source)
             else:
-                from src.team.team import player_team, opponent_team
+                from data.old.depreciated.team import player_team, opponent_team
                 enemy_team = opponent_team if action.source.team == player_team else player_team
                 new_action = self.retarget_action(action, enemy_team=enemy_team)
                 self.execute(new_action, retarget_flag=True)
@@ -131,7 +130,7 @@ class ActionHandler:
                 f"ERROR!!! Target {target}, damage {damage}, or source {action.source} are invalid for {action.name}")
 
     def _execute_remove(self, action):
-        team = action.kwargs.get("team")
+        team = action.kwargs.get("team_utils")
         pet = action.kwargs.get("pet_to_remove")
         try:
             team.pets_list.remove(pet)
@@ -140,9 +139,9 @@ class ActionHandler:
         team.update_positions()
 
     def _execute_summon(self, action):
-        from src.pet.pet_factory import create_pet
+        from src.pet_utils.pet_factory import create_pet
         pet_name = action.kwargs.get("pet_to_summon")
-        team = action.kwargs.get("team")
+        team = action.kwargs.get("team_utils")
         index = action.kwargs.get("index")
         try:
             new_pet = create_pet(pet_name)
@@ -207,14 +206,14 @@ class ActionHandler:
 
     @log_call(log)
     def prioritize_actions(self):
-        from src.team.team import Team
+        from data.old.depreciated.team import Team
         actions_to_prioritize = [x for x in self.action_list if x is not None and x.source is not None and
                                  not isinstance(x.source, Team)]
         unique_priorities = set(x.source.attack for x in actions_to_prioritize)
         priority_dict = {priority: [x for x in actions_to_prioritize if x.source.attack == priority] for priority in
                          unique_priorities}
 
-        # Get team actions
+        # Get team_utils actions
         team_actions = [x for x in self.action_list if isinstance(x.source, Team)]
         self.team_action_list.extend(team_actions)
 
@@ -224,7 +223,7 @@ class ActionHandler:
         else:
             top_priority = 0.5
 
-        # Insert team actions just below the top priority
+        # Insert team_utils actions just below the top priority
         priority_dict[top_priority - 0.5] = team_actions
 
         # Sort the priority_dict by priority in descending order

@@ -1,5 +1,5 @@
 from src.config_utils.logger import setup_logger, log_call, log_class_init
-from src.action.action_utils import action_handler, generate_remove_action
+from data.old.depreciated.action_utils import action_handler, generate_remove_action
 
 log = setup_logger(__name__)
 
@@ -40,7 +40,7 @@ class Team:
     @log_call(log)
     def remove_pet(self, pet):
         if pet in self.pets_list:
-            # self.pets_list.remove(pet)
+            # self.pets_list.remove(pet_utils)
             # self.update_positions()
             self.action_handler.add_action(generate_remove_action(self, None, pet, self))
         else:

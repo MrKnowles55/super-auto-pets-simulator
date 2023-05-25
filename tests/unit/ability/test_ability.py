@@ -1,7 +1,7 @@
 import unittest
 
-from src.ability.ability_abstract import AbilityBase, No_Ability
-from src.pet_data_utils.enums.trigger_event import TriggerEvent
+from data.old.depreciated.ability import AbilityBase, No_Ability
+from src.data_utils.enums.trigger_event import TriggerEvent
 
 from tests.dummy.dummy_pet import DummyPet
 

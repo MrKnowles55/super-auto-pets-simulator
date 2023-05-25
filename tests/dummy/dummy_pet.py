@@ -2,7 +2,7 @@ from tests.dummy.dummy_ability import generate_dummy_ability
 
 
 class DummyPet:
-    def __init__(self, name="test pet", attack=1, health=1, tier=1, level=1, ability1=None, ability2=None, ability3=None, ability_generator=None):
+    def __init__(self, name="test pet_utils", attack=1, health=1, tier=1, level=1, ability1=None, ability2=None, ability3=None, ability_generator=None):
         self.name = name
         self.attack = attack
         self.health = health
@@ -58,21 +58,21 @@ class DummyPet:
         self.health -= damage
 
 
-def generate_dummy_pet(name="test pet", attack=1, health=1, tier=1, level=1, ability1=None, ability2=None, ability3=None, ability_generator=None):
+def generate_dummy_pet(name="test pet_utils", attack=1, health=1, tier=1, level=1, ability1=None, ability2=None, ability3=None, ability_generator=None):
     return DummyPet(name, attack, health, tier, level, ability1, ability2, ability3, ability_generator)
 
 
 def generate_small_pet():
-    return generate_dummy_pet(name="small pet", attack=1, health=1)
+    return generate_dummy_pet(name="small pet_utils", attack=1, health=1)
 
 
 def generate_big_pet():
-    return generate_dummy_pet(name="big pet", attack=50, health=50)
+    return generate_dummy_pet(name="big pet_utils", attack=50, health=50)
 
 
 def generate_strong_pet():
-    return generate_dummy_pet(name="strong pet", attack=50, health=1)
+    return generate_dummy_pet(name="strong pet_utils", attack=50, health=1)
 
 
 def generate_tank_pet():
-    return generate_dummy_pet(name="tank pet", attack=0, health=50)
+    return generate_dummy_pet(name="tank pet_utils", attack=0, health=50)

@@ -1,11 +1,11 @@
 import unittest
 from unittest.mock import MagicMock
-from pet.new_pet import Pet
+from pet_utils.pet import Pet
 
-from src.pet_data_utils.enums.trigger_event import TriggerEvent
-from src.pet_data_utils.enums.trigger_by_kind import TriggerByKind
-from src.pet_data_utils.enums.effect_target_kind import EffectTargetKind
-from src.pet_data_utils.enums.effect_kind import EffectKind
+from src.data_utils.enums.trigger_event import TriggerEvent
+from src.data_utils.enums.trigger_by_kind import TriggerByKind
+from src.data_utils.enums.effect_target_kind import EffectTargetKind
+from src.data_utils.enums.effect_kind import EffectKind
 
 
 class TestAnt(unittest.TestCase):
@@ -17,7 +17,7 @@ class TestAnt(unittest.TestCase):
 
     def test_pet_init(self):
         """
-        Test pet creation and initialization
+        Test pet_utils creation and initialization
         :return:
         """
         expected_dict = {
@@ -35,7 +35,7 @@ class TestAnt(unittest.TestCase):
             "level": 1,
             "attack_mod": 0,
             "health_mod": 0,
-            "team": None,
+            "team_utils": None,
             "start_position": -1,
             "position": -1,
             "attack": 1,
@@ -70,7 +70,7 @@ class TestAnt(unittest.TestCase):
         friend_pet.team = self.pet.team
         friend_pet.team.pets_list.append(friend_pet)
 
-        # Friend behind test pet should see FriendAhead, and test pet sees EachFriend
+        # Friend behind test pet_utils should see FriendAhead, and test pet_utils sees EachFriend
         self.pet.position = 0
         friend_pet.position = 1
 

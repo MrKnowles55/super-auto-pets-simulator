@@ -1,4 +1,4 @@
-from src.pet_data_utils.enums.trigger_event import TriggerEvent
+from src.data_utils.enums.trigger_event import TriggerEvent
 
 
 class Dummy_AbilityBase:

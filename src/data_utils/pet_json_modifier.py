@@ -5,8 +5,8 @@ WIP = "pet_data_wip.json"
 
 
 def get_pet(data, pet):
-    if "pet" not in pet:
-        pet = "pet-"+pet
+    if "pet_utils" not in pet:
+        pet = "pet_utils-"+pet
     if pet in data:
         return data[pet]
     else:
@@ -180,20 +180,20 @@ if __name__ == "__main__":
     pet_data = load_data("../../data/pet_data.json")
     # normalize_packs(pet_data)
     # save_to_main(pet_data)
-    # pet_to_fix = input("What pet to fix its tier? ").lower()
+    # pet_to_fix = input("What pet_utils to fix its tier? ").lower()
     # pets_with_bad_tier = get_incomplete_pets(pet_data)["bad_tier"]
     # pets_with_bad_packs = get_incomplete_pets(pet_data)["missing_pack"]
     # pets_with_bad_stats = get_incomplete_pets(pet_data)["bad_stats"]
     # pets_missing_all = get_incomplete_pets(pet_data)["missing_all"]
     # pets_missing_keywords = get_incomplete_pets(pet_data)["missing_ability_keywords"]
 
-    # for pet in pets_missing_keywords:
-    #     pet_to_fix = pet
-    #     if "pet" not in pet_to_fix:
-    #         pet_to_fix = "pet-"+pet_to_fix
+    # for pet_utils in pets_missing_keywords:
+    #     pet_to_fix = pet_utils
+    #     if "pet_utils" not in pet_to_fix:
+    #         pet_to_fix = "pet_utils-"+pet_to_fix
     #     pet_data = fix_missing_keywords(pet_data, pet_to_fix)
     #     if not pet_data:
-    #         print(f"{pet} Invalid")
+    #         print(f"{pet_utils} Invalid")
     #         continue
     #     display(pet_data[pet_to_fix])
     #     if input("Save to WIP? ").lower() in ["y", "yes", "1"]:

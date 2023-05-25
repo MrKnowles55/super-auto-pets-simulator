@@ -109,7 +109,7 @@ def load_new_pet(pet_name):
     tier_and_packs = get_tier_and_pack(soup, pet_name)
     output = {}
     output["name"] = pet_name
-    output["id"] = "pet-" + pet_name.replace(" ", "_").lower()
+    output["id"] = "pet_utils-" + pet_name.replace(" ", "_").lower()
     output["tier"] = int(tier_and_packs["tier"].replace("Tier ", ""))
     if "Stats" in list(abilities.keys()):
         output["baseAttack"] = int(abilities["Stats"].split("/")[0])
@@ -199,40 +199,40 @@ if __name__ == "__main__":
     # trigger_list = {}
     # for t in sorted(parameters["triggers"]):
     #     trigger_list[t] = []
-    #     for pet in PET_DICT.values():
-    #         ability = [pet.get('level1Ability', {}),
-    #                      pet.get('level2Ability', {}),
-    #                      pet.get('level3Ability', {})]
+    #     for pet_utils in PET_DICT.values():
+    #         ability = [pet_utils.get('level1Ability', {}),
+    #                      pet_utils.get('level2Ability', {}),
+    #                      pet_utils.get('level3Ability', {})]
     #
     #         for ability in ability:
     #             trigger = ability.get('trigger')
     #             if trigger == t:
-    #                 if pet["name"] not in trigger_list[t]:
-    #                     trigger_list[t].append(pet["name"])
+    #                 if pet_utils["name"] not in trigger_list[t]:
+    #                     trigger_list[t].append(pet_utils["name"])
     #     print(t, trigger_list[t])
     # effect_kinds_list = {}
     # for e in sorted(parameters["effect_kinds"]):
     #     effect_kinds_list[e] = []
-    #     for pet in PET_DICT.values():
-    #         ability = [pet.get('level1Ability', {}),
-    #                      pet.get('level2Ability', {}),
-    #                      pet.get('level3Ability', {})]
+    #     for pet_utils in PET_DICT.values():
+    #         ability = [pet_utils.get('level1Ability', {}),
+    #                      pet_utils.get('level2Ability', {}),
+    #                      pet_utils.get('level3Ability', {})]
     #
     #         for ability in ability:
     #             effect = ability.get('effect')
     #             if effect:
     #                 effect_kind = effect.get('kind')
     #                 if effect_kind == e:
-    #                     if pet["name"] not in effect_kinds_list[e]:
-    #                         effect_kinds_list[e].append(pet["name"])
+    #                     if pet_utils["name"] not in effect_kinds_list[e]:
+    #                         effect_kinds_list[e].append(pet_utils["name"])
     #     print(e, effect_kinds_list[e])
     # effect_target_kinds_list = {}
     # for e in sorted(parameters["effect_target_kinds"]):
     #     effect_target_kinds_list[e] = []
-    #     for pet in PET_DICT.values():
-    #         ability = [pet.get('level1Ability', {}),
-    #                      pet.get('level2Ability', {}),
-    #                      pet.get('level3Ability', {})]
+    #     for pet_utils in PET_DICT.values():
+    #         ability = [pet_utils.get('level1Ability', {}),
+    #                      pet_utils.get('level2Ability', {}),
+    #                      pet_utils.get('level3Ability', {})]
     #
     #         for ability in ability:
     #             effect = ability.get('effect')
@@ -241,8 +241,8 @@ if __name__ == "__main__":
     #                 if target:
     #                     target_kind = target.get('kind')
     #                     if target_kind == e:
-    #                         if pet["name"] not in effect_target_kinds_list[e]:
-    #                             effect_target_kinds_list[e].append(pet["name"])
+    #                         if pet_utils["name"] not in effect_target_kinds_list[e]:
+    #                             effect_target_kinds_list[e].append(pet_utils["name"])
     #     print(e, effect_target_kinds_list[e])
 
 
@@ -250,10 +250,10 @@ if __name__ == "__main__":
     # lst = []
     # d = {}
 
-    # for pet in list(PET_DICT.keys()):
-    #     for v in PET_DICT[pet].keys():
+    # for pet_utils in list(PET_DICT.keys()):
+    #     for v in PET_DICT[pet_utils].keys():
     #         for ability in ["level1Ability", "level2Ability", "level3Ability"]:
-    #             foo = PET_DICT[pet].get(ability)
+    #             foo = PET_DICT[pet_utils].get(ability)
     #             if not foo:
     #                 continue
     #             for key in foo.keys():

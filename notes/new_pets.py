@@ -5,7 +5,7 @@ class NewPet:
     def __init__(self, name, tier, base_attack, base_health, packs, ability_description, ability_trigger,
                  ability_triggered_by, ability_effect_kind, **ability_effect_kwargs):
         self.name = name
-        self.id = 'pet-' + self.name.lower().replace(" ", "-")
+        self.id = 'pet_utils-' + self.name.lower().replace(" ", "-")
         self.image = {
             "source": "",
             "commit": "",
