@@ -41,13 +41,13 @@ class PetDatabase:
 
         for pet_id, pet_data in self.pet_dict.items():
             for level in range(1, 4):
-                ability_key = f"level{level}Ability"
+                ability_key = f"level_{level}_ability"
                 ability_data = pet_data.get(ability_key)
 
                 if not ability_data:
                     continue
                 if ability_data.get("trigger") == trigger:
-                    if ability_data.get("triggeredBy", {}).get("kind") == triggered_by_kind or not triggered_by_kind:
+                    if ability_data.get("triggered_by") == triggered_by_kind or not triggered_by_kind:
                         pets.add(pet_data["name"])
 
         return list(pets)
@@ -57,7 +57,7 @@ class PetDatabase:
 
         for pet_id, pet_data in self.pet_dict.items():
             for level in range(1, 4):
-                ability_key = f"level{level}Ability"
+                ability_key = f"level_{level}_ability"
                 ability_data = pet_data.get(ability_key)
 
                 if not ability_data:

@@ -1,4 +1,6 @@
 from src.action_utils import signals
+from src.data_utils.pet_data_manager import pet_db
+
 from src.data_utils.enums.trigger_event import TriggerEvent
 from src.data_utils.enums.trigger_by_kind import TriggerByKind
 from src.data_utils.enums.effect_target_kind import EffectTargetKind
@@ -11,16 +13,21 @@ class Pet:
     def __init__(self, name, **kwargs):
         self.id = Pet.global_pet_count
         Pet.global_pet_count += 1
+
+        self.name = name.title()
+        template = pet_db.pet_dict.get(self.database_id)
+        if not template:
+            print(f"No pet found called {name}. Using Default template.")
+            template = pet_db.pet_dict.get("pet-default")
         # Base Stats from Template
-        self.name = name
-        self.base_attack = 1
-        self.base_health = 1
-        self.tier = 1
-        self.ability = {
-            "trigger": TriggerEvent.Test,
-            "triggered_by": TriggerByKind.Test,
-            "effect": EffectKind.Test,
-            "effect_dict": {"target": EffectTargetKind.Test}
+        self.base_attack = template.get('base_attack', 1)
+        self.base_health = template.get('base_health', 1)
+        self.tier = template.get('tier', 1)
+
+        self.ability_by_level = {
+            1: self.translate_ability_data(template.get("level_1_ability", {})),
+            2: self.translate_ability_data(template.get("level_2_ability", {})),
+            3: self.translate_ability_data(template.get("level_3_ability", {}))
         }
 
         # Default assumed parameters
@@ -37,9 +44,10 @@ class Pet:
         for key, value in kwargs.items():
             setattr(self, key, value)
 
-        # Calculated stats
+        # Dependant Variables
         self.attack = self.base_attack + self.attack_mod
         self.health = self.base_health + self.health_mod
+        self.ability = self.ability_by_level[self.level]
 
     def __str__(self):
         return f"{self.name}_{self.id}"
@@ -60,7 +68,32 @@ class Pet:
     def triggered_by(self):
         return self.ability.get("triggered_by")
 
+    @property
+    def database_id(self):
+        return "pet-" + self.name.lower().replace(" ", "-")
+
     # Utility
+    def translate_ability_data(self, template_data):
+        ability_data = dict(template_data)
+        trigger = self._string_to_enum(ability_data.get("trigger"), TriggerEvent)
+        triggered_by = self._string_to_enum(ability_data.get("triggered_by"), TriggerByKind)
+        effect = self._string_to_enum(ability_data.get("effect").get("kind"), EffectKind)
+        target = self._string_to_enum(ability_data.get("effect").get("target"), EffectTargetKind)
+        ability_data["trigger"] = trigger
+        ability_data["triggered_by"] = triggered_by
+        ability_data["effect"]["kind"] = effect
+        ability_data["effect"]["target"] = target
+        return ability_data
+
+    @staticmethod
+    def _string_to_enum(input_string, enum):
+        if isinstance(input_string, enum):
+            return input_string
+        for item in enum:
+            if item.name == input_string:
+                return item
+        return None
+
     def get_relationship(self, pet):
         if not isinstance(pet, Pet):
             return TriggerByKind.Player
@@ -104,7 +137,6 @@ class Pet:
         if not self.check_if_relevant_signal(signal):
             return
         print(f"{self} ability triggered")
-
 
         # if sender is self:
         #     print(f"{self} sent a signal to itself.")
@@ -322,3 +354,8 @@ class Pet:
         return kwargs
 
 
+if __name__ == "__main__":
+    x = Pet("asdasd")
+    for a, b in x.__dict__.items():
+        break
+        print(f"{a} : {b}")

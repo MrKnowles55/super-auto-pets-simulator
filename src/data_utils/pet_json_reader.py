@@ -127,10 +127,11 @@ def get_ability_intersection(effect=False):
 
 if __name__ == "__main__":
     data = load_data()
-    x = get_attribute(data, "triggeredBy", "kind")
+    x = get_attribute(data, "triggered_by")
     for pet, value in x.items():
-        if value not in ["Self", "Player", "EachFriend", "EachEnemy", "FriendAhead"]:
-            print(value, "\t", pet)
+        l = len(value) if value else 0
+        if l and l != 1:
+            print(value)
     # check_pet_data_status(file="../../data/old/pet_data_wip.json")
 
     # display(get_example_pet("Sell", just_ability=True))
