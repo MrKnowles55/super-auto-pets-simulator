@@ -33,4 +33,4 @@ class EffectKind(Enum):
     KnockoutAndModifyStats = 28
     ActivateAbility = 29
 
-    Test = 100
+    TestEffect = 100

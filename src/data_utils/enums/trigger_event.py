@@ -56,4 +56,4 @@ class TriggerEvent(Enum):
     EndOfTurnAndStartOfBattle = 33
 
     # Test
-    Test = 100
+    TestTrigger = 100

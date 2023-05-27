@@ -8,4 +8,4 @@ class TriggerByKind(Enum):
     FriendAhead = 3
     Player = 4
 
-    Test = 100
+    TestTriggeredby = 100
