@@ -16336,29 +16336,29 @@
             ],
             "level_1_ability": {
                 "description": "Test level 1 Ability",
-                "trigger": "Test",
-                "triggered_by": "Test",
+                "trigger": "TestTrigger",
+                "triggered_by": "TestTriggeredby",
                 "effect": {
-                    "kind": "Test",
-                    "target": "Test"
+                    "kind": "TestEffect",
+                    "target": "TestTarget"
                 }
             },
             "level_2_ability": {
                 "description": "Test level 2 Ability",
-                "trigger": "Test",
-                "triggered_by": "Test",
+                "trigger": "TestTrigger",
+                "triggered_by": "TestTriggeredby",
                 "effect": {
-                    "kind": "Test",
-                    "target": "Test"
+                    "kind": "TestEffect",
+                    "target": "TestTarget"
                 }
             },
             "level_3_ability": {
                 "description": "Test level 3 Ability",
-                "trigger": "Test",
-                "triggered_by": "Test",
+                "trigger": "TestTrigger",
+                "triggered_by": "TestTriggeredby",
                 "effect": {
-                    "kind": "Test",
-                    "target": "Test"
+                    "kind": "TestEffect",
+                    "target": "TestTarget"
                 }
             }
         }

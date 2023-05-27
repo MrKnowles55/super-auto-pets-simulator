@@ -16,7 +16,7 @@ class TestSignal(unittest.TestCase):
     def test_send_signal(self):
         sender = MagicMock()
         receiver = MagicMock()
-        message = TriggerEvent.Test
+        message = TriggerEvent.TestTrigger
         broadcast = False
 
         signal = send_signal(message, sender, receiver, broadcast)
@@ -39,7 +39,7 @@ class TestSignalBroadcast(unittest.TestCase):
 
     @patch("src.action_utils.signals.send_signal")
     def test_broadcast_from_pet(self, mock_send_signal):
-        test_message = TriggerEvent.Test
+        test_message = TriggerEvent.TestTrigger
 
         self.pet.broadcast(test_message)
 
@@ -59,11 +59,11 @@ class TestSignalBroadcast(unittest.TestCase):
         self.enemy_team.add_pet(receiver_pet_2)
 
         # Call the method under test
-        self.player_team.read_signal(signal=MagicMock(message=TriggerEvent.Test, sender=sender_pet), broadcast=True)
+        self.player_team.read_signal(signal=MagicMock(message=TriggerEvent.TestTrigger, sender=sender_pet), broadcast=True)
 
         # Because the method is being mocked, the enemy_team will not actually read that it needs to broadcast,
         # so we do it manually
-        self.enemy_team.read_signal(signal=MagicMock(message=TriggerEvent.Test, sender=sender_pet), broadcast=False)
+        self.enemy_team.read_signal(signal=MagicMock(message=TriggerEvent.TestTrigger, sender=sender_pet), broadcast=False)
         # Verify
         # It should call send_signal for each pet_utils in the team_utils plus once for the enemy team_utils
         self.assertEqual(mock_send_signal.call_count,

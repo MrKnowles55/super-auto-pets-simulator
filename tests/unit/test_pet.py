@@ -1,5 +1,5 @@
 import unittest
-from unittest.mock import MagicMock
+from unittest.mock import MagicMock, patch
 
 from src.pet_utils.pet import Pet
 
@@ -27,18 +27,18 @@ class TestPet(unittest.TestCase):
             "base_attack": 1,
             "base_health": 1,
             "tier": -1,
-            "ability_by_level": {1: {'description': 'Test level 1 Ability', 'trigger': TriggerEvent.Test, 'triggered_by': TriggerByKind.Test,
-                                     'effect': {'kind': EffectKind.Test, "target": EffectTargetKind.Test}},
-                                 2: {'description': 'Test level 2 Ability', 'trigger': TriggerEvent.Test, 'triggered_by': TriggerByKind.Test,
-                                     'effect': {'kind': EffectKind.Test, "target": EffectTargetKind.Test}},
-                                 3: {'description': 'Test level 3 Ability', 'trigger': TriggerEvent.Test, 'triggered_by': TriggerByKind.Test,
-                                     'effect': {'kind': EffectKind.Test, "target": EffectTargetKind.Test}}},
+            "ability_by_level": {1: {'description': 'Test level 1 Ability', 'trigger': TriggerEvent.TestTrigger, 'triggered_by': TriggerByKind.TestTriggeredby,
+                                     'effect': {'kind': EffectKind.TestEffect, "target": EffectTargetKind.TestTarget}},
+                                 2: {'description': 'Test level 2 Ability', 'trigger': TriggerEvent.TestTrigger, 'triggered_by': TriggerByKind.TestTriggeredby,
+                                     'effect': {'kind': EffectKind.TestEffect, "target": EffectTargetKind.TestTarget}},
+                                 3: {'description': 'Test level 3 Ability', 'trigger': TriggerEvent.TestTrigger, 'triggered_by': TriggerByKind.TestTriggeredby,
+                                     'effect': {'kind': EffectKind.TestEffect, "target": EffectTargetKind.TestTarget}}},
 
             "level": 1,
             "attack_mod": 0,
             "health_mod": 0,
-            "ability": {'description': 'Test level 1 Ability', 'trigger': TriggerEvent.Test, 'triggered_by': TriggerByKind.Test,
-                        'effect': {'kind': EffectKind.Test, "target": EffectTargetKind.Test}},
+            "ability": {'description': 'Test level 1 Ability', 'trigger': TriggerEvent.TestTrigger, 'triggered_by': TriggerByKind.TestTriggeredby,
+                        'effect': {'kind': EffectKind.TestEffect, "target": EffectTargetKind.TestTarget}},
             "team": None,
             "start_position": -1,
             "position": -1,
@@ -61,18 +61,18 @@ class TestPet(unittest.TestCase):
             "base_attack": 11,
             "base_health": 22,
             "tier": 3,
-            "ability_by_level": {1: {'description': 'Overwritten 1', 'trigger': TriggerEvent.Test, 'triggered_by': TriggerByKind.Test,
-                                     'effect': {'kind': EffectKind.Test, "target": EffectTargetKind.Test}},
-                                 2: {'description': 'Overwritten 2', 'trigger': TriggerEvent.Test, 'triggered_by': TriggerByKind.Test,
-                                     'effect': {'kind': EffectKind.Test, "target": EffectTargetKind.Test}},
-                                 3: {'description': 'Overwritten 3', 'trigger': TriggerEvent.Test, 'triggered_by': TriggerByKind.Test,
-                                     'effect': {'kind': EffectKind.Test, "target": EffectTargetKind.Test}}},
+            "ability_by_level": {1: {'description': 'Overwritten 1', 'trigger': TriggerEvent.TestTrigger, 'triggered_by': TriggerByKind.TestTriggeredby,
+                                     'effect': {'kind': EffectKind.TestEffect, "target": EffectTargetKind.TestTarget}},
+                                 2: {'description': 'Overwritten 2', 'trigger': TriggerEvent.TestTrigger, 'triggered_by': TriggerByKind.TestTriggeredby,
+                                     'effect': {'kind': EffectKind.TestEffect, "target": EffectTargetKind.TestTarget}},
+                                 3: {'description': 'Overwritten 3', 'trigger': TriggerEvent.TestTrigger, 'triggered_by': TriggerByKind.TestTriggeredby,
+                                     'effect': {'kind': EffectKind.TestEffect, "target": EffectTargetKind.TestTarget}}},
 
             "level": 2,
             "attack_mod": 9,
             "health_mod": 8,
-            "ability": {'description': 'Overwritten 2', 'trigger': TriggerEvent.Test, 'triggered_by': TriggerByKind.Test,
-                        'effect': {'kind': EffectKind.Test, "target": EffectTargetKind.Test}},
+            "ability": {'description': 'Overwritten 2', 'trigger': TriggerEvent.TestTrigger, 'triggered_by': TriggerByKind.TestTriggeredby,
+                        'effect': {'kind': EffectKind.TestEffect, "target": EffectTargetKind.TestTarget}},
             "team": None,
             "start_position": -1,
             "position": -1,
@@ -128,3 +128,42 @@ class TestPet(unittest.TestCase):
 
         # Player
         self.assertEqual(TriggerByKind.Player, self.pet.get_relationship(MagicMock()))
+
+    def test_read_signal(self):
+        """
+        Pet sends a fake signal to itself, ensuring that it is triggered by it and reads the signal.
+        The signal is then sent to its fake team, and fake action handler, to be put into the fake queue.
+        :return:
+        """
+        # Fake signal
+        signal = MagicMock()
+        signal.message = TriggerEvent.TestTrigger
+        signal.sender = self.pet
+        signal.receiver = self.pet
+
+        # Ensure pet will be triggered by self
+        self.pet.ability["triggered_by"] = TriggerByKind.Self
+
+        # Fake action handler and queue
+        battle = MagicMock()
+        battle.action_queue = []
+
+        # Fake action to add to queue
+        action = MagicMock()
+        action.pet = self.pet
+        action.method = self.pet.test_effect
+        action.kwargs = None
+
+        # Fake team to create and send action
+        team = MagicMock()
+        team.create_action.return_value = action
+        team.send_action.side_effect = battle.action_queue.append(action)
+        self.pet.team = team
+
+        # Execute
+        self.pet.read_signal(signal)
+
+        # Check that action was sent, and queue updated
+        self.assertEqual(team.send_action.call_count, 1)
+        team.send_action.assert_called_with(action)
+        self.assertEqual(battle.action_queue, [action])
