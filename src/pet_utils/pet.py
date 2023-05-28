@@ -1,3 +1,5 @@
+import re
+
 from src.action_utils import signals
 from src.data_utils.pet_data_manager import pet_db
 
@@ -94,6 +96,11 @@ class Pet:
                 return item
         return None
 
+    def _enum_to_string(self, enum):
+        words = re.findall('[A-Z][^A-Z]*', enum.name)
+        words = [word.lower() for word in words]
+        return "_".join(words)
+
     def get_relationship(self, pet):
         if not isinstance(pet, Pet):
             return TriggerByKind.Player
@@ -112,8 +119,13 @@ class Pet:
         return self.ability["trigger"] == trigger
 
     def check_if_relevant_signal(self, signal):
-        # TODO exception for FriendAhead overwriting EachFriend
-        return self.get_relationship(signal.sender) == self.ability['triggered_by']
+        relationship = self.get_relationship(signal.sender)
+        looking_for = self.ability['triggered_by']
+        # FriendAhead is also EachFriend, otherwise compare directly.
+        if looking_for == TriggerByKind.EachFriend and relationship == TriggerByKind.FriendAhead:
+            return True
+        else:
+            return relationship == looking_for
 
     # Team
     def update_position(self, new_position):
@@ -133,35 +145,13 @@ class Pet:
         print(f"{self} is broadcasting {message}")
         self.send_signal(message, self.team, broadcast=True)
 
-    def read_signal(self, signal, broadcast):
+    def read_signal(self, signal):
         if not self.check_if_relevant_signal(signal):
             return
-        print(f"{self} ability triggered")
-
-        # if sender is self:
-        #     print(f"{self} sent a signal to itself.")
-        #     if self.ability["triggered_by"] == "Self":
-        #         print(f"It is triggered by Self")
-        #     else:
-        #         print(f"It is not triggered")
-        # else:
-        #     if sender.team_utils == self.team_utils:
-        #         print(f"{sender} sent a signal to its friend {self} on team_utils {self.team_utils}")
-        #         if self.ability["triggered_by"] == "EachFriend":
-        #             print(f"It is triggered by EachFriend")
-        #         elif self.ability["triggered_by"] == "FriendAhead":
-        #             if self.position > sender.position:
-        #                 print(f"It is triggered by FriendAhead")
-        #             else:
-        #                 print(f"Friend was behind, so no trigger.")
-        #         else:
-        #             print(f"It is not triggered")
-        #     else:
-        #         print(f"{sender} sent a signal to its enemy {self} on team_utils {self.team_utils}")
-        #         if self.ability["triggered_by"] == "EachEnemy":
-        #             print(f"It is triggered by EachEnemy")
-        #         else:
-        #             print(f"It is not triggered")
+        # method = self._enum_to_string(self.ability["effect"]["kind"])
+        # getattr(self, method)()
+        action = self.team.create_action(pet=self, ability_dict=self.ability, trigger=self.trigger)
+        self.team.send_action(action)
 
     def faint(self):
         pass
@@ -260,7 +250,7 @@ class Pet:
         return kwargs
 
     @staticmethod
-    def fake_effect(**kwargs):
+    def test_effect(**kwargs):
         return kwargs
 
     # Target
@@ -350,12 +340,11 @@ class Pet:
         return kwargs
 
     @staticmethod
-    def target_fake(**kwargs):
+    def target_test_target(**kwargs):
         return kwargs
 
 
 if __name__ == "__main__":
     x = Pet("asdasd")
-    for a, b in x.__dict__.items():
-        break
-        print(f"{a} : {b}")
+    for lvl, ability in x.ability_by_level.items():
+        print(lvl, ":", ability)
