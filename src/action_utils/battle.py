@@ -17,7 +17,7 @@ class Battle:
         for pet in self.get_pet_list():
             action = self.create_action(pet, pet.ability, "Start of Battle")
             if action:
-                self.action_queue.add_action(pet.attack, action)
+                self.enqueue(pet.attack, action)
 
     def create_action(self, pet, ability_dict, trigger):
         if not ability_dict and not trigger:
@@ -28,6 +28,9 @@ class Battle:
             effect_args = ability_dict.get("effect_dict")
             return Action(pet, method, **effect_args)
         return None
+
+    def enqueue(self, priority, action):
+        self.action_queue.add_action(priority, action)
 
 
 
