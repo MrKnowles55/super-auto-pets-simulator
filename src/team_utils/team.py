@@ -68,15 +68,18 @@ class Team:
     def create_action(self, pet, ability_dict, trigger):
         ability_trigger = ability_dict.get("trigger")
         if ability_trigger == trigger:
-            method = ability_dict.get("effect")
-            effect_args = ability_dict.get("effect_dict")
+            method = ability_dict.get("effect").get("kind")
+            effect_args = {}
+            for key,value in ability_dict.get("effect").items():
+                if key != "kind":
+                    effect_args[key] = value
             return Action(pet, method, **effect_args)
         return None
 
     def send_action(self, action):
         if action:
             if self.action_handler:
-                self.action_handler.action_queue.add_action(action.pet.attack, action)
+                self.action_handler.enqueue(action.pet.attack, action)
 
     def send_signal(self, message, receiver, sender=None, broadcast=False):
         if sender:

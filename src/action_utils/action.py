@@ -38,11 +38,11 @@ class Action:
         return getattr(self.pet, self.method.__name__)(**self.kwargs)
 
     def __repr__(self):
-        effect = self.method.__name__
+        effect = self.method
         target = self.kwargs.get("target")
         kwargs = self.kwargs
         if target:
-            target = target.__name__
+            target = target
             kwargs = {key: value for key, value in self.kwargs.items() if key != "target"}
 
         return f"Action:({self.pet}, {effect}, {target}, {kwargs})"
