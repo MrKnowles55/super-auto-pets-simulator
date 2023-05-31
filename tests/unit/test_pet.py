@@ -27,29 +27,33 @@ class TestPet(unittest.TestCase):
             "base_attack": 1,
             "base_health": 1,
             "tier": -1,
-            "ability_by_level": {1: {'description': 'Test level 1 Ability', 'trigger': TriggerEvent.TestTrigger, 'triggered_by': TriggerByKind.TestTriggeredby,
+            "ability_by_level": {1: {'description': 'Test level 1 Ability', 'trigger': TriggerEvent.TestTrigger,
+                                     'triggered_by': TriggerByKind.TestTriggeredby,
                                      'effect': {'kind': EffectKind.TestEffect, "target": EffectTargetKind.TestTarget}},
-                                 2: {'description': 'Test level 2 Ability', 'trigger': TriggerEvent.TestTrigger, 'triggered_by': TriggerByKind.TestTriggeredby,
+                                 2: {'description': 'Test level 2 Ability', 'trigger': TriggerEvent.TestTrigger,
+                                     'triggered_by': TriggerByKind.TestTriggeredby,
                                      'effect': {'kind': EffectKind.TestEffect, "target": EffectTargetKind.TestTarget}},
-                                 3: {'description': 'Test level 3 Ability', 'trigger': TriggerEvent.TestTrigger, 'triggered_by': TriggerByKind.TestTriggeredby,
+                                 3: {'description': 'Test level 3 Ability', 'trigger': TriggerEvent.TestTrigger,
+                                     'triggered_by': TriggerByKind.TestTriggeredby,
                                      'effect': {'kind': EffectKind.TestEffect, "target": EffectTargetKind.TestTarget}}},
 
             "level": 1,
             "attack_mod": 0,
             "health_mod": 0,
-            "ability": {'description': 'Test level 1 Ability', 'trigger': TriggerEvent.TestTrigger, 'triggered_by': TriggerByKind.TestTriggeredby,
-                        'effect': {'kind': EffectKind.TestEffect, "target": EffectTargetKind.TestTarget}},
             "team": None,
             "start_position": -1,
-            "position": -1,
-            "attack": 1,
-            "health": 1
+            "position": -1
         }
 
         for key, value in expected_dict.items():
             self.assertEqual(self.pet.__dict__[key], value)
 
         # Properties
+        self.assertEqual(self.pet.attack, 1)
+        self.assertEqual(self.pet.health, 1)
+        self.assertEqual(self.pet.ability, {'description': 'Test level 1 Ability', 'trigger': TriggerEvent.TestTrigger,
+                                     'triggered_by': TriggerByKind.TestTriggeredby,
+                                     'effect': {'kind': EffectKind.TestEffect, "target": EffectTargetKind.TestTarget}})
         self.assertTrue(self.pet.alive)
         self.assertEqual(self.pet.trigger, self.pet.ability.get("trigger"))
         self.assertEqual(self.pet.triggered_by, self.pet.ability.get("triggered_by"))
@@ -61,23 +65,22 @@ class TestPet(unittest.TestCase):
             "base_attack": 11,
             "base_health": 22,
             "tier": 3,
-            "ability_by_level": {1: {'description': 'Overwritten 1', 'trigger': TriggerEvent.TestTrigger, 'triggered_by': TriggerByKind.TestTriggeredby,
+            "ability_by_level": {1: {'description': 'Overwritten 1', 'trigger': TriggerEvent.TestTrigger,
+                                     'triggered_by': TriggerByKind.TestTriggeredby,
                                      'effect': {'kind': EffectKind.TestEffect, "target": EffectTargetKind.TestTarget}},
-                                 2: {'description': 'Overwritten 2', 'trigger': TriggerEvent.TestTrigger, 'triggered_by': TriggerByKind.TestTriggeredby,
+                                 2: {'description': 'Overwritten 2', 'trigger': TriggerEvent.TestTrigger,
+                                     'triggered_by': TriggerByKind.TestTriggeredby,
                                      'effect': {'kind': EffectKind.TestEffect, "target": EffectTargetKind.TestTarget}},
-                                 3: {'description': 'Overwritten 3', 'trigger': TriggerEvent.TestTrigger, 'triggered_by': TriggerByKind.TestTriggeredby,
+                                 3: {'description': 'Overwritten 3', 'trigger': TriggerEvent.TestTrigger,
+                                     'triggered_by': TriggerByKind.TestTriggeredby,
                                      'effect': {'kind': EffectKind.TestEffect, "target": EffectTargetKind.TestTarget}}},
 
             "level": 2,
             "attack_mod": 9,
             "health_mod": 8,
-            "ability": {'description': 'Overwritten 2', 'trigger': TriggerEvent.TestTrigger, 'triggered_by': TriggerByKind.TestTriggeredby,
-                        'effect': {'kind': EffectKind.TestEffect, "target": EffectTargetKind.TestTarget}},
             "team": None,
             "start_position": -1,
-            "position": -1,
-            "attack": 20,
-            "health": 30
+            "position": -1
         }
 
         cool_pet = Pet(expected_dict["name"],
@@ -91,6 +94,13 @@ class TestPet(unittest.TestCase):
                        )
         for key, value in expected_dict.items():
             self.assertEqual(cool_pet.__dict__[key], value)
+
+        # Properties
+        self.assertEqual(cool_pet.attack, 20)
+        self.assertEqual(cool_pet.health, 30)
+        self.assertEqual(cool_pet.ability, {'description': 'Overwritten 2', 'trigger': TriggerEvent.TestTrigger,
+                                     'triggered_by': TriggerByKind.TestTriggeredby,
+                                     'effect': {'kind': EffectKind.TestEffect, "target": EffectTargetKind.TestTarget}})
 
     def test_get_relationship(self):
         self.pet.team = MagicMock()
@@ -167,3 +177,33 @@ class TestPet(unittest.TestCase):
         self.assertEqual(team.send_action.call_count, 1)
         team.send_action.assert_called_with(action)
         self.assertEqual(battle.action_queue, [action])
+
+    def test_attack_pet(self):
+        enemy = Pet("Enemy")
+        self.pet.attack_pet(enemy)
+
+        self.assertEqual(enemy.health, 0)
+        self.assertFalse(enemy.alive)
+
+    def test_update(self):
+        team = MagicMock()
+        team.pets_list = [self.pet]
+        self.pet.team = team
+
+        def remove_pet_side_effect(pet):
+            if not pet.alive:
+                team.pets_list.pop(pet.position)
+
+        team.remove_pet.side_effect = remove_pet_side_effect
+
+        # Update with living pet
+        self.pet.update()
+
+        self.assertEqual(team.pets_list, [self.pet])
+
+        # Update with dead pet
+        self.pet.damage = self.pet.base_health + self.pet.health_mod
+
+        self.pet.update()
+
+        self.assertEqual(team.pets_list, [])

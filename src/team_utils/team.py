@@ -40,10 +40,13 @@ class Team:
             log.debug(f"{self} is full and cannot add {pet} at index {index}.")
 
     def remove_pet(self, pet):
-        if self.action_handler:
-            self.action_handler.create_action(pet, None, None)
-        else:
-            print("Remove Pet Not implemented without action_utils handler")
+        # TODO Fix
+        self.pets_list.pop(pet.position)
+        self.update_positions()
+        # if self.action_handler:
+        #     self.action_handler.create_action(pet, None, None)
+        # else:
+        #     print("Remove Pet Not implemented without action_utils handler")
 
     def move_pet(self, old_index, new_index):
         if 0 <= old_index < len(self.pets_list):

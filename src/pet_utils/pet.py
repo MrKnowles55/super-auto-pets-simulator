@@ -36,6 +36,7 @@ class Pet:
         self.level = 1
         self.attack_mod = 0
         self.health_mod = 0
+        self.damage = 0
 
         # Team parameters
         self.team = None
@@ -46,11 +47,6 @@ class Pet:
         for key, value in kwargs.items():
             setattr(self, key, value)
 
-        # Dependant Variables
-        self.attack = self.base_attack + self.attack_mod
-        self.health = self.base_health + self.health_mod
-        self.ability = self.ability_by_level[self.level]
-
     def __str__(self):
         return f"{self.name}_{self.id}"
 
@@ -58,6 +54,19 @@ class Pet:
         return f"{self.name}_{self.id}({self.attack}/{self.health}/{self.position})"
 
     # Properties
+
+    @property
+    def attack(self):
+        return self.base_attack + self.attack_mod
+
+    @property
+    def health(self):
+        return self.base_health + self.health_mod - self.damage
+
+    @property
+    def ability(self):
+        return self.ability_by_level[self.level]
+
     @property
     def alive(self):
         return self.health > 0
@@ -73,6 +82,10 @@ class Pet:
     @property
     def database_id(self):
         return "pet-" + self.name.lower().replace(" ", "-")
+
+    @property
+    def combat_stats(self):
+        return f"{self.attack}/{self.health}"
 
     # Utility
     def translate_ability_data(self, template_data):
@@ -127,6 +140,14 @@ class Pet:
         else:
             return relationship == looking_for
 
+    # Combat
+    def attack_pet(self, opponent):
+        opponent.damage += self.attack
+
+    def update(self):
+        if not self.alive:
+            self.faint()
+
     # Team
     def update_position(self, new_position):
         self.position = new_position
@@ -154,7 +175,8 @@ class Pet:
         self.team.send_action(action)
 
     def faint(self):
-        pass
+        # TODO fix
+        self.team.remove_pet(self)
 
     def hurt(self):
         pass
