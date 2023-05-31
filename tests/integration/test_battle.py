@@ -67,4 +67,49 @@ class TestBattle(unittest.TestCase):
         self.assertEqual(queued_action.method, expected_method)
         self.assertEqual(queued_action.kwargs, expected_kwargs)
 
+    def test_combat(self):
+        pet0 = Pet("0")
+        pet1 = Pet("1")
+        self.battle.player_team.add_pet(pet0)
+        self.battle.enemy_team.add_pet(pet1)
+
+        self.battle.combat()
+
+        self.assertEqual(pet0.health, 0)
+        self.assertEqual(pet1.health, 0)
+        self.assertFalse(pet0.alive)
+
+    def test_before_combat(self):
+        pass
+
+    def test_during_combat(self):
+        pass
+
+    def test_after_combat(self):
+        pass
+
+    def test_fight_loop(self):
+        pass
+
+    def test_battle_loop(self):
+        # 1v1 with player pet surviving
+        pet0 = Pet("0", base_health=50)
+        pet1 = Pet("1", base_health=2)
+        self.battle.player_team.add_pet(pet0)
+        self.battle.enemy_team.add_pet(pet1)
+
+        self.battle.battle_loop()
+        self.assertEqual(pet0.health, pet0.base_health-pet1.attack*2)
+
+        # 5v5 with single survivor
+        self.battle.player_team.pets_list = []
+        self.battle.enemy_team.pets_list = []
+        for _ in range(5):
+            self.battle.player_team.add_pet(Pet(f"P{_}", base_attack=1, base_health=1))
+            self.battle.enemy_team.add_pet(Pet(f"E{_}", base_attack=1, base_health=1))
+        self.battle.player_team.pets_list[4].health_mod = 1
+
+        self.battle.battle_loop()
+
+
 
