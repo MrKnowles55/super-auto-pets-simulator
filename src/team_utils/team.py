@@ -46,20 +46,15 @@ class Team:
             print("Remove Pet Not implemented without action_utils handler")
 
     def move_pet(self, old_index, new_index):
-        if 0 <= old_index < len(self.pets_list) and 0 <= new_index < len(self.pets_list):
-            pet = self.pets_list.pop(old_index)
-            self.pets_list.insert(new_index, pet)
-            self.update_positions()
-        else:
-            try:
-                pet = self.pets_list[old_index]
-                log.debug(f"{self} cannot move {pet} from {old_index} to {new_index}")
-            except IndexError:
-                log.debug(f"{self} has no pet_utils at {old_index} to move.")
+        if 0 <= old_index < len(self.pets_list):
+            if 0 <= new_index < 5:
+                pet = self.pets_list.pop(old_index)
+                self.pets_list.insert(new_index, pet)
+                self.update_positions()
 
-    def fill(self):
-        self.pets_list = [pet for pet in self.pets_list if pet is not None]
-        self.update_positions()
+    # def fill(self):
+    #     self.pets_list = [pet for pet in self.pets_list if pet is not None]
+    #     self.update_positions()
 
     def update_positions(self):
         for pet in self.pets_list:
