@@ -1,5 +1,10 @@
 from src.action_utils.action import PriorityQueue, Action
 
+from src.data_utils.enums.trigger_event import TriggerEvent
+from src.data_utils.enums.trigger_by_kind import TriggerByKind
+from src.data_utils.enums.effect_target_kind import EffectTargetKind
+from src.data_utils.enums.effect_kind import EffectKind
+
 
 class Battle:
     def __init__(self, player_team, enemy_team):
@@ -15,7 +20,7 @@ class Battle:
 
     def start_of_battle(self):
         for pet in self.get_pet_list():
-            action = self.create_action(pet, pet.ability, "Start of Battle")
+            action = self.create_action(pet, pet.ability, TriggerEvent.StartOfBattle)
             if action:
                 self.enqueue(pet.attack, action)
 

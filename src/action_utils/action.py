@@ -23,6 +23,9 @@ class PriorityQueue:
     def __repr__(self):
         return f"Queue: {[action for action in self.queue]}"
 
+    def __len__(self):
+        return len(self.queue)
+
 
 class Action:
     """
