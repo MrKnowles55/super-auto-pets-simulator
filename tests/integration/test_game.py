@@ -29,7 +29,7 @@ class TestGame(unittest.TestCase):
         self.game.battle_handler.player_team.add_pet(player1)
         self.game.battle_handler.enemy_team.add_pet(enemy0)
         self.game.battle_handler.enemy_team.add_pet(enemy1)
-        self.game.battle()
+        self.game.battle_mode()
 
         self.assertEqual(self.game.battle_handler.get_pet_list(), [player1])
         self.assertEqual(player1.health, 1)
