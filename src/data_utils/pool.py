@@ -39,11 +39,44 @@ class Pool:
         team.action_handler = action_handler
         return team
 
+    def get_turn_1_team(self, action_handler, team_name="Enemy"):
+        return self.generate_team(action_handler=action_handler, team_name=team_name, team_size=3, tier_max=1)
+
 
 class TurtlePool(Pool):
     def __init__(self):
         super().__init__()
         self.get_pets_by_pack("Turtle")
+
+
+class PuppyPool(Pool):
+    def __init__(self):
+        super().__init__()
+        self.get_pets_by_pack("Puppy")
+
+
+class StarPool(Pool):
+    def __init__(self):
+        super().__init__()
+        self.get_pets_by_pack("Star")
+
+
+class GoldenPool(Pool):
+    def __init__(self):
+        super().__init__()
+        self.get_pets_by_pack("Golden")
+
+
+def get_pack(pack):
+    match pack.lower():
+        case "turtle":
+            return TurtlePool()
+        case "puppy":
+            return PuppyPool()
+        case "star":
+            return StarPool()
+        case "golden":
+            return GoldenPool()
 
 
 if __name__ == "__main__":

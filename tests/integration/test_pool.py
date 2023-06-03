@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import MagicMock
 
-from src.data_utils.pool import Pool
+from src.data_utils.pool import Pool, TurtlePool, PuppyPool, StarPool, GoldenPool, get_pack
 
 
 class TestPool(unittest.TestCase):
@@ -85,3 +85,10 @@ class TestPool(unittest.TestCase):
 
             self.assertEqual(team.length, team_size)
         self.assertEqual(team.action_handler, action_handler)
+
+    def test_get_pack(self):
+        pools = [TurtlePool, PuppyPool, StarPool, GoldenPool]
+        pack_names = ["turtle", "puppy", "star", "GOLDEN"]
+        for i in range(len(pack_names)):
+            self.assertIsInstance(get_pack(pack_names[i]), pools[i])
+
