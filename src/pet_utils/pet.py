@@ -19,7 +19,7 @@ class Pet:
         self.name = name.title()
         template = pet_db.pet_dict.get(self.database_id)
         if not template:
-            print(f"No pet found called {name}. Using Default template.")
+            # print(f"No pet found called {name}. Using Default template.")
             template = pet_db.pet_dict.get("pet-default")
         # Base Stats from Template
         self.base_attack = template.get('base_attack', 1)
@@ -90,6 +90,8 @@ class Pet:
     # Utility
     def translate_ability_data(self, template_data):
         ability_data = dict(template_data)
+        if not ability_data:
+            return {}
         trigger = self._string_to_enum(ability_data.get("trigger"), TriggerEvent)
         triggered_by = self._string_to_enum(ability_data.get("triggered_by"), TriggerByKind)
         effect = self._string_to_enum(ability_data.get("effect").get("kind"), EffectKind)
@@ -367,6 +369,6 @@ class Pet:
 
 
 if __name__ == "__main__":
-    x = Pet("asdasd")
+    x = Pet("")
     for lvl, ability in x.ability_by_level.items():
         print(lvl, ":", ability)
