@@ -1,5 +1,6 @@
 from src.action_utils.action import PriorityQueue, Action
 
+
 from src.data_utils.enums.trigger_event import TriggerEvent
 from src.data_utils.enums.trigger_by_kind import TriggerByKind
 from src.data_utils.enums.effect_target_kind import EffectTargetKind
@@ -75,12 +76,20 @@ class Battle:
 
     def battle_loop(self):
         combat_turns = 0
-        print(f"{list(reversed(self.player_team.pets_list))} VS {self.enemy_team.pets_list}")
+        # print(f"{list(reversed(self.player_team.pets_list))} VS {self.enemy_team.pets_list}")
         while self.fighters[0] and self.fighters[1]:
             combat_turns += 1
-            print(f"Round {combat_turns}: {self.fighters}")
+            # print(f"Round {combat_turns}: {self.fighters}")
             self.fight_loop()
-        print(f"{list(reversed(self.player_team.pets_list))} VS {self.enemy_team.pets_list}")
+        return self.get_battle_result()
+        # print(f"{list(reversed(self.player_team.pets_list))} VS {self.enemy_team.pets_list}")
+
+    def get_battle_result(self):
+        # 0 for tie, no changes made
+        # +1 for win, score goes +1
+        # -1 for loss, lives go -1
+        return 0 if len(self.player_team) == len(self.enemy_team) == 0 else 1 if len(self.player_team) > 0 else -1
+
 
 
 
