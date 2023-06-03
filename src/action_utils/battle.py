@@ -75,9 +75,12 @@ class Battle:
 
     def battle_loop(self):
         combat_turns = 0
+        print(f"{list(reversed(self.player_team.pets_list))} VS {self.enemy_team.pets_list}")
         while self.fighters[0] and self.fighters[1]:
             combat_turns += 1
+            print(f"Round {combat_turns}: {self.fighters}")
             self.fight_loop()
+        print(f"{list(reversed(self.player_team.pets_list))} VS {self.enemy_team.pets_list}")
 
 
 
