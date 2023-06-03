@@ -17,6 +17,9 @@ class Team:
     def __repr__(self):
         return self.name + " Team"
 
+    def __len__(self):
+        return len(self.pets_list)
+
     @property
     def length(self):
         return len(self.pets_list)
