@@ -15,15 +15,19 @@ class Game:
         self.turn = 0
         self.tier = 0
 
+    # Battle
+
     def battle_mode(self):
         self.battle_handler.enemy_team = self.generate_team()
         results = self.battle_handler.battle_loop()
         return results
 
+    # Shop
     def shop_mode(self):
         if self.game_mode == "Test":
             self.battle_handler.player_team = self.pack.generate_team(action_handler=self.battle_handler, team_name="Player")
 
+    # Main Loop
     def game_loop(self):
         while self.lives > 0 and self.score < 10:
             self.turn += 1
@@ -43,5 +47,6 @@ class Game:
 
         return self.lives, self.score, self.battle_handler.player_team.pets_list
 
+    # Utilities
     def generate_team(self, name="Enemy"):
         return self.pack.get_turn_1_team(self.battle_handler, team_name=name)
