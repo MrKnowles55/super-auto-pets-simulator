@@ -19,7 +19,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "attack_mod": 2,
                 "health_mod": 1,
                 "target": {
@@ -34,7 +34,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "attack_mod": 4,
                 "health_mod": 2,
                 "target": {
@@ -49,7 +49,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "attack_mod": 6,
                 "health_mod": 3,
                 "target": {
@@ -214,7 +214,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "health_mod": 1,
                 "target": {
                     "kind": "RandomFriend",
@@ -228,7 +228,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "health_mod": 2,
                 "target": {
                     "kind": "RandomFriend",
@@ -242,7 +242,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "health_mod": 3,
                 "target": {
                     "kind": "RandomFriend",
@@ -405,7 +405,7 @@
             "trigger": "EatsShopFood",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "health_mod": 1,
                 "target": {
                     "kind": "LeftMostShopAnimal",
@@ -419,7 +419,7 @@
             "trigger": "EatsShopFood",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "health_mod": 2,
                 "target": {
                     "kind": "LeftMostShopAnimal",
@@ -433,7 +433,7 @@
             "trigger": "EatsShopFood",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "health_mod": 3,
                 "target": {
                     "kind": "LeftMostShopAnimal",
@@ -574,7 +574,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "attack_mod": 1,
                 "target": {
                     "kind": "RandomFriend"
@@ -587,7 +587,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "attack_mod": 2,
                 "target": {
                     "kind": "RandomFriend"
@@ -600,7 +600,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "attack_mod": 3,
                 "target": {
                     "kind": "RandomFriend"
@@ -741,7 +741,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet",
+                "kind": "summon_pet",
                 "pet": "pet-zombie_cricket",
                 "n": 1,
                 "level": 1,
@@ -753,7 +753,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet",
+                "kind": "summon_pet",
                 "pet": "pet-zombie_cricket",
                 "n": 1,
                 "level": 2,
@@ -765,7 +765,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet",
+                "kind": "summon_pet",
                 "pet": "pet-zombie_cricket",
                 "n": 1,
                 "level": 3,
@@ -926,7 +926,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "EachShopAnimal",
                     "includingFuture": false
@@ -940,7 +940,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "EachShopAnimal",
                     "includingFuture": false
@@ -954,7 +954,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "EachShopAnimal",
                     "includingFuture": false
@@ -1097,7 +1097,7 @@
             "trigger": "LevelUp",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "EachFriend"
                 },
@@ -1111,7 +1111,7 @@
             "trigger": "LevelUp",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "EachFriend"
                 },
@@ -1274,7 +1274,7 @@
             "trigger": "Summoned",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "TriggeringEntity"
                 },
@@ -1287,7 +1287,7 @@
             "trigger": "Summoned",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "TriggeringEntity"
                 },
@@ -1300,7 +1300,7 @@
             "trigger": "Summoned",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "TriggeringEntity"
                 },
@@ -1440,7 +1440,7 @@
             "trigger": "BuyFood",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "attack_mod": 2,
                 "target": {
                     "kind": "Self"
@@ -1453,7 +1453,7 @@
             "trigger": "BuyFood",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "attack_mod": 4,
                 "target": {
                     "kind": "Self"
@@ -1466,7 +1466,7 @@
             "trigger": "BuyFood",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "attack_mod": 6,
                 "target": {
                     "kind": "Self"
@@ -1607,7 +1607,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "RandomEnemy",
                     "n": 1
@@ -1620,7 +1620,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "RandomEnemy",
                     "n": 2
@@ -1633,7 +1633,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "RandomEnemy",
                     "n": 3
@@ -1795,7 +1795,7 @@
             "trigger": "Buy",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "RandomFriend",
                     "n": 1
@@ -1810,7 +1810,7 @@
             "trigger": "Buy",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "RandomFriend",
                     "n": 2
@@ -1825,7 +1825,7 @@
             "trigger": "Buy",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "RandomFriend",
                     "n": 3
@@ -1968,7 +1968,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "GainGold",
+                "kind": "gain_gold",
                 "amount": 1
             }
         },
@@ -1977,7 +1977,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "GainGold",
+                "kind": "gain_gold",
                 "amount": 2
             }
         },
@@ -1986,7 +1986,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "GainGold",
+                "kind": "gain_gold",
                 "amount": 3
             }
         },
@@ -2161,7 +2161,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ApplyStatus",
+                "kind": "apply_status",
                 "status": "status-weak",
                 "to": {
                     "kind": "RandomEnemy",
@@ -2174,7 +2174,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ApplyStatus",
+                "kind": "apply_status",
                 "status": "status-weak",
                 "to": {
                     "kind": "RandomEnemy",
@@ -2187,7 +2187,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ApplyStatus",
+                "kind": "apply_status",
                 "status": "status-weak",
                 "to": {
                     "kind": "RandomEnemy",
@@ -2321,7 +2321,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "TransferStats",
+                "kind": "transfer_stats",
                 "copyAttack": false,
                 "copyHealth": true,
                 "from": {
@@ -2338,7 +2338,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "TransferStats",
+                "kind": "transfer_stats",
                 "copyAttack": false,
                 "copyHealth": true,
                 "from": {
@@ -2355,7 +2355,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "TransferStats",
+                "kind": "transfer_stats",
                 "copyAttack": false,
                 "copyHealth": true,
                 "from": {
@@ -2493,7 +2493,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "TransferStats",
+                "kind": "transfer_stats",
                 "copyAttack": true,
                 "copyHealth": false,
                 "from": {
@@ -2511,7 +2511,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "TransferStats",
+                "kind": "transfer_stats",
                 "copyAttack": true,
                 "copyHealth": false,
                 "from": {
@@ -2529,7 +2529,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "TransferStats",
+                "kind": "transfer_stats",
                 "copyAttack": true,
                 "copyHealth": false,
                 "from": {
@@ -2669,7 +2669,7 @@
             "trigger": "Summoned",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "Self"
                 },
@@ -2683,7 +2683,7 @@
             "trigger": "Summoned",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "Self"
                 },
@@ -2697,7 +2697,7 @@
             "trigger": "Summoned",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "Self"
                 },
@@ -2828,7 +2828,7 @@
             "trigger": "StartOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "until_end_of_battle": false,
                 "target": {
                     "kind": "LeftMostShopAnimal",
@@ -2844,7 +2844,7 @@
             "trigger": "StartOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "until_end_of_battle": false,
                 "target": {
                     "kind": "LeftMostShopAnimal",
@@ -2860,7 +2860,7 @@
             "trigger": "StartOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "until_end_of_battle": false,
                 "target": {
                     "kind": "LeftMostShopAnimal",
@@ -2997,7 +2997,7 @@
             "trigger": "BeforeAttack",
             "triggered_by": "Self",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "FriendBehind",
                     "n": 1
@@ -3011,7 +3011,7 @@
             "trigger": "BeforeAttack",
             "triggered_by": "Self",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "FriendBehind",
                     "n": 1
@@ -3025,7 +3025,7 @@
             "trigger": "BeforeAttack",
             "triggered_by": "Self",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "FriendBehind",
                     "n": 1
@@ -3161,7 +3161,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "FriendBehind",
                     "n": 2
@@ -3176,7 +3176,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "FriendBehind",
                     "n": 2
@@ -3191,7 +3191,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "FriendBehind",
                     "n": 2
@@ -3348,7 +3348,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "All"
                 },
@@ -3360,7 +3360,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "All"
                 },
@@ -3372,7 +3372,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "All"
                 },
@@ -3526,7 +3526,7 @@
             "trigger": "Hurt",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "Self"
                 },
@@ -3539,7 +3539,7 @@
             "trigger": "Hurt",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "Self"
                 },
@@ -3552,7 +3552,7 @@
             "trigger": "Hurt",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "Self"
                 },
@@ -3707,7 +3707,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet",
+                "kind": "summon_pet",
                 "pet": "pet-dirty_rat",
                 "n": 1,
                 "level": 1,
@@ -3719,7 +3719,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet",
+                "kind": "summon_pet",
                 "pet": "pet-dirty_rat",
                 "n": 2,
                 "level": 1,
@@ -3731,7 +3731,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet",
+                "kind": "summon_pet",
                 "pet": "pet-dirty_rat",
                 "n": 3,
                 "level": 1,
@@ -3885,7 +3885,7 @@
             "trigger": "Sell",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "RandomFriend",
                     "n": 1
@@ -3899,7 +3899,7 @@
             "trigger": "Sell",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "RandomFriend",
                     "n": 1
@@ -3913,7 +3913,7 @@
             "trigger": "Sell",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "RandomFriend",
                     "n": 1
@@ -4069,7 +4069,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonRandomPet",
+                "kind": "summon_random_pet",
                 "tier": 3,
                 "base_attack": 2,
                 "base_health": 2,
@@ -4081,7 +4081,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonRandomPet",
+                "kind": "summon_random_pet",
                 "tier": 3,
                 "base_attack": 2,
                 "base_health": 2,
@@ -4093,7 +4093,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonRandomPet",
+                "kind": "summon_random_pet",
                 "tier": 3,
                 "base_attack": 2,
                 "base_health": 2,
@@ -4247,7 +4247,7 @@
             "trigger": "StartOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "GainGold",
+                "kind": "gain_gold",
                 "amount": 1
             }
         },
@@ -4256,7 +4256,7 @@
             "trigger": "StartOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "GainGold",
+                "kind": "gain_gold",
                 "amount": 2
             }
         },
@@ -4265,7 +4265,7 @@
             "trigger": "StartOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "GainGold",
+                "kind": "gain_gold",
                 "amount": 3
             }
         },
@@ -4415,7 +4415,7 @@
             "trigger": "EatsShopFood",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "EachFriend"
                 },
@@ -4428,7 +4428,7 @@
             "trigger": "EatsShopFood",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "EachFriend"
                 },
@@ -4441,7 +4441,7 @@
             "trigger": "EatsShopFood",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "EachFriend"
                 },
@@ -4575,7 +4575,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "AdjacentAnimals"
                 },
@@ -4589,7 +4589,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "AdjacentAnimals"
                 },
@@ -4603,7 +4603,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "AdjacentAnimals"
                 },
@@ -4719,7 +4719,7 @@
             "trigger": "Hurt",
             "triggered_by": "Self",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "RandomEnemy",
                     "n": 1
@@ -4732,7 +4732,7 @@
             "trigger": "Hurt",
             "triggered_by": "Self",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "RandomEnemy",
                     "n": 1
@@ -4745,7 +4745,7 @@
             "trigger": "Hurt",
             "triggered_by": "Self",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "RandomEnemy",
                     "n": 1
@@ -4875,7 +4875,7 @@
             "trigger": "StartOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "GainExperience",
+                "kind": "gain_experience",
                 "target": {
                     "kind": "Self"
                 },
@@ -4887,7 +4887,7 @@
             "trigger": "StartOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "GainExperience",
+                "kind": "gain_experience",
                 "target": {
                     "kind": "Self"
                 },
@@ -4899,7 +4899,7 @@
             "trigger": "StartOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "Evolve",
+                "kind": "evolve",
                 "into": "pet-butterfly"
             }
         },
@@ -5009,7 +5009,7 @@
             "trigger": "Hurt",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "FriendBehind",
                     "n": 1
@@ -5024,7 +5024,7 @@
             "trigger": "Hurt",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "FriendBehind",
                     "n": 1
@@ -5039,7 +5039,7 @@
             "trigger": "Hurt",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "FriendBehind",
                     "n": 1
@@ -5155,7 +5155,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "FriendAhead",
                     "n": 1
@@ -5170,7 +5170,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "FriendAhead",
                     "n": 1
@@ -5185,7 +5185,7 @@
             "trigger": "StartOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "GainExperience",
+                "kind": "gain_experience",
                 "target": {
                     "kind": "FriendAhead",
                     "n": 1
@@ -5299,7 +5299,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "FriendAhead",
                     "n": 1
@@ -5314,7 +5314,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "FriendAhead",
                     "n": 2
@@ -5329,7 +5329,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "FriendAhead",
                     "n": 3
@@ -5445,7 +5445,7 @@
             "trigger": "AfterAttack",
 "triggered_by": "FriendAhead",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "Self"
                 },
@@ -5459,7 +5459,7 @@
             "trigger": "AfterAttack",
 "triggered_by": "FriendAhead",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "Self"
                 },
@@ -5473,7 +5473,7 @@
             "trigger": "AfterAttack",
 "triggered_by": "FriendAhead",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "Self"
                 },
@@ -5588,7 +5588,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "RandomFriend",
                     "n": 1
@@ -5603,7 +5603,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "RandomFriend",
                     "n": 1
@@ -5618,7 +5618,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "RandomFriend",
                     "n": 1
@@ -5737,14 +5737,14 @@
                 "kind": "AllOf",
                 "effects": [
                     {
-                        "kind": "ApplyStatus",
+                        "kind": "apply_status",
                         "status": "status-melon-armor",
                         "to": {
                             "kind": "Self"
                         }
                     },
                     {
-                        "kind": "ModifyStats",
+                        "kind": "modify_stats",
                         "target": {
                             "kind": "Self"
                         },
@@ -5762,14 +5762,14 @@
                 "kind": "AllOf",
                 "effects": [
                     {
-                        "kind": "ApplyStatus",
+                        "kind": "apply_status",
                         "status": "status-melon-armor",
                         "to": {
                             "kind": "Self"
                         }
                     },
                     {
-                        "kind": "ModifyStats",
+                        "kind": "modify_stats",
                         "target": {
                             "kind": "Self"
                         },
@@ -5787,14 +5787,14 @@
                 "kind": "AllOf",
                 "effects": [
                     {
-                        "kind": "ApplyStatus",
+                        "kind": "apply_status",
                         "status": "status-melon-armor",
                         "to": {
                             "kind": "Self"
                         }
                     },
                     {
-                        "kind": "ModifyStats",
+                        "kind": "modify_stats",
                         "target": {
                             "kind": "Self"
                         },
@@ -5910,7 +5910,7 @@
             "trigger": "EndOfTurnWith2PlusGold",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "Self"
                 },
@@ -5924,7 +5924,7 @@
             "trigger": "EndOfTurnWith2PlusGold",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "Self"
                 },
@@ -5938,7 +5938,7 @@
             "trigger": "EndOfTurnWith2PlusGold",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "Self"
                 },
@@ -6054,7 +6054,7 @@
             "trigger": "EatsShopFood",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "TriggeringEntity"
                 },
@@ -6067,7 +6067,7 @@
             "trigger": "EatsShopFood",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "TriggeringEntity"
                 },
@@ -6080,7 +6080,7 @@
             "trigger": "EatsShopFood",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "TriggeringEntity"
                 },
@@ -6211,7 +6211,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet",
+                "kind": "summon_pet",
                 "pet": "pet-ram",
                 "base_attack": 2,
                 "base_health": 2,
@@ -6225,7 +6225,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet",
+                "kind": "summon_pet",
                 "pet": "pet-ram",
                 "base_attack": 4,
                 "base_health": 4,
@@ -6239,7 +6239,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet",
+                "kind": "summon_pet",
                 "pet": "pet-ram",
                 "base_attack": 6,
                 "base_health": 6,
@@ -6371,7 +6371,7 @@
             "trigger": "BuyAfterLoss",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "EachFriend"
                 },
@@ -6385,7 +6385,7 @@
             "trigger": "BuyAfterLoss",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "EachFriend"
                 },
@@ -6399,7 +6399,7 @@
             "trigger": "BuyAfterLoss",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "EachFriend"
                 },
@@ -6530,7 +6530,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "AdjacentFriends"
                 },
@@ -6543,7 +6543,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "AdjacentFriends"
                 },
@@ -6556,7 +6556,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "AdjacentFriends"
                 },
@@ -6671,7 +6671,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus",
+                "kind": "apply_status",
                 "status": "status-melon-armor",
                 "to": {
                     "kind": "FriendBehind",
@@ -6684,7 +6684,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus",
+                "kind": "apply_status",
                 "status": "status-melon-armor",
                 "to": {
                     "kind": "FriendBehind",
@@ -6697,7 +6697,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus",
+                "kind": "apply_status",
                 "status": "status-melon-armor",
                 "to": {
                     "kind": "FriendBehind",
@@ -6827,7 +6827,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "Swallow",
+                "kind": "swallow",
                 "target": {
                     "kind": "FriendAhead",
                     "n": 1
@@ -6839,7 +6839,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "Swallow",
+                "kind": "swallow",
                 "target": {
                     "kind": "FriendAhead",
                     "n": 1
@@ -6851,7 +6851,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "Swallow",
+                "kind": "swallow",
                 "target": {
                     "kind": "FriendAhead",
                     "n": 1
@@ -6945,7 +6945,7 @@
             "trigger": "EndOfTurnWithLvl3Friend",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "Self"
                 },
@@ -6959,7 +6959,7 @@
             "trigger": "EndOfTurnWithLvl3Friend",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "Self"
                 },
@@ -6973,7 +6973,7 @@
             "trigger": "EndOfTurnWithLvl3Friend",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "Self"
                 },
@@ -7080,7 +7080,7 @@
             "trigger": "Buy",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "Self"
                 },
@@ -7094,7 +7094,7 @@
             "trigger": "Buy",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "Self"
                 },
@@ -7108,7 +7108,7 @@
             "trigger": "Buy",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "Self"
                 },
@@ -7204,7 +7204,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet",
+                "kind": "summon_pet",
                 "pet": "pet-bus",
                 "base_attack": 5,
                 "base_health": 5,
@@ -7218,7 +7218,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet",
+                "kind": "summon_pet",
                 "pet": "pet-bus",
                 "base_attack": 10,
                 "base_health": 10,
@@ -7232,7 +7232,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet",
+                "kind": "summon_pet",
                 "pet": "pet-bus",
                 "base_attack": 15,
                 "base_health": 15,
@@ -7340,7 +7340,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "LowestHealthEnemy"
                 },
@@ -7353,7 +7353,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "LowestHealthEnemy"
                 },
@@ -7366,7 +7366,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "LowestHealthEnemy"
                 },
@@ -7472,7 +7472,7 @@
             "trigger": "KnockOut",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "Self"
                 },
@@ -7486,7 +7486,7 @@
             "trigger": "KnockOut",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "Self"
                 },
@@ -7500,7 +7500,7 @@
             "trigger": "KnockOut",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "Self"
                 },
@@ -7595,7 +7595,7 @@
             "trigger": "EndOfTurnWith4OrLessAnimals",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "Self"
                 },
@@ -7609,7 +7609,7 @@
             "trigger": "EndOfTurnWith4OrLessAnimals",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "Self"
                 },
@@ -7623,7 +7623,7 @@
             "trigger": "EndOfTurnWith4OrLessAnimals",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "Self"
                 },
@@ -7718,7 +7718,7 @@
             "trigger": "Summoned",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "TriggeringEntity"
                 },
@@ -7732,7 +7732,7 @@
             "trigger": "Summoned",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "TriggeringEntity"
                 },
@@ -7746,7 +7746,7 @@
             "trigger": "Summoned",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "TriggeringEntity"
                 },
@@ -7841,7 +7841,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "RightMostFriend"
                 },
@@ -7855,7 +7855,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "RightMostFriend"
                 },
@@ -7869,7 +7869,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "RightMostFriend"
                 },
@@ -7944,7 +7944,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "Level2And3Friends",
                     "n": 2
@@ -7959,7 +7959,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "Level2And3Friends",
                     "n": 2
@@ -7974,7 +7974,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "Level2And3Friends",
                     "n": 2
@@ -8070,7 +8070,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "DifferentTierAnimals"
                 },
@@ -8084,7 +8084,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "DifferentTierAnimals"
                 },
@@ -8098,7 +8098,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "DifferentTierAnimals"
                 },
@@ -8174,7 +8174,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet",
+                "kind": "summon_pet",
                 "pet": "pet-chick",
                 "n": 1,
                 "level": 1,
@@ -8188,7 +8188,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet",
+                "kind": "summon_pet",
                 "pet": "pet-chick",
                 "n": 2,
                 "level": 2,
@@ -8202,7 +8202,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet",
+                "kind": "summon_pet",
                 "pet": "pet-chick",
                 "n": 3,
                 "level": 3,
@@ -8310,7 +8310,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ReduceHealth",
+                "kind": "reduce_health",
                 "target": {
                     "kind": "HighestHealthEnemy"
                 },
@@ -8322,7 +8322,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ReduceHealth",
+                "kind": "reduce_health",
                 "target": {
                     "kind": "HighestHealthEnemy"
                 },
@@ -8334,7 +8334,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ReduceHealth",
+                "kind": "reduce_health",
                 "target": {
                     "kind": "HighestHealthEnemy"
                 },
@@ -8440,7 +8440,7 @@
             "trigger": "StartOfTurn",
             "triggered_by": "Self",
             "effect": {
-                "kind": "DiscountFood",
+                "kind": "discount_food",
                 "amount": 1
             }
         },
@@ -8449,7 +8449,7 @@
             "trigger": "StartOfTurn",
             "triggered_by": "Self",
             "effect": {
-                "kind": "DiscountFood",
+                "kind": "discount_food",
                 "amount": 2
             }
         },
@@ -8458,7 +8458,7 @@
             "trigger": "StartOfTurn",
             "triggered_by": "Self",
             "effect": {
-                "kind": "DiscountFood",
+                "kind": "discount_food",
                 "amount": 3
             }
         },
@@ -8561,7 +8561,7 @@
             "trigger": "EatsShopFood",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "attack_mod": 1,
                 "health_mod": 1,
                 "target": {
@@ -8575,7 +8575,7 @@
             "trigger": "EatsShopFood",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "attack_mod": 2,
                 "health_mod": 2,
                 "target": {
@@ -8589,7 +8589,7 @@
             "trigger": "EatsShopFood",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "attack_mod": 3,
                 "health_mod": 3,
                 "target": {
@@ -8696,7 +8696,7 @@
             "trigger": "BuyTier1Animal",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "EachShopAnimal",
                     "includingFuture": false
@@ -8711,7 +8711,7 @@
             "trigger": "BuyTier1Animal",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "EachShopAnimal",
                     "includingFuture": false
@@ -8726,7 +8726,7 @@
             "trigger": "BuyTier1Animal",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "EachShopAnimal",
                     "includingFuture": false
@@ -8803,7 +8803,7 @@
             "trigger": "Buy",
             "triggered_by": "Self",
             "effect": {
-                "kind": "RefillShops",
+                "kind": "refill_shops",
                 "shop": "Food",
                 "food": "food-milk"
             }
@@ -8813,7 +8813,7 @@
             "trigger": "Buy",
             "triggered_by": "Self",
             "effect": {
-                "kind": "RefillShops",
+                "kind": "refill_shops",
                 "shop": "Food",
                 "food": "food-milk"
             }
@@ -8823,7 +8823,7 @@
             "trigger": "Buy",
             "triggered_by": "Self",
             "effect": {
-                "kind": "RefillShops",
+                "kind": "refill_shops",
                 "shop": "Food",
                 "food": "food-milk"
             }
@@ -8902,7 +8902,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "LastEnemy"
                 },
@@ -8915,7 +8915,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "LastEnemy"
                 },
@@ -8928,7 +8928,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "LastEnemy"
                 },
@@ -9002,7 +9002,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonRandomPet",
+                "kind": "summon_random_pet",
                 "tier": 6,
                 "level": 1
             }
@@ -9012,7 +9012,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonRandomPet",
+                "kind": "summon_random_pet",
                 "tier": 6,
                 "level": 2
             }
@@ -9022,7 +9022,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonRandomPet",
+                "kind": "summon_random_pet",
                 "tier": 6,
                 "level": 3
             }
@@ -9093,7 +9093,7 @@
             "trigger": "Buy",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "GainGold",
+                "kind": "gain_gold",
                 "amount": 1
             },
             "maxTriggers": 2
@@ -9103,7 +9103,7 @@
             "trigger": "Buy",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "GainGold",
+                "kind": "gain_gold",
                 "amount": 2
             },
             "maxTriggers": 2
@@ -9113,7 +9113,7 @@
             "trigger": "Buy",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "GainGold",
+                "kind": "gain_gold",
                 "amount": 3
             },
             "maxTriggers": 2
@@ -9184,7 +9184,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus",
+                "kind": "apply_status",
                 "status": "status-weak",
                 "to": {
                     "kind": "All"
@@ -9196,7 +9196,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus",
+                "kind": "apply_status",
                 "status": "status-weak",
                 "to": {
                     "kind": "All"
@@ -9208,7 +9208,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus",
+                "kind": "apply_status",
                 "status": "status-weak",
                 "to": {
                     "kind": "All"
@@ -9301,7 +9301,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "TransferAbility",
+                "kind": "transfer_ability",
                 "from": {
                     "kind": "FriendAhead",
                     "n": 1
@@ -9317,7 +9317,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "TransferAbility",
+                "kind": "transfer_ability",
                 "from": {
                     "kind": "FriendAhead",
                     "n": 1
@@ -9333,7 +9333,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "TransferAbility",
+                "kind": "transfer_ability",
                 "from": {
                     "kind": "FriendAhead",
                     "n": 1
@@ -9431,7 +9431,7 @@
             "trigger": "KnockOut",
             "triggered_by": "Self",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "FirstEnemy"
                 },
@@ -9443,7 +9443,7 @@
             "trigger": "KnockOut",
             "triggered_by": "Self",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "FirstEnemy"
                 },
@@ -9455,7 +9455,7 @@
             "trigger": "KnockOut",
             "triggered_by": "Self",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "FirstEnemy"
                 },
@@ -9537,7 +9537,7 @@
             "trigger": "Summoned",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus",
+                "kind": "apply_status",
                 "status": "status-poison-attack",
                 "target": {
                     "kind": "Self"
@@ -9549,7 +9549,7 @@
             "trigger": "Summoned",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus",
+                "kind": "apply_status",
                 "status": "status-poison-attack",
                 "to": {
                     "kind": "Self"
@@ -9561,7 +9561,7 @@
             "trigger": "Summoned",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus",
+                "kind": "apply_status",
                 "status": "status-poison-attack",
                 "to": {
                     "kind": "Self"
@@ -9643,7 +9643,7 @@
             "trigger": "EatsShopFood",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "RandomFriend",
                     "n": 2
@@ -9658,7 +9658,7 @@
             "trigger": "EatsShopFood",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "RandomFriend",
                     "n": 2
@@ -9673,7 +9673,7 @@
             "trigger": "EatsShopFood",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "RandomFriend",
                     "n": 2
@@ -9757,7 +9757,7 @@
             "trigger": "Faint",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "Self"
                 },
@@ -9771,7 +9771,7 @@
             "trigger": "Faint",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "Self"
                 },
@@ -9785,7 +9785,7 @@
             "trigger": "Faint",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "Self"
                 },
@@ -9860,7 +9860,7 @@
             "trigger": "Summoned",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "TriggeringEntity"
                 },
@@ -9874,7 +9874,7 @@
             "trigger": "Summoned",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "TriggeringEntity"
                 },
@@ -9888,7 +9888,7 @@
             "trigger": "Summoned",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "TriggeringEntity"
                 },
@@ -9963,7 +9963,7 @@
             "trigger": "Hurt",
             "triggered_by": "Self",
             "effect": {
-                "kind": "FoodMultiplier",
+                "kind": "food_multiplier",
                 "amount": 2
             }
         },
@@ -9972,7 +9972,7 @@
             "trigger": "Hurt",
             "triggered_by": "Self",
             "effect": {
-                "kind": "FoodMultiplier",
+                "kind": "food_multiplier",
                 "amount": 3
             }
         },
@@ -9981,7 +9981,7 @@
             "trigger": "Hurt",
             "triggered_by": "Self",
             "effect": {
-                "kind": "FoodMultiplier",
+                "kind": "food_multiplier",
                 "amount": 4
             }
         },
@@ -10039,7 +10039,7 @@
             "trigger": "BeforeAttack",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "Self"
                 },
@@ -10053,7 +10053,7 @@
             "trigger": "BeforeAttack",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "Self"
                 },
@@ -10067,7 +10067,7 @@
             "trigger": "BeforeAttack",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "Self"
                 },
@@ -10135,7 +10135,7 @@
             "trigger": "BuyTier1Animal",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "EachFriend"
                 },
@@ -10149,7 +10149,7 @@
             "trigger": "BuyTier1Animal",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "EachFriend"
                 },
@@ -10163,7 +10163,7 @@
             "trigger": "BuyTier1Animal",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "EachFriend"
                 },
@@ -10230,7 +10230,7 @@
             "trigger": "Faint",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "SummonPet",
+                "kind": "summon_pet",
                 "pet": "pet-zombie_fly",
                 "base_attack": 4,
                 "base_health": 4,
@@ -10243,7 +10243,7 @@
             "trigger": "Faint",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "SummonPet",
+                "kind": "summon_pet",
                 "pet": "pet-zombie_fly",
                 "base_attack": 8,
                 "base_health": 8,
@@ -10256,7 +10256,7 @@
             "trigger": "Faint",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "SummonPet",
+                "kind": "summon_pet",
                 "pet": "pet-zombie_fly",
                 "base_attack": 12,
                 "base_health": 12,
@@ -10318,7 +10318,7 @@
             "trigger": "Hurt",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus",
+                "kind": "apply_status",
                 "status": "status-coconut-shield",
                 "to": {
                     "kind": "Self"
@@ -10331,7 +10331,7 @@
             "trigger": "Hurt",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus",
+                "kind": "apply_status",
                 "status": "status-coconut-shield",
                 "to": {
                     "kind": "Self"
@@ -10344,7 +10344,7 @@
             "trigger": "Hurt",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus",
+                "kind": "apply_status",
                 "status": "status-coconut-shield",
                 "to": {
                     "kind": "Self"
@@ -10412,7 +10412,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "RandomEnemy",
                     "n": 1
@@ -10427,7 +10427,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "RandomEnemy",
                     "n": 2
@@ -10442,7 +10442,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "RandomEnemy",
                     "n": 3
@@ -10511,7 +10511,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "attack_mod": 2,
                 "health_mod": 2,
                 "target": {
@@ -10525,7 +10525,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "attack_mod": 4,
                 "health_mod": 4,
                 "target": {
@@ -10539,7 +10539,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "attack_mod": 6,
                 "health_mod": 6,
                 "target": {
@@ -10606,7 +10606,7 @@
             "trigger": "BeforeAttack",
             "triggered_by": "Self",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "RandomEnemy",
                     "n": 1
@@ -10619,7 +10619,7 @@
             "trigger": "BeforeAttack",
             "triggered_by": "Self",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "RandomEnemy",
                     "n": 2
@@ -10632,7 +10632,7 @@
             "trigger": "BeforeAttack",
             "triggered_by": "Self",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "RandomEnemy",
                     "n": 3
@@ -10693,7 +10693,7 @@
             "trigger": "BuyFood",
             "triggered_by": "Player",
             "effect": {
-                "kind": "GainGold",
+                "kind": "gain_gold",
                 "amount": 1
             },
             "maxTriggers": 3
@@ -10703,7 +10703,7 @@
             "trigger": "BuyFood",
             "triggered_by": "Player",
             "effect": {
-                "kind": "GainGold",
+                "kind": "gain_gold",
                 "amount": 1
             },
             "maxTriggers": 3
@@ -10713,7 +10713,7 @@
             "trigger": "BuyFood",
             "triggered_by": "Player",
             "effect": {
-                "kind": "GainGold",
+                "kind": "gain_gold",
                 "amount": 1
             },
             "maxTriggers": 3
@@ -10771,7 +10771,7 @@
             "trigger": "AfterAttack",
 "triggered_by": "FriendAhead",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "RandomEnemy",
                     "n": 1
@@ -10784,7 +10784,7 @@
             "trigger": "AfterAttack",
 "triggered_by": "FriendAhead",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "RandomEnemy",
                     "n": 1
@@ -10797,7 +10797,7 @@
             "trigger": "AfterAttack",
 "triggered_by": "FriendAhead",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "RandomEnemy",
                     "n": 1
@@ -10859,7 +10859,7 @@
             "trigger": "CastsAbility",
 "triggered_by": "FriendAhead",
             "effect": {
-                "kind": "RepeatAbility",
+                "kind": "repeat_ability",
                 "target": {
                     "kind": "TriggeringEntity"
                 },
@@ -10871,7 +10871,7 @@
             "trigger": "CastsAbility",
 "triggered_by": "FriendAhead",
             "effect": {
-                "kind": "RepeatAbility",
+                "kind": "repeat_ability",
                 "target": {
                     "kind": "TriggeringEntity"
                 },
@@ -10883,7 +10883,7 @@
             "trigger": "CastsAbility",
 "triggered_by": "FriendAhead",
             "effect": {
-                "kind": "RepeatAbility",
+                "kind": "repeat_ability",
                 "target": {
                     "kind": "TriggeringEntity"
                 },
@@ -10948,7 +10948,7 @@
             "trigger": "EndOfTurnWith3PlusGold",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "EachFriend"
                 },
@@ -10962,7 +10962,7 @@
             "trigger": "EndOfTurnWith3PlusGold",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "EachFriend"
                 },
@@ -10976,7 +10976,7 @@
             "trigger": "EndOfTurnWith3PlusGold",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "target": {
                     "kind": "EachFriend"
                 },
@@ -11087,7 +11087,7 @@
             "trigger": "AfterAttack",
 "triggered_by": "FriendAhead",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "FriendAhead",
                     "n": 1
@@ -11100,7 +11100,7 @@
             "trigger": "AfterAttack",
 "triggered_by": "FriendAhead",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "FriendAhead",
                     "n": 1
@@ -11113,7 +11113,7 @@
             "trigger": "AfterAttack",
 "triggered_by": "FriendAhead",
             "effect": {
-                "kind": "DealDamage",
+                "kind": "deal_damage",
                 "target": {
                     "kind": "FriendAhead",
                     "n": 1
@@ -11184,7 +11184,7 @@
             "trigger": "Summoned",
             "triggered_by": "Self",
             "effect": {
-                "kind": "TransferStats",
+                "kind": "transfer_stats",
                 "copyAttack": true,
                 "copyHealth": true,
                 "from": {
@@ -11226,7 +11226,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet"
+                "kind": "summon_pet"
             }
         },
         "level_2_ability": {
@@ -11234,7 +11234,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet"
+                "kind": "summon_pet"
             }
         },
         "level_3_ability": {
@@ -11242,7 +11242,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet"
+                "kind": "summon_pet"
             }
         }
     },
@@ -11260,7 +11260,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -11268,7 +11268,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -11276,7 +11276,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -11294,7 +11294,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "RollModifier"
+                "kind": "roll_modifier"
             }
         },
         "level_2_ability": {
@@ -11302,7 +11302,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "RollModifier"
+                "kind": "roll_modifier"
             }
         },
         "level_3_ability": {
@@ -11310,7 +11310,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "RollModifier"
+                "kind": "roll_modifier"
             }
         }
     },
@@ -11328,7 +11328,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -11336,7 +11336,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -11344,7 +11344,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -11362,7 +11362,7 @@
             "trigger": "StartOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -11370,7 +11370,7 @@
             "trigger": "StartOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -11378,7 +11378,7 @@
             "trigger": "StartOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -11396,7 +11396,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyShop"
+                "kind": "modify_shop"
             }
         },
         "level_2_ability": {
@@ -11404,7 +11404,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyShop"
+                "kind": "modify_shop"
             }
         },
         "level_3_ability": {
@@ -11412,7 +11412,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyShop"
+                "kind": "modify_shop"
             }
         }
     },
@@ -11476,7 +11476,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -11484,7 +11484,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -11492,7 +11492,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -11510,7 +11510,7 @@
             "trigger": "EnemySummonedOrPushed",
             "triggered_by": "EachEnemy",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         },
         "level_2_ability": {
@@ -11518,7 +11518,7 @@
             "trigger": "EnemySummonedOrPushed",
             "triggered_by": "EachEnemy",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         },
         "level_3_ability": {
@@ -11526,7 +11526,7 @@
             "trigger": "EnemySummonedOrPushed",
             "triggered_by": "EachEnemy",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         }
     },
@@ -11544,7 +11544,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -11552,7 +11552,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -11560,7 +11560,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -11578,7 +11578,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "RefillShops"
+                "kind": "refill_shops"
             }
         },
         "level_2_ability": {
@@ -11586,7 +11586,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "RefillShops"
+                "kind": "refill_shops"
             }
         },
         "level_3_ability": {
@@ -11594,7 +11594,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "RefillShops"
+                "kind": "refill_shops"
             }
         }
     },
@@ -11612,7 +11612,7 @@
             "trigger": "UpgradeShopTier",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -11620,7 +11620,7 @@
             "trigger": "UpgradeShopTier",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -11628,7 +11628,7 @@
             "trigger": "UpgradeShopTier",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -11646,7 +11646,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "Move"
+                "kind": "move"
             }
         },
         "level_2_ability": {
@@ -11654,7 +11654,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "Move"
+                "kind": "move"
             }
         },
         "level_3_ability": {
@@ -11662,7 +11662,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "Move"
+                "kind": "move"
             }
         }
     },
@@ -11680,7 +11680,7 @@
             "trigger": "Hurt",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -11688,7 +11688,7 @@
             "trigger": "Hurt",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -11696,7 +11696,7 @@
             "trigger": "Hurt",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -11714,7 +11714,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "RefillShops"
+                "kind": "refill_shops"
             }
         },
         "level_2_ability": {
@@ -11722,7 +11722,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "RefillShops"
+                "kind": "refill_shops"
             }
         },
         "level_3_ability": {
@@ -11730,7 +11730,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "RefillShops"
+                "kind": "refill_shops"
             }
         }
     },
@@ -11748,7 +11748,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "GainTrumpets"
+                "kind": "gain_trumpets"
             }
         },
         "level_2_ability": {
@@ -11756,7 +11756,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "GainTrumpets"
+                "kind": "gain_trumpets"
             }
         },
         "level_3_ability": {
@@ -11764,7 +11764,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "GainTrumpets"
+                "kind": "gain_trumpets"
             }
         }
     },
@@ -11782,7 +11782,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -11790,7 +11790,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -11798,7 +11798,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -11816,7 +11816,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -11824,7 +11824,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -11832,7 +11832,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -11850,7 +11850,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         },
         "level_2_ability": {
@@ -11858,7 +11858,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         },
         "level_3_ability": {
@@ -11866,7 +11866,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         }
     },
@@ -11884,7 +11884,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyShop"
+                "kind": "modify_shop"
             }
         },
         "level_2_ability": {
@@ -11892,7 +11892,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyShop"
+                "kind": "modify_shop"
             }
         },
         "level_3_ability": {
@@ -11900,7 +11900,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyShop"
+                "kind": "modify_shop"
             }
         }
     },
@@ -11918,7 +11918,7 @@
             "trigger": "FriendAheadHurt",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -11926,7 +11926,7 @@
             "trigger": "FriendAheadHurt",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -11934,7 +11934,7 @@
             "trigger": "FriendAheadHurt",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -11952,7 +11952,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ConserveGold"
+                "kind": "conserve_gold"
             }
         },
         "level_2_ability": {
@@ -11960,7 +11960,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ConserveGold"
+                "kind": "conserve_gold"
             }
         },
         "level_3_ability": {
@@ -11968,7 +11968,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ConserveGold"
+                "kind": "conserve_gold"
             }
         }
     },
@@ -11986,7 +11986,7 @@
             "trigger": "Buy",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -11994,7 +11994,7 @@
             "trigger": "Buy",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -12002,7 +12002,7 @@
             "trigger": "Buy",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -12020,7 +12020,7 @@
             "trigger": "StartOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyShop"
+                "kind": "modify_shop"
             }
         },
         "level_2_ability": {
@@ -12028,7 +12028,7 @@
             "trigger": "StartOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyShop"
+                "kind": "modify_shop"
             }
         },
         "level_3_ability": {
@@ -12036,7 +12036,7 @@
             "trigger": "StartOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyShop"
+                "kind": "modify_shop"
             }
         }
     },
@@ -12054,7 +12054,7 @@
             "trigger": "BeforeAttack",
             "triggered_by": "Self",
             "effect": {
-                "kind": "StealFood"
+                "kind": "steal_food"
             }
         },
         "level_2_ability": {
@@ -12062,7 +12062,7 @@
             "trigger": "BeforeAttack",
             "triggered_by": "Self",
             "effect": {
-                "kind": "StealFood"
+                "kind": "steal_food"
             }
         },
         "level_3_ability": {
@@ -12070,7 +12070,7 @@
             "trigger": "BeforeAttack",
             "triggered_by": "Self",
             "effect": {
-                "kind": "StealFood"
+                "kind": "steal_food"
             }
         }
     },
@@ -12088,7 +12088,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         },
         "level_2_ability": {
@@ -12096,7 +12096,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         },
         "level_3_ability": {
@@ -12104,7 +12104,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         }
     },
@@ -12122,7 +12122,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "TransferAbility"
+                "kind": "transfer_ability"
             }
         },
         "level_2_ability": {
@@ -12130,7 +12130,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "TransferAbility"
+                "kind": "transfer_ability"
             }
         },
         "level_3_ability": {
@@ -12138,7 +12138,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "TransferAbility"
+                "kind": "transfer_ability"
             }
         }
     },
@@ -12156,7 +12156,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         },
         "level_2_ability": {
@@ -12164,7 +12164,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         },
         "level_3_ability": {
@@ -12172,7 +12172,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         }
     },
@@ -12190,7 +12190,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -12198,7 +12198,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -12206,7 +12206,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -12224,7 +12224,7 @@
             "trigger": "Buy",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet"
+                "kind": "summon_pet"
             }
         },
         "level_2_ability": {
@@ -12232,7 +12232,7 @@
             "trigger": "Buy",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet"
+                "kind": "summon_pet"
             }
         },
         "level_3_ability": {
@@ -12240,7 +12240,7 @@
             "trigger": "Buy",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet"
+                "kind": "summon_pet"
             }
         }
     },
@@ -12258,7 +12258,7 @@
             "trigger": "AnyLevelUp",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -12266,7 +12266,7 @@
             "trigger": "AnyLevelUp",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -12274,7 +12274,7 @@
             "trigger": "AnyLevelUp",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -12292,7 +12292,7 @@
             "trigger": "FriendHurt",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -12300,7 +12300,7 @@
             "trigger": "FriendHurt",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -12308,7 +12308,7 @@
             "trigger": "FriendHurt",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -12326,7 +12326,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "TransferStats"
+                "kind": "transfer_stats"
             }
         },
         "level_2_ability": {
@@ -12334,7 +12334,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "TransferStats"
+                "kind": "transfer_stats"
             }
         },
         "level_3_ability": {
@@ -12342,7 +12342,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "TransferStats"
+                "kind": "transfer_stats"
             }
         }
     },
@@ -12360,7 +12360,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "GainExperience"
+                "kind": "gain_experience"
             }
         },
         "level_2_ability": {
@@ -12368,7 +12368,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "GainExperience"
+                "kind": "gain_experience"
             }
         },
         "level_3_ability": {
@@ -12376,7 +12376,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "GainExperience"
+                "kind": "gain_experience"
             }
         }
     },
@@ -12394,7 +12394,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonRandomPet"
+                "kind": "summon_random_pet"
             }
         },
         "level_2_ability": {
@@ -12402,7 +12402,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonRandomPet"
+                "kind": "summon_random_pet"
             }
         },
         "level_3_ability": {
@@ -12410,7 +12410,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonRandomPet"
+                "kind": "summon_random_pet"
             }
         }
     },
@@ -12428,7 +12428,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DamageAndModifyStats"
+                "kind": "DamageAndmodify_stats"
             }
         },
         "level_2_ability": {
@@ -12436,7 +12436,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DamageAndModifyStats"
+                "kind": "DamageAndmodify_stats"
             }
         },
         "level_3_ability": {
@@ -12444,7 +12444,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DamageAndModifyStats"
+                "kind": "DamageAndmodify_stats"
             }
         }
     },
@@ -12462,7 +12462,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -12470,7 +12470,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -12478,7 +12478,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -12496,7 +12496,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonRandomPet"
+                "kind": "summon_random_pet"
             }
         },
         "level_2_ability": {
@@ -12504,7 +12504,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonRandomPet"
+                "kind": "summon_random_pet"
             }
         },
         "level_3_ability": {
@@ -12512,7 +12512,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonRandomPet"
+                "kind": "summon_random_pet"
             }
         }
     },
@@ -12530,7 +12530,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "GainTrumpets"
+                "kind": "gain_trumpets"
             }
         },
         "level_2_ability": {
@@ -12538,7 +12538,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "GainTrumpets"
+                "kind": "gain_trumpets"
             }
         },
         "level_3_ability": {
@@ -12546,7 +12546,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "GainTrumpets"
+                "kind": "gain_trumpets"
             }
         }
     },
@@ -12564,7 +12564,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         },
         "level_2_ability": {
@@ -12572,7 +12572,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         },
         "level_3_ability": {
@@ -12580,7 +12580,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         }
     },
@@ -12598,7 +12598,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -12606,7 +12606,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -12614,7 +12614,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -12632,7 +12632,7 @@
             "trigger": "EmptyFrontSpace",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "MoveAndModifyStats"
+                "kind": "MoveAndmodify_stats"
             }
         },
         "level_2_ability": {
@@ -12640,7 +12640,7 @@
             "trigger": "EmptyFrontSpace",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "MoveAndModifyStats"
+                "kind": "MoveAndmodify_stats"
             }
         },
         "level_3_ability": {
@@ -12648,7 +12648,7 @@
             "trigger": "EmptyFrontSpace",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "MoveAndModifyStats"
+                "kind": "MoveAndmodify_stats"
             }
         }
     },
@@ -12666,7 +12666,7 @@
             "trigger": "Summoned",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -12674,7 +12674,7 @@
             "trigger": "Summoned",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -12682,7 +12682,7 @@
             "trigger": "Summoned",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -12700,7 +12700,7 @@
             "trigger": "StartOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -12708,7 +12708,7 @@
             "trigger": "StartOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -12716,7 +12716,7 @@
             "trigger": "StartOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -12734,7 +12734,7 @@
             "trigger": "Buy",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -12742,7 +12742,7 @@
             "trigger": "Buy",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -12750,7 +12750,7 @@
             "trigger": "Buy",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -12768,7 +12768,7 @@
             "trigger": "EnemySummoned",
             "triggered_by": "EachEnemy",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -12776,7 +12776,7 @@
             "trigger": "EnemySummoned",
             "triggered_by": "EachEnemy",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -12784,7 +12784,7 @@
             "trigger": "EnemySummoned",
             "triggered_by": "EachEnemy",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -12802,7 +12802,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         },
         "level_2_ability": {
@@ -12810,7 +12810,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         },
         "level_3_ability": {
@@ -12818,7 +12818,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         }
     },
@@ -12836,7 +12836,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyShop"
+                "kind": "modify_shop"
             }
         },
         "level_2_ability": {
@@ -12844,7 +12844,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyShop"
+                "kind": "modify_shop"
             }
         },
         "level_3_ability": {
@@ -12852,7 +12852,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyShop"
+                "kind": "modify_shop"
             }
         }
     },
@@ -12870,7 +12870,7 @@
             "trigger": "Summoned",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         },
         "level_2_ability": {
@@ -12878,7 +12878,7 @@
             "trigger": "Summoned",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         },
         "level_3_ability": {
@@ -12886,7 +12886,7 @@
             "trigger": "Summoned",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         }
     },
@@ -12904,7 +12904,7 @@
             "trigger": "UpgradeShopTier",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -12912,7 +12912,7 @@
             "trigger": "UpgradeShopTier",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -12920,7 +12920,7 @@
             "trigger": "UpgradeShopTier",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -12938,7 +12938,7 @@
             "trigger": "BeforeFaint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "GainExperienceAndModifyStats"
+                "kind": "gain_experienceAndmodify_stats"
             }
         },
         "level_2_ability": {
@@ -12946,7 +12946,7 @@
             "trigger": "BeforeFaint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "GainExperienceAndModifyStats"
+                "kind": "gain_experienceAndmodify_stats"
             }
         },
         "level_3_ability": {
@@ -12954,7 +12954,7 @@
             "trigger": "BeforeFaint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "GainExperienceAndModifyStats"
+                "kind": "gain_experienceAndmodify_stats"
             }
         }
     },
@@ -12972,7 +12972,7 @@
             "trigger": "Roll",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyShop"
+                "kind": "modify_shop"
             }
         },
         "level_2_ability": {
@@ -12980,7 +12980,7 @@
             "trigger": "Roll",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyShop"
+                "kind": "modify_shop"
             }
         },
         "level_3_ability": {
@@ -12988,7 +12988,7 @@
             "trigger": "Roll",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyShop"
+                "kind": "modify_shop"
             }
         }
     },
@@ -13006,7 +13006,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -13014,7 +13014,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -13022,7 +13022,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -13074,7 +13074,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DamageAndModifyStats"
+                "kind": "DamageAndmodify_stats"
             }
         },
         "level_2_ability": {
@@ -13082,7 +13082,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DamageAndModifyStats"
+                "kind": "DamageAndmodify_stats"
             }
         },
         "level_3_ability": {
@@ -13090,7 +13090,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DamageAndModifyStats"
+                "kind": "DamageAndmodify_stats"
             }
         }
     },
@@ -13108,7 +13108,7 @@
             "trigger": "Roll",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -13116,7 +13116,7 @@
             "trigger": "Roll",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -13124,7 +13124,7 @@
             "trigger": "Roll",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -13176,7 +13176,7 @@
             "trigger": "Hurt",
             "triggered_by": "EachEnemy",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         },
         "level_2_ability": {
@@ -13184,7 +13184,7 @@
             "trigger": "Hurt",
             "triggered_by": "EachEnemy",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         },
         "level_3_ability": {
@@ -13192,7 +13192,7 @@
             "trigger": "Hurt",
             "triggered_by": "EachEnemy",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         }
     },
@@ -13210,7 +13210,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         },
         "level_2_ability": {
@@ -13218,7 +13218,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         },
         "level_3_ability": {
@@ -13226,7 +13226,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         }
     },
@@ -13244,7 +13244,7 @@
             "trigger": "Faint",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -13252,7 +13252,7 @@
             "trigger": "Faint",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -13260,7 +13260,7 @@
             "trigger": "Faint",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -13278,7 +13278,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         },
         "level_2_ability": {
@@ -13286,7 +13286,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         },
         "level_3_ability": {
@@ -13294,7 +13294,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         }
     },
@@ -13312,7 +13312,7 @@
             "trigger": "Summoned",
             "triggered_by": "EachEnemy",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         },
         "level_2_ability": {
@@ -13320,7 +13320,7 @@
             "trigger": "Summoned",
             "triggered_by": "EachEnemy",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         },
         "level_3_ability": {
@@ -13328,7 +13328,7 @@
             "trigger": "Summoned",
             "triggered_by": "EachEnemy",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         }
     },
@@ -13346,7 +13346,7 @@
             "trigger": "BeforeAttack",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -13354,7 +13354,7 @@
             "trigger": "BeforeAttack",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -13362,7 +13362,7 @@
             "trigger": "BeforeAttack",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -13380,7 +13380,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "GainGold"
+                "kind": "gain_gold"
             }
         },
         "level_2_ability": {
@@ -13388,7 +13388,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "GainGold"
+                "kind": "gain_gold"
             }
         },
         "level_3_ability": {
@@ -13396,7 +13396,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "GainGold"
+                "kind": "gain_gold"
             }
         }
     },
@@ -13414,7 +13414,7 @@
             "trigger": "Hurt",
             "triggered_by": "Self",
             "effect": {
-                "kind": "GainTrumpets"
+                "kind": "gain_trumpets"
             }
         },
         "level_2_ability": {
@@ -13422,7 +13422,7 @@
             "trigger": "Hurt",
             "triggered_by": "Self",
             "effect": {
-                "kind": "GainTrumpets"
+                "kind": "gain_trumpets"
             }
         },
         "level_3_ability": {
@@ -13430,7 +13430,7 @@
             "trigger": "Hurt",
             "triggered_by": "Self",
             "effect": {
-                "kind": "GainTrumpets"
+                "kind": "gain_trumpets"
             }
         }
     },
@@ -13448,7 +13448,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "attack_mod": 4,
                 "health_mod": 2,
                 "target": {
@@ -13463,7 +13463,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "attack_mod": 8,
                 "health_mod": 4,
                 "target": {
@@ -13478,7 +13478,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats",
+                "kind": "modify_stats",
                 "attack_mod": 12,
                 "health_mod": 6,
                 "target": {
@@ -13503,7 +13503,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -13511,7 +13511,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -13519,7 +13519,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -13537,7 +13537,7 @@
             "trigger": "Summoned",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "GainExperience"
+                "kind": "gain_experience"
             }
         },
         "level_2_ability": {
@@ -13545,7 +13545,7 @@
             "trigger": "Summoned",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "GainExperience"
+                "kind": "gain_experience"
             }
         },
         "level_3_ability": {
@@ -13553,7 +13553,7 @@
             "trigger": "Summoned",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "GainExperience"
+                "kind": "gain_experience"
             }
         }
     },
@@ -13571,7 +13571,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyShop"
+                "kind": "modify_shop"
             }
         },
         "level_2_ability": {
@@ -13579,7 +13579,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyShop"
+                "kind": "modify_shop"
             }
         },
         "level_3_ability": {
@@ -13587,7 +13587,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyShop"
+                "kind": "modify_shop"
             }
         }
     },
@@ -13605,7 +13605,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet",
+                "kind": "summon_pet",
                 "pet": "pet-groundhog",
                 "n": 1,
                 "level": 1,
@@ -13617,7 +13617,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet",
+                "kind": "summon_pet",
                 "pet": "pet-groundhog",
                 "n": 2,
                 "level": 2,
@@ -13629,7 +13629,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet",
+                "kind": "summon_pet",
                 "pet": "pet-groundhog",
                 "n": 3,
                 "level": 3,
@@ -13651,7 +13651,7 @@
             "trigger": "HurtAndFaint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -13659,7 +13659,7 @@
             "trigger": "HurtAndFaint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -13667,7 +13667,7 @@
             "trigger": "HurtAndFaint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -13685,7 +13685,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -13693,7 +13693,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -13701,7 +13701,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -13719,7 +13719,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ApplyStatusAndModifyStats"
+                "kind": "apply_statusAndmodify_stats"
             }
         },
         "level_2_ability": {
@@ -13727,7 +13727,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ApplyStatusAndModifyStats"
+                "kind": "apply_statusAndmodify_stats"
             }
         },
         "level_3_ability": {
@@ -13735,7 +13735,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ApplyStatusAndModifyStats"
+                "kind": "apply_statusAndmodify_stats"
             }
         }
     },
@@ -13787,7 +13787,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         },
         "level_2_ability": {
@@ -13795,7 +13795,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         },
         "level_3_ability": {
@@ -13803,7 +13803,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         }
     },
@@ -13821,7 +13821,7 @@
             "trigger": "Buy",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -13829,7 +13829,7 @@
             "trigger": "Buy",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -13837,7 +13837,7 @@
             "trigger": "Buy",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -13855,7 +13855,7 @@
             "trigger": "Hurt",
             "triggered_by": "Self",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         },
         "level_2_ability": {
@@ -13863,7 +13863,7 @@
             "trigger": "Hurt",
             "triggered_by": "Self",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         },
         "level_3_ability": {
@@ -13871,7 +13871,7 @@
             "trigger": "Hurt",
             "triggered_by": "Self",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         }
     },
@@ -13889,7 +13889,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet",
+                "kind": "summon_pet",
                 "pet": "pet-ant",
                 "n": 2,
                 "level": 1,
@@ -13901,7 +13901,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet",
+                "kind": "summon_pet",
                 "pet": "pet-ant",
                 "n": 2,
                 "level": 2,
@@ -13913,7 +13913,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet",
+                "kind": "summon_pet",
                 "pet": "pet-ant",
                 "n": 2,
                 "level": 3,
@@ -13935,7 +13935,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "RefillShops"
+                "kind": "refill_shops"
             }
         },
         "level_2_ability": {
@@ -13943,7 +13943,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "RefillShops"
+                "kind": "refill_shops"
             }
         },
         "level_3_ability": {
@@ -13951,7 +13951,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "RefillShops"
+                "kind": "refill_shops"
             }
         }
     },
@@ -13969,7 +13969,7 @@
             "trigger": "Faint",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "Move"
+                "kind": "move"
             }
         },
         "level_2_ability": {
@@ -13977,7 +13977,7 @@
             "trigger": "Faint",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "Move"
+                "kind": "move"
             }
         },
         "level_3_ability": {
@@ -13985,7 +13985,7 @@
             "trigger": "Faint",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "Move"
+                "kind": "move"
             }
         }
     },
@@ -14003,7 +14003,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -14011,7 +14011,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -14019,7 +14019,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -14037,7 +14037,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         },
         "level_2_ability": {
@@ -14045,7 +14045,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         },
         "level_3_ability": {
@@ -14053,7 +14053,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         }
     },
@@ -14071,7 +14071,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -14079,7 +14079,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -14087,7 +14087,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -14105,7 +14105,7 @@
             "trigger": "EndOfTurnAndStartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -14113,7 +14113,7 @@
             "trigger": "EndOfTurnAndStartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -14121,7 +14121,7 @@
             "trigger": "EndOfTurnAndStartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -14139,7 +14139,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet"
+                "kind": "summon_pet"
             }
         },
         "level_2_ability": {
@@ -14147,7 +14147,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet"
+                "kind": "summon_pet"
             }
         },
         "level_3_ability": {
@@ -14155,7 +14155,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet"
+                "kind": "summon_pet"
             }
         }
     },
@@ -14173,7 +14173,7 @@
             "trigger": "StartOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "KnockoutAndModifyStats"
+                "kind": "KnockoutAndmodify_stats"
             }
         },
         "level_2_ability": {
@@ -14181,7 +14181,7 @@
             "trigger": "StartOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "KnockoutAndModifyStats"
+                "kind": "KnockoutAndmodify_stats"
             }
         },
         "level_3_ability": {
@@ -14189,7 +14189,7 @@
             "trigger": "StartOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "KnockoutAndModifyStats"
+                "kind": "KnockoutAndmodify_stats"
             }
         }
     },
@@ -14207,7 +14207,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DamageAndModifyStats"
+                "kind": "DamageAndmodify_stats"
             }
         },
         "level_2_ability": {
@@ -14215,7 +14215,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DamageAndModifyStats"
+                "kind": "DamageAndmodify_stats"
             }
         },
         "level_3_ability": {
@@ -14223,7 +14223,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DamageAndModifyStats"
+                "kind": "DamageAndmodify_stats"
             }
         }
     },
@@ -14241,7 +14241,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         },
         "level_2_ability": {
@@ -14249,7 +14249,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         },
         "level_3_ability": {
@@ -14257,7 +14257,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         }
     },
@@ -14275,7 +14275,7 @@
             "trigger": "Knockout",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ActivateAbility"
+                "kind": "activate_ability"
             }
         },
         "level_2_ability": {
@@ -14283,7 +14283,7 @@
             "trigger": "Knockout",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ActivateAbility"
+                "kind": "activate_ability"
             }
         },
         "level_3_ability": {
@@ -14291,7 +14291,7 @@
             "trigger": "Knockout",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ActivateAbility"
+                "kind": "activate_ability"
             }
         }
     },
@@ -14309,7 +14309,7 @@
             "trigger": "Faint",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "GainTrumpets"
+                "kind": "gain_trumpets"
             }
         },
         "level_2_ability": {
@@ -14317,7 +14317,7 @@
             "trigger": "Faint",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "GainTrumpets"
+                "kind": "gain_trumpets"
             }
         },
         "level_3_ability": {
@@ -14325,7 +14325,7 @@
             "trigger": "Faint",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "GainTrumpets"
+                "kind": "gain_trumpets"
             }
         }
     },
@@ -14343,7 +14343,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -14351,7 +14351,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -14359,7 +14359,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -14377,7 +14377,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "GainTrumpets"
+                "kind": "gain_trumpets"
             }
         },
         "level_2_ability": {
@@ -14385,7 +14385,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "GainTrumpets"
+                "kind": "gain_trumpets"
             }
         },
         "level_3_ability": {
@@ -14393,7 +14393,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "GainTrumpets"
+                "kind": "gain_trumpets"
             }
         }
     },
@@ -14411,7 +14411,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet",
+                "kind": "summon_pet",
                 "pet": "pet-smaller_slug",
                 "base_attack": 2,
                 "base_health": 2,
@@ -14425,7 +14425,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet",
+                "kind": "summon_pet",
                 "pet": "pet-smaller_slug",
                 "base_attack": 4,
                 "base_health": 4,
@@ -14439,7 +14439,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet",
+                "kind": "summon_pet",
                 "pet": "pet-smaller_slug",
                 "base_attack": 6,
                 "base_health": 6,
@@ -14463,7 +14463,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet",
+                "kind": "summon_pet",
                 "pet": "pet-smallest_slug",
                 "base_attack": 1,
                 "base_health": 1,
@@ -14477,7 +14477,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet",
+                "kind": "summon_pet",
                 "pet": "pet-smallest_slug",
                 "base_attack": 2,
                 "base_health": 2,
@@ -14491,7 +14491,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet",
+                "kind": "summon_pet",
                 "pet": "pet-smallest_slug",
                 "base_attack": 3,
                 "base_health": 3,
@@ -14525,7 +14525,7 @@
             "trigger": "Faint",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         },
         "level_2_ability": {
@@ -14533,7 +14533,7 @@
             "trigger": "Faint",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         },
         "level_3_ability": {
@@ -14541,7 +14541,7 @@
             "trigger": "Faint",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         }
     },
@@ -14559,7 +14559,7 @@
             "trigger": "Faint",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -14567,7 +14567,7 @@
             "trigger": "Faint",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -14575,7 +14575,7 @@
             "trigger": "Faint",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -14593,7 +14593,7 @@
             "trigger": "Knockout",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet"
+                "kind": "summon_pet"
             }
         },
         "level_2_ability": {
@@ -14601,7 +14601,7 @@
             "trigger": "Knockout",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet"
+                "kind": "summon_pet"
             }
         },
         "level_3_ability": {
@@ -14609,7 +14609,7 @@
             "trigger": "Knockout",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet"
+                "kind": "summon_pet"
             }
         }
     },
@@ -14627,7 +14627,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "GainGold"
+                "kind": "gain_gold"
             }
         },
         "level_2_ability": {
@@ -14635,7 +14635,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "GainGold"
+                "kind": "gain_gold"
             }
         },
         "level_3_ability": {
@@ -14643,7 +14643,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "GainGold"
+                "kind": "gain_gold"
             }
         }
     },
@@ -14695,7 +14695,7 @@
             "trigger": "BeforeAttack",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         },
         "level_2_ability": {
@@ -14703,7 +14703,7 @@
             "trigger": "BeforeAttack",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         },
         "level_3_ability": {
@@ -14711,7 +14711,7 @@
             "trigger": "BeforeAttack",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         }
     },
@@ -14729,7 +14729,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyShop"
+                "kind": "modify_shop"
             }
         },
         "level_2_ability": {
@@ -14737,7 +14737,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyShop"
+                "kind": "modify_shop"
             }
         },
         "level_3_ability": {
@@ -14745,7 +14745,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyShop"
+                "kind": "modify_shop"
             }
         }
     },
@@ -14797,7 +14797,7 @@
             "trigger": "Roll",
             "triggered_by": "Player",
             "effect": {
-                "kind": "GainGold"
+                "kind": "gain_gold"
             }
         },
         "level_2_ability": {
@@ -14805,7 +14805,7 @@
             "trigger": "Roll",
             "triggered_by": "Player",
             "effect": {
-                "kind": "GainGold"
+                "kind": "gain_gold"
             }
         },
         "level_3_ability": {
@@ -14813,7 +14813,7 @@
             "trigger": "Roll",
             "triggered_by": "Player",
             "effect": {
-                "kind": "GainGold"
+                "kind": "gain_gold"
             }
         }
     },
@@ -14831,7 +14831,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -14839,7 +14839,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -14847,7 +14847,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -14865,7 +14865,7 @@
             "trigger": "StartOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyShop"
+                "kind": "modify_shop"
             }
         },
         "level_2_ability": {
@@ -14873,7 +14873,7 @@
             "trigger": "StartOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyShop"
+                "kind": "modify_shop"
             }
         },
         "level_3_ability": {
@@ -14881,7 +14881,7 @@
             "trigger": "StartOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyShop"
+                "kind": "modify_shop"
             }
         }
     },
@@ -14899,7 +14899,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -14907,7 +14907,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -14915,7 +14915,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -14933,7 +14933,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -14941,7 +14941,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -14949,7 +14949,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -14967,7 +14967,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         },
         "level_2_ability": {
@@ -14975,7 +14975,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         },
         "level_3_ability": {
@@ -14983,7 +14983,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         }
     },
@@ -15001,7 +15001,7 @@
             "trigger": "Hurt",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -15009,7 +15009,7 @@
             "trigger": "Hurt",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -15017,7 +15017,7 @@
             "trigger": "Hurt",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -15035,7 +15035,7 @@
             "trigger": "Faint",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         },
         "level_2_ability": {
@@ -15043,7 +15043,7 @@
             "trigger": "Faint",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         },
         "level_3_ability": {
@@ -15051,7 +15051,7 @@
             "trigger": "Faint",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         }
     },
@@ -15069,7 +15069,7 @@
             "trigger": "BuyAndSell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -15077,7 +15077,7 @@
             "trigger": "BuyAndSell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -15085,7 +15085,7 @@
             "trigger": "BuyAndSell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -15103,7 +15103,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "SummonPet"
+                "kind": "summon_pet"
             }
         },
         "level_2_ability": {
@@ -15111,7 +15111,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "SummonPet"
+                "kind": "summon_pet"
             }
         },
         "level_3_ability": {
@@ -15119,7 +15119,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "SummonPet"
+                "kind": "summon_pet"
             }
         }
     },
@@ -15137,7 +15137,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "GainTrumpets"
+                "kind": "gain_trumpets"
             }
         },
         "level_2_ability": {
@@ -15145,7 +15145,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "GainTrumpets"
+                "kind": "gain_trumpets"
             }
         },
         "level_3_ability": {
@@ -15153,7 +15153,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "GainTrumpets"
+                "kind": "gain_trumpets"
             }
         }
     },
@@ -15171,7 +15171,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         },
         "level_2_ability": {
@@ -15179,7 +15179,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         },
         "level_3_ability": {
@@ -15187,7 +15187,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         }
     },
@@ -15239,7 +15239,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet",
+                "kind": "summon_pet",
                 "pet": "pet-pig",
                 "n": 3,
                 "level": 1,
@@ -15251,7 +15251,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet",
+                "kind": "summon_pet",
                 "pet": "pet-pig",
                 "n": 3,
                 "level": 2,
@@ -15263,7 +15263,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonPet",
+                "kind": "summon_pet",
                 "pet": "pet-pig",
                 "n": 3,
                 "level": 3,
@@ -15285,7 +15285,7 @@
             "trigger": "BeforeAttack",
             "triggered_by": "Self",
             "effect": {
-                "kind": "GainGold"
+                "kind": "gain_gold"
             }
         },
         "level_2_ability": {
@@ -15293,7 +15293,7 @@
             "trigger": "BeforeAttack",
             "triggered_by": "Self",
             "effect": {
-                "kind": "GainGold"
+                "kind": "gain_gold"
             }
         },
         "level_3_ability": {
@@ -15301,7 +15301,7 @@
             "trigger": "BeforeAttack",
             "triggered_by": "Self",
             "effect": {
-                "kind": "GainGold"
+                "kind": "gain_gold"
             }
         }
     },
@@ -15319,7 +15319,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "TransferStats"
+                "kind": "transfer_stats"
             }
         },
         "level_2_ability": {
@@ -15327,7 +15327,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "TransferStats"
+                "kind": "transfer_stats"
             }
         },
         "level_3_ability": {
@@ -15335,7 +15335,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "TransferStats"
+                "kind": "transfer_stats"
             }
         }
     },
@@ -15353,7 +15353,7 @@
             "trigger": "Buy",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -15361,7 +15361,7 @@
             "trigger": "Buy",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -15369,7 +15369,7 @@
             "trigger": "Buy",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -15387,7 +15387,7 @@
             "trigger": "Buy",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -15395,7 +15395,7 @@
             "trigger": "Buy",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -15403,7 +15403,7 @@
             "trigger": "Buy",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -15421,7 +15421,7 @@
             "trigger": "Hurt",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ApplyStatusAndModifyStats"
+                "kind": "apply_statusAndmodify_stats"
             }
         },
         "level_2_ability": {
@@ -15429,7 +15429,7 @@
             "trigger": "Hurt",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ApplyStatusAndModifyStats"
+                "kind": "apply_statusAndmodify_stats"
             }
         },
         "level_3_ability": {
@@ -15437,7 +15437,7 @@
             "trigger": "Hurt",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ApplyStatusAndModifyStats"
+                "kind": "apply_statusAndmodify_stats"
             }
         }
     },
@@ -15455,7 +15455,7 @@
             "trigger": "EmptyFrontSpace",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "MoveAndModifyStats"
+                "kind": "MoveAndmodify_stats"
             }
         },
         "level_2_ability": {
@@ -15463,7 +15463,7 @@
             "trigger": "EmptyFrontSpace",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "MoveAndModifyStats"
+                "kind": "MoveAndmodify_stats"
             }
         },
         "level_3_ability": {
@@ -15471,7 +15471,7 @@
             "trigger": "EmptyFrontSpace",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "MoveAndModifyStats"
+                "kind": "MoveAndmodify_stats"
             }
         }
     },
@@ -15489,7 +15489,7 @@
             "trigger": "Summoned",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "GainExperience"
+                "kind": "gain_experience"
             }
         },
         "level_2_ability": {
@@ -15497,7 +15497,7 @@
             "trigger": "Summoned",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "GainExperience"
+                "kind": "gain_experience"
             }
         },
         "level_3_ability": {
@@ -15505,7 +15505,7 @@
             "trigger": "Summoned",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "GainExperience"
+                "kind": "gain_experience"
             }
         }
     },
@@ -15523,7 +15523,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyShop"
+                "kind": "modify_shop"
             }
         },
         "level_2_ability": {
@@ -15531,7 +15531,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyShop"
+                "kind": "modify_shop"
             }
         },
         "level_3_ability": {
@@ -15539,7 +15539,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyShop"
+                "kind": "modify_shop"
             }
         }
     },
@@ -15557,7 +15557,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonRandomPet"
+                "kind": "summon_random_pet"
             }
         },
         "level_2_ability": {
@@ -15565,7 +15565,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonRandomPet"
+                "kind": "summon_random_pet"
             }
         },
         "level_3_ability": {
@@ -15573,7 +15573,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonRandomPet"
+                "kind": "summon_random_pet"
             }
         }
     },
@@ -15591,7 +15591,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         },
         "level_2_ability": {
@@ -15599,7 +15599,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         },
         "level_3_ability": {
@@ -15607,7 +15607,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         }
     },
@@ -15625,7 +15625,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "GainExperience"
+                "kind": "gain_experience"
             }
         },
         "level_2_ability": {
@@ -15633,7 +15633,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "GainExperience"
+                "kind": "gain_experience"
             }
         },
         "level_3_ability": {
@@ -15641,7 +15641,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "GainExperience"
+                "kind": "gain_experience"
             }
         }
     },
@@ -15659,7 +15659,7 @@
             "trigger": "StartOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "GainGold"
+                "kind": "gain_gold"
             }
         },
         "level_2_ability": {
@@ -15667,7 +15667,7 @@
             "trigger": "StartOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "GainGold"
+                "kind": "gain_gold"
             }
         },
         "level_3_ability": {
@@ -15675,7 +15675,7 @@
             "trigger": "StartOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "GainGold"
+                "kind": "gain_gold"
             }
         }
     },
@@ -15693,7 +15693,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "MoveAndModifyStats"
+                "kind": "MoveAndmodify_stats"
             }
         },
         "level_2_ability": {
@@ -15701,7 +15701,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "MoveAndModifyStats"
+                "kind": "MoveAndmodify_stats"
             }
         },
         "level_3_ability": {
@@ -15709,7 +15709,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "MoveAndModifyStats"
+                "kind": "MoveAndmodify_stats"
             }
         }
     },
@@ -15727,7 +15727,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonRandomPet"
+                "kind": "summon_random_pet"
             }
         },
         "level_2_ability": {
@@ -15735,7 +15735,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonRandomPet"
+                "kind": "summon_random_pet"
             }
         },
         "level_3_ability": {
@@ -15743,7 +15743,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonRandomPet"
+                "kind": "summon_random_pet"
             }
         }
     },
@@ -15761,7 +15761,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -15769,7 +15769,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -15777,7 +15777,7 @@
             "trigger": "EndOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -15795,7 +15795,7 @@
             "trigger": "HurtAndFaint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -15803,7 +15803,7 @@
             "trigger": "HurtAndFaint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -15811,7 +15811,7 @@
             "trigger": "HurtAndFaint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -15829,7 +15829,7 @@
             "trigger": "BeforeAttack",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         },
         "level_2_ability": {
@@ -15837,7 +15837,7 @@
             "trigger": "BeforeAttack",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         },
         "level_3_ability": {
@@ -15845,7 +15845,7 @@
             "trigger": "BeforeAttack",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         }
     },
@@ -15863,7 +15863,7 @@
             "trigger": "Hurt",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonRandomPet"
+                "kind": "summon_random_pet"
             }
         },
         "level_2_ability": {
@@ -15871,7 +15871,7 @@
             "trigger": "Hurt",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonRandomPet"
+                "kind": "summon_random_pet"
             }
         },
         "level_3_ability": {
@@ -15879,7 +15879,7 @@
             "trigger": "Hurt",
             "triggered_by": "Self",
             "effect": {
-                "kind": "SummonRandomPet"
+                "kind": "summon_random_pet"
             }
         }
     },
@@ -15897,7 +15897,7 @@
             "trigger": "Faint",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -15905,7 +15905,7 @@
             "trigger": "Faint",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -15913,7 +15913,7 @@
             "trigger": "Faint",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -15931,7 +15931,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -15939,7 +15939,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -15947,7 +15947,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -15965,7 +15965,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         },
         "level_2_ability": {
@@ -15973,7 +15973,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         },
         "level_3_ability": {
@@ -15981,7 +15981,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         }
     },
@@ -15999,7 +15999,7 @@
             "trigger": "BeforeAttack",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         },
         "level_2_ability": {
@@ -16007,7 +16007,7 @@
             "trigger": "BeforeAttack",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         },
         "level_3_ability": {
@@ -16015,7 +16015,7 @@
             "trigger": "BeforeAttack",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ApplyStatus"
+                "kind": "apply_status"
             }
         }
     },
@@ -16033,7 +16033,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "GainTrumpets"
+                "kind": "gain_trumpets"
             }
         },
         "level_2_ability": {
@@ -16041,7 +16041,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "GainTrumpets"
+                "kind": "gain_trumpets"
             }
         },
         "level_3_ability": {
@@ -16049,7 +16049,7 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "GainTrumpets"
+                "kind": "gain_trumpets"
             }
         }
     },
@@ -16067,7 +16067,7 @@
             "trigger": "StartOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ActivateAbility"
+                "kind": "activate_ability"
             }
         },
         "level_2_ability": {
@@ -16075,7 +16075,7 @@
             "trigger": "StartOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ActivateAbility"
+                "kind": "activate_ability"
             }
         },
         "level_3_ability": {
@@ -16083,7 +16083,7 @@
             "trigger": "StartOfTurn",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ActivateAbility"
+                "kind": "activate_ability"
             }
         }
     },
@@ -16101,7 +16101,7 @@
             "trigger": "Faint",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ActivateAbility"
+                "kind": "activate_ability"
             }
         },
         "level_2_ability": {
@@ -16109,7 +16109,7 @@
             "trigger": "Faint",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ActivateAbility"
+                "kind": "activate_ability"
             }
         },
         "level_3_ability": {
@@ -16117,7 +16117,7 @@
             "trigger": "Faint",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ActivateAbility"
+                "kind": "activate_ability"
             }
         }
     },
@@ -16135,7 +16135,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -16143,7 +16143,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -16151,7 +16151,7 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -16169,7 +16169,7 @@
             "trigger": "AterAttack",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         },
         "level_2_ability": {
@@ -16177,7 +16177,7 @@
             "trigger": "AterAttack",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         },
         "level_3_ability": {
@@ -16185,7 +16185,7 @@
             "trigger": "AterAttack",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         }
     },
@@ -16203,7 +16203,7 @@
             "trigger": "AfterAttack",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         },
         "level_2_ability": {
@@ -16211,7 +16211,7 @@
             "trigger": "AfterAttack",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         },
         "level_3_ability": {
@@ -16219,7 +16219,7 @@
             "trigger": "AfterAttack",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "DealDamage"
+                "kind": "deal_damage"
             }
         }
     },
@@ -16237,7 +16237,7 @@
             "trigger": "Summoned",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "TransferStats"
+                "kind": "transfer_stats"
             }
         },
         "level_2_ability": {
@@ -16245,7 +16245,7 @@
             "trigger": "Summoned",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "TransferStats"
+                "kind": "transfer_stats"
             }
         },
         "level_3_ability": {
@@ -16253,7 +16253,7 @@
             "trigger": "Summoned",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "TransferStats"
+                "kind": "transfer_stats"
             }
         }
     },
@@ -16271,7 +16271,7 @@
             "trigger": "SpendGold",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -16279,7 +16279,7 @@
             "trigger": "SpendGold",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -16287,7 +16287,7 @@
             "trigger": "SpendGold",
             "triggered_by": "Player",
             "effect": {
-                "kind": "ModifyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -16305,7 +16305,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "GainGold"
+                "kind": "gain_gold"
             }
         },
         "level_2_ability": {
@@ -16313,7 +16313,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "GainGold"
+                "kind": "gain_gold"
             }
         },
         "level_3_ability": {
@@ -16321,7 +16321,7 @@
             "trigger": "Sell",
             "triggered_by": "Self",
             "effect": {
-                "kind": "GainGold"
+                "kind": "gain_gold"
             }
         }
     },
@@ -16339,8 +16339,11 @@
                 "trigger": "TestTrigger",
                 "triggered_by": "TestTriggeredby",
                 "effect": {
-                    "kind": "TestEffect",
-                    "target": "TestTarget"
+                    "kind": "test_effect",
+                    "target": {
+                        "kind": "TestTarget",
+                        "n": 1
+                    }
                 }
             },
             "level_2_ability": {
@@ -16348,8 +16351,11 @@
                 "trigger": "TestTrigger",
                 "triggered_by": "TestTriggeredby",
                 "effect": {
-                    "kind": "TestEffect",
-                    "target": "TestTarget"
+                    "kind": "test_effect",
+                    "target": {
+                        "kind": "TestTarget",
+                        "n": 1
+                    }
                 }
             },
             "level_3_ability": {
@@ -16357,8 +16363,11 @@
                 "trigger": "TestTrigger",
                 "triggered_by": "TestTriggeredby",
                 "effect": {
-                    "kind": "TestEffect",
-                    "target": "TestTarget"
+                    "kind": "test_effect",
+                    "target": {
+                        "kind": "TestTarget",
+                        "n": 1
+                    }
                 }
             }
         }

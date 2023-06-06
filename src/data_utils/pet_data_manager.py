@@ -197,13 +197,13 @@ PRIORITY = [
 ]
 
 ANT_LIKE = sorted(pet_db.get_filtered_pet_list(trigger=TriggerEvent.Faint.name,
-                                                         triggered_by_kind="Self",
-                                                         effect_kind=EffectKind.ModifyStats.name))
+                                               triggered_by_kind="Self",
+                                               effect_kind=EffectKind.modify_stats.name))
 CRICKET_LIKE = sorted(pet_db.get_filtered_pet_list(trigger=TriggerEvent.Faint.name,
                                                    triggered_by_kind="Self",
-                                                   effect_kind=EffectKind.SummonPet.name))
+                                                   effect_kind=EffectKind.summon_pet.name))
 MOSQUITO_LIKE = sorted(pet_db.get_filtered_pet_list(trigger=TriggerEvent.StartOfBattle.name,
-                                                   effect_kind=EffectKind.DealDamage.name))
+                                                    effect_kind=EffectKind.deal_damage.name))
 
 
 # Tiers
@@ -229,7 +229,8 @@ pet_db.add_pool("BUYABLE", list(set({pet["name"] for pet in pet_db.pet_dict.valu
 # Add pools to dict
 
 if __name__ == "__main__":
-    print('Ant-Like Pets (Trigger: Faint, Effect: ModifyStats) :', ", ".join(map(str, ANT_LIKE)))
+    print(pet_db.pet_dict["pet-default"])
+    # print('Ant-Like Pets (Trigger: Faint, Effect: ModifyStats) :', ", ".join(map(str, ANT_LIKE)))
     # print('Cricket-Like Pets (Trigger: Faint, Effect: SummonPet) :', ", ".join(map(str, CRICKET_LIKE)))
 
     # kinds = {}
