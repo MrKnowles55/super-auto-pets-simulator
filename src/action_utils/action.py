@@ -20,6 +20,16 @@ class PriorityQueue:
         priority, count, action = heapq.heappop(self.queue)
         return action
 
+    def execute(self):
+        self.get_next_action().execute()
+
+    def execute_all(self):
+        while len(self.queue):
+            self.execute()
+
+    def clear_queue(self):
+        self.queue = []
+
     def __repr__(self):
         return f"Queue: {[action for action in self.queue]}"
 
@@ -38,7 +48,7 @@ class Action:
         self.kwargs = kwargs
 
     def execute(self):
-        return getattr(self.pet, self.method.__name__)(**self.kwargs)
+        return getattr(self.pet, self.method.name)(**self.kwargs)
 
     def __repr__(self):
         effect = self.method
