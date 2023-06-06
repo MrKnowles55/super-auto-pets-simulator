@@ -23,5 +23,5 @@ class TestBattle(unittest.TestCase):
         self.battle.player_team.pets_list = [1, 2, 3]
         self.battle.enemy_team.pets_list = ["a", "b", "c"]
 
-        self.assertEqual(self.battle.get_pet_list(), [1, 2, 3, "a", "b", "c"])
+        self.assertEqual(self.battle.pets_list, [1, 2, 3, "a", "b", "c"])
 

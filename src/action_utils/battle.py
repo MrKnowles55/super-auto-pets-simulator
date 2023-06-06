@@ -20,10 +20,27 @@ class Battle:
     def fighters(self):
         return self.player_team.first, self.enemy_team.first
 
+    @property
+    def pets_list(self):
+        return self.player_team.pets_list + self.enemy_team.pets_list
+
+    # Main Loop
+    def battle_loop(self):
+        combat_turns = 0
+        self.start_of_battle()
+        while self.fighters[0] and self.fighters[1]:
+            combat_turns += 1
+            # print(f"Round {combat_turns}: {self.fighters}")
+            self.fight_loop()
+        return self.get_battle_result()
+
     # Utilities
 
-    def get_pet_list(self):
-        return self.player_team.pets_list + self.enemy_team.pets_list
+    def get_battle_result(self):
+        # 0 for tie, no changes made
+        # +1 for win, score goes +1
+        # -1 for loss, lives go -1
+        return 0 if len(self.player_team) == len(self.enemy_team) == 0 else 1 if len(self.player_team) > 0 else -1
 
     # Actions and Signals
 
@@ -32,63 +49,61 @@ class Battle:
             print("Placeholder text for Team.remove_pet()")
         ability_trigger = ability_dict.get("trigger")
         if ability_trigger == trigger:
-            method = ability_dict.get("effect")
-            effect_args = ability_dict.get("effect_dict")
+            effect = ability_dict.get("effect")
+            if effect:
+                method = effect.get("kind")
+            else:
+                return
+            effect_args = ability_dict.get("effect", {}).copy()
+            effect_args.pop("kind", None)
             return Action(pet, method, **effect_args)
-        return None
+        return
 
     def enqueue(self, priority, action):
         self.action_queue.add_action(priority, action)
 
-    # TriggerEvents
-    def start_of_battle(self):
-        for pet in self.get_pet_list():
-            action = self.create_action(pet, pet.ability, TriggerEvent.StartOfBattle)
+    def collect_actions(self, trigger_event, scope):
+        for pet in scope:
+            action = self.create_action(pet, pet.ability, trigger_event)
             if action:
                 self.enqueue(pet.attack, action)
 
+    # TriggerEvents
+    def start_of_battle(self):
+        self.collect_actions(TriggerEvent.StartOfBattle, self.pets_list)
+        self.action_queue.execute_all()
+
     def before_attack(self):
-        pass
+        self.collect_actions(TriggerEvent.BeforeAttack, list(self.fighters))
+        self.action_queue.execute_all()
 
-    def after_attack(self):
-        pass
+    def after_attack(self, fighters):
+        self.collect_actions(TriggerEvent.AfterAttack, list(fighters))
+        self.action_queue.execute_all()
 
-    # Phases
-    def before_combat(self):
-        pass
+    # Combat
+    def fight_loop(self):
+        self._before_fight_events()
+        self._fight_events()
+        self._after_fight_events()
 
-    def during_combat(self):
-        self.combat()
+    def _before_fight_events(self):
+        self.before_attack()
 
-    def combat(self):
-        self.fighters[0].attack_pet(self.fighters[1])
-        self.fighters[1].attack_pet(self.fighters[0])
-        # print(f"Before: {pre_fight_info} | After: {(fighters[0].combat_stats, fighters[1].combat_stats)}")
+    def _fight_events(self):
+        self._attack()
 
-    def after_combat(self):
+    def _after_fight_events(self):
+        fighters = list(self.fighters)
         self.fighters[0].update()
         self.fighters[1].update()
+        fighters = [pet for pet in fighters if pet.alive]
+        self.after_attack(fighters)
 
-    def fight_loop(self):
-        self.before_combat()
-        self.during_combat()
-        self.after_combat()
+    def _attack(self):
+        self.fighters[0].attack_pet(self.fighters[1])
+        self.fighters[1].attack_pet(self.fighters[0])
 
-    def battle_loop(self):
-        combat_turns = 0
-        # print(f"{list(reversed(self.player_team.pets_list))} VS {self.enemy_team.pets_list}")
-        while self.fighters[0] and self.fighters[1]:
-            combat_turns += 1
-            # print(f"Round {combat_turns}: {self.fighters}")
-            self.fight_loop()
-        return self.get_battle_result()
-        # print(f"{list(reversed(self.player_team.pets_list))} VS {self.enemy_team.pets_list}")
-
-    def get_battle_result(self):
-        # 0 for tie, no changes made
-        # +1 for win, score goes +1
-        # -1 for loss, lives go -1
-        return 0 if len(self.player_team) == len(self.enemy_team) == 0 else 1 if len(self.player_team) > 0 else -1
 
 
 
