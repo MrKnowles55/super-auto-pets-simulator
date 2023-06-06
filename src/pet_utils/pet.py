@@ -1,4 +1,5 @@
 import re
+import copy
 
 from src.action_utils import signals
 from src.data_utils.pet_data_manager import pet_db
@@ -17,11 +18,13 @@ class Pet:
         Pet.global_pet_count += 1
 
         self.name = name.title()
-        template = pet_db.pet_dict.get(self.database_id)
-        if not template:
-            # print(f"No pet found called {name}. Using Default template.")
-            template = pet_db.pet_dict.get("pet-default")
-        # Base Stats from Template
+        # print(
+        #     f"{self.name} before {pet_db.pet_dict.get('pet-default').get('level_1_ability').get('effect').get('target')}")
+        template = pet_db.pet_dict.get(self.database_id, pet_db.pet_dict.get("pet-default"))
+        # print(f"{self.name} {template.get('level_1_ability').get('effect').get('target')}")
+        # print(
+        #     f"{self.name} after {pet_db.pet_dict.get('pet-default').get('level_1_ability').get('effect').get('target')}")
+        # # Base Stats from Template
         self.base_attack = template.get('base_attack', 1)
         self.base_health = template.get('base_health', 1)
         self.tier = template.get('tier', 1)
@@ -42,7 +45,6 @@ class Pet:
         self.team = None
         self.start_position = -1
         self.position = -1
-
         # set additional attributes from kwargs
         for key, value in kwargs.items():
             setattr(self, key, value)
@@ -89,17 +91,19 @@ class Pet:
 
     # Utility
     def translate_ability_data(self, template_data):
-        ability_data = dict(template_data)
+        ability_data = copy.deepcopy(template_data)
         if not ability_data:
             return {}
         trigger = self._string_to_enum(ability_data.get("trigger"), TriggerEvent)
         triggered_by = self._string_to_enum(ability_data.get("triggered_by"), TriggerByKind)
         effect = self._string_to_enum(ability_data.get("effect").get("kind"), EffectKind)
-        target = self._string_to_enum(ability_data.get("effect").get("target"), EffectTargetKind)
+        # target = self._string_to_enum(ability_data.get("effect").get("target"), EffectTargetKind)
+        target = self._string_to_enum(ability_data.get("effect", {}).get("target", {}).get("kind", {}), EffectTargetKind)
         ability_data["trigger"] = trigger
         ability_data["triggered_by"] = triggered_by
         ability_data["effect"]["kind"] = effect
-        ability_data["effect"]["target"] = target
+        if target:
+            ability_data["effect"]["target"] = target
         return ability_data
 
     @staticmethod
@@ -189,9 +193,8 @@ class Pet:
     def apply_status(**kwargs):
         return kwargs
 
-    @staticmethod
-    def deal_damage(**kwargs):
-        return kwargs
+    def deal_damage(self, **kwargs):
+        print(f"{self} deal_damage {kwargs}")
 
     @staticmethod
     def discount_food(**kwargs):
@@ -273,9 +276,8 @@ class Pet:
     def activate_ability(**kwargs):
         return kwargs
 
-    @staticmethod
-    def test_effect(**kwargs):
-        return kwargs
+    def test_effect(self, **kwargs):
+        print(f"{self} test_effect")
 
     # Target
 
@@ -369,6 +371,22 @@ class Pet:
 
 
 if __name__ == "__main__":
-    x = Pet("")
-    for lvl, ability in x.ability_by_level.items():
-        print(lvl, ":", ability)
+    x = Pet("Mosquito")
+    all_pets = (list(pet_db.pet_dict.keys()))
+    failed = []
+    success = []
+    for pet in all_pets:
+        name = pet.split("-")[1].replace("_", " ")
+        try:
+            Pet(name)
+            success.append(name)
+        except AttributeError as e:
+            failed.append(name)
+            print(e)
+    print(len(failed), failed)
+    print(len(success), success)
+
+    # for lvl, ability in x.ability_by_level.items():
+    #     print(lvl)
+    #     for key, item in ability.items():
+    #         print("\t", key, item)
