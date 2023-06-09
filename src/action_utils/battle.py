@@ -1,10 +1,10 @@
+
+
 from src.action_utils.action import PriorityQueue, Action
 
-
-from src.data_utils.enums.trigger_event import TriggerEvent
-from src.data_utils.enums.trigger_by_kind import TriggerByKind
-from src.data_utils.enums.effect_target_kind import EffectTargetKind
-from src.data_utils.enums.effect_kind import EffectKind
+from data_utils.ability_enums import EffectKind, EffectTargetKind, TriggerByKind, TriggerEvent
+from src.config_utils.custom_logger import get_custom_logger
+logger = get_custom_logger(__name__)
 
 
 class Battle:
@@ -26,11 +26,12 @@ class Battle:
 
     # Main Loop
     def battle_loop(self):
+        logger.debug('Start battle loop')
         combat_turns = 0
         self.start_of_battle()
         while self.fighters[0] and self.fighters[1]:
+            logger.debug(f"{self.fighters[0]} vs {self.fighters[1]}")
             combat_turns += 1
-            # print(f"Round {combat_turns}: {self.fighters}")
             self.fight_loop()
         return self.get_battle_result()
 
@@ -70,19 +71,23 @@ class Battle:
 
     # TriggerEvents
     def start_of_battle(self):
+        logger.info('Start of Battle')
         self.collect_actions(TriggerEvent.StartOfBattle, self.pets_list)
         self.action_queue.execute_all()
 
     def before_attack(self):
+        logger.info('Before Attack')
         self.collect_actions(TriggerEvent.BeforeAttack, list(self.fighters))
         self.action_queue.execute_all()
 
     def after_attack(self, fighters):
+        logger.info('After Attack')
         self.collect_actions(TriggerEvent.AfterAttack, list(fighters))
         self.action_queue.execute_all()
 
     # Combat
     def fight_loop(self):
+        logger.debug('Fight Loop')
         self._before_fight_events()
         self._fight_events()
         self._after_fight_events()
