@@ -1,13 +1,11 @@
 import re
 import copy
+import random
 
 from src.action_utils import signals
 from src.data_utils.pet_data_manager import pet_db
 
-from src.data_utils.enums.trigger_event import TriggerEvent
-from src.data_utils.enums.trigger_by_kind import TriggerByKind
-from src.data_utils.enums.effect_target_kind import EffectTargetKind
-from src.data_utils.enums.effect_kind import EffectKind
+from data_utils.ability_enums import EffectKind, EffectTargetKind, TriggerByKind, TriggerEvent
 
 
 class Pet:
@@ -18,13 +16,8 @@ class Pet:
         Pet.global_pet_count += 1
 
         self.name = name.title()
-        # print(
-        #     f"{self.name} before {pet_db.pet_dict.get('pet-default').get('level_1_ability').get('effect').get('target')}")
         template = pet_db.pet_dict.get(self.database_id, pet_db.pet_dict.get("pet-default"))
-        # print(f"{self.name} {template.get('level_1_ability').get('effect').get('target')}")
-        # print(
-        #     f"{self.name} after {pet_db.pet_dict.get('pet-default').get('level_1_ability').get('effect').get('target')}")
-        # # Base Stats from Template
+        # Base Stats from Template
         self.base_attack = template.get('base_attack', 1)
         self.base_health = template.get('base_health', 1)
         self.tier = template.get('tier', 1)
@@ -195,6 +188,10 @@ class Pet:
 
     def deal_damage(self, **kwargs):
         print(f"{self} deal_damage {kwargs}")
+        target = 'target_'+self._enum_to_string(kwargs.get("target"))
+        target = getattr(self, target)(**kwargs)
+        target.damage += kwargs.get("amount")
+        print(target.alive, target.health)
 
     @staticmethod
     def discount_food(**kwargs):
@@ -341,9 +338,10 @@ class Pet:
     def target_lowest_health_enemy(**kwargs):
         return kwargs
 
-    @staticmethod
-    def target_random_enemy(**kwargs):
-        return kwargs
+    def target_random_enemy(self, **kwargs):
+        targets = self.team.other_team.pets_list
+        target = random.choice(targets)
+        return target
 
     @staticmethod
     def target_random_friend(**kwargs):
