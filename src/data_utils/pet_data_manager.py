@@ -1,6 +1,6 @@
 import json
 import os
-from data_utils.ability_enums import EffectKind, TriggerEvent
+from src.data_utils.ability_enums import EffectKind, TriggerEvent
 import src.config_utils.logger as logger
 
 log = logger.setup_logger(__name__)

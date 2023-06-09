@@ -48,6 +48,7 @@ class Action:
         self.kwargs = kwargs
 
     def execute(self):
+        print(f"Executing Action {self}")
         return getattr(self.pet, self.method.name)(**self.kwargs)
 
     def __repr__(self):

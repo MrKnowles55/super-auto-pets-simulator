@@ -6,7 +6,7 @@ from src.action_utils.battle import Battle, Action, PriorityQueue
 from src.team_utils.team import Team
 from src.action_utils.signals import send_signal, Signal
 
-from data_utils.ability_enums import EffectKind, EffectTargetKind, TriggerByKind, TriggerEvent
+from src.data_utils.ability_enums import EffectKind, EffectTargetKind, TriggerByKind, TriggerEvent
 
 
 class TestBattle(unittest.TestCase):

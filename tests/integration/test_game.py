@@ -7,7 +7,7 @@ from src.team_utils.team import Team
 from src.action_utils.signals import send_signal, Signal
 from src.game_utils.game import Game
 
-from data_utils.ability_enums import EffectKind, EffectTargetKind, TriggerByKind, TriggerEvent
+from src.data_utils.ability_enums import EffectKind, EffectTargetKind, TriggerByKind, TriggerEvent
 
 
 class TestGame(unittest.TestCase):

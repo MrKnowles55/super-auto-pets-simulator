@@ -6,7 +6,7 @@ from src.action_utils.battle import Battle
 from src.team_utils.team import Team
 from src.action_utils.signals import send_signal
 
-from data_utils.ability_enums import TriggerEvent
+from src.data_utils.ability_enums import TriggerEvent
 
 
 class TestSignal(unittest.TestCase):

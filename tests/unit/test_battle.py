@@ -4,7 +4,7 @@ from unittest.mock import MagicMock, patch
 from src.action_utils.battle import Battle
 from src.team_utils.team import Team
 
-from data_utils.ability_enums import EffectKind, EffectTargetKind, TriggerByKind, TriggerEvent
+from src.data_utils.ability_enums import EffectKind, EffectTargetKind, TriggerByKind, TriggerEvent
 
 
 class TestBattle(unittest.TestCase):

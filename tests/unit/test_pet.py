@@ -3,7 +3,7 @@ from unittest.mock import MagicMock, patch
 
 from src.pet_utils.pet import Pet
 
-from data_utils.ability_enums import EffectKind, EffectTargetKind, TriggerByKind, TriggerEvent
+from src.data_utils.ability_enums import EffectKind, EffectTargetKind, TriggerByKind, TriggerEvent
 
 
 class TestPet(unittest.TestCase):
