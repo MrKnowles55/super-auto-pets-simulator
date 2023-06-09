@@ -31,6 +31,10 @@ class Team:
         else:
             return None
 
+    @property
+    def other_team(self):
+        return self.action_handler.player_team if self != self.action_handler.player_team else self.action_handler.enemy_team
+
     def add_pet(self, pet, index=None):
         if len(self.pets_list) < 5:
             if index is not None:
@@ -95,7 +99,6 @@ class Team:
             receiver = pet
             self.send_signal(message, receiver, sender)
         if broadcast:
-            other_team = self.action_handler.player_team if self != self.action_handler.player_team else self.action_handler.enemy_team
-            self.send_signal(message, other_team,sender, broadcast=False)
+            self.send_signal(message, self.other_team, sender, broadcast=False)
 
 
