@@ -24,7 +24,7 @@ class Battle:
 
     # Main Loop
     def battle_loop(self):
-        logger.debug('Start battle loop')
+        logger.debug(f'Start battle loop. {self.player_team.pets_list} vs {self.enemy_team.pets_list}')
         combat_turns = 0
         self.start_of_battle()
         while self.fighters[0] and self.fighters[1]:
@@ -69,17 +69,17 @@ class Battle:
 
     # TriggerEvents
     def start_of_battle(self):
-        logger.info('Start of Battle')
+        logger.info('Start of Battle Event')
         self.collect_actions(TriggerEvent.StartOfBattle, self.pets_list)
         self.action_queue.execute_all()
 
     def before_attack(self):
-        logger.info('Before Attack')
+        logger.info('Before Attack Event')
         self.collect_actions(TriggerEvent.BeforeAttack, list(self.fighters))
         self.action_queue.execute_all()
 
     def after_attack(self, fighters):
-        logger.info('After Attack')
+        logger.info('After Attack Event')
         self.collect_actions(TriggerEvent.AfterAttack, list(fighters))
         self.action_queue.execute_all()
 

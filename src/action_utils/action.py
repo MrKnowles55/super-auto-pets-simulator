@@ -1,5 +1,9 @@
 import heapq
 
+from src.config_utils.custom_logger import get_custom_logger
+
+logger = get_custom_logger(__name__)
+
 
 class PriorityQueue:
     """
@@ -10,6 +14,7 @@ class PriorityQueue:
         self.counter = 0
 
     def add_action(self, priority, action):
+        logger.debug(f"Add priority {priority} Action to Queue {action}")
         count = self.counter / 10
         self.counter += 1
         heapq.heappush(self.queue, (-priority, count, action))
@@ -24,8 +29,10 @@ class PriorityQueue:
         self.get_next_action().execute()
 
     def execute_all(self):
+        logger.debug("Queue Executing...")
         while len(self.queue):
             self.execute()
+        logger.debug("Queue Empty")
 
     def clear_queue(self):
         self.queue = []
@@ -48,7 +55,7 @@ class Action:
         self.kwargs = kwargs
 
     def execute(self):
-        print(f"Executing Action {self}")
+        logger.debug(f"Executing Action {self}")
         return getattr(self.pet, self.method.name)(**self.kwargs)
 
     def __repr__(self):
