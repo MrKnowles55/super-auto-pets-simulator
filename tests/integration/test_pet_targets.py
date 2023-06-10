@@ -27,7 +27,26 @@ class TestPet_Target(unittest.TestCase):
         print("\n")
 
     def test_target_adjacent_animals(self):
-        pass
+        # Test full teams and n from 1 to 3
+        fill_team(self.player_team, 5)
+        fill_team(self.enemy_team, 5)
+
+        test_pet = self.player_team.first
+        for n in range(1, 4):
+
+            targets = test_pet.target_adjacent_animals(n=n)
+            self.assertEqual(len(targets), n*2)
+            self.assertEqual(targets[0], self.player_team.pets_list[n])
+            self.assertEqual(targets[-1], self.enemy_team.pets_list[n-1])
+
+        # Test incomplete target
+        fill_team(self.player_team, 3)
+        fill_team(self.enemy_team, 1)
+
+        test_pet = self.player_team.first
+        targets = test_pet.target_adjacent_animals(n=2)
+        self.assertEqual(len(targets), 3)
+        self.assertEqual(self.player_team.pets_list[0], targets[0])
 
     def test_target_adjacent_friends(self):
         pass
@@ -77,8 +96,8 @@ class TestPet_Target(unittest.TestCase):
         test_pet = self.player_team.first
         # Check Max targets selected
 
-        # Enemy count from 1 to 5
-        for e in range(1, 6):
+        # Enemy count from 0 to 5
+        for e in range(0, 6):
             fill_team(self.enemy_team, e)
 
             # Target n from 1 to 5

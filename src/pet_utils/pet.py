@@ -286,9 +286,16 @@ class Pet:
 
     # Target
 
-    @staticmethod
-    def target_adjacent_animals(**kwargs):
-        return kwargs
+    def target_adjacent_animals(self, **kwargs):
+        possible_targets = self.team.pets_list[::-1] + self.team.other_team.pets_list
+        n = min(kwargs.get("n", 1), len(possible_targets)-1)
+        origin = possible_targets.index(self)
+
+        start = max(0, origin - n)  # Ensure start is not less than 0
+        end = min(len(possible_targets), origin + n + 1)  # Ensure end is not more than length of list
+        targets = possible_targets[start:origin] + possible_targets[origin + 1:end]
+
+        return targets
 
     @staticmethod
     def target_adjacent_friends(**kwargs):
