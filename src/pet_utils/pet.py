@@ -45,10 +45,10 @@ class Pet:
             setattr(self, key, value)
 
     def __str__(self):
-        return f"{self.name}_{self.id}"
+        return f"{self.name}"
 
     def __repr__(self):
-        return f"{self.name}_{self.id}({self.attack}/{self.health}/{self.position})"
+        return f"{self.name}_{self.id}"
 
     # Properties
 
@@ -83,6 +83,10 @@ class Pet:
     @property
     def combat_stats(self):
         return f"{self.attack}/{self.health}"
+
+    @property
+    def combat_stats_full(self):
+        return f"({self.base_attack}+{self.attack_mod}={self.attack}/{self.base_health}+{self.health_mod}-{self.damage}={self.health})"
 
     # Utility
     def translate_ability_data(self, template_data):
@@ -143,6 +147,7 @@ class Pet:
 
     # Combat
     def attack_pet(self, opponent):
+        logger.debug(f"{self}{self.combat_stats_full} attack {opponent}{opponent.combat_stats_full}")
         opponent.damage += self.attack
 
     def update(self):
@@ -176,6 +181,7 @@ class Pet:
         self.team.send_action(action)
 
     def faint(self):
+        logger.debug(f"{self} fainted.")
         # TODO fix
         self.team.remove_pet(self)
 
@@ -189,11 +195,11 @@ class Pet:
         return kwargs
 
     def deal_damage(self, **kwargs):
-        print(f"{self} deal_damage {kwargs}")
         target = 'target_'+self._enum_to_string(kwargs.get("target"))
         target = getattr(self, target)(**kwargs)
+        logger.debug(f"{self} deal_damage to {target} using {kwargs}")
         target.damage += kwargs.get("amount")
-        print(target.alive, target.health)
+        target.update()
 
     @staticmethod
     def discount_food(**kwargs):
@@ -276,7 +282,7 @@ class Pet:
         return kwargs
 
     def test_effect(self, **kwargs):
-        print(f"{self} test_effect")
+        logger.debug(f"{self} test_effect")
 
     # Target
 
@@ -341,9 +347,10 @@ class Pet:
         return kwargs
 
     def target_random_enemy(self, **kwargs):
-        targets = self.team.other_team.pets_list
-        target = random.choice(targets)
-        return target
+        possible_targets = self.team.other_team.pets_list
+        n = min(kwargs.get("n", 1), len(possible_targets))
+        targets = random.sample(possible_targets, n)
+        return targets
 
     @staticmethod
     def target_random_friend(**kwargs):
@@ -372,21 +379,8 @@ class Pet:
 
 if __name__ == "__main__":
     x = Pet("Mosquito")
-    all_pets = (list(pet_db.pet_dict.keys()))
-    failed = []
-    success = []
-    for pet in all_pets:
-        name = pet.split("-")[1].replace("_", " ")
-        try:
-            Pet(name)
-            success.append(name)
-        except AttributeError as e:
-            failed.append(name)
-            print(e)
-    print(len(failed), failed)
-    print(len(success), success)
 
-    # for lvl, ability in x.ability_by_level.items():
-    #     print(lvl)
-    #     for key, item in ability.items():
-    #         print("\t", key, item)
+    for lvl, ability in x.ability_by_level.items():
+        print(lvl)
+        for key, item in ability.items():
+            print("\t", key, item)
