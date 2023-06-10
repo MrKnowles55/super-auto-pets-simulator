@@ -323,37 +323,37 @@ class Pet:
 
         return targets
 
-    @staticmethod
-    def target_each_enemy(**kwargs):
-        return kwargs
+    def target_each_enemy(self, **kwargs):
+        return self.team.other_team.pets_list
 
-    @staticmethod
-    def target_each_friend(**kwargs):
-        return kwargs
+    def target_each_friend(self, **kwargs):
+        return [pet for pet in self.team.pets_list if pet != self]
 
     @staticmethod
     def target_each_shop_animal(**kwargs):
         return kwargs
 
-    @staticmethod
-    def target_first_enemy(**kwargs):
-        return kwargs
+    def target_first_enemy(self, **kwargs):
+        return self.team.other_team.pets_list[0]
 
-    @staticmethod
-    def target_friend_ahead(**kwargs):
-        return kwargs
+    def target_friend_ahead(self, **kwargs):
+        n = kwargs.get("n", 1)
+        index = self.team.pets_list.index(self)  # Get index of self in list
+        start = max(0, index - n)  # Make sure the start index isn't negative
+        return self.team.pets_list[start:index][::-1]  # Slice and reverse the list
 
-    @staticmethod
-    def target_friend_behind(**kwargs):
-        return kwargs
+    def target_friend_behind(self, **kwargs):
+        n = kwargs.get("n", 1)
+        index = self.team.pets_list.index(self)  # Get index of self in list
+        end = min(len(self.team.pets_list),
+                  index + n + 1)  # Make sure the end index doesn't exceed the length of the list
+        return self.team.pets_list[index + 1:end]  # Slice the list
 
-    @staticmethod
-    def target_highest_health_enemy(**kwargs):
-        return kwargs
+    def target_highest_health_enemy(self, **kwargs):
+        return sorted(self.team.other_team.pets_list, key=lambda x: x.health, reverse=True)[0]
 
-    @staticmethod
-    def target_last_enemy(**kwargs):
-        return kwargs
+    def target_last_enemy(self, **kwargs):
+        return self.team.other_team.pets_list[-1]
 
     @staticmethod
     def target_left_most_friend(**kwargs):

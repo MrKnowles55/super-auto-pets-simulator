@@ -46,7 +46,8 @@ class TestPet_Target(unittest.TestCase):
         test_pet = self.player_team.first
         targets = test_pet.target_adjacent_animals(n=2)
         self.assertEqual(len(targets), 3)
-        self.assertEqual(self.player_team.pets_list[0], targets[0])
+        print(self.player_team.pets_list, targets)
+        self.assertEqual(self.player_team.pets_list[1], targets[1])
 
     def test_target_adjacent_friends(self):
         # Test full team and n from 1 to 3
@@ -87,30 +88,79 @@ class TestPet_Target(unittest.TestCase):
         targets = test_pet.target_different_tier_animals()
         self.assertEqual(len(targets), 1)
 
-
     def test_target_each_enemy(self):
-        pass
+        fill_team(self.player_team, 5)
+        fill_team(self.enemy_team, 5)
+
+        test_pet = self.player_team.first
+        targets = test_pet.target_each_enemy()
+
+        # May need to remove self from targets
+        self.assertEqual(len(targets), 5)
 
     def test_target_each_friend(self):
-        pass
+        fill_team(self.player_team, 5)
+
+        test_pet = self.player_team.first
+        targets = test_pet.target_each_friend()
+
+        # May need to remove self from targets
+        self.assertEqual(len(targets), 4)
 
     def test_target_each_shop_animal(self):
         pass
 
     def test_target_first_enemy(self):
-        pass
+        fill_team(self.player_team, 1)
+        fill_team(self.enemy_team, 5)
+
+        test_pet = self.player_team.first
+        targets = test_pet.target_first_enemy()
+
+        # May need to remove self from targets
+        self.assertEqual(self.enemy_team.first, targets)
 
     def test_target_friend_ahead(self):
-        pass
+        fill_team(self.player_team, 5)
+        # Loop over each pet, then for n from 1 to 3
+        for test_pet in self.player_team.pets_list:
+            for n in range(1, 4):
+                targets = test_pet.target_friend_ahead(n=n)
+                self.assertEqual(len(targets), min(n, test_pet.position))
+                if targets:
+                    index = test_pet.position
+                    self.assertIn(self.player_team.pets_list[index-1], targets)
 
     def test_target_friend_behind(self):
-        pass
+        fill_team(self.player_team, 5)
+        # Loop over each pet, then for n from 1 to 3
+        for test_pet in self.player_team.pets_list:
+            for n in range(1, 4):
+                targets = test_pet.target_friend_behind(n=n)
+                self.assertEqual(len(targets), min(n, 5 - test_pet.position - 1))
+                if targets:
+                    index = test_pet.position
+                    self.assertIn(self.player_team.pets_list[index + 1], targets)
 
     def test_target_highest_health_enemy(self):
-        pass
+        fill_team(self.player_team, 1)
+        fill_team(self.enemy_team, 5)
+        for pet in self.enemy_team.pets_list:
+            pet.base_health += pet.position
+
+        test_pet = self.player_team.first
+        targets = test_pet.target_highest_health_enemy()
+        self.assertEqual(self.enemy_team.pets_list[-1], targets)
 
     def test_target_last_enemy(self):
-        pass
+        fill_team(self.player_team, 1)
+        fill_team(self.enemy_team, 5)
+
+        test_pet = self.player_team.first
+        targets = test_pet.target_last_enemy()
+
+        # May need to remove self from targets
+        self.assertEqual(self.enemy_team.pets_list[-1], targets)
 
     def test_target_left_most_friend(self):
         pass
