@@ -297,17 +297,31 @@ class Pet:
 
         return targets
 
-    @staticmethod
-    def target_adjacent_friends(**kwargs):
-        return kwargs
+    def target_adjacent_friends(self, **kwargs):
+        possible_targets = self.team.pets_list
+        n = min(kwargs.get("n", 1), len(possible_targets)-1)
+        origin = possible_targets.index(self)
 
-    @staticmethod
-    def target_all(**kwargs):
-        return kwargs
+        start = max(0, origin - n)  # Ensure start is not less than 0
+        end = min(len(possible_targets), origin + n + 1)  # Ensure end is not more than length of list
+        targets = possible_targets[start:origin] + possible_targets[origin + 1:end]
+        return targets
 
-    @staticmethod
-    def target_different_tier_animals(**kwargs):
-        return kwargs
+    def target_all(self, **kwargs):
+        # only used for faint abilities, may need to remove self from targets
+        return self.team.pets_list + self.team.other_team.pets_list
+
+    def target_different_tier_animals(self, **kwargs):
+        # Should be friends not animals
+        possible_targets = [pet for pet in self.team.pets_list if pet != self]
+        pets_by_tier = {i: [] for i in range(1, 7)}
+        for pet in possible_targets:
+            pets_by_tier[pet.tier].append(pet)
+
+        # Sample one pet from each tier
+        targets = [random.choice(pets_by_tier[tier]) for tier in pets_by_tier if pets_by_tier[tier]]
+
+        return targets
 
     @staticmethod
     def target_each_enemy(**kwargs):

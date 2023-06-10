@@ -49,13 +49,44 @@ class TestPet_Target(unittest.TestCase):
         self.assertEqual(self.player_team.pets_list[0], targets[0])
 
     def test_target_adjacent_friends(self):
-        pass
+        # Test full team and n from 1 to 3
+        fill_team(self.player_team, 5)
+
+        # Loop over each pet
+        for test_pet in self.player_team.pets_list:
+
+            # Loop over n from 1 to 3
+            for n in range(1, 4):
+                targets = test_pet.target_adjacent_friends(n=n)
+                print(targets)
 
     def test_target_all(self):
-        pass
+        fill_team(self.player_team, 5)
+        fill_team(self.enemy_team, 5)
+
+        test_pet = self.player_team.first
+        targets = test_pet.target_all()
+
+        # May need to remove self from targets
+        self.assertEqual(len(targets), 10)
+        # self.assertNotIn(test_pet, targets)
 
     def test_target_different_tier_animals(self):
-        pass
+        # All different tiers
+        fill_team(self.player_team, 5)
+        for i, pet in enumerate(self.player_team.pets_list):
+            pet.tier = i
+        test_pet = self.player_team.first
+        targets = test_pet.target_different_tier_animals()
+        self.assertEqual(len(targets), 4)
+        self.assertNotIn(test_pet, targets)
+
+        # All same tier
+        for pet in self.player_team.pets_list:
+            pet.tier = 1
+        targets = test_pet.target_different_tier_animals()
+        self.assertEqual(len(targets), 1)
+
 
     def test_target_each_enemy(self):
         pass
