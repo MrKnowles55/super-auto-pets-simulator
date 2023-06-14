@@ -188,38 +188,61 @@ class Pet:
     def hurt(self):
         pass
 
-    # Effects
+    ############################################################
+    # Ability Effects : Called when an Action is executed.     #
+    ############################################################
+
+    # Perk
 
     @staticmethod
     def apply_status(**kwargs):
         return kwargs
 
+    # Damage
+
     def deal_damage(self, **kwargs):
+        from math import floor
         target = 'target_'+self._enum_to_string(kwargs.get("target"))
         target = getattr(self, target)(**kwargs)
         logger.debug(f"{self} deal_damage to {target} using {kwargs}")
-        target.damage += kwargs.get("amount")
+        target.damage += floor(max(kwargs.get("amount", 0), 0))
         target.update()
 
+    # Food
+
     @staticmethod
-    def discount_food(**kwargs):
+    def food_multiplier(**kwargs):
         return kwargs
+
+    # Level and Experience
 
     @staticmethod
     def evolve(**kwargs):
         return kwargs
 
     @staticmethod
-    def food_multiplier(**kwargs):
-        return kwargs
-
-    @staticmethod
     def gain_experience(**kwargs):
         return kwargs
+
+    # Gold and Other Currency
 
     @staticmethod
     def gain_gold(**kwargs):
         return kwargs
+
+    @staticmethod
+    def roll_modifier(**kwargs):
+        return kwargs
+
+    @staticmethod
+    def conserve_gold(**kwargs):
+        return kwargs
+
+    @staticmethod
+    def gain_trumpets(**kwargs):
+        return kwargs
+
+    # Buff / Nerf
 
     @staticmethod
     def modify_stats(**kwargs):
@@ -229,24 +252,24 @@ class Pet:
     def reduce_health(**kwargs):
         return kwargs
 
+    # Shop
+
     @staticmethod
     def refill_shops(**kwargs):
         return kwargs
 
     @staticmethod
+    def discount_food(**kwargs):
+        return kwargs
+
+    @staticmethod
+    def modify_shop(**kwargs):
+        return kwargs
+
+    # Transfer
+
+    @staticmethod
     def repeat_ability(**kwargs):
-        return kwargs
-
-    @staticmethod
-    def summon_pet(**kwargs):
-        return kwargs
-
-    @staticmethod
-    def swallow(**kwargs):
-        return kwargs
-
-    @staticmethod
-    def transfer_ability(**kwargs):
         return kwargs
 
     @staticmethod
@@ -254,23 +277,23 @@ class Pet:
         return kwargs
 
     @staticmethod
-    def roll_modifier(**kwargs):
-        return kwargs
-
-    @staticmethod
-    def modify_shop(**kwargs):
-        return kwargs
-
-    @staticmethod
-    def conserve_gold(**kwargs):
+    def transfer_ability(**kwargs):
         return kwargs
 
     @staticmethod
     def steal_food(**kwargs):
         return kwargs
 
+    # Summon
+
     @staticmethod
-    def gain_trumpets(**kwargs):
+    def summon_pet(**kwargs):
+        return kwargs
+
+    # Special
+
+    @staticmethod
+    def swallow(**kwargs):
         return kwargs
 
     @staticmethod
