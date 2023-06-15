@@ -19,10 +19,9 @@ class TestPet(unittest.TestCase):
         self.battle = Battle(self.player_team, self.enemy_team)
         print("\n")
 
+    def test(self):
         self.pet = Pet("Mosquito")
         self.player_team.add_pet(self.pet)
-
-    def test(self):
         self.enemy_team.add_pet(Pet("Test"))
 
         results = self.battle.battle_loop()

@@ -12,7 +12,7 @@ from src.data_utils.ability_enums import EffectKind, EffectTargetKind, TriggerBy
 setup_logging(logging.DEBUG)
 
 
-def test_fill_team(team, size):
+def fill_team(team, size):
     team.pets_list = []
     for _ in range(size):
         team.add_pet(Pet(f"{team.name[0]}"))
@@ -36,6 +36,7 @@ class TestPet_Effect(unittest.TestCase):
     # Damage
 
     def test_deal_damage(self):
+        # Target Self
         # deal 1 damage, then  -1 and 0.5 damage (which round to 0)
         self.pet.base_health = 2
         self.pet.deal_damage(target=EffectTargetKind.Self, amount=1)
@@ -44,9 +45,14 @@ class TestPet_Effect(unittest.TestCase):
         self.assertEqual(self.pet.health, 1)
         self.assertEqual(self.pet.damage, 1)
 
+        # Target All
+        fill_team(self.player_team, 5)
+        fill_team(self.enemy_team, 5)
+        self.player_team.first.deal_damage(target=EffectTargetKind.All, amount=1)
+        self.assertEqual(self.player_team.length, 0)
+        self.assertEqual(self.enemy_team.length, 0)
 
     # Food
-
     def test_food_multiplier(self):
         pass
 
@@ -54,9 +60,22 @@ class TestPet_Effect(unittest.TestCase):
 
     def test_evolve(self):
         pass
+        # for lvl in range(1, 4):
+        #     self.assertEqual(self.pet.level, lvl)
+        #     self.assertEqual(self.pet.base_health, lvl)
+        #     self.assertEqual(self.pet.base_attack, lvl)
+        #     self.pet.evolve(target=EffectTargetKind.Self)
 
     def test_gain_experience(self):
-        pass
+
+        while self.pet.level < 3:
+            self.pet.gain_experience(target=EffectTargetKind.Self)
+
+        self.assertEqual(self.pet.level, 3)
+        self.assertEqual(self.pet.experience, 0)
+        self.assertEqual(self.pet.base_health, 6)
+        self.assertEqual(self.pet.base_attack, 6)
+        self.assertEqual(self.pet.ability, self.pet.ability_by_level[3])
 
     # Gold and Other Currency
 
@@ -75,10 +94,25 @@ class TestPet_Effect(unittest.TestCase):
     # Buff / Nerf
 
     def test_modify_stats(self):
-        pass
+        self.pet.modify_stats(target=EffectTargetKind.Self, attack_mod=1)
+        self.assertEqual(self.pet.attack_mod, 1)
+
+        for mod in range(-2, 1):
+            self.pet.attack_mod = 0
+            self.pet.health_mod = 0
+            self.pet.modify_stats(target=EffectTargetKind.Self, attack_mod=mod, health_mod=mod)
+            self.assertEqual(self.pet.attack, 1+mod)
+            self.assertEqual(self.pet.health, max(1+mod, 1))
 
     def test_reduce_health(self):
-        pass
+        test_healths = [1, 2, 3, 5, 10, 39, 50]
+        expected_healths = {1: [1, 1, 1], 2: [1, 1, 1], 3: [2, 1, 1], 5: [3, 1, 1], 10: [6, 3, 1], 39: [26, 13, 1], 50: [33, 17, 1]}
+        for health in test_healths:
+            self.pet.base_health = health
+            for i, percent in enumerate([33, 66, 100]):
+                self.pet.health_mod = 0
+                self.pet.reduce_health(target=EffectTargetKind.Self, health_mod=percent)
+                self.assertEqual(self.pet.health, expected_healths[health][i])
 
     # Shop
 

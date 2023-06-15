@@ -32,6 +32,7 @@ class Pet:
 
         # Default assumed parameters
         self.level = 1
+        self.experience = 0
         self.attack_mod = 0
         self.health_mod = 0
         self.damage = 0
@@ -54,11 +55,11 @@ class Pet:
 
     @property
     def attack(self):
-        return self.base_attack + self.attack_mod
+        return min(self.base_attack + self.attack_mod, 50)
 
     @property
     def health(self):
-        return self.base_health + self.health_mod - self.damage
+        return min(self.base_health + self.health_mod - self.damage, 50)
 
     @property
     def ability(self):
@@ -151,6 +152,10 @@ class Pet:
         opponent.damage += self.attack
 
     def update(self):
+        # Check for Level up
+        if (self.experience >= 2 and self.level == 1) or (self.experience >= 3 and self.level == 2):
+            self.level_up()
+        # Check for Faint
         if not self.alive:
             self.faint()
 
@@ -188,9 +193,17 @@ class Pet:
     def hurt(self):
         pass
 
+    def level_up(self):
+        self.experience = 0
+        self.level += 1
+        logger.debug(f"{self} leveled up {self.level}")
+
     ############################################################
     # Ability Effects : Called when an Action is executed.     #
     ############################################################
+
+    def _get_target(self, **kwargs):
+        return getattr(self, 'target_'+self._enum_to_string(kwargs.get("target")))(**kwargs)
 
     # Perk
 
@@ -202,11 +215,11 @@ class Pet:
 
     def deal_damage(self, **kwargs):
         from math import floor
-        target = 'target_'+self._enum_to_string(kwargs.get("target"))
-        target = getattr(self, target)(**kwargs)
-        logger.debug(f"{self} deal_damage to {target} using {kwargs}")
-        target.damage += floor(max(kwargs.get("amount", 0), 0))
-        target.update()
+        targets = self._get_target(**kwargs)
+        logger.debug(f"{self} deal_damage to {targets} using {kwargs}")
+        for target in targets:
+            target.damage += floor(max(kwargs.get("amount", 0), 0))
+            target.update()
 
     # Food
 
@@ -216,13 +229,14 @@ class Pet:
 
     # Level and Experience
 
-    @staticmethod
-    def evolve(**kwargs):
-        return kwargs
-
-    @staticmethod
-    def gain_experience(**kwargs):
-        return kwargs
+    def gain_experience(self, **kwargs):
+        targets = self._get_target(**kwargs)
+        logger.debug(f"{self} gave {targets} exp using {kwargs}")
+        for target in targets:
+            target.experience += 1
+            target.base_health += 1
+            target.base_attack += 1
+            target.update()
 
     # Gold and Other Currency
 
@@ -245,12 +259,45 @@ class Pet:
     # Buff / Nerf
 
     @staticmethod
-    def modify_stats(**kwargs):
-        return kwargs
+    def _add_stats(target, attack_mod, health_mod):
+        target.attack_mod += attack_mod
+        target.health_mod += health_mod
+        target.health_mod = max(health_mod, 0)
 
     @staticmethod
-    def reduce_health(**kwargs):
-        return kwargs
+    def _multiply_stats(target, attack_percent=100, health_percent=100, divide=False):
+        from math import floor
+        initial_attack = int(target.attack)
+        initial_health = int(target.health)
+        if divide:
+            final_attack = floor(initial_attack * (100 - attack_percent) / 100)
+            final_health = floor(initial_health * (100 - health_percent) / 100)
+        else:
+            final_attack = floor(initial_attack * attack_percent / 100)
+            final_health = floor(initial_health * health_percent / 100)
+
+        target.attack_mod = final_attack - initial_attack
+        target.health_mod = final_health - initial_health
+        if target.health == 0:
+            target.health_mod += 1
+
+    def modify_stats(self, **kwargs):
+        targets = self._get_target(**kwargs)
+        attack_mod = kwargs.get("attack_mod", 0)
+        health_mod = kwargs.get("health_mod", 0)
+        logger.debug(f"{self} gave {targets} {'+' if attack_mod >= 0 else ''}{attack_mod}/{'+' if health_mod >= 0 else ''}{health_mod} {kwargs}")
+        for target in targets:
+            self._add_stats(target, attack_mod, health_mod)
+            target.update()
+
+    def reduce_health(self, **kwargs):
+        targets = self._get_target(**kwargs)
+        health_mod = kwargs.get("health_mod", 100)
+        logger.debug(f"{self} gave {targets} {'+' if health_mod >= 0 else ''}{health_mod} {kwargs}")
+        for target in targets:
+            self._multiply_stats(target, health_percent=health_mod, divide=True)
+            target.update()
+
 
     # Shop
 
@@ -291,6 +338,9 @@ class Pet:
         return kwargs
 
     # Special
+
+    def evolve(self, **kwargs):
+        pass
 
     @staticmethod
     def swallow(**kwargs):
@@ -362,23 +412,23 @@ class Pet:
         return targets
 
     def target_right_most_friend(self, **kwargs):
-        return self.team.pets_list[0]
+        return [self.team.pets_list[0]]
 
     # Enemies
     def target_each_enemy(self, **kwargs):
         return self.team.other_team.pets_list
 
     def target_first_enemy(self, **kwargs):
-        return self.team.other_team.pets_list[0]
+        return [self.team.other_team.pets_list[0]]
 
     def target_highest_health_enemy(self, **kwargs):
-        return sorted(self.team.other_team.pets_list, key=lambda x: x.health, reverse=True)[0]
+        return [sorted(self.team.other_team.pets_list, key=lambda x: x.health, reverse=True)[0]]
 
     def target_lowest_health_enemy(self, **kwargs):
-        return sorted(self.team.other_team.pets_list, key=lambda x: x.health, reverse=False)[0]
+        return [sorted(self.team.other_team.pets_list, key=lambda x: x.health, reverse=False)[0]]
 
     def target_last_enemy(self, **kwargs):
-        return self.team.other_team.pets_list[-1]
+        return [self.team.other_team.pets_list[-1]]
 
     def target_random_enemy(self, **kwargs):
         possible_targets = self.team.other_team.pets_list
@@ -398,7 +448,7 @@ class Pet:
 
     # Other
     def target_self(self, **kwargs):
-        return self
+        return [self]
 
     def target_all(self, **kwargs):
         # only used for faint abilities, may need to remove self from targets
@@ -417,11 +467,11 @@ class Pet:
 
     @staticmethod
     def target_triggering_entity(**kwargs):
-        return kwargs.get("triggering_entity", None)
+        return [kwargs.get("triggering_entity", None)]
 
     @staticmethod
     def target_test_target(**kwargs):
-        return kwargs
+        return [kwargs]
 
 
 if __name__ == "__main__":
