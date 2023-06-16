@@ -1,5 +1,6 @@
 import logging
 import unittest
+from math import floor
 from unittest.mock import MagicMock, patch
 
 from src.pet_utils.pet import Pet
@@ -131,7 +132,32 @@ class TestPet_Effect(unittest.TestCase):
         pass
 
     def test_transfer_stats(self):
-        pass
+        fill_team(self.enemy_team, 1)
+        base_kwargs = {"from": {"kind": EffectTargetKind.Self},
+                  "to": {"kind": EffectTargetKind.EachEnemy},
+                  "copy_attack": True,
+                  "copy_health": True,
+                  "percentage": 100}
+        self.pet.base_attack = 20
+        self.pet.base_health = 10
+
+        for attack_flag in [False, True]:
+            for health_flag in [False, True]:
+                for percentage in [30, 33, 50, 66, 90, 100, 150]:
+                    kwargs = base_kwargs
+                    kwargs["copy_attack"] = attack_flag
+                    kwargs["copy_health"] = health_flag
+                    kwargs["percentage"] = percentage
+                    self.enemy_team.first.attack_mod = 0
+                    self.enemy_team.first.health_mod = 0
+
+                    self.pet.transfer_stats(**kwargs)
+
+                    self.assertEqual(self.enemy_team.first.attack_mod,
+                                     floor(attack_flag*percentage*self.pet.base_attack/100))
+                    self.assertEqual(self.enemy_team.first.health_mod,
+                                     floor(health_flag * percentage * self.pet.base_health / 100))
+
 
     def test_transfer_ability(self):
         pass

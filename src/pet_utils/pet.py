@@ -1,6 +1,7 @@
 import copy
 import random
 import re
+from math import floor
 
 from src.action_utils import signals
 from src.config_utils.custom_logger import get_custom_logger
@@ -205,6 +206,12 @@ class Pet:
     def _get_target(self, **kwargs):
         return getattr(self, 'target_'+self._enum_to_string(kwargs.get("target")))(**kwargs)
 
+    def _get_to(self, **kwargs):
+        return getattr(self, 'target_'+self._enum_to_string(kwargs.get("to", {}).get("kind"),))(**kwargs)
+
+    def _get_from(self, **kwargs):
+        return getattr(self, 'target_'+self._enum_to_string(kwargs.get("from", {}).get("kind")))(**kwargs)
+
     # Perk
 
     @staticmethod
@@ -265,16 +272,22 @@ class Pet:
         target.health_mod = max(health_mod, 0)
 
     @staticmethod
-    def _multiply_stats(target, attack_percent=100, health_percent=100, divide=False):
-        from math import floor
+    def _multiply(value, percent):
+        return floor(value * percent / 100)
+
+    @staticmethod
+    def _divide(value, percent):
+        return floor(value * (100 - percent) / 100)
+
+    def _multiply_stats(self, target, attack_percent=100, health_percent=100, divide=False):
         initial_attack = int(target.attack)
         initial_health = int(target.health)
         if divide:
-            final_attack = floor(initial_attack * (100 - attack_percent) / 100)
-            final_health = floor(initial_health * (100 - health_percent) / 100)
+            final_attack = self._multiply(initial_attack, attack_percent)
+            final_health = self._multiply(initial_attack, health_percent)
         else:
-            final_attack = floor(initial_attack * attack_percent / 100)
-            final_health = floor(initial_health * health_percent / 100)
+            final_attack = self._divide(initial_attack, attack_percent)
+            final_health = self._divide(initial_health, health_percent)
 
         target.attack_mod = final_attack - initial_attack
         target.health_mod = final_health - initial_health
@@ -319,9 +332,18 @@ class Pet:
     def repeat_ability(**kwargs):
         return kwargs
 
-    @staticmethod
-    def transfer_stats(**kwargs):
-        return kwargs
+    def transfer_stats(self, **kwargs):
+        copy_attack = kwargs.get("copy_attack", False)
+        copy_health = kwargs.get("copy_health", False)
+        percentage = kwargs.get("percentage", 0)
+        pet_from = self._get_from(**kwargs)[0]
+        pet_to = self._get_to(**kwargs)
+
+        attack_mod = self._multiply(pet_from.attack, percentage) * copy_attack
+        health_mod = self._multiply(pet_from.health, percentage) * copy_health
+        for target in pet_to:
+            self._add_stats(target, attack_mod=attack_mod, health_mod=health_mod)
+            target.update()
 
     @staticmethod
     def transfer_ability(**kwargs):
@@ -475,7 +497,7 @@ class Pet:
 
 
 if __name__ == "__main__":
-    x = Pet("Mosquito")
+    x = Pet("Crab")
 
     for lvl, ability in x.ability_by_level.items():
         print(lvl)
