@@ -11192,7 +11192,8 @@
                 },
                 "to": {
                     "kind": "Self"
-                }
+                },
+                "percentage": 100
             }
         }
     },
@@ -12326,7 +12327,17 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "transfer_stats"
+                "kind": "transfer_stats",
+                "copyAttack": true,
+                "copyHealth": false,
+                "from": {
+                    "kind": "Self"
+                },
+                "to": {
+                    "kind": "FriendAhead",
+                    "n": 1
+                },
+                "percentage": 50
             }
         },
         "level_2_ability": {
@@ -12334,7 +12345,17 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "transfer_stats"
+                "kind": "transfer_stats",
+                "copyAttack": true,
+                "copyHealth": false,
+                "from": {
+                    "kind": "Self"
+                },
+                "to": {
+                    "kind": "FriendAhead",
+                    "n": 1
+                },
+                "percentage": 100
             }
         },
         "level_3_ability": {
@@ -12342,7 +12363,17 @@
             "trigger": "StartOfBattle",
             "triggered_by": "Player",
             "effect": {
-                "kind": "transfer_stats"
+                "kind": "transfer_stats",
+                "copyAttack": true,
+                "copyHealth": false,
+                "from": {
+                    "kind": "Self"
+                },
+                "to": {
+                    "kind": "FriendAhead",
+                    "n": 1
+                },
+                "percentage": 150
             }
         }
     },
@@ -15319,7 +15350,17 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "transfer_stats"
+                "kind": "transfer_stats",
+                "copyAttack": true,
+                "copyHealth": false,
+                "from": {
+                    "kind": "Self"
+                },
+                "to": {
+                    "kind": "RandomFriend",
+                    "n": 1
+                },
+                "percentage": 100
             }
         },
         "level_2_ability": {
@@ -15327,7 +15368,17 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "transfer_stats"
+                "kind": "transfer_stats",
+                "copyAttack": true,
+                "copyHealth": false,
+                "from": {
+                    "kind": "Self"
+                },
+                "to": {
+                    "kind": "RandomFriend",
+                    "n": 2
+                },
+                "percentage": 100
             }
         },
         "level_3_ability": {
@@ -15335,7 +15386,17 @@
             "trigger": "Faint",
             "triggered_by": "Self",
             "effect": {
-                "kind": "transfer_stats"
+                "kind": "transfer_stats",
+                "copyAttack": true,
+                "copyHealth": false,
+                "from": {
+                    "kind": "Self"
+                },
+                "to": {
+                    "kind": "RandomFriend",
+                    "n": 3
+                },
+                "percentage": 100
             }
         }
     },
@@ -16237,7 +16298,17 @@
             "trigger": "Summoned",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "transfer_stats"
+                "kind": "transfer_stats",
+                "copyAttack": true,
+                "copyHealth": false,
+                "from": {
+                    "kind": "Self"
+                },
+                "to": {
+                    "kind": "TriggeringEntity",
+                    "n": 1
+                },
+                "percentage": 30
             }
         },
         "level_2_ability": {
@@ -16245,7 +16316,17 @@
             "trigger": "Summoned",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "transfer_stats"
+                "kind": "transfer_stats",
+                "copyAttack": true,
+                "copyHealth": false,
+                "from": {
+                    "kind": "Self"
+                },
+                "to": {
+                    "kind": "TriggeringEntity",
+                    "n": 1
+                },
+                "percentage": 60
             }
         },
         "level_3_ability": {
@@ -16253,7 +16334,17 @@
             "trigger": "Summoned",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "transfer_stats"
+                "kind": "transfer_stats",
+                "copyAttack": true,
+                "copyHealth": false,
+                "from": {
+                    "kind": "Self"
+                },
+                "to": {
+                    "kind": "TriggeringEntity",
+                    "n": 1
+                },
+                "percentage": 90
             }
         }
     },
