@@ -53,6 +53,8 @@ class TestPet_Effect(unittest.TestCase):
         self.assertEqual(self.player_team.length, 0)
         self.assertEqual(self.enemy_team.length, 0)
 
+        # TODO test percentage
+
     # Food
     def test_food_multiplier(self):
         pass

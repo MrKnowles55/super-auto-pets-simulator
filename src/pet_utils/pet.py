@@ -100,11 +100,20 @@ class Pet:
         effect = self._string_to_enum(ability_data.get("effect").get("kind"), EffectKind)
         # target = self._string_to_enum(ability_data.get("effect").get("target"), EffectTargetKind)
         target = self._string_to_enum(ability_data.get("effect", {}).get("target", {}).get("kind", {}), EffectTargetKind)
+        pet_from = self._string_to_enum(ability_data.get("effect", {}).get("from", {}).get("kind", {}), EffectTargetKind)
+        pet_to = self._string_to_enum(ability_data.get("effect", {}).get("to", {}).get("kind", {}),
+                                        EffectTargetKind)
         ability_data["trigger"] = trigger
         ability_data["triggered_by"] = triggered_by
         ability_data["effect"]["kind"] = effect
         if target:
+            ability_data["effect"]["n"] = ability_data["effect"]["target"].get("n")
             ability_data["effect"]["target"] = target
+        if pet_from:
+            ability_data["effect"]["from"]["kind"] = pet_from
+        if pet_to:
+            ability_data["effect"]["to"]["kind"] = pet_to
+
         return ability_data
 
     @staticmethod
@@ -149,8 +158,8 @@ class Pet:
 
     # Combat
     def attack_pet(self, opponent):
-        logger.debug(f"{self}{self.combat_stats_full} attack {opponent}{opponent.combat_stats_full}")
-        opponent.damage += self.attack
+        logger.debug(f"{self}({self.combat_stats}) attack {opponent}{opponent.combat_stats}")
+        opponent._damage(self.attack)
 
     def update(self):
         # Check for Level up
@@ -169,16 +178,11 @@ class Pet:
     # Signals
     def send_signal(self, message, receiver, broadcast=False):
         signals.send_signal(message, self, receiver, broadcast)
-        # print(f"{self.name} sending signal {trigger} to {target}")
-        # action_utils = self.team_utils.create_action(self, self.ability, trigger)
-        # print(action_utils)
-        # self.team_utils.send_action(action_utils)
 
     def broadcast(self, message):
-        print(f"{self} is broadcasting {message}")
         self.send_signal(message, self.team, broadcast=True)
 
-    def read_signal(self, signal):
+    def read_signal(self, signal, broadcast):
         if not self.check_if_relevant_signal(signal):
             return
         # method = self._enum_to_string(self.ability["effect"]["kind"])
@@ -188,11 +192,17 @@ class Pet:
 
     def faint(self):
         logger.debug(f"{self} fainted.")
+        self.broadcast(TriggerEvent.Faint)
         # TODO fix
         self.team.remove_pet(self)
 
     def hurt(self):
-        pass
+        logger.debug(f"{self} was hurt.")
+        self.broadcast(TriggerEvent.Hurt)
+
+    def _damage(self, amount):
+        self.damage += amount
+        self.hurt()
 
     def level_up(self):
         self.experience = 0
@@ -216,22 +226,27 @@ class Pet:
 
     @staticmethod
     def apply_status(**kwargs):
+        # ['kind', 'status', 'target_kind', 'to_kind', 'to_n']
         return kwargs
 
     # Damage
 
     def deal_damage(self, **kwargs):
-        from math import floor
         targets = self._get_target(**kwargs)
+        amount = floor(max(kwargs.get("amount", 0), 0))
+        percentage = kwargs.get("amount").get('attack_damage_percent', 0)
+        if percentage:
+            amount = floor(self.attack * percentage / 100)
         logger.debug(f"{self} deal_damage to {targets} using {kwargs}")
         for target in targets:
-            target.damage += floor(max(kwargs.get("amount", 0), 0))
+            target._damage(amount)
             target.update()
 
     # Food
 
     @staticmethod
     def food_multiplier(**kwargs):
+        # amount
         return kwargs
 
     # Level and Experience
@@ -249,6 +264,7 @@ class Pet:
 
     @staticmethod
     def gain_gold(**kwargs):
+        # amount
         return kwargs
 
     @staticmethod
@@ -269,11 +285,13 @@ class Pet:
     def _add_stats(target, attack_mod, health_mod):
         target.attack_mod += attack_mod
         target.health_mod += health_mod
-        target.health_mod = max(health_mod, 0)
 
     @staticmethod
     def _multiply(value, percent):
-        return floor(value * percent / 100)
+        output = value * percent / 100
+        if output == 0.99:
+            output = 1
+        return floor(output)
 
     @staticmethod
     def _divide(value, percent):
@@ -298,6 +316,8 @@ class Pet:
         targets = self._get_target(**kwargs)
         attack_mod = kwargs.get("attack_mod", 0)
         health_mod = kwargs.get("health_mod", 0)
+        until_end_of_battle = kwargs.get("until_end_of_battle ", False)
+
         logger.debug(f"{self} gave {targets} {'+' if attack_mod >= 0 else ''}{attack_mod}/{'+' if health_mod >= 0 else ''}{health_mod} {kwargs}")
         for target in targets:
             self._add_stats(target, attack_mod, health_mod)
@@ -320,6 +340,7 @@ class Pet:
 
     @staticmethod
     def discount_food(**kwargs):
+        # amount
         return kwargs
 
     @staticmethod
@@ -330,6 +351,7 @@ class Pet:
 
     @staticmethod
     def repeat_ability(**kwargs):
+        # ['kind', 'level', 'target_kind']
         return kwargs
 
     def transfer_stats(self, **kwargs):
@@ -341,12 +363,16 @@ class Pet:
 
         attack_mod = self._multiply(pet_from.attack, percentage) * copy_attack
         health_mod = self._multiply(pet_from.health, percentage) * copy_health
+
+        logger.debug(f"{pet_from} gave {pet_to} {'+' if attack_mod >= 0 else ''}{attack_mod}/{'+' if health_mod >= 0 else ''}{health_mod} {kwargs}")
+
         for target in pet_to:
             self._add_stats(target, attack_mod=attack_mod, health_mod=health_mod)
             target.update()
 
     @staticmethod
     def transfer_ability(**kwargs):
+        # ['from_kind', 'from_n', 'kind', 'level', 'to_kind']
         return kwargs
 
     @staticmethod
@@ -357,15 +383,19 @@ class Pet:
 
     @staticmethod
     def summon_pet(**kwargs):
+        # ['base_attack', 'base_health', 'kind', 'level', 'n', 'pet', 'team']
+        # Summon random ['base_attack', 'base_health', 'kind', 'level', 'tier']
         return kwargs
 
     # Special
 
     def evolve(self, **kwargs):
+        # into
         pass
 
     @staticmethod
     def swallow(**kwargs):
+        # ['kind', 'target_kind', 'target_n']
         return kwargs
 
     @staticmethod
@@ -497,7 +527,7 @@ class Pet:
 
 
 if __name__ == "__main__":
-    x = Pet("Crab")
+    x = Pet("Mosquito")
 
     for lvl, ability in x.ability_by_level.items():
         print(lvl)
