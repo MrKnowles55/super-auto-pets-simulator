@@ -1,3 +1,7 @@
+from src.config_utils.custom_logger import get_custom_logger
+
+logger = get_custom_logger(__name__)
+
 
 class Signal:
     def __init__(self, message, sender, receiver):
@@ -7,7 +11,7 @@ class Signal:
 
     def send(self, broadcast=False):
         if self.receiver:
-            print(f"Signal sent {self}{' as broadcast' if broadcast else ''}")
+            # print(f"Signal sent {self}{' as broadcast' if broadcast else ''}")
             self.receiver.read_signal(self, broadcast)
 
     def __str__(self):
