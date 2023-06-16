@@ -22,9 +22,16 @@ class Battle:
     def pets_list(self):
         return self.player_team.pets_list + self.enemy_team.pets_list
 
+    @property
+    def battle_string(self):
+        player_team_string = ", ".join(
+            [f"{pet.name} ({pet.combat_stats})" for pet in reversed(self.player_team.pets_list)])
+        enemy_team_string = ", ".join([f"{pet.name} ({pet.combat_stats})" for pet in self.enemy_team.pets_list])
+        return f"{player_team_string} v.s. {enemy_team_string}"
+
     # Main Loop
     def battle_loop(self):
-        logger.debug(f'Start battle loop. {self.player_team.pets_list} vs {self.enemy_team.pets_list}')
+        logger.debug(f'{self.player_team.pets_list} vs {self.enemy_team.pets_list}')
         combat_turns = 0
         self.start_of_battle()
         while self.fighters[0] and self.fighters[1]:
@@ -85,7 +92,7 @@ class Battle:
 
     # Combat
     def fight_loop(self):
-        logger.debug('Fight Loop')
+        logger.debug(f'{self.battle_string}')
         self._before_fight_events()
         self._fight_events()
         self._after_fight_events()
