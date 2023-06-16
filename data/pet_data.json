@@ -2322,8 +2322,8 @@
             "triggered_by": "Player",
             "effect": {
                 "kind": "transfer_stats",
-                "copyAttack": false,
-                "copyHealth": true,
+                "copy_attack": false,
+                "copy_health": true,
                 "from": {
                     "kind": "HighestHealthFriend"
                 },
@@ -2339,8 +2339,8 @@
             "triggered_by": "Player",
             "effect": {
                 "kind": "transfer_stats",
-                "copyAttack": false,
-                "copyHealth": true,
+                "copy_attack": false,
+                "copy_health": true,
                 "from": {
                     "kind": "HighestHealthFriend"
                 },
@@ -2356,8 +2356,8 @@
             "triggered_by": "Player",
             "effect": {
                 "kind": "transfer_stats",
-                "copyAttack": false,
-                "copyHealth": true,
+                "copy_attack": false,
+                "copy_health": true,
                 "from": {
                     "kind": "HighestHealthFriend"
                 },
@@ -2494,8 +2494,8 @@
             "triggered_by": "Player",
             "effect": {
                 "kind": "transfer_stats",
-                "copyAttack": true,
-                "copyHealth": false,
+                "copy_attack": true,
+                "copy_health": false,
                 "from": {
                     "kind": "Self"
                 },
@@ -2512,8 +2512,8 @@
             "triggered_by": "Player",
             "effect": {
                 "kind": "transfer_stats",
-                "copyAttack": true,
-                "copyHealth": false,
+                "copy_attack": true,
+                "copy_health": false,
                 "from": {
                     "kind": "Self"
                 },
@@ -2530,8 +2530,8 @@
             "triggered_by": "Player",
             "effect": {
                 "kind": "transfer_stats",
-                "copyAttack": true,
-                "copyHealth": false,
+                "copy_attack": true,
+                "copy_health": false,
                 "from": {
                     "kind": "Self"
                 },
@@ -4580,7 +4580,7 @@
                     "kind": "AdjacentAnimals"
                 },
                 "amount": {
-                    "attackDamagePercent": 50
+                    "attack_damage_percent": 50
                 }
             }
         },
@@ -4594,7 +4594,7 @@
                     "kind": "AdjacentAnimals"
                 },
                 "amount": {
-                    "attackDamagePercent": 100
+                    "attack_damage_percent": 100
                 }
             }
         },
@@ -4608,7 +4608,7 @@
                     "kind": "AdjacentAnimals"
                 },
                 "amount": {
-                    "attackDamagePercent": 150
+                    "attack_damage_percent": 150
                 }
             }
         },
@@ -10418,7 +10418,7 @@
                     "n": 1
                 },
                 "amount": {
-                    "attackDamagePercent": 50
+                    "attack_damage_percent": 50
                 }
             }
         },
@@ -10433,7 +10433,7 @@
                     "n": 2
                 },
                 "amount": {
-                    "attackDamagePercent": 50
+                    "attack_damage_percent": 50
                 }
             }
         },
@@ -10448,7 +10448,7 @@
                     "n": 3
                 },
                 "amount": {
-                    "attackDamagePercent": 50
+                    "attack_damage_percent": 50
                 }
             }
         },
@@ -11185,8 +11185,8 @@
             "triggered_by": "Self",
             "effect": {
                 "kind": "transfer_stats",
-                "copyAttack": true,
-                "copyHealth": true,
+                "copy_attack": true,
+                "copy_health": true,
                 "from": {
                     "kind": "StrongestFriend"
                 },
@@ -12328,8 +12328,8 @@
             "triggered_by": "Player",
             "effect": {
                 "kind": "transfer_stats",
-                "copyAttack": true,
-                "copyHealth": false,
+                "copy_attack": true,
+                "copy_health": false,
                 "from": {
                     "kind": "Self"
                 },
@@ -12346,8 +12346,8 @@
             "triggered_by": "Player",
             "effect": {
                 "kind": "transfer_stats",
-                "copyAttack": true,
-                "copyHealth": false,
+                "copy_attack": true,
+                "copy_health": false,
                 "from": {
                     "kind": "Self"
                 },
@@ -12364,8 +12364,8 @@
             "triggered_by": "Player",
             "effect": {
                 "kind": "transfer_stats",
-                "copyAttack": true,
-                "copyHealth": false,
+                "copy_attack": true,
+                "copy_health": false,
                 "from": {
                     "kind": "Self"
                 },
@@ -13071,7 +13071,7 @@
             "trigger": "FriendLevelUp",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "MofidyStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -13079,7 +13079,7 @@
             "trigger": "FriendLevelUp",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "MofidyStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -13087,7 +13087,7 @@
             "trigger": "FriendLevelUp",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "MofidyStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -13173,7 +13173,7 @@
             "trigger": "Sell",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModiftStats"
+                "kind": "modify_stats"
             }
         },
         "level_2_ability": {
@@ -13181,7 +13181,7 @@
             "trigger": "Sell",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModiftStats"
+                "kind": "modify_stats"
             }
         },
         "level_3_ability": {
@@ -13189,7 +13189,7 @@
             "trigger": "Sell",
             "triggered_by": "EachFriend",
             "effect": {
-                "kind": "ModiftStats"
+                "kind": "modify_stats"
             }
         }
     },
@@ -15236,7 +15236,7 @@
             "trigger": "EatsShopFood",
             "triggered_by": "Self",
             "effect": {
-                "kind": "Swallow"
+                "kind": "swallow"
             }
         },
         "level_2_ability": {
@@ -15244,7 +15244,7 @@
             "trigger": "EatsShopFood",
             "triggered_by": "Self",
             "effect": {
-                "kind": "Swallow"
+                "kind": "swallow"
             }
         },
         "level_3_ability": {
@@ -15252,7 +15252,7 @@
             "trigger": "EatsShopFood",
             "triggered_by": "Self",
             "effect": {
-                "kind": "Swallow"
+                "kind": "swallow"
             }
         }
     },
@@ -15351,8 +15351,8 @@
             "triggered_by": "Self",
             "effect": {
                 "kind": "transfer_stats",
-                "copyAttack": true,
-                "copyHealth": false,
+                "copy_attack": true,
+                "copy_health": false,
                 "from": {
                     "kind": "Self"
                 },
@@ -15369,8 +15369,8 @@
             "triggered_by": "Self",
             "effect": {
                 "kind": "transfer_stats",
-                "copyAttack": true,
-                "copyHealth": false,
+                "copy_attack": true,
+                "copy_health": false,
                 "from": {
                     "kind": "Self"
                 },
@@ -15387,8 +15387,8 @@
             "triggered_by": "Self",
             "effect": {
                 "kind": "transfer_stats",
-                "copyAttack": true,
-                "copyHealth": false,
+                "copy_attack": true,
+                "copy_health": false,
                 "from": {
                     "kind": "Self"
                 },
@@ -16299,8 +16299,8 @@
             "triggered_by": "EachFriend",
             "effect": {
                 "kind": "transfer_stats",
-                "copyAttack": true,
-                "copyHealth": false,
+                "copy_attack": true,
+                "copy_health": false,
                 "from": {
                     "kind": "Self"
                 },
@@ -16317,8 +16317,8 @@
             "triggered_by": "EachFriend",
             "effect": {
                 "kind": "transfer_stats",
-                "copyAttack": true,
-                "copyHealth": false,
+                "copy_attack": true,
+                "copy_health": false,
                 "from": {
                     "kind": "Self"
                 },
@@ -16335,8 +16335,8 @@
             "triggered_by": "EachFriend",
             "effect": {
                 "kind": "transfer_stats",
-                "copyAttack": true,
-                "copyHealth": false,
+                "copy_attack": true,
+                "copy_health": false,
                 "from": {
                     "kind": "Self"
                 },
