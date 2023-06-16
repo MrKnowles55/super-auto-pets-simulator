@@ -228,22 +228,27 @@ pet_db.add_pool("BUYABLE", list(set({pet["name"] for pet in pet_db.pet_dict.valu
 # Add pools to dict
 
 if __name__ == "__main__":
-    print(pet_db.pet_dict["pet-default"])
-    # print('Ant-Like Pets (Trigger: Faint, Effect: ModifyStats) :', ", ".join(map(str, ANT_LIKE)))
-    # print('Cricket-Like Pets (Trigger: Faint, Effect: SummonPet) :', ", ".join(map(str, CRICKET_LIKE)))
+    def get_keys(data, parent_key=''):
+        keys = set()
+        for key, value in data.items():
+            new_key = f"{parent_key}_{key}" if parent_key else key
+            if isinstance(value, dict):
+                keys.update(get_keys(value, new_key))
+            else:
+                keys.add(new_key)
+        return keys
 
-    # kinds = {}
-    # for pet_utils in PRIORITY:
-    #     pet_id = "pet_utils-"+pet_utils.lower().replace(" ", "-")
-    #     ability = pet_data_manager.pet_dict[pet_id].get("level1Ability")
-    #     if ability:
-    #         kind = ability.get("effect").get("kind")
-    #         if kind in kinds.keys():
-    #             kinds[kind].append(pet_utils)
-    #         else:
-    #             kinds[kind] = [pet_utils]
-    #
-    # for k, v in kinds.items():
-    #     print("# ", k)
-    #     for _ in sorted(v):
-    #         print(f"'{_}',")
+
+    effect_keywords_dict = {}
+    for pet_id, pet_data in pet_db.pet_dict.items():
+        for lvl in [1, 2, 3]:
+            effect_data = pet_data.get(f"level_{lvl}_ability", {}).get("effect", {})
+            effect = effect_data.get("kind")
+            if effect not in effect_keywords_dict:
+                effect_keywords_dict[effect] = set()
+            effect_keywords_dict[effect].update(get_keys(effect_data))
+
+    for key, item in effect_keywords_dict.items():
+        print(key, sorted(list(item)))
+
+
