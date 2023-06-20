@@ -118,7 +118,7 @@ class TestPet_Target(unittest.TestCase):
         targets = test_pet.target_first_enemy()
 
         # May need to remove self from targets
-        self.assertEqual(self.enemy_team.first, targets)
+        self.assertEqual([self.enemy_team.first], targets)
 
     def test_target_friend_ahead(self):
         fill_team(self.player_team, 5)
@@ -150,7 +150,7 @@ class TestPet_Target(unittest.TestCase):
 
         test_pet = self.player_team.first
         targets = test_pet.target_highest_health_enemy()
-        self.assertEqual(self.enemy_team.pets_list[-1], targets)
+        self.assertEqual([self.enemy_team.pets_list[-1]], targets)
 
     def test_target_last_enemy(self):
         fill_team(self.player_team, 1)
@@ -160,7 +160,7 @@ class TestPet_Target(unittest.TestCase):
         targets = test_pet.target_last_enemy()
 
         # May need to remove self from targets
-        self.assertEqual(self.enemy_team.pets_list[-1], targets)
+        self.assertEqual([self.enemy_team.pets_list[-1]], targets)
 
 
     def test_target_level2_and_3_friends(self):
@@ -188,7 +188,7 @@ class TestPet_Target(unittest.TestCase):
 
         test_pet = self.player_team.first
         targets = test_pet.target_lowest_health_enemy()
-        self.assertEqual(self.enemy_team.pets_list[0], targets)
+        self.assertEqual([self.enemy_team.pets_list[0]], targets)
 
     def test_target_random_enemy(self):
         fill_team(self.player_team, 1)
@@ -250,7 +250,7 @@ class TestPet_Target(unittest.TestCase):
         for pet in self.player_team.pets_list:
             targets = pet.target_right_most_friend()
             # May need to remove self from targets
-            self.assertEqual(self.player_team.first, targets)
+            self.assertEqual([self.player_team.first], targets)
 
     def test_target_self(self):
         pass

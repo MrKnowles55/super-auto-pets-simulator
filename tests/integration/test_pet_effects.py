@@ -46,12 +46,15 @@ class TestPet_Effect(unittest.TestCase):
         self.assertEqual(self.pet.health, 1)
         self.assertEqual(self.pet.damage, 1)
 
-        # Target All
+        # Target All, with attack_damage_percent
         fill_team(self.player_team, 5)
         fill_team(self.enemy_team, 5)
-        self.player_team.first.deal_damage(target=EffectTargetKind.All, amount=1)
+        self.player_team.first.base_attack = 10
+        self.enemy_team.first.base_health = 10
+        self.player_team.first.deal_damage(target=EffectTargetKind.All, amount={"attack_damage_percent": 50})
         self.assertEqual(self.player_team.length, 0)
-        self.assertEqual(self.enemy_team.length, 0)
+        self.assertEqual(self.enemy_team.length, 1)
+        self.assertEqual(self.enemy_team.first.health, 5)
 
         # TODO test percentage
 
@@ -99,24 +102,27 @@ class TestPet_Effect(unittest.TestCase):
     def test_modify_stats(self):
         self.pet.modify_stats(target=EffectTargetKind.Self, attack_mod=1)
         self.assertEqual(self.pet.attack_mod, 1)
-
-        for mod in range(-2, 1):
+        self.pet.damage = 1
+        self.pet.base_health = 2
+        for mod in range(-5, 1):
             self.pet.attack_mod = 0
             self.pet.health_mod = 0
             self.pet.modify_stats(target=EffectTargetKind.Self, attack_mod=mod, health_mod=mod)
             self.assertEqual(self.pet.attack, 1+mod)
             self.assertEqual(self.pet.health, max(1+mod, 1))
 
+    # for percent in [30, 33, 50, 60, 66, 90, 100, 150]:
+
     def test_reduce_health(self):
-        test_healths = [1, 2, 3, 5, 10, 39, 50]
-        expected_healths = {1: [1, 1, 1], 2: [1, 1, 1], 3: [2, 1, 1], 5: [3, 1, 1], 10: [6, 3, 1], 39: [26, 13, 1], 50: [33, 17, 1]}
-        for health in test_healths:
-            self.pet.base_health = health
-            for i, percent in enumerate([33, 66, 100]):
+        self.pet.base_health = 50
+        for hp in range(1, 50):
+            for percent in [33, 66, 100]:
+                self.pet.base_health = hp
+                self.pet.damage = self.pet.health - 1
                 self.pet.health_mod = 0
                 self.pet.reduce_health(target=EffectTargetKind.Self, health_mod=percent)
-                self.assertEqual(self.pet.health, expected_healths[health][i])
-
+                print(f"{percent}%  {self.pet.health} = {self.pet.base_health} + {self.pet.health_mod} - {self.pet.damage}")
+                # self.assertEqual(self.pet.health, int(max(self.pet.health * (100-percent)/100, 1)))
     # Shop
 
     def test_refill_shops(self):

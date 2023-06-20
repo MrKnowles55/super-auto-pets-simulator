@@ -182,7 +182,7 @@ class Pet:
     def broadcast(self, message):
         self.send_signal(message, self.team, broadcast=True)
 
-    def read_signal(self, signal, broadcast):
+    def read_signal(self, signal, broadcast=False):
         if not self.check_if_relevant_signal(signal):
             return
         # method = self._enum_to_string(self.ability["effect"]["kind"])
@@ -233,10 +233,12 @@ class Pet:
 
     def deal_damage(self, **kwargs):
         targets = self._get_target(**kwargs)
-        amount = floor(max(kwargs.get("amount", 0), 0))
-        percentage = kwargs.get("amount").get('attack_damage_percent', 0)
-        if percentage:
+        amount = kwargs.get("amount", 0)
+        if isinstance(amount, dict):
+            percentage = kwargs.get("amount").get('attack_damage_percent', 0)
             amount = floor(self.attack * percentage / 100)
+        else:
+            amount = floor(max(kwargs.get("amount", 0), 0))
         logger.debug(f"{self} deal_damage to {targets} using {kwargs}")
         for target in targets:
             target._damage(amount)
@@ -298,19 +300,23 @@ class Pet:
         return floor(value * (100 - percent) / 100)
 
     def _multiply_stats(self, target, attack_percent=100, health_percent=100, divide=False):
-        initial_attack = int(target.attack)
-        initial_health = int(target.health)
+        attack_percent = attack_percent / 100
+        health_percent = health_percent / 100
         if divide:
-            final_attack = self._multiply(initial_attack, attack_percent)
-            final_health = self._multiply(initial_attack, health_percent)
+            final_attack = target.attack * (1 - attack_percent)
+            final_health = target.health * (1 - health_percent)
         else:
-            final_attack = self._divide(initial_attack, attack_percent)
-            final_health = self._divide(initial_health, health_percent)
+            final_attack = target.attack * (1 + attack_percent)
+            final_health = target.health * (1 + health_percent)
+        final_attack = max(final_attack, 0)
+        final_health = max(final_health, 1)
+        target.attack_mod = int(final_attack-target.base_attack)
+        target.health_mod = int(final_health - target.base_health + target.damage)
 
-        target.attack_mod = final_attack - initial_attack
-        target.health_mod = final_health - initial_health
-        if target.health == 0:
-            target.health_mod += 1
+
+    def _prevent_death_from_stat_change(self, target):
+        if target.health <= 0:
+            target.health_mod = 1 - target.base_health + target.damage
 
     def modify_stats(self, **kwargs):
         targets = self._get_target(**kwargs)
@@ -321,9 +327,11 @@ class Pet:
         logger.debug(f"{self} gave {targets} {'+' if attack_mod >= 0 else ''}{attack_mod}/{'+' if health_mod >= 0 else ''}{health_mod} {kwargs}")
         for target in targets:
             self._add_stats(target, attack_mod, health_mod)
+            self._prevent_death_from_stat_change(target)
             target.update()
 
     def reduce_health(self, **kwargs):
+        # Need to test how rounding works in game
         targets = self._get_target(**kwargs)
         health_mod = kwargs.get("health_mod", 100)
         logger.debug(f"{self} gave {targets} {'+' if health_mod >= 0 else ''}{health_mod} {kwargs}")
@@ -527,7 +535,7 @@ class Pet:
 
 
 if __name__ == "__main__":
-    x = Pet("Mosquito")
+    x = Pet("Test Pet")
 
     for lvl, ability in x.ability_by_level.items():
         print(lvl)

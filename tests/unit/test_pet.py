@@ -26,14 +26,14 @@ class TestPet(unittest.TestCase):
             "tier": -1,
             "ability_by_level": {1: {'description': 'Test level 1 Ability', 'trigger': TriggerEvent.TestTrigger,
                                      'triggered_by': TriggerByKind.TestTriggeredby,
-                                     'effect': {'kind': EffectKind.test_effect, "target": EffectTargetKind.TestTarget}},
+                                     'effect': {'kind': EffectKind.test_effect, "target": EffectTargetKind.TestTarget, "n": 1}},
                                  2: {'description': 'Test level 2 Ability', 'trigger': TriggerEvent.TestTrigger,
                                      'triggered_by': TriggerByKind.TestTriggeredby,
-                                     'effect': {'kind': EffectKind.test_effect, "target": EffectTargetKind.TestTarget}},
+                                     'effect': {'kind': EffectKind.test_effect, "target": EffectTargetKind.TestTarget, "n": 1}},
                                  3: {'description': 'Test level 3 Ability', 'trigger': TriggerEvent.TestTrigger,
                                      'triggered_by': TriggerByKind.TestTriggeredby,
                                      'effect': {'kind': EffectKind.test_effect,
-                                                "target": EffectTargetKind.TestTarget}}},
+                                                "target": EffectTargetKind.TestTarget, "n": 1}}},
 
             "level": 1,
             "attack_mod": 0,
@@ -52,7 +52,7 @@ class TestPet(unittest.TestCase):
         self.assertEqual(self.pet.ability, {'description': 'Test level 1 Ability', 'trigger': TriggerEvent.TestTrigger,
                                             'triggered_by': TriggerByKind.TestTriggeredby,
                                             'effect': {'kind': EffectKind.test_effect,
-                                                       "target": EffectTargetKind.TestTarget}})
+                                                       "target": EffectTargetKind.TestTarget, "n": 1}})
         self.assertTrue(self.pet.alive)
         self.assertEqual(self.pet.trigger, self.pet.ability.get("trigger"))
         self.assertEqual(self.pet.triggered_by, self.pet.ability.get("triggered_by"))
