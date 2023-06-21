@@ -35,6 +35,10 @@ class Team:
     def other_team(self):
         return self.action_handler.player_team if self != self.action_handler.player_team else self.action_handler.enemy_team
 
+    @property
+    def combat_stats(self):
+        return [pet.combat_stats for pet in self.pets_list]
+
     def add_pet(self, pet, index=None):
         if len(self.pets_list) < 5:
             if index is not None:
