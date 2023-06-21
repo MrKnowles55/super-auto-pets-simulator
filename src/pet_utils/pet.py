@@ -149,7 +149,7 @@ class Pet:
 
     def check_if_relevant_signal(self, signal):
         relationship = self.get_relationship(signal.sender)
-        looking_for = self.ability['triggered_by']
+        looking_for = self.ability.get('triggered_by')
         # FriendAhead is also EachFriend, otherwise compare directly.
         if looking_for == TriggerByKind.EachFriend and relationship == TriggerByKind.FriendAhead:
             return True

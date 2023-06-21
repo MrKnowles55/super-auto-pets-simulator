@@ -108,6 +108,7 @@ class TestBattle(unittest.TestCase):
 
         # Test method called for only 1 pet
         self.assertEqual(mock_test_effect.call_count, 1+2)  # 1 new one, 2 from earlier
+
     @patch('src.pet_utils.pet.Pet.test_effect')
     def test_fight_loop(self, mock_test_effect):
         # Prep a Before and After attack ability
