@@ -742,7 +742,7 @@
             "triggered_by": "Self",
             "effect": {
                 "kind": "summon_pet",
-                "pet": "pet-zombie_cricket",
+                "pet": "pet-zombie-cricket",
                 "n": 1,
                 "level": 1,
                 "team": "Friendly"
@@ -754,7 +754,7 @@
             "triggered_by": "Self",
             "effect": {
                 "kind": "summon_pet",
-                "pet": "pet-zombie_cricket",
+                "pet": "pet-zombie-cricket",
                 "n": 1,
                 "level": 2,
                 "team": "Friendly"
@@ -766,7 +766,7 @@
             "triggered_by": "Self",
             "effect": {
                 "kind": "summon_pet",
-                "pet": "pet-zombie_cricket",
+                "pet": "pet-zombie-cricket",
                 "n": 1,
                 "level": 3,
                 "team": "Friendly"
@@ -3708,7 +3708,7 @@
             "triggered_by": "Self",
             "effect": {
                 "kind": "summon_pet",
-                "pet": "pet-dirty_rat",
+                "pet": "pet-dirty-rat",
                 "n": 1,
                 "level": 1,
                 "team": "Enemy"
@@ -3720,7 +3720,7 @@
             "triggered_by": "Self",
             "effect": {
                 "kind": "summon_pet",
-                "pet": "pet-dirty_rat",
+                "pet": "pet-dirty-rat",
                 "n": 2,
                 "level": 1,
                 "team": "Enemy"
@@ -3732,7 +3732,7 @@
             "triggered_by": "Self",
             "effect": {
                 "kind": "summon_pet",
-                "pet": "pet-dirty_rat",
+                "pet": "pet-dirty-rat",
                 "n": 3,
                 "level": 1,
                 "team": "Enemy"
@@ -4396,9 +4396,9 @@
             }
         ]
     },
-    "pet-tabby_cat": {
+    "pet-tabby-cat": {
         "name": "Tabby Cat",
-        "id": "pet-tabby_cat",
+        "id": "pet-tabby-cat",
         "image": {
             "source": "noto-emoji",
             "commit": "e022fd6573782431ac9a65b520376b57511c31cd",
@@ -5136,9 +5136,9 @@
             }
         ]
     },
-    "pet-hatching_chick": {
+    "pet-hatching-chick": {
         "name": "Hatching Chick",
-        "id": "pet-hatching_chick",
+        "id": "pet-hatching-chick",
         "image": {
             "source": "noto-emoji",
             "commit": "e022fd6573782431ac9a65b520376b57511c31cd",
@@ -6511,9 +6511,9 @@
             }
         ]
     },
-    "pet-tropical_fish": {
+    "pet-tropical-fish": {
         "name": "Tropical Fish",
-        "id": "pet-tropical_fish",
+        "id": "pet-tropical-fish",
         "image": {
             "source": "twemoji",
             "commit": "793a6a93f303c08877dd6eb589b2fabb3d1c45ee",
@@ -10231,7 +10231,7 @@
             "triggered_by": "EachFriend",
             "effect": {
                 "kind": "summon_pet",
-                "pet": "pet-zombie_fly",
+                "pet": "pet-zombie-fly",
                 "base_attack": 4,
                 "base_health": 4,
                 "team": "Friendly"
@@ -10244,7 +10244,7 @@
             "triggered_by": "EachFriend",
             "effect": {
                 "kind": "summon_pet",
-                "pet": "pet-zombie_fly",
+                "pet": "pet-zombie-fly",
                 "base_attack": 8,
                 "base_health": 8,
                 "team": "Friendly"
@@ -10257,7 +10257,7 @@
             "triggered_by": "EachFriend",
             "effect": {
                 "kind": "summon_pet",
-                "pet": "pet-zombie_fly",
+                "pet": "pet-zombie-fly",
                 "base_attack": 12,
                 "base_health": 12,
                 "team": "Friendly"
@@ -11019,9 +11019,9 @@
             }
         ]
     },
-    "pet-zombie_cricket": {
+    "pet-zombie-cricket": {
         "name": "Zombie Cricket",
-        "id": "pet-zombie_cricket",
+        "id": "pet-zombie-cricket",
         "image": {
             "source": "noto-emoji",
             "commit": "e022fd6573782431ac9a65b520376b57511c31cd",
@@ -11052,9 +11052,9 @@
         "base_health": 5,
         "status": "status-splash-attack"
     },
-    "pet-zombie_fly": {
+    "pet-zombie-fly": {
         "name": "Zombie Fly",
-        "id": "pet-zombie_fly",
+        "id": "pet-zombie-fly",
         "image": {
             "source": "noto-emoji",
             "commit": "e022fd6573782431ac9a65b520376b57511c31cd",
@@ -11067,9 +11067,9 @@
         "base_attack": 4,
         "base_health": 4
     },
-    "pet-dirty_rat": {
+    "pet-dirty-rat": {
         "name": "Dirty Rat",
-        "id": "pet-dirty_rat",
+        "id": "pet-dirty-rat",
         "image": {
             "source": "noto-emoji",
             "commit": "e022fd6573782431ac9a65b520376b57511c31cd",
@@ -11247,9 +11247,9 @@
             }
         }
     },
-    "pet-frilled_dragon": {
+    "pet-frilled-dragon": {
         "name": "Frilled Dragon",
-        "id": "pet-frilled_dragon",
+        "id": "pet-frilled-dragon",
         "tier": 1,
         "base_attack": 1,
         "base_health": 1,
@@ -11769,9 +11769,9 @@
             }
         }
     },
-    "pet-cone_snail": {
+    "pet-cone-snail": {
         "name": "Cone Snail",
-        "id": "pet-cone_snail",
+        "id": "pet-cone-snail",
         "tier": 1,
         "base_attack": 1,
         "base_health": 2,
@@ -11837,9 +11837,9 @@
             }
         }
     },
-    "pet-pied_tamarin": {
+    "pet-pied-tamarin": {
         "name": "Pied Tamarin",
-        "id": "pet-pied_tamarin",
+        "id": "pet-pied-tamarin",
         "tier": 1,
         "base_attack": 1,
         "base_health": 2,
@@ -12007,9 +12007,9 @@
             }
         }
     },
-    "pet-gold_fish": {
+    "pet-gold-fish": {
         "name": "Gold Fish",
-        "id": "pet-gold_fish",
+        "id": "pet-gold-fish",
         "tier": 2,
         "base_attack": 1,
         "base_health": 2,
@@ -12143,9 +12143,9 @@
             }
         }
     },
-    "pet-atlantic_puffin": {
+    "pet-atlantic-puffin": {
         "name": "Atlantic Puffin",
-        "id": "pet-atlantic_puffin",
+        "id": "pet-atlantic-puffin",
         "tier": 2,
         "base_attack": 1,
         "base_health": 3,
@@ -12211,9 +12211,9 @@
             }
         }
     },
-    "pet-guinea_pig": {
+    "pet-guinea-pig": {
         "name": "Guinea Pig",
-        "id": "pet-guinea_pig",
+        "id": "pet-guinea-pig",
         "tier": 2,
         "base_attack": 1,
         "base_health": 1,
@@ -12479,9 +12479,9 @@
             }
         }
     },
-    "pet-hercules_beetle": {
+    "pet-hercules-beetle": {
         "name": "Hercules Beetle",
-        "id": "pet-hercules_beetle",
+        "id": "pet-hercules-beetle",
         "tier": 2,
         "base_attack": 3,
         "base_health": 4,
@@ -12547,9 +12547,9 @@
             }
         }
     },
-    "pet-black_necked_stilt": {
+    "pet-black_necked-stilt": {
         "name": "Black Necked Stilt",
-        "id": "pet-black_necked_stilt",
+        "id": "pet-black_necked-stilt",
         "tier": 2,
         "base_attack": 3,
         "base_health": 2,
@@ -12615,9 +12615,9 @@
             }
         }
     },
-    "pet-sea_urchin": {
+    "pet-sea-urchin": {
         "name": "Sea Urchin",
-        "id": "pet-sea_urchin",
+        "id": "pet-sea-urchin",
         "tier": 2,
         "base_attack": 3,
         "base_health": 2,
@@ -12649,9 +12649,9 @@
             }
         }
     },
-    "pet-door_head_ant": {
+    "pet-door_head-ant": {
         "name": "Door Head Ant",
-        "id": "pet-door_head_ant",
+        "id": "pet-door_head-ant",
         "tier": 2,
         "base_attack": 2,
         "base_health": 2,
@@ -12683,9 +12683,9 @@
             }
         }
     },
-    "pet-sea_turtle": {
+    "pet-sea-turtle": {
         "name": "Sea Turtle",
-        "id": "pet-sea_turtle",
+        "id": "pet-sea-turtle",
         "tier": 2,
         "base_attack": 2,
         "base_health": 5,
@@ -12751,9 +12751,9 @@
             }
         }
     },
-    "pet-african_penguin": {
+    "pet-african-penguin": {
         "name": "African Penguin",
-        "id": "pet-african_penguin",
+        "id": "pet-african-penguin",
         "tier": 2,
         "base_attack": 1,
         "base_health": 3,
@@ -12853,9 +12853,9 @@
             }
         }
     },
-    "pet-emperor_tamarin": {
+    "pet-emperor-tamarin": {
         "name": "Emperor Tamarin",
-        "id": "pet-emperor_tamarin",
+        "id": "pet-emperor-tamarin",
         "tier": 3,
         "base_attack": 2,
         "base_health": 4,
@@ -13261,9 +13261,9 @@
             }
         }
     },
-    "pet-musk_ox": {
+    "pet-musk-ox": {
         "name": "Musk Ox",
-        "id": "pet-musk_ox",
+        "id": "pet-musk-ox",
         "tier": 3,
         "base_attack": 2,
         "base_health": 4,
@@ -13329,9 +13329,9 @@
             }
         }
     },
-    "pet-royal_flycatcher": {
+    "pet-royal-flycatcher": {
         "name": "Royal Flycatcher",
-        "id": "pet-royal_flycatcher",
+        "id": "pet-royal-flycatcher",
         "tier": 3,
         "base_attack": 2,
         "base_health": 4,
@@ -13363,9 +13363,9 @@
             }
         }
     },
-    "pet-surgeon_fish": {
+    "pet-surgeon-fish": {
         "name": "Surgeon Fish",
-        "id": "pet-surgeon_fish",
+        "id": "pet-surgeon-fish",
         "tier": 3,
         "base_attack": 3,
         "base_health": 3,
@@ -13465,9 +13465,9 @@
             }
         }
     },
-    "pet-betta_fish": {
+    "pet-betta-fish": {
         "name": "Betta Fish",
-        "id": "pet-betta_fish",
+        "id": "pet-betta-fish",
         "tier": 3,
         "base_attack": 2,
         "base_health": 3,
@@ -13554,9 +13554,9 @@
             }
         }
     },
-    "pet-flying_fish": {
+    "pet-flying-fish": {
         "name": "Flying Fish",
-        "id": "pet-flying_fish",
+        "id": "pet-flying-fish",
         "tier": 3,
         "base_attack": 1,
         "base_health": 2,
@@ -14190,9 +14190,9 @@
             }
         }
     },
-    "pet-praying_mantis": {
+    "pet-praying-mantis": {
         "name": "Praying Mantis",
-        "id": "pet-praying_mantis",
+        "id": "pet-praying-mantis",
         "tier": 4,
         "base_attack": 7,
         "base_health": 2,
@@ -14292,9 +14292,9 @@
             }
         }
     },
-    "pet-egyptian_vulture": {
+    "pet-egyptian-vulture": {
         "name": "Egyptian Vulture",
-        "id": "pet-egyptian_vulture",
+        "id": "pet-egyptian-vulture",
         "tier": 4,
         "base_attack": 5,
         "base_health": 4,
@@ -14326,9 +14326,9 @@
             }
         }
     },
-    "pet-saiga_antelope": {
+    "pet-saiga-antelope": {
         "name": "Saiga Antelope",
-        "id": "pet-saiga_antelope",
+        "id": "pet-saiga-antelope",
         "tier": 4,
         "base_attack": 4,
         "base_health": 3,
@@ -14443,7 +14443,7 @@
             "triggered_by": "Self",
             "effect": {
                 "kind": "summon_pet",
-                "pet": "pet-smaller_slug",
+                "pet": "pet-smaller-slug",
                 "base_attack": 2,
                 "base_health": 2,
                 "n": 1,
@@ -14457,7 +14457,7 @@
             "triggered_by": "Self",
             "effect": {
                 "kind": "summon_pet",
-                "pet": "pet-smaller_slug",
+                "pet": "pet-smaller-slug",
                 "base_attack": 4,
                 "base_health": 4,
                 "n": 1,
@@ -14471,7 +14471,7 @@
             "triggered_by": "Self",
             "effect": {
                 "kind": "summon_pet",
-                "pet": "pet-smaller_slug",
+                "pet": "pet-smaller-slug",
                 "base_attack": 6,
                 "base_health": 6,
                 "n": 1,
@@ -14480,9 +14480,9 @@
             }
         }
     },
-        "pet-smaller_slug": {
+        "pet-smaller-slug": {
         "name": "Smaller Slug",
-        "id": "pet-smaller_slug",
+        "id": "pet-smaller-slug",
         "tier": 4,
         "base_attack": 2,
         "base_health": 2,
@@ -14495,7 +14495,7 @@
             "triggered_by": "Self",
             "effect": {
                 "kind": "summon_pet",
-                "pet": "pet-smallest_slug",
+                "pet": "pet-smallest-slug",
                 "base_attack": 1,
                 "base_health": 1,
                 "n": 1,
@@ -14509,7 +14509,7 @@
             "triggered_by": "Self",
             "effect": {
                 "kind": "summon_pet",
-                "pet": "pet-smallest_slug",
+                "pet": "pet-smallest-slug",
                 "base_attack": 2,
                 "base_health": 2,
                 "n": 1,
@@ -14523,7 +14523,7 @@
             "triggered_by": "Self",
             "effect": {
                 "kind": "summon_pet",
-                "pet": "pet-smallest_slug",
+                "pet": "pet-smallest-slug",
                 "base_attack": 3,
                 "base_health": 3,
                 "n": 1,
@@ -14532,9 +14532,9 @@
             }
         }
     },
-    "pet-smallest_slug": {
+    "pet-smallest-slug": {
         "name": "Smallest Slug",
-        "id": "pet-smallest_slug",
+        "id": "pet-smallest-slug",
         "tier": 4,
         "base_attack": 1,
         "base_health": 1,
@@ -14542,9 +14542,9 @@
             "Summoned"
         ]
     },
-    "pet-poison_dart_frog": {
+    "pet-poison_dart-frog": {
         "name": "Poison Dart Frog",
-        "id": "pet-poison_dart_frog",
+        "id": "pet-poison_dart-frog",
         "tier": 4,
         "base_attack": 5,
         "base_health": 2,
@@ -14576,9 +14576,9 @@
             }
         }
     },
-    "pet-secretary_bird": {
+    "pet-secretary-bird": {
         "name": "Secretary Bird",
-        "id": "pet-secretary_bird",
+        "id": "pet-secretary-bird",
         "tier": 4,
         "base_attack": 3,
         "base_health": 2,
@@ -14644,9 +14644,9 @@
             }
         }
     },
-    "pet-manta_ray": {
+    "pet-manta-ray": {
         "name": "Manta Ray",
-        "id": "pet-manta_ray",
+        "id": "pet-manta-ray",
         "tier": 4,
         "base_attack": 5,
         "base_health": 4,
@@ -14882,9 +14882,9 @@
             }
         }
     },
-    "pet-polar_bear": {
+    "pet-polar-bear": {
         "name": "Polar Bear",
-        "id": "pet-polar_bear",
+        "id": "pet-polar-bear",
         "tier": 5,
         "base_attack": 4,
         "base_health": 8,
@@ -14950,9 +14950,9 @@
             }
         }
     },
-    "pet-siberian_husky": {
+    "pet-siberian-husky": {
         "name": "Siberian Husky",
-        "id": "pet-siberian_husky",
+        "id": "pet-siberian-husky",
         "tier": 5,
         "base_attack": 4,
         "base_health": 3,
@@ -14984,9 +14984,9 @@
             }
         }
     },
-    "pet-sword_fish": {
+    "pet-sword-fish": {
         "name": "Sword Fish",
-        "id": "pet-sword_fish",
+        "id": "pet-sword-fish",
         "tier": 5,
         "base_attack": 5,
         "base_health": 5,
@@ -15188,9 +15188,9 @@
             }
         }
     },
-    "pet-nurse_shark": {
+    "pet-nurse-shark": {
         "name": "Nurse Shark",
-        "id": "pet-nurse_shark",
+        "id": "pet-nurse-shark",
         "tier": 5,
         "base_attack": 4,
         "base_health": 6,
@@ -15222,9 +15222,9 @@
             }
         }
     },
-    "pet-beluga_whale": {
+    "pet-beluga-whale": {
         "name": "Beluga Whale",
-        "id": "pet-beluga_whale",
+        "id": "pet-beluga-whale",
         "tier": 5,
         "base_attack": 3,
         "base_health": 8,
@@ -15302,9 +15302,9 @@
             }
         }
     },
-    "pet-silver_fox": {
+    "pet-silver-fox": {
         "name": "Silver Fox",
-        "id": "pet-silver_fox",
+        "id": "pet-silver-fox",
         "tier": 5,
         "base_attack": 3,
         "base_health": 6,
@@ -15336,9 +15336,9 @@
             }
         }
     },
-    "pet-fire_ant": {
+    "pet-fire-ant": {
         "name": "Fire Ant",
-        "id": "pet-fire_ant",
+        "id": "pet-fire-ant",
         "tier": 5,
         "base_attack": 6,
         "base_health": 4,
@@ -15434,9 +15434,9 @@
             }
         }
     },
-    "pet-blue_ringed_octopus": {
+    "pet-blue_ringed-octopus": {
         "name": "Blue Ringed Octopus",
-        "id": "pet-blue_ringed_octopus",
+        "id": "pet-blue_ringed-octopus",
         "tier": 5,
         "base_attack": 2,
         "base_health": 4,
@@ -15672,9 +15672,9 @@
             }
         }
     },
-    "pet-white_tiger": {
+    "pet-white-tiger": {
         "name": "White Tiger",
-        "id": "pet-white_tiger",
+        "id": "pet-white-tiger",
         "tier": 6,
         "base_attack": 4,
         "base_health": 3,
@@ -15910,9 +15910,9 @@
             }
         }
     },
-    "pet-sabertooth_tiger": {
+    "pet-sabertooth-tiger": {
         "name": "Sabertooth Tiger",
-        "id": "pet-sabertooth_tiger",
+        "id": "pet-sabertooth-tiger",
         "tier": 6,
         "base_attack": 8,
         "base_health": 6,
@@ -16080,9 +16080,9 @@
             }
         }
     },
-    "pet-highland_cow": {
+    "pet-highland-cow": {
         "name": "Highland Cow",
-        "id": "pet-highland_cow",
+        "id": "pet-highland-cow",
         "tier": 6,
         "base_attack": 4,
         "base_health": 12,
@@ -16250,9 +16250,9 @@
             }
         }
     },
-    "pet-grizzly_bear": {
+    "pet-grizzly-bear": {
         "name": "Grizzly Bear",
-        "id": "pet-grizzly_bear",
+        "id": "pet-grizzly-bear",
         "tier": 6,
         "base_attack": 6,
         "base_health": 6,
@@ -16284,9 +16284,9 @@
             }
         }
     },
-    "pet-german_shephard": {
+    "pet-german-shephard": {
         "name": "German Shephard",
-        "id": "pet-german_shephard",
+        "id": "pet-german-shephard",
         "tier": 6,
         "base_attack": 10,
         "base_health": 4,
@@ -16348,9 +16348,9 @@
             }
         }
     },
-    "pet-bird_of_paradise": {
+    "pet-bird_of-paradise": {
         "name": "Bird Of Paradise",
-        "id": "pet-bird_of_paradise",
+        "id": "pet-bird_of-paradise",
         "tier": 6,
         "base_attack": 3,
         "base_health": 3,
