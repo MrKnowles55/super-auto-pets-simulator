@@ -148,13 +148,22 @@ class Pet:
         return self.ability["trigger"] == trigger
 
     def check_if_relevant_signal(self, signal):
-        relationship = self.get_relationship(signal.sender)
-        looking_for = self.ability.get('triggered_by')
-        # FriendAhead is also EachFriend, otherwise compare directly.
-        if looking_for == TriggerByKind.EachFriend and relationship == TriggerByKind.FriendAhead:
-            return True
+        """
+        Compares the signals message, and the relationship between the sender and receiver against the
+        pet's ability triggers.
+        :param signal: (Event, Sender, Receiver)
+        :return: Bool
+        """
+
+        if signal.message == self.trigger:
+            relationship = self.get_relationship(signal.sender)
+            # FriendAhead is also EachFriend, otherwise compare directly.
+            if self.triggered_by == TriggerByKind.EachFriend and relationship == TriggerByKind.FriendAhead:
+                return True
+            else:
+                return relationship == self.triggered_by
         else:
-            return relationship == looking_for
+            return False
 
     # Combat
     def attack_pet(self, opponent):
@@ -184,6 +193,7 @@ class Pet:
 
     def read_signal(self, signal, broadcast=False):
         if not self.check_if_relevant_signal(signal):
+            logger.debug(f"{self} ignored signal {signal}")
             return
         # method = self._enum_to_string(self.ability["effect"]["kind"])
         # getattr(self, method)()
