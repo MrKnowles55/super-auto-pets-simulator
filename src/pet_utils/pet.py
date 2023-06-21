@@ -84,7 +84,7 @@ class Pet:
 
     @property
     def combat_stats(self):
-        return f"{self.attack}/{self.health}"
+        return f"{self.name[:3]}{self.id}({self.attack}/{self.health})"
 
     @property
     def combat_stats_full(self):
@@ -313,7 +313,6 @@ class Pet:
         target.attack_mod = int(final_attack-target.base_attack)
         target.health_mod = int(final_health - target.base_health + target.damage)
 
-
     def _prevent_death_from_stat_change(self, target):
         if target.health <= 0:
             target.health_mod = 1 - target.base_health + target.damage
@@ -389,11 +388,35 @@ class Pet:
 
     # Summon
 
-    @staticmethod
-    def summon_pet(**kwargs):
-        # ['base_attack', 'base_health', 'kind', 'level', 'n', 'pet', 'team']
+    def summon_pet(self, **kwargs):
+        attributes = ['base_attack', 'base_health', 'level']
+        pet_attributes = {key: value for key, value in kwargs.items() if key in attributes}
+        name = kwargs.get("pet").replace("pet-", "").replace("_", " ").title()
+        team = kwargs.get("team")
+        team = self.team if team == "Friendly" else self.team.other_team
+        position = 0
+        if team == self.team:
+            position = self.position
+        # status = kwargs.get("status")
+        # ability = kwargs.get("ability")
+        for i in range(kwargs.get("n", 1)):
+            new_pet = Pet(name=name, **pet_attributes)
+            team.add_pet(new_pet, index=position)
+
+    def summon_random_pet(self, **kwargs):
         # Summon random ['base_attack', 'base_health', 'kind', 'level', 'tier']
-        return kwargs
+        tier = kwargs.get("tier")
+        pool = kwargs.get("pool")
+        n = kwargs.get("n")
+        if pool:
+            # select from pool
+            pass
+        else:
+            # select from tier
+            pass
+        new_kwargs = kwargs
+        self.summon_pet(**new_kwargs)
+
 
     # Special
 
@@ -535,9 +558,9 @@ class Pet:
 
 
 if __name__ == "__main__":
-    x = Pet("Test Pet")
-
-    for lvl, ability in x.ability_by_level.items():
-        print(lvl)
-        for key, item in ability.items():
-            print("\t", key, item)
+    x = Pet("Zombie Fly")
+    print(x.__dict__)
+    # for lvl, ability in x.ability_by_level.items():
+    #     print(lvl)
+    #     for key, item in ability.items():
+    #         print("\t", key, item)

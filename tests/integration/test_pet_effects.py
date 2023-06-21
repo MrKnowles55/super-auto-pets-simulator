@@ -108,8 +108,8 @@ class TestPet_Effect(unittest.TestCase):
             self.pet.attack_mod = 0
             self.pet.health_mod = 0
             self.pet.modify_stats(target=EffectTargetKind.Self, attack_mod=mod, health_mod=mod)
-            self.assertEqual(self.pet.attack, 1+mod)
-            self.assertEqual(self.pet.health, max(1+mod, 1))
+            self.assertEqual(self.pet.attack, 1 + mod)
+            self.assertEqual(self.pet.health, max(1 + mod, 1))
 
     # for percent in [30, 33, 50, 60, 66, 90, 100, 150]:
 
@@ -121,8 +121,10 @@ class TestPet_Effect(unittest.TestCase):
                 self.pet.damage = self.pet.health - 1
                 self.pet.health_mod = 0
                 self.pet.reduce_health(target=EffectTargetKind.Self, health_mod=percent)
-                print(f"{percent}%  {self.pet.health} = {self.pet.base_health} + {self.pet.health_mod} - {self.pet.damage}")
+                print(
+                    f"{percent}%  {self.pet.health} = {self.pet.base_health} + {self.pet.health_mod} - {self.pet.damage}")
                 # self.assertEqual(self.pet.health, int(max(self.pet.health * (100-percent)/100, 1)))
+
     # Shop
 
     def test_refill_shops(self):
@@ -142,10 +144,10 @@ class TestPet_Effect(unittest.TestCase):
     def test_transfer_stats(self):
         fill_team(self.enemy_team, 1)
         base_kwargs = {"from": {"kind": EffectTargetKind.Self},
-                  "to": {"kind": EffectTargetKind.EachEnemy},
-                  "copy_attack": True,
-                  "copy_health": True,
-                  "percentage": 100}
+                       "to": {"kind": EffectTargetKind.EachEnemy},
+                       "copy_attack": True,
+                       "copy_health": True,
+                       "percentage": 100}
         self.pet.base_attack = 20
         self.pet.base_health = 10
 
@@ -162,10 +164,9 @@ class TestPet_Effect(unittest.TestCase):
                     self.pet.transfer_stats(**kwargs)
 
                     self.assertEqual(self.enemy_team.first.attack_mod,
-                                     floor(attack_flag*percentage*self.pet.base_attack/100))
+                                     floor(attack_flag * percentage * self.pet.base_attack / 100))
                     self.assertEqual(self.enemy_team.first.health_mod,
                                      floor(health_flag * percentage * self.pet.base_health / 100))
-
 
     def test_transfer_ability(self):
         pass
@@ -176,6 +177,26 @@ class TestPet_Effect(unittest.TestCase):
     # Summon
 
     def test_summon_pet(self):
+        # summon 5 flies to each team
+        kwargs = {'pet': "pet-zombie-fly",
+                  'team': "Friendly",
+                  'base_attack': 2,
+                  'base_health': 5,
+                  'n': 5}
+        self.pet.summon_pet(**kwargs)
+        kwargs["team"] = "Enemy"
+        self.pet.summon_pet(**kwargs)
+
+        # Audit the players first fly, ensuring indexing is correct as well as stats
+        self.assertEqual(self.player_team.first.id, 4)
+        self.assertEqual(self.player_team.first.base_attack, kwargs.get("base_attack"))
+        self.assertEqual(self.player_team.first.base_health, kwargs.get("base_health"))
+
+        # Audit Enemy team
+        self.assertEqual(self.enemy_team.first.id, 10)
+        self.assertEqual(self.enemy_team.length, 5)
+
+    def test_summon_random_pet(self):
         pass
 
     # Special
