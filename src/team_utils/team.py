@@ -48,7 +48,7 @@ class Team:
             pet.team = self
             self.update_positions()
         else:
-            log.debug(f"{self} is full and cannot add {pet} at index {index}.")
+            logger.debug(f"{self} is full and cannot add {pet} at index {index}.")
 
     def remove_pet(self, pet):
         # TODO Fix
