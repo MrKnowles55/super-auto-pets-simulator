@@ -143,7 +143,7 @@ class TestBattle(unittest.TestCase):
 
         expected_pet = pet
         expected_method = EffectKind.test_effect
-        expected_kwargs = {"target": EffectTargetKind.TestTarget}
+        expected_kwargs = {"target": EffectTargetKind.TestTarget, "n": 1}
 
         pet.read_signal(signal)
         queued_action = self.battle.action_queue.queue[0][2]
