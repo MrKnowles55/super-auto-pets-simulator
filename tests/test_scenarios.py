@@ -9,11 +9,10 @@ from src.action_utils.signals import send_signal, Signal
 from src.config_utils.custom_logger import setup_logging
 from src.data_utils.ability_enums import EffectKind, EffectTargetKind, TriggerByKind, TriggerEvent
 
-setup_logging(logging.DEBUG)
-
 
 class TestScenarios(unittest.TestCase):
     def setUp(self) -> None:
+        setup_logging(logging.DEBUG)
         self.player_team = Team("Player")
         self.enemy_team = Team("Enemy")
         self.battle = Battle(self.player_team, self.enemy_team)
@@ -50,10 +49,8 @@ class TestScenarios(unittest.TestCase):
         self.assertEqual(self.enemy_team.length, 0)
 
     def test_peacock(self):
-        self.player_team.add_pet(Pet("Badger"))
+        self.player_team.add_pet(Pet("Peacock"))
 
         self.enemy_team.add_pet(Pet("Test", base_attack=10, base_health=10))
 
         self.battle.battle_loop()
-
-

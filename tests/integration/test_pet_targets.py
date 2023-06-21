@@ -20,6 +20,7 @@ def fill_team(team, size):
 
 class TestPet_Target(unittest.TestCase):
     def setUp(self) -> None:
+        setup_logging(logging.DEBUG)
         self.player_team = Team("Player")
         self.enemy_team = Team("Enemy")
         self.battle = Battle(self.player_team, self.enemy_team)
