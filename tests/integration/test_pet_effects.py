@@ -121,8 +121,8 @@ class TestPet_Effect(unittest.TestCase):
                 self.pet.damage = self.pet.health - 1
                 self.pet.health_mod = 0
                 self.pet.reduce_health(target=EffectTargetKind.Self, health_mod=percent)
-                print(
-                    f"{percent}%  {self.pet.health} = {self.pet.base_health} + {self.pet.health_mod} - {self.pet.damage}")
+                # print(
+                #     f"{percent}%  {self.pet.health} = {self.pet.base_health} + {self.pet.health_mod} - {self.pet.damage}")
                 # self.assertEqual(self.pet.health, int(max(self.pet.health * (100-percent)/100, 1)))
 
     # Shop
@@ -188,12 +188,13 @@ class TestPet_Effect(unittest.TestCase):
         self.pet.summon_pet(**kwargs)
 
         # Audit the players first fly, ensuring indexing is correct as well as stats
-        self.assertEqual(self.player_team.first.id, 4)
+        relative_id = self.player_team.pets_list[-2].id  # The second to last pet should have the first id for this test
+        self.assertEqual(self.player_team.first.id, 3+relative_id)
         self.assertEqual(self.player_team.first.base_attack, kwargs.get("base_attack"))
         self.assertEqual(self.player_team.first.base_health, kwargs.get("base_health"))
 
         # Audit Enemy team
-        self.assertEqual(self.enemy_team.first.id, 10)
+        self.assertEqual(self.enemy_team.first.id, 9+relative_id)
         self.assertEqual(self.enemy_team.length, 5)
 
     def test_summon_random_pet(self):
