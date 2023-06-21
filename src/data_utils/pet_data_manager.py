@@ -1,9 +1,8 @@
 import json
 import os
 from src.data_utils.ability_enums import EffectKind, TriggerEvent
-import src.config_utils.logger as logger
 
-log = logger.setup_logger(__name__)
+
 
 directory = os.path.dirname(os.path.abspath(__file__))
 filename = os.path.join(directory, "../../data/pet_data.json")
@@ -122,7 +121,6 @@ class PetDatabase:
             print(f"{pool_name} already exists")
         else:
             self.pool_dict[pool_name] = pool_list
-            log.debug(f"Pool Added, {pool_name} : {pool_list}")
 
     def get_pools_list(self):
         return json.dumps(list(self.pool_dict.keys()))

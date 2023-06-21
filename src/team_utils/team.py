@@ -1,8 +1,8 @@
-from src.config_utils.logger import setup_logger
+from src.config_utils.custom_logger import get_custom_logger
 from src.action_utils.action import Action
 from src.action_utils import signals
 
-log = setup_logger(__name__)
+logger = get_custom_logger(__name__)
 
 
 class Team:
