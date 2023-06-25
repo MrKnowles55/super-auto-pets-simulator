@@ -94,28 +94,25 @@ class Pet:
 
     @property
     def target_handler(self):
-        return self.get_target_handler()
+        try:
+            return self.team.action_handler.target_handler
+        except AttributeError:
+            return Targeter()
 
     # Utility
-
-    def get_target_handler(self):
-            try:
-                return self.team.action_handler.target_handler
-            except:
-                return Targeter()
 
     def translate_ability_data(self, template_data):
         ability_data = copy.deepcopy(template_data)
         if not ability_data:
             return {}
-        trigger = self._string_to_enum(ability_data.get("trigger"), TriggerEvent)
-        triggered_by = self._string_to_enum(ability_data.get("triggered_by"), TriggerByKind)
-        effect = self._string_to_enum(ability_data.get("effect").get("kind"), EffectKind)
+        trigger = string_to_enum(ability_data.get("trigger"), TriggerEvent)
+        triggered_by = string_to_enum(ability_data.get("triggered_by"), TriggerByKind)
+        effect = string_to_enum(ability_data.get("effect").get("kind"), EffectKind)
         # target = self._string_to_enum(ability_data.get("effect").get("target"), EffectTargetKind)
-        target = self._string_to_enum(ability_data.get("effect", {}).get("target", {}).get("kind", {}), EffectTargetKind)
-        pet_from = self._string_to_enum(ability_data.get("effect", {}).get("from", {}).get("kind", {}), EffectTargetKind)
-        pet_to = self._string_to_enum(ability_data.get("effect", {}).get("to", {}).get("kind", {}),
-                                        EffectTargetKind)
+        target = string_to_enum(ability_data.get("effect", {}).get("target", {}).get("kind", {}), EffectTargetKind)
+        pet_from = string_to_enum(ability_data.get("effect", {}).get("from", {}).get("kind", {}), EffectTargetKind)
+        pet_to = string_to_enum(ability_data.get("effect", {}).get("to", {}).get("kind", {}),
+                                EffectTargetKind)
         ability_data["trigger"] = trigger
         ability_data["triggered_by"] = triggered_by
         ability_data["effect"]["kind"] = effect
@@ -128,20 +125,6 @@ class Pet:
             ability_data["effect"]["to"]["kind"] = pet_to
 
         return ability_data
-
-    @staticmethod
-    def _string_to_enum(input_string, enum):
-        if isinstance(input_string, enum):
-            return input_string
-        for item in enum:
-            if item.name == input_string:
-                return item
-        return None
-
-    def _enum_to_string(self, enum):
-        words = re.findall('[A-Z][^A-Z]*', enum.name)
-        words = [word.lower() for word in words]
-        return "_".join(words)
 
     def get_relationship(self, pet):
         if not isinstance(pet, Pet):
@@ -237,13 +220,13 @@ class Pet:
     ############################################################
 
     def _get_target(self, **kwargs):
-        return getattr(self.target_handler, 'target_'+self._enum_to_string(kwargs.get("target")))(self, **kwargs)
+        return getattr(self.target_handler, 'target_' + enum_to_string(kwargs.get("target")))(self, **kwargs)
 
     def _get_to(self, **kwargs):
-        return getattr(self.target_handler, 'target_'+self._enum_to_string(kwargs.get("to", {}).get("kind"),))(self, **kwargs)
+        return getattr(self.target_handler, 'target_' + enum_to_string(kwargs.get("to", {}).get("kind"), ))(self, **kwargs)
 
     def _get_from(self, **kwargs):
-        return getattr(self.target_handler, 'target_'+self._enum_to_string(kwargs.get("from", {}).get("kind")))(self, **kwargs)
+        return getattr(self.target_handler, 'target_' + enum_to_string(kwargs.get("from", {}).get("kind")))(self, **kwargs)
 
     # Perk
 
@@ -462,6 +445,21 @@ class Pet:
 
     def test_effect(self, **kwargs):
         logger.debug(f"{self} test_effect")
+
+
+def enum_to_string(enum):
+    words = re.findall('[A-Z][^A-Z]*', enum.name)
+    words = [word.lower() for word in words]
+    return "_".join(words)
+
+
+def string_to_enum(input_string, enum):
+    if isinstance(input_string, enum):
+        return input_string
+    for item in enum:
+        if item.name == input_string:
+            return item
+    return None
 
 
 if __name__ == "__main__":
