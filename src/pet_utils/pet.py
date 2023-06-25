@@ -7,6 +7,7 @@ from src.action_utils import signals
 from src.config_utils.custom_logger import get_custom_logger
 from src.data_utils.ability_enums import EffectKind, EffectTargetKind, TriggerByKind, TriggerEvent
 from src.data_utils.pet_data_manager import pet_db
+from src.pet_utils.target import Targeter
 
 logger = get_custom_logger(__name__)
 
@@ -42,6 +43,7 @@ class Pet:
         self.team = None
         self.start_position = -1
         self.position = -1
+
         # set additional attributes from kwargs
         for key, value in kwargs.items():
             setattr(self, key, value)
@@ -90,7 +92,18 @@ class Pet:
     def combat_stats_full(self):
         return f"({self.base_attack}+{self.attack_mod}={self.attack}/{self.base_health}+{self.health_mod}-{self.damage}={self.health})"
 
+    @property
+    def target_handler(self):
+        return self.get_target_handler()
+
     # Utility
+
+    def get_target_handler(self):
+            try:
+                return self.team.action_handler.target_handler
+            except:
+                return Targeter()
+
     def translate_ability_data(self, template_data):
         ability_data = copy.deepcopy(template_data)
         if not ability_data:
@@ -224,13 +237,13 @@ class Pet:
     ############################################################
 
     def _get_target(self, **kwargs):
-        return getattr(self, 'target_'+self._enum_to_string(kwargs.get("target")))(**kwargs)
+        return getattr(self.target_handler, 'target_'+self._enum_to_string(kwargs.get("target")))(self, **kwargs)
 
     def _get_to(self, **kwargs):
-        return getattr(self, 'target_'+self._enum_to_string(kwargs.get("to", {}).get("kind"),))(**kwargs)
+        return getattr(self.target_handler, 'target_'+self._enum_to_string(kwargs.get("to", {}).get("kind"),))(self, **kwargs)
 
     def _get_from(self, **kwargs):
-        return getattr(self, 'target_'+self._enum_to_string(kwargs.get("from", {}).get("kind")))(**kwargs)
+        return getattr(self.target_handler, 'target_'+self._enum_to_string(kwargs.get("from", {}).get("kind")))(self, **kwargs)
 
     # Perk
 
@@ -449,122 +462,6 @@ class Pet:
 
     def test_effect(self, **kwargs):
         logger.debug(f"{self} test_effect")
-
-    #######################
-    # Targeting Functions #
-    #######################
-
-    # Friends
-    def target_adjacent_friends(self, **kwargs):
-        possible_targets = self.team.pets_list
-        n = min(kwargs.get("n", 1), len(possible_targets)-1)
-        origin = possible_targets.index(self)
-
-        start = max(0, origin - n)  # Ensure start is not less than 0
-        end = min(len(possible_targets), origin + n + 1)  # Ensure end is not more than length of list
-        targets = possible_targets[start:origin] + possible_targets[origin + 1:end]
-        return targets
-
-    def target_different_tier_animals(self, **kwargs):
-        # Should be friends not animals
-        possible_targets = [pet for pet in self.team.pets_list if pet != self]
-        pets_by_tier = {i: [] for i in range(1, 7)}
-        for pet in possible_targets:
-            pets_by_tier[pet.tier].append(pet)
-
-        # Sample one pet from each tier
-        targets = [random.choice(pets_by_tier[tier]) for tier in pets_by_tier if pets_by_tier[tier]]
-
-        return targets
-
-    def target_each_friend(self, **kwargs):
-        return [pet for pet in self.team.pets_list if pet != self]
-
-    def target_friend_ahead(self, **kwargs):
-        n = kwargs.get("n", 1)
-        index = self.team.pets_list.index(self)  # Get index of self in list
-        start = max(0, index - n)  # Make sure the start index isn't negative
-        return self.team.pets_list[start:index][::-1]  # Slice and reverse the list
-
-    def target_friend_behind(self, **kwargs):
-        n = kwargs.get("n", 1)
-        index = self.team.pets_list.index(self)  # Get index of self in list
-        end = min(len(self.team.pets_list),
-                  index + n + 1)  # Make sure the end index doesn't exceed the length of the list
-        return self.team.pets_list[index + 1:end]  # Slice the list
-
-    def target_level2_and_3_friends(self, **kwargs):
-        possible_targets = [pet for pet in self.team.pets_list if pet != self and pet.level != 1]
-        n = min(kwargs.get("n", 1), len(possible_targets))
-        return random.sample(possible_targets, n)
-
-    def target_random_friend(self, **kwargs):
-        possible_targets = [pet for pet in self.team.pets_list if pet != self]
-        n = min(kwargs.get("n", 1), len(possible_targets))
-        targets = random.sample(possible_targets, n)
-        return targets
-
-    def target_right_most_friend(self, **kwargs):
-        return [self.team.pets_list[0]]
-
-    # Enemies
-    def target_each_enemy(self, **kwargs):
-        return self.team.other_team.pets_list
-
-    def target_first_enemy(self, **kwargs):
-        return [self.team.other_team.pets_list[0]]
-
-    def target_highest_health_enemy(self, **kwargs):
-        return [sorted(self.team.other_team.pets_list, key=lambda x: x.health, reverse=True)[0]]
-
-    def target_lowest_health_enemy(self, **kwargs):
-        return [sorted(self.team.other_team.pets_list, key=lambda x: x.health, reverse=False)[0]]
-
-    def target_last_enemy(self, **kwargs):
-        return [self.team.other_team.pets_list[-1]]
-
-    def target_random_enemy(self, **kwargs):
-        possible_targets = self.team.other_team.pets_list
-        n = min(kwargs.get("n", 1), len(possible_targets))
-        targets = random.sample(possible_targets, n)
-        return targets
-
-    # Shop
-
-    # @staticmethod
-    # def target_each_shop_animal(**kwargs):
-    #     return kwargs
-    #
-    # @staticmethod
-    # def target_left_most_shop_animal(**kwargs):
-    #     return kwargs
-
-    # Other
-    def target_self(self, **kwargs):
-        return [self]
-
-    def target_all(self, **kwargs):
-        # only used for faint abilities, may need to remove self from targets
-        return self.team.pets_list + self.team.other_team.pets_list
-
-    def target_adjacent_animals(self, **kwargs):
-        possible_targets = self.team.pets_list[::-1] + self.team.other_team.pets_list
-        n = min(kwargs.get("n", 1), len(possible_targets)-1)
-        origin = possible_targets.index(self)
-
-        start = max(0, origin - n)  # Ensure start is not less than 0
-        end = min(len(possible_targets), origin + n + 1)  # Ensure end is not more than length of list
-        targets = possible_targets[start:origin] + possible_targets[origin + 1:end]
-
-        return targets
-
-    @staticmethod
-    def target_triggering_entity(**kwargs):
-        return [kwargs.get("triggering_entity", None)]
-
-    @staticmethod
-    def target_test_target(**kwargs):
-        return [kwargs]
 
 
 if __name__ == "__main__":

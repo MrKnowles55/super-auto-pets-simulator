@@ -1,6 +1,7 @@
 from src.action_utils.action import PriorityQueue, Action
 from src.data_utils.ability_enums import EffectKind, EffectTargetKind, TriggerByKind, TriggerEvent
 from src.config_utils.custom_logger import get_custom_logger
+from src.pet_utils.target import Targeter
 
 logger = get_custom_logger(__name__)
 
@@ -10,6 +11,7 @@ class Battle:
         self.player_team = player_team
         self.enemy_team = enemy_team
         self.action_queue = PriorityQueue()
+        self.target_handler = Targeter()
 
         self.player_team.action_handler = self
         self.enemy_team.action_handler = self

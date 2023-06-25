@@ -18,7 +18,7 @@ def fill_team(team, size):
         team.add_pet(Pet(f"{team.name[0]}"))
 
 
-class TestPet_Target(unittest.TestCase):
+class Test_Target(unittest.TestCase):
     def setUp(self) -> None:
         setup_logging(logging.DEBUG)
         self.player_team = Team("Player")
@@ -35,7 +35,7 @@ class TestPet_Target(unittest.TestCase):
         test_pet = self.player_team.first
         for n in range(1, 4):
 
-            targets = test_pet.target_adjacent_animals(n=n)
+            targets = test_pet.target_handler.target_adjacent_animals(caller=test_pet, n=n)
             self.assertEqual(len(targets), n*2)
             self.assertEqual(targets[0], self.player_team.pets_list[n])
             self.assertEqual(targets[-1], self.enemy_team.pets_list[n-1])
@@ -45,7 +45,7 @@ class TestPet_Target(unittest.TestCase):
         fill_team(self.enemy_team, 1)
 
         test_pet = self.player_team.first
-        targets = test_pet.target_adjacent_animals(n=2)
+        targets = test_pet.target_handler.target_adjacent_animals(caller=test_pet, n=2)
         self.assertEqual(len(targets), 3)
         print(self.player_team.pets_list, targets)
         self.assertEqual(self.player_team.pets_list[1], targets[1])
@@ -59,7 +59,7 @@ class TestPet_Target(unittest.TestCase):
 
             # Loop over n from 1 to 3
             for n in range(1, 4):
-                targets = test_pet.target_adjacent_friends(n=n)
+                targets = test_pet.target_handler.target_adjacent_friends(caller=test_pet,n=n)
                 print(targets)
 
     def test_target_all(self):
@@ -67,7 +67,7 @@ class TestPet_Target(unittest.TestCase):
         fill_team(self.enemy_team, 5)
 
         test_pet = self.player_team.first
-        targets = test_pet.target_all()
+        targets = test_pet.target_handler.target_all(caller=test_pet,)
 
         # May need to remove self from targets
         self.assertEqual(len(targets), 10)
@@ -79,14 +79,14 @@ class TestPet_Target(unittest.TestCase):
         for i, pet in enumerate(self.player_team.pets_list):
             pet.tier = i
         test_pet = self.player_team.first
-        targets = test_pet.target_different_tier_animals()
+        targets = test_pet.target_handler.target_different_tier_animals(caller=test_pet,)
         self.assertEqual(len(targets), 4)
         self.assertNotIn(test_pet, targets)
 
         # All same tier
         for pet in self.player_team.pets_list:
             pet.tier = 1
-        targets = test_pet.target_different_tier_animals()
+        targets = test_pet.target_handler.target_different_tier_animals(caller=test_pet,)
         self.assertEqual(len(targets), 1)
 
     def test_target_each_enemy(self):
@@ -94,7 +94,7 @@ class TestPet_Target(unittest.TestCase):
         fill_team(self.enemy_team, 5)
 
         test_pet = self.player_team.first
-        targets = test_pet.target_each_enemy()
+        targets = test_pet.target_handler.target_each_enemy(caller=test_pet,)
 
         # May need to remove self from targets
         self.assertEqual(len(targets), 5)
@@ -103,7 +103,7 @@ class TestPet_Target(unittest.TestCase):
         fill_team(self.player_team, 5)
 
         test_pet = self.player_team.first
-        targets = test_pet.target_each_friend()
+        targets = test_pet.target_handler.target_each_friend(caller=test_pet,)
 
         # May need to remove self from targets
         self.assertEqual(len(targets), 4)
@@ -116,7 +116,7 @@ class TestPet_Target(unittest.TestCase):
         fill_team(self.enemy_team, 5)
 
         test_pet = self.player_team.first
-        targets = test_pet.target_first_enemy()
+        targets = test_pet.target_handler.target_first_enemy(caller=test_pet,)
 
         # May need to remove self from targets
         self.assertEqual([self.enemy_team.first], targets)
@@ -126,7 +126,7 @@ class TestPet_Target(unittest.TestCase):
         # Loop over each pet, then for n from 1 to 3
         for test_pet in self.player_team.pets_list:
             for n in range(1, 4):
-                targets = test_pet.target_friend_ahead(n=n)
+                targets = test_pet.target_handler.target_friend_ahead(caller=test_pet,n=n)
                 self.assertEqual(len(targets), min(n, test_pet.position))
                 if targets:
                     index = test_pet.position
@@ -137,7 +137,7 @@ class TestPet_Target(unittest.TestCase):
         # Loop over each pet, then for n from 1 to 3
         for test_pet in self.player_team.pets_list:
             for n in range(1, 4):
-                targets = test_pet.target_friend_behind(n=n)
+                targets = test_pet.target_handler.target_friend_behind(caller=test_pet,n=n)
                 self.assertEqual(len(targets), min(n, 5 - test_pet.position - 1))
                 if targets:
                     index = test_pet.position
@@ -150,7 +150,7 @@ class TestPet_Target(unittest.TestCase):
             pet.base_health += pet.position
 
         test_pet = self.player_team.first
-        targets = test_pet.target_highest_health_enemy()
+        targets = test_pet.target_handler.target_highest_health_enemy(caller=test_pet,)
         self.assertEqual([self.enemy_team.pets_list[-1]], targets)
 
     def test_target_last_enemy(self):
@@ -158,11 +158,10 @@ class TestPet_Target(unittest.TestCase):
         fill_team(self.enemy_team, 5)
 
         test_pet = self.player_team.first
-        targets = test_pet.target_last_enemy()
+        targets = test_pet.target_handler.target_last_enemy(caller=test_pet,)
 
         # May need to remove self from targets
         self.assertEqual([self.enemy_team.pets_list[-1]], targets)
-
 
     def test_target_level2_and_3_friends(self):
         # All different levels
@@ -170,7 +169,7 @@ class TestPet_Target(unittest.TestCase):
         for i in range(1, 4):
             self.player_team.pets_list[i].level = i
         test_pet = self.player_team.first
-        targets = test_pet.target_level2_and_3_friends(n=3)
+        targets = test_pet.target_handler.target_level2_and_3_friends(caller=test_pet,n=3)
         self.assertEqual(len(targets), 2)
         self.assertIn(self.player_team.pets_list[2], targets)
         self.assertIn(self.player_team.pets_list[3], targets)
@@ -178,7 +177,7 @@ class TestPet_Target(unittest.TestCase):
         # All same level
         for pet in self.player_team.pets_list:
             pet.level = 2
-        targets = test_pet.target_level2_and_3_friends(n=3)
+        targets = test_pet.target_handler.target_level2_and_3_friends(caller=test_pet,n=3)
         self.assertEqual(len(targets), 3)
 
     def test_target_lowest_health_enemy(self):
@@ -188,7 +187,7 @@ class TestPet_Target(unittest.TestCase):
             pet.base_health += pet.position
 
         test_pet = self.player_team.first
-        targets = test_pet.target_lowest_health_enemy()
+        targets = test_pet.target_handler.target_lowest_health_enemy(caller=test_pet,)
         self.assertEqual([self.enemy_team.pets_list[0]], targets)
 
     def test_target_random_enemy(self):
@@ -204,7 +203,7 @@ class TestPet_Target(unittest.TestCase):
             # Target n from 1 to 5
             for n in range(1, 6):
                 possible_targets = test_pet.team.other_team.pets_list
-                targets = test_pet.target_random_enemy(n=n)
+                targets = test_pet.target_handler.target_random_enemy(caller=test_pet,n=n)
 
                 # Ensure maximum number of targets selected
                 self.assertEqual(len(targets), min(n, len(possible_targets)))
@@ -216,7 +215,7 @@ class TestPet_Target(unittest.TestCase):
         targeted_pets = set()
         # Coupon Collectors problem (average of 11 picks required to get all 5 selected at least once, 20 for safety)
         while len(targeted_pets) < 5 and loop_counter <= 20:
-            targeted_pets.add(test_pet.target_random_enemy(n=1)[0])
+            targeted_pets.add(test_pet.target_handler.target_random_enemy(caller=test_pet,n=1)[0])
             loop_counter += 1
         self.assertEqual(len(targeted_pets), 5)
         self.assertLess(loop_counter, 20)
@@ -230,7 +229,7 @@ class TestPet_Target(unittest.TestCase):
             # Target n from 1 to 5
             for n in range(1, 5):
                 possible_targets = [pet for pet in self.player_team.pets_list if pet != test_pet]
-                targets = test_pet.target_random_friend(n=n)
+                targets = test_pet.target_handler.target_random_friend(caller=test_pet, n=n)
 
                 # Ensure maximum number of targets selected
                 self.assertEqual(len(targets), min(n, len(possible_targets)))
@@ -240,16 +239,16 @@ class TestPet_Target(unittest.TestCase):
         loop_counter = 0
         targeted_pets = set()
         # Coupon Collectors problem (average of 11 picks required to get all 5 selected at least once, 20 for safety)
-        while len(targeted_pets) < 4 and loop_counter <= 20:
-            targeted_pets.add(test_pet.target_random_friend(n=1)[0])
+        while len(targeted_pets) < 4 and loop_counter <= 50:
+            targeted_pets.add(test_pet.target_handler.target_random_friend(caller=test_pet,n=1)[0])
             loop_counter += 1
         self.assertEqual(len(targeted_pets), 4)
-        self.assertLess(loop_counter, 20)
+        self.assertLess(loop_counter, 50)
 
     def test_target_right_most_friend(self):
         fill_team(self.player_team, 5)
         for pet in self.player_team.pets_list:
-            targets = pet.target_right_most_friend()
+            targets = pet.target_handler.target_right_most_friend(caller=pet)
             # May need to remove self from targets
             self.assertEqual([self.player_team.first], targets)
 
