@@ -32,6 +32,8 @@ class EffectKind(Enum):
     move = 27
     KnockoutAndModifyStats = 28
     activate_ability = 29
+    modify_damage = 30
+    splash_damage = 31
 
     test_effect = 100
 
@@ -58,6 +60,7 @@ class EffectTargetKind(Enum):
     Self = 18
     TriggeringEntity = 19
     LeftMostShopAnimal = 20
+    PurchaseTarget = 21
 
     TestTarget = 100
 

@@ -15,12 +15,12 @@
         },
         "trigger": "Buy",
         "effect": {
-          "kind": "ModifyStats",
+          "kind": "modify_stats",
           "target": {
             "kind": "PurchaseTarget"
           },
-          "attackAmount": 1,
-          "healthAmount": 1,
+          "attack_mod": 1,
+          "health_mod": 1,
           "untilEndOfBattle": false
         }
       }
@@ -40,7 +40,7 @@
         },
         "trigger": "Buy",
         "effect": {
-          "kind": "ApplyStatus",
+          "kind": "apply_status",
           "to": {
             "kind": "PurchaseTarget"
           },
@@ -63,12 +63,12 @@
         },
         "trigger": "Buy",
         "effect": {
-          "kind": "ModifyStats",
+          "kind": "modify_stats",
           "target": {
             "kind": "PurchaseTarget"
           },
-          "attackAmount": 3,
-          "healthAmount": 3,
+          "attack_mod": 3,
+          "health_mod": 3,
           "untilEndOfBattle": true
         }
       }
@@ -88,7 +88,7 @@
         },
         "trigger": "Buy",
         "effect": {
-          "kind": "ApplyStatus",
+          "kind": "apply_status",
           "to": {
             "kind": "PurchaseTarget"
           },
@@ -113,7 +113,7 @@
         },
         "trigger": "Buy",
         "effect": {
-          "kind": "Faint",
+          "kind": "faint",
           "target": {
             "kind": "PurchaseTarget"
           }
@@ -135,7 +135,7 @@
         },
         "trigger": "Buy",
         "effect": {
-          "kind": "ApplyStatus",
+          "kind": "apply_status",
           "to": {
             "kind": "PurchaseTarget"
           },
@@ -158,13 +158,13 @@
         },
         "trigger": "Buy",
         "effect": {
-          "kind": "ModifyStats",
+          "kind": "modify_stats",
           "target": {
             "kind": "RandomFriend",
             "n": 2
           },
-          "attackAmount": 1,
-          "healthAmount": 1,
+          "attack_mod": 1,
+          "health_mod": 1,
           "untilEndOfBattle": false
         }
       }
@@ -184,13 +184,13 @@
         },
         "trigger": "Buy",
         "effect": {
-          "kind": "ModifyStats",
+          "kind": "modify_stats",
           "target": {
             "kind": "EachShopAnimal",
             "includingFuture": true
           },
-          "attackAmount": 2,
-          "healthAmount": 1,
+          "attack_mod": 2,
+          "health_mod": 1,
           "untilEndOfBattle": false
         }
       }
@@ -210,12 +210,12 @@
         },
         "trigger": "Buy",
         "effect": {
-          "kind": "ModifyStats",
+          "kind": "modify_stats",
           "target": {
             "kind": "PurchaseTarget"
           },
-          "attackAmount": 2,
-          "healthAmount": 2,
+          "attack_mod": 2,
+          "health_mod": 2,
           "untilEndOfBattle": false
         }
       }
@@ -235,7 +235,7 @@
         },
         "trigger": "Buy",
         "effect": {
-          "kind": "ApplyStatus",
+          "kind": "apply_status",
           "to": {
             "kind": "PurchaseTarget"
           },
@@ -258,7 +258,7 @@
         },
         "trigger": "Buy",
         "effect": {
-          "kind": "GainExperience",
+          "kind": "gain_experience",
           "target": {
             "kind": "PurchaseTarget"
           },
@@ -281,13 +281,13 @@
         },
         "trigger": "Buy",
         "effect": {
-          "kind": "ModifyStats",
+          "kind": "modify_stats",
           "target": {
             "kind": "RandomFriend",
             "n": 3
           },
-          "attackAmount": 1,
-          "healthAmount": 1,
+          "attack_mod": 1,
+          "health_mod": 1,
           "untilEndOfBattle": false
         }
       }
@@ -307,7 +307,7 @@
         },
         "trigger": "Buy",
         "effect": {
-          "kind": "ApplyStatus",
+          "kind": "apply_status",
           "to": {
             "kind": "PurchaseTarget"
           },
@@ -330,7 +330,7 @@
         },
         "trigger": "Buy",
         "effect": {
-          "kind": "ApplyStatus",
+          "kind": "apply_status",
           "to": {
             "kind": "PurchaseTarget"
           },
@@ -353,13 +353,13 @@
         },
         "trigger": "Buy",
         "effect": {
-          "kind": "ModifyStats",
+          "kind": "modify_stats",
           "target": {
             "kind": "RandomFriend",
             "n": 2
           },
-          "attackAmount": 2,
-          "healthAmount": 2,
+          "attack_mod": 2,
+          "health_mod": 2,
           "untilEndOfBattle": false
         }
       }
@@ -379,7 +379,7 @@
         },
         "trigger": "Buy",
         "effect": {
-          "kind": "ApplyStatus",
+          "kind": "apply_status",
           "to": {
             "kind": "PurchaseTarget"
           },
@@ -404,12 +404,12 @@
         },
         "trigger": "Buy",
         "effect": {
-          "kind": "ModifyStats",
+          "kind": "modify_stats",
           "target": {
             "kind": "PurchaseTarget"
           },
-          "attackAmount": "?",
-          "healthAmount": "?",
+          "attack_mod": "?",
+          "health_mod": "?",
           "untilEndOfBattle": false
         }
       }
@@ -426,7 +426,7 @@
         },
         "trigger": "WhenDamaged",
         "effect": {
-          "kind": "ModifyDamage",
+          "kind": "modify_damage",
           "damageModifier": 3,
           "appliesOnce": false
         }
@@ -442,7 +442,7 @@
         },
         "trigger": "WhenDamaged",
         "effect": {
-          "kind": "ModifyDamage",
+          "kind": "modify_damage",
           "damageModifier": null,
           "appliesOnce": true
         }
@@ -456,9 +456,9 @@
         "triggeredBy": {
           "kind": "Self"
         },
-        "trigger": "Faint",
+        "trigger": "faint",
         "effect": {
-          "kind": "SummonPet",
+          "kind": "summon_pet",
           "pet": "pet-bee",
           "team": "Friendly"
         }
@@ -474,7 +474,7 @@
         },
         "trigger": "WhenAttacking",
         "effect": {
-          "kind": "ModifyDamage",
+          "kind": "modify_damage",
           "damageModifier": 5,
           "appliesOnce": false
         }
@@ -490,7 +490,7 @@
         },
         "trigger": "WhenDamaged",
         "effect": {
-          "kind": "ModifyDamage",
+          "kind": "modify_damage",
           "damageModifier": -2,
           "appliesOnce": false
         }
@@ -506,7 +506,7 @@
         },
         "trigger": "WhenAttacking",
         "effect": {
-          "kind": "SplashDamage",
+          "kind": "splash_damage",
           "amount": 5
         }
       }
@@ -521,7 +521,7 @@
         },
         "trigger": "WhenDamaged",
         "effect": {
-          "kind": "ModifyDamage",
+          "kind": "modify_damage",
           "damageModifier": -20,
           "appliesOnce": true
         }
@@ -535,9 +535,9 @@
         "triggeredBy": {
           "kind": "Self"
         },
-        "trigger": "Faint",
+        "trigger": "faint",
         "effect": {
-          "kind": "RespawnPet",
+          "kind": "summon_pet",
           "baseAttack": 1,
           "baseHealth": 1
         }
@@ -553,7 +553,7 @@
         },
         "trigger": "WhenAttacking",
         "effect": {
-          "kind": "ModifyDamage",
+          "kind": "modify_damage",
           "damageModifier": 20,
           "appliesOnce": true
         }
@@ -569,7 +569,7 @@
         },
         "trigger": "WhenAttacking",
         "effect": {
-          "kind": "ModifyDamage",
+          "kind": "modify_damage",
           "damageModifier": null,
           "appliesOnce": false
         }
