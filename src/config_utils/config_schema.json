@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "type": "object",
+  "properties": {
+    "NUMBER_OF_SIMULATIONS": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "FRIENDLY_TEAM_SIZE": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "ENEMY_TEAM_SIZE": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "LOGGING_LEVEL": {
+      "type": "string",
+      "enum": ["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL", ""]
+    },
+    "LOGGING_FILTER": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["ability.ability_abstract", "ability.ability_generator", "ability.deal_damage", "ability.modify_stats", "ability.summon_pet", "action.action_utils", "battle", "config_utils.config", "config_utils.validate_config", "main", "pet.pet_entity", "pet.pet_factory", "pet_data_utils.pet_data_manager", "shop.shop", "team.team", "utils"]
+      }
+    },
+    "FRIENDLY_TEAM_POOL": {
+      "type": "string",
+      "enum": ["TEST_POOL", "TEST_POOL2", "IMPLEMENTED", "TIER_1", "TIER_2", "TIER_3", "TIER_4", "TIER_5", "TIER_6", "TOKENS", "TURTLE_PACK", "PUPPY_PACK", "STAR_PACK", "TIGER_PACK", "GOLDEN_PACK", "FAINT_PETS", "BUYABLE"]
+    },
+    "ENEMY_TEAM_POOL": {
+      "type": "string",
+      "enum": ["TEST_POOL", "TEST_POOL2", "IMPLEMENTED", "TIER_1", "TIER_2", "TIER_3", "TIER_4", "TIER_5", "TIER_6", "TOKENS", "TURTLE_PACK", "PUPPY_PACK", "STAR_PACK", "TIGER_PACK", "GOLDEN_PACK", "FAINT_PETS", "BUYABLE"]
+    }
+  },
+  "required": [
+    "NUMBER_OF_SIMULATIONS",
+    "FRIENDLY_TEAM_SIZE",
+    "ENEMY_TEAM_SIZE",
+    "LOGGING_LEVEL",
+    "FRIENDLY_TEAM_POOL",
+    "ENEMY_TEAM_POOL"
+  ]
+}

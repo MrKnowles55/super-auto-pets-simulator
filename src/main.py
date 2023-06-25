@@ -1,81 +1,55 @@
-from random import choice
-from team.team import Team
-from pet_factory import create_pet
-from pet_data_utils import pet_data_manager
-from battle import fight
-from config import config_handler
-import validate_config
-from logger import setup_logger
+from src.game_utils.game import Game
+from src.pet_utils.pet import Pet
+from src.data_utils.pool import get_pack
 
 
-def create_random_team(pet_pool, team_size=5):
-    team = Team()
-    for _ in range(team_size):
-        random_pet = choice(list(pet_pool))
-        team.add_pet(create_pet(random_pet))
-    return team
+class Simulator:
+    def __init__(self, game_mode, sims_to_run=3, pet_pack="Turtle"):
+        self.game_handler = None
+        self.running = True
+        self.sims_to_run = sims_to_run
+        self.pet_pack = get_pack(pet_pack)
+        self.game_mode = game_mode
 
+    def setup(self):
+        # Login
+        # Pick Pack
+        # Pick Game Mode
+        # Load Settings
+        self.create_game()
 
-def run_simulation(num_sims, friendly_pool, enemy_pool, friendly_team_size=5, enemy_team_size=5):
-    log.debug("Starting Simulations")
-    total = [0, 0]
+    def create_game(self):
+        # Create Game
+        # Load Pack Data
+        # Load Game Mode
+        # Load Other Settings
+        self.game_handler = Game(pack=self.pet_pack, game_mode=self.game_mode)
 
-    for i in range(num_sims):
-        log.debug(f"Starting Sim {i+1}")
-        friendly_team = create_random_team(friendly_pool, team_size=friendly_team_size)
-        enemy_team = create_random_team(enemy_pool, team_size=enemy_team_size)
-        result = fight(friendly_team, enemy_team)
-        total[0] += result[0]
-        total[1] += result[1]
-        log.debug(f"Finished Sim {i+1}")
+    def run(self):
+        while self.running:
+            self.sim_loop()
 
-    log.debug("Fished Simulations")
-    return total, num_sims
+    def generate_teams(self):
+        self.game_handler.battle_handler.player_team.pets_list = []
+        self.game_handler.battle_handler.enemy_team.pets_list = []
+        for _ in range(5):
+            self.game_handler.battle_handler.player_team.add_pet(Pet("Pet"))
+            self.game_handler.battle_handler.enemy_team.add_pet(Pet("Pet"))
 
-
-def main(sims, friendly_team_size=5, enemy_team_size=5, friendly_pool=pet_data_manager.TEST_POOL,
-         enemy_pool=pet_data_manager.TEST_POOL2):
-    log.debug("Starting Main Loop")
-
-    total, num_sims = run_simulation(sims, friendly_pool, enemy_pool, friendly_team_size, enemy_team_size)
-
-    win_rate = total[0] / num_sims
-    loss_rate = total[1] / num_sims
-    tie_rate = (num_sims - total[0] - total[1]) / num_sims
-
-    print("Battle Results")
-    print(f'Rounds: {num_sims}, Wins {win_rate:.1%}, Losses {loss_rate:.1%}, Ties {tie_rate:.1%}')
-    log.debug("Finished Main Loop")
+    def sim_loop(self):
+        sim_count = 0
+        while sim_count < self.sims_to_run:
+            self.setup()
+            lives = self.game_handler.lives
+            score = 0
+            player_pets = []
+            while lives > 0 and score < 10:
+                lives, score, player_pets = self.game_handler.game_loop()
+            sim_count += 1
+            print(f"Game {sim_count} Outcome: {lives} <3 , {score} W , {player_pets}")
+        self.running = False
 
 
 if __name__ == "__main__":
-
-    # Configure Logging
-    log = setup_logger("main")
-
-    # Validate config.json matches config_schema.json
-    validate_config.load_config()
-
-    # Load config data
-    NUMBER_OF_SIMULATIONS = config_handler.config_data['NUMBER_OF_SIMULATIONS']
-    FRIENDLY_TEAM_SIZE = config_handler.config_data['FRIENDLY_TEAM_SIZE']
-    ENEMY_TEAM_SIZE = config_handler.config_data['ENEMY_TEAM_SIZE']
-    FRIENDLY_POOL_ID = config_handler.config_data['FRIENDLY_TEAM_POOL']
-    ENEMY_POOL_ID = config_handler.config_data['ENEMY_TEAM_POOL']
-    FRIENDLY_TEAM_POOL = pet_data_manager.pet_db.pool_dict[FRIENDLY_POOL_ID]
-    ENEMY_TEAM_POOL = pet_data_manager.pet_db.pool_dict[ENEMY_POOL_ID]
-
-    print(f"--------------------------------"
-          f"\nRunning {NUMBER_OF_SIMULATIONS} simulations with Parameters:\n\n"
-          f"\tFriendly Team Size: {FRIENDLY_TEAM_SIZE}\n"
-          f"\tEnemy Team Size: {ENEMY_TEAM_SIZE}\n"
-          f"\tFriendly Team Pool: {FRIENDLY_POOL_ID}\n"
-          f"\tEnemy Team Pool: {ENEMY_POOL_ID}\n"
-          f"--------------------------------"
-          )
-
-    main(sims=NUMBER_OF_SIMULATIONS,
-         friendly_team_size=FRIENDLY_TEAM_SIZE,
-         enemy_team_size=ENEMY_TEAM_SIZE,
-         friendly_pool=FRIENDLY_TEAM_POOL,
-         enemy_pool=ENEMY_TEAM_POOL)
+    Sim = Simulator(game_mode="Test")
+    Sim.run()
